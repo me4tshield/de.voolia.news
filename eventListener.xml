@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/eventListener.xsd">
+	<import>
+		<!-- news stats -->
+		<eventlistener>
+			<eventclassname>wcf\system\dashboard\box\StatsSidebarDashboardBox</eventclassname>
+			<eventname>init</eventname>
+			<listenerclassname>news\system\event\listener\NewsStatsSidebarDashboardBoxListener</listenerclassname>
+		</eventlistener>
+		<!-- /news stats -->
+
+		<!-- news clean up -->
+		<eventlistener>
+			<eventclassname>wcf\system\cronjob\HourlyCleanUpCronjob</eventclassname>
+			<eventname>execute</eventname>
+			<listenerclassname>news\system\event\listener\NewsCleanUpListener</listenerclassname>
+			<environment>user</environment>
+		</eventlistener>
+
+		<eventlistener>
+			<eventclassname>wcf\system\cronjob\HourlyCleanUpCronjob</eventclassname>
+			<eventname>execute</eventname>
+			<listenerclassname>news\system\event\listener\NewsCleanUpListener</listenerclassname>
+			<environment>admin</environment>
+		</eventlistener>
+		<!-- /news clean up -->
+	</import>
+</data>

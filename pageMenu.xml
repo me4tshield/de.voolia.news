@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/pageMenu.xsd">
+	<import>
+		<pagemenuitem name="news.header.menu.news">
+			<controller><![CDATA[news\page\NewsOverviewPage]]></controller>
+			<position>header</position>
+			<permissions>user.news.canViewNews</permissions>
+			<options>module_content_news</options>
+			<classname><![CDATA[news\system\menu\page\NewsPageMenuItemProvider]]></classname>
+		</pagemenuitem>
+
+		<pagemenuitem name="news.header.menu.news.archive">
+			<controller><![CDATA[news\page\NewsArchivePage]]></controller>
+			<position>header</position>
+			<parent>news.header.menu.news</parent>
+			<permissions>user.news.canViewNews</permissions>
+			<options>module_content_news</options>
+		</pagemenuitem>
+
+		<pagemenuitem name="news.header.menu.news.unreadEntries">
+			<controller><![CDATA[news\page\UnreadNewsListPage]]></controller>
+			<position>header</position>
+			<parent>news.header.menu.news</parent>
+			<permissions>user.news.canViewNews</permissions>
+			<options>module_content_news</options>
+		</pagemenuitem>
+
+		<pagemenuitem name="news.header.menu.news.watchedCategories">
+			<controller><![CDATA[news\page\WatchedCategoryListPage]]></controller>
+			<position>header</position>
+			<parent>news.header.menu.news</parent>
+			<permissions>user.news.canViewNews</permissions>
+			<options>module_content_news</options>
+		</pagemenuitem>
+	</import>
+</data>

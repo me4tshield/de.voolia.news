@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/option.xsd">
+	<import>
+		<categories>
+			<category name="news">
+				<options>module_content_news</options>
+			</category>
+
+			<category name="news.index">
+				<parent>news</parent>
+			</category>
+			<category name="news.entry">
+				<parent>news</parent>
+			</category>
+			<category name="news.entry.general">
+				<parent>news.entry</parent>
+			</category>
+			<category name="news.entry.sources">
+				<parent>news.entry</parent>
+			</category>
+
+			<category name="dashboard.content.news">
+				<parent>dashboard.content</parent>
+			</category>
+
+			<category name="dashboard.sidebar.news">
+				<parent>dashboard.sidebar</parent>
+			</category>
+		</categories>
+		<options>
+			<!-- general -->
+			<option name="news_install_date">
+				<categoryname>general</categoryname>
+				<optiontype>integer</optiontype>
+				<hidden>1</hidden>
+			</option>
+			<!-- /general -->
+
+			<!-- module.content -->
+			<option name="module_content_news">
+				<categoryname>module.content</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /module.content -->
+
+			<!-- news.index -->
+			<option name="news_items_per_page">
+				<categoryname>news.index</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>10</defaultvalue>
+			</option>
+			<option name="news_index_categories">
+				<categoryname>news.index</categoryname>
+				<optiontype>newsCategoryMultiSelect</optiontype>
+			</option>
+			<option name="news_enable_letter_sort">
+				<categoryname>news.index</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_index_enable_statistics">
+				<categoryname>news.index</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_index_enable_users_online_list">
+				<categoryname>news.index</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /news.index -->
+
+			<!-- news.entry.general -->
+			<option name="news_enable_comments">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_newspicture">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions>news_enable_newspicture_required</enableoptions>
+			</option>
+			<option name="news_enable_newspicture_required">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="news_enable_tags">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_like">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_sharing">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_language_flag">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_show_editnote">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_entry_similar_news">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_enable_entry_author_infos">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /news.entry.general -->
+
+			<!-- news.entry.sources -->
+			<option name="news_entry_enable_sources">
+				<categoryname>news.entry.sources</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions>news_entry_sources_maxCount</enableoptions>
+			</option>
+			<option name="news_entry_sources_maxCount">
+				<categoryname>news.entry.sources</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<!-- /news.entry.sources -->
+
+			<!-- dashboard.content.news -->
+			<option name="news_dashboard_hotNews_entries">
+				<categoryname>dashboard.content.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<option name="news_dashboard_latest_entries">
+				<categoryname>dashboard.content.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<!-- /dashboard.content.news -->
+
+			<!-- dashboard.sidebar.news -->
+			<option name="news_dashboard_sidebar_entries">
+				<categoryname>dashboard.sidebar.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<!-- /dashboard.sidebar.news -->
+		</options>
+	</import>
+</data>

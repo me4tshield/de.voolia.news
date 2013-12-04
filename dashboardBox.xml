@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/dashboardBox.xsd">
+	<import>
+		<dashboardbox name="de.voolia.news.latestNewsSidebar">
+			<classname><![CDATA[news\system\dashboard\box\LatestNewsDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.hotNewsSidebar">
+			<classname><![CDATA[news\system\dashboard\box\HotNewsDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.mostLikedNewsSidebar">
+			<classname><![CDATA[news\system\dashboard\box\MostLikedNewsDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.mostViewedNewsSidebar">
+			<classname><![CDATA[news\system\dashboard\box\MostViewedNewsDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.tagCloud">
+			<classname><![CDATA[news\system\dashboard\box\NewsTagCloudDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.latestNewsContent">
+			<classname><![CDATA[news\system\dashboard\box\LatestNewsDashboardContentBox]]></classname>
+			<boxtype>content</boxtype>
+		</dashboardbox>
+
+		<dashboardbox name="de.voolia.news.hotNewsContent">
+			<classname><![CDATA[news\system\dashboard\box\HotNewsDashboardContentBox]]></classname>
+			<boxtype>content</boxtype>
+		</dashboardbox>
+	</import>
+</data>

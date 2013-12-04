@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/object-type.xsd">
+	<import>
+		<!-- ACL -->
+		<type>
+			<name>de.voolia.news.category</name>
+			<definitionname>com.woltlab.wcf.acl</definitionname>
+		</type>
+		<!-- /ACL -->
+
+		<!-- Activity Points -->
+		<type>
+			<name>de.voolia.news.activityPointEvent.news</name>
+			<definitionname>com.woltlab.wcf.user.activityPointEvent</definitionname>
+			<points>20</points>
+		</type>
+		<!-- /Activity Points -->
+
+		<!-- Attachments -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.attachment.objectType</definitionname>
+			<classname>news\system\attachment\NewsAttachmentObjectType</classname>
+		</type>
+		<!-- /Attachments -->
+
+		<!-- Category -->
+		<type>
+			<name>de.voolia.news.category</name>
+			<definitionname>com.woltlab.wcf.category</definitionname>
+			<classname>news\system\category\NewsCategoryType</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.picture.category</name>
+			<definitionname>com.woltlab.wcf.category</definitionname>
+			<classname>news\system\category\NewsPictureCategoryType</classname>
+		</type>
+		<!-- /Category -->
+
+		<!-- Comment -->
+		<type>
+			<name>de.voolia.news.comment</name>
+			<definitionname>com.woltlab.wcf.comment.commentableContent</definitionname>
+			<classname>news\system\comment\manager\NewsCommentManager</classname>
+		</type>
+		<!-- /Comment -->
+
+		<!-- Dashboard -->
+		<type>
+			<name>de.voolia.news.NewsOverviewPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsArchivePage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
+		<!-- /Dashboard -->
+
+		<!-- Importer, Exporter -->
+		<type>
+			<name>de.voolia.news.category</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsCategoryImporter]]></classname>
+		</type>
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsEntryImporter]]></classname>
+		</type>
+		<type>
+			<name>de.voolia.news.comment</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsCommentImporter]]></classname>
+		</type>
+		<type>
+			<name>de.voolia.news.comment.response</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsCommentResponseImporter]]></classname>
+		</type>
+		<type>
+			<name>de.voolia.news.like</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsLikeImporter]]></classname>
+		</type>
+		<!-- /Importer, Exporter -->
+
+		<!-- Like -->
+		<type>
+			<name>de.voolia.news.likeableNews</name>
+			<definitionname>com.woltlab.wcf.like.likeableObject</definitionname>
+			<classname>news\data\news\LikeableNewsProvider</classname>
+		</type>
+		<!-- /Like -->
+
+		<!-- Quotes -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.message.quote</definitionname>
+			<classname>news\system\message\quote\NewsMessageQuoteHandler</classname>
+		</type>
+		<!-- /Quotes -->
+
+		<!-- Moderation -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.deletedContent</definitionname>
+			<classname>news\system\moderation\DeletedNewsProvider</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.moderation.activation</definitionname>
+			<classname>news\system\moderation\queue\activation\NewsModerationQueueActivationHandler</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.moderation.report</definitionname>
+			<classname>news\system\moderation\queue\report\NewsModerationQueueReportHandler</classname>
+		</type>
+		<!-- /Moderation -->
+
+		<!-- Notifications -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
+			<classname>news\system\user\notification\object\type\NewsUserNotificationObjectType</classname>
+			<category>de.voolia.news</category>
+		</type>
+		<type>
+			<name>de.voolia.news.comment.notification</name>
+			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
+			<classname>news\system\user\notification\object\type\NewsCommentUserNotificationObjectType</classname>
+			<category>de.voolia.news</category>
+		</type>
+		<type>
+			<name>de.voolia.news.comment.response.notification</name>
+			<definitionname>com.woltlab.wcf.notification.objectType</definitionname>
+			<classname>news\system\user\notification\object\type\NewsCommentResponseUserNotificationObjectType</classname>
+			<category>de.voolia.news</category>
+		</type>
+		<!-- /Notifications -->
+
+		<!-- Object Watch -->
+		<type>
+			<name>de.voolia.news.category</name>
+			<definitionname>com.woltlab.wcf.user.objectWatch</definitionname>
+			<classname>news\system\user\object\watch\NewsCategoryUserObjectWatch</classname>
+		</type>
+		<!-- /Object Watch -->
+
+		<!-- Poll -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.poll</definitionname>
+			<classname>news\system\poll\NewsPollHandler</classname>
+		</type>
+		<!-- /Poll -->
+
+		<!-- Recent Activity -->
+		<type>
+			<name>de.voolia.news.comment.recentActivityEvent</name>
+			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+			<classname>news\system\user\activity\event\NewsCommentUserActivityEvent</classname>
+		</type>
+
+		<type>
+			<name>de.voolia.news.comment.response.recentActivityEvent</name>
+			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+			<classname>news\system\user\activity\event\NewsCommentResponseUserActivityEvent</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.likeableNews.recentActivityEvent</name>
+			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+			<classname>news\system\user\activity\event\LikeableNewsUserActivityEvent</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.recentActivityEvent.news</name>
+			<definitionname>com.woltlab.wcf.user.recentActivityEvent</definitionname>
+			<classname>news\system\user\activity\event\NewsUserActivityEvent</classname>
+		</type>
+		<!-- /Recent Activity -->
+
+		<!-- Search -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.searchableObjectType</definitionname>
+			<classname>news\system\search\NewsSearch</classname>
+		</type>
+		<!-- /Search -->
+
+		<!-- Tagging -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.tagging.taggableObject</definitionname>
+			<classname>news\system\tagging\TaggableNews</classname>
+		</type>
+		<!-- /Tagging -->
+
+		<!-- user online locations -->
+		<type>
+			<name>de.voolia.news.NewsArchivePage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>news\page\NewsArchivePage</controller>
+			<languagevariable>news.user.usersOnline.location.NewsArchivePage</languagevariable>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsAddForm</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>news\form\NewsAddForm</controller>
+			<languagevariable>news.user.usersOnline.location.NewsAddForm</languagevariable>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsEditForm</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>news\form\NewsEditForm</controller>
+			<languagevariable>news.user.usersOnline.location.NewsEditForm</languagevariable>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsOverviewPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>news\page\NewsOverviewPage</controller>
+			<languagevariable>news.user.usersOnline.location.NewsOverviewPage</languagevariable>
+		</type>
+		<type>
+			<name>de.voolia.news.NewsPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<classname>news\system\user\online\location\NewsLocation</classname>
+			<controller>news\page\NewsPage</controller>
+			<languagevariable>news.user.usersOnline.location.NewsPage</languagevariable>
+		</type>
+		<type>
+			<name>de.voolia.news.UnreadNewsListPage</name>
+			<definitionname>com.woltlab.wcf.user.online.location</definitionname>
+			<controller>news\page\UnreadNewsListPage</controller>
+			<languagevariable>news.user.usersOnline.location.UnreadNewsListPage</languagevariable>
+		</type>
+		<!-- /user online locations -->
+
+		<!-- Visit Tracker -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.visitTracker.objectType</definitionname>
+		</type>
+		<!-- /Visit Tracker -->
+
+		<!-- Worker -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.rebuildData</definitionname>
+			<classname><![CDATA[news\system\worker\NewsDataWorker]]></classname>
+		</type>
+		<!-- /Worker -->
+	</import>
+</data>

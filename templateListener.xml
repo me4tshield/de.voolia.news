@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/templatelistener.xsd">
+	<import>
+		<!-- admin -->
+		<templatelistener name="headerLogo">
+			<environment>admin</environment>
+			<templatename>header</templatename>
+			<eventname>headerLogo</eventname>
+			<templatecode><![CDATA[{include file='__headerLogo' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="javascriptInclude">
+			<environment>admin</environment>
+			<templatename>header</templatename>
+			<eventname>javascriptInclude</eventname>
+			<templatecode><![CDATA[<script data-relocate="true" src="{@$__wcf->getPath('news')}js/News.Picture.js?v={@$__wcfVersion}"></script>]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="newsCreditsContent">
+			<environment>admin</environment>
+			<templatename>index</templatename>
+			<eventname>tabMenuContents</eventname>
+			<templatecode><![CDATA[{include file='__newsCredits' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="newsCreditsTabs">
+			<environment>admin</environment>
+			<templatename>index</templatename>
+			<eventname>tabMenuTabs</eventname>
+			<templatecode><![CDATA[<li><a href="{@$__wcf->getAnchor('newsCredits')}">{lang}wcf.acp.index.newsCredits{/lang}</a></li>]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="newsVersion">
+			<environment>admin</environment>
+			<templatename>index</templatename>
+			<eventname>softwareVersions</eventname>
+			<templatecode><![CDATA[{include file='__newsVersion' application='news'}]]></templatecode>
+		</templatelistener>
+		<!-- /admin -->
+
+		<!-- user -->
+		<templatelistener name="copyright">
+			<environment>user</environment>
+			<templatename>footer</templatename>
+			<eventname>copyright</eventname>
+			<templatecode><![CDATA[{include file='__copyright' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="dashboardBoxStatsSidebar">
+			<environment>user</environment>
+			<templatename>dashboardBoxStatsSidebar</templatename>
+			<eventname>stats</eventname>
+			<templatecode><![CDATA[{include file='__newsStatsDashboardBox' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="headerLogo">
+			<environment>user</environment>
+			<templatename>header</templatename>
+			<eventname>headerLogo</eventname>
+			<templatecode><![CDATA[{include file='__headerLogo' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="javascriptInclude">
+			<environment>user</environment>
+			<templatename>headInclude</templatename>
+			<eventname>javascriptInclude</eventname>
+			<templatecode><![CDATA[{include file='__javascriptInclude' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="javascriptInit">
+			<environment>user</environment>
+			<templatename>headInclude</templatename>
+			<eventname>javascriptInit</eventname>
+			<templatecode><![CDATA[{include file='__javascriptInit' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="searchAreaSettings">
+			<environment>user</environment>
+			<templatename>searchArea</templatename>
+			<eventname>settings</eventname>
+			<templatecode><![CDATA[{include file='__searchAreaSettings' application='news'}]]></templatecode>
+		</templatelistener>
+
+		<templatelistener name="userQuickSearchItems">
+			<environment>user</environment>
+			<templatename>user</templatename>
+			<eventname>quickSearchItems</eventname>
+			<templatecode><![CDATA[{include file='__userQuickSearchItems' application='news'}]]></templatecode>
+		</templatelistener>
+		<!-- /user -->
+	</import>
+</data>

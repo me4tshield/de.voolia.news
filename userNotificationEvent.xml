@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/userNotificationEvent.xsd">
+	<import>
+		<!-- news comments -->
+		<event>
+			<name>comment</name>
+			<objecttype>de.voolia.news.comment.notification</objecttype>
+			<classname>news\system\user\notification\event\NewsCommentUserNotificationEvent</classname>
+			<preset>1</preset>
+		</event>
+		<event>
+			<name>commentResponse</name>
+			<objecttype>de.voolia.news.comment.response.notification</objecttype>
+			<classname>news\system\user\notification\event\NewsCommentResponseUserNotificationEvent</classname>
+			<preset>1</preset>
+		</event>
+		<event>
+			<name>commentResponseOwner</name>
+			<objecttype>de.voolia.news.comment.response.notification</objecttype>
+			<classname>news\system\user\notification\event\NewsCommentResponseOwnerUserNotificationEvent</classname>
+			<preset>1</preset>
+		</event>
+		<!-- /news comments -->
+
+		<!-- news entry -->
+		<event>
+			<name>news</name>
+			<objecttype>de.voolia.news.entry</objecttype>
+			<classname>news\system\user\notification\event\NewsUserNotificationEvent</classname>
+			<preset>1</preset>
+		</event>
+		<!-- /news entry -->
+	</import>
+</data>

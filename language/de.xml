@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+	<category name="news.acp.entry">
+		<item name="news.acp.entry.category.add"><![CDATA[News-Kategorie hinzufügen]]></item>
+		<item name="news.acp.entry.category.edit"><![CDATA[News-Kategorie bearbeiten]]></item>
+		<item name="news.acp.entry.category.list"><![CDATA[News-Kategorien]]></item>
+		<item name="news.acp.entry.picture.add"><![CDATA[Newsbild hinzufügen]]></item>
+		<item name="news.acp.entry.picture.add.success"><![CDATA[Newsbild erfolgreich hinzugefügt]]></item>
+		<item name="news.acp.entry.picture.edit.success"><![CDATA[Newsbild erfolgreich bearbeitet]]></item>
+		<item name="news.acp.entry.picture.button.edit"><![CDATA[Newsbild bearbeiten]]></item>
+		<item name="news.acp.entry.picture.button.delete"><![CDATA[Newsbild löschen]]></item>
+		<item name="news.acp.entry.picture.button.delete.sure"><![CDATA[Möchten Sie das Newsbild wirklich löschen?]]></item>
+		<item name="news.acp.entry.picture.categoryAll"><![CDATA[Alle]]></item>
+		<item name="news.acp.entry.picture.edit"><![CDATA[Newsbild bearbeiten]]></item>
+		<item name="news.acp.entry.picture.error.noCategories"><![CDATA[Bevor Sie ein Newsbild hinzufügen können, müssen Sie eine <a href="{link controller='NewsPictureCategoryAdd' application='news'}{/link}">Newsbild-Kategorie hinzufügen</a>.]]></item>
+		<item name="news.acp.entry.picture.list"><![CDATA[Newsbilder]]></item>
+		<item name="news.acp.entry.picture.newspicture"><![CDATA[Bild-Datei]]></item>
+		<item name="news.acp.entry.picture.category.add"><![CDATA[Newsbild-Kategorie hinzufügen]]></item>
+		<item name="news.acp.entry.picture.category.add.success"><![CDATA[Newsbild-Kategorie erfolgreich hinzugefügt]]></item>
+		<item name="news.acp.entry.picture.category.edit.success"><![CDATA[Newsbild-Kategorie erfolgreich bearbeitet]]></item>
+		<item name="news.acp.entry.picture.category.button.edit"><![CDATA[Kategorie bearbeiten]]></item>
+		<item name="news.acp.entry.picture.category.button.delete"><![CDATA[Kategorie löschen]]></item>
+		<item name="news.acp.entry.picture.category.button.delete.sure"><![CDATA[Möchten Sie die Kategorie wirklich löschen?]]></item>
+		<item name="news.acp.entry.picture.category.categoryName"><![CDATA[Kategorie]]></item>
+		<item name="news.acp.entry.picture.category.edit"><![CDATA[Newsbild-Kategorie bearbeiten]]></item>
+		<item name="news.acp.entry.picture.category.list"><![CDATA[Newsbild-Kategorien]]></item>
+	</category>
+
+	<category name="news.archive">
+		<item name="news.archive.description"><![CDATA[{if $categoryID}News aus der Kategorie <span class="label badge">{$category->getTitle()}</span>{/if}]]></item>
+		<item name="news.archive.title"><![CDATA[News-Archiv]]></item>
+		<item name="news.archive.box.title"><![CDATA[Titel]]></item>
+		<item name="news.archive.box.category"><![CDATA[Kategorie]]></item>
+		<item name="news.archive.box.time"><![CDATA[Veröffentlichung]]></item>
+	</category>
+
+	<category name="news.dashboard">
+		<item name="news.dashboard.box.hotnews.comments"><![CDATA[{#$vooliaNews->comments} Kommentar{if $vooliaNews->comments != 1}e{/if}]]></item>
+		<item name="news.dashboard.box.mostviewed.views"><![CDATA[{#$vooliaNews->views} Aufruf{if $vooliaNews->views != 1}e{/if}]]></item>
+	</category>
+
+	<category name="news.entry">
+		<item name="news.entry.add"><![CDATA[News erstellen]]></item>
+		<item name="news.entry.add.title"><![CDATA[Neue News erstellen]]></item>
+		<item name="news.entry.edit.lastEditTime"><![CDATA[Letzte Bearbeitung: {@$news->editTime|time}]]></item>
+		<item name="news.entry.add.form.button.sources.addSource"><![CDATA[Weitere Quelle hinzufügen]]></item>
+		<item name="news.entry.add.form.button.sources.removeSource"><![CDATA[Quelle löschen]]></item>
+		<item name="news.entry.add.form.information.title"><![CDATA[Informationen]]></item>
+		<item name="news.entry.add.form.information.subject.title"><![CDATA[Titel]]></item>
+		<item name="news.entry.add.form.information.sources.description"><![CDATA[Sie können hier eine oder mehrere Quellen angeben. Beide Felder sind optional, wobei mindestens ein Feld ausgefüllt werden muss.]]></item>
+		<item name="news.entry.add.form.information.sources.title"><![CDATA[Quellen]]></item>
+		<item name="news.entry.add.form.information.sources.input.title"><![CDATA[Name]]></item>
+		<item name="news.entry.add.form.information.sources.input.link"><![CDATA[Link]]></item>
+		<item name="news.entry.add.form.information.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen.]]></item>
+		<item name="news.entry.add.form.information.teaser.title"><![CDATA[Einleitung]]></item>
+		<item name="news.entry.add.form.message.title"><![CDATA[Newsmeldung]]></item>
+		<item name="news.entry.add.form.newsUpdate.setNewsAsNew.title"><![CDATA[News als neu markieren]]></item>
+		<item name="news.entry.add.form.newsUpdate.setNewsAsNew.description"><![CDATA[Aktualisiert das Datum der News, damit diese wieder als neue News an erster Stelle erscheint.]]></item>
+		<item name="news.entry.add.form.settings.title"><![CDATA[Eigenschaften]]></item>
+		<item name="news.entry.add.form.settings.category.description"><![CDATA[Wählen Sie hier die Kategorien aus, in der die News erscheinen soll.]]></item>
+		<item name="news.entry.add.form.settings.category.title"><![CDATA[Kategorie]]></item>
+		<item name="news.entry.add.form.settings.editReason.optional"><![CDATA[Bearbeitungshinweis unterdrücken]]></item>
+		<item name="news.entry.add.form.settings.editReason.title"><![CDATA[Bearbeitungsgrund]]></item>
+		<item name="news.entry.add.form.settings.isHot.title"><![CDATA[News ist eine Empfehlung]]></item>
+		<item name="news.entry.add.form.settings.newspicture.description"><![CDATA[Sie können hier ein Newsbild hinzufügen, welches neben dem Titel der News oder auch im Archiv angezeigt wird.]]></item>
+		<item name="news.entry.add.form.settings.newspicture.search"><![CDATA[Vorhandenes Newsbild auswählen]]></item>
+		<item name="news.entry.add.form.settings.newspicture.title"><![CDATA[Newsbild]]></item>
+		<item name="news.entry.add.form.settings.newspicture.upload"><![CDATA[Neues Newsbild hochladen]]></item>
+		<item name="news.entry.archivingDate"><![CDATA[Archivierungsdatum]]></item>
+		<item name="news.entry.bbcode.comments"><![CDATA[{#$news->comments} Kommentar{if $news->comments != 1}e{/if}]]></item>
+		<item name="news.entry.bbcode.dialog.compact"><![CDATA[Kompakt]]></item>
+		<item name="news.entry.bbcode.dialog.detailed"><![CDATA[Detailliert]]></item>
+		<item name="news.entry.button.dropdown.activateComments"><![CDATA[Kommentare aktivieren]]></item>
+		<item name="news.entry.button.dropdown.enable"><![CDATA[Aktivieren]]></item>
+		<item name="news.entry.button.dropdown.deactivateComments"><![CDATA[Kommentare deaktivieren]]></item>
+		<item name="news.entry.button.dropdown.delete"><![CDATA[Endgültig löschen]]></item>
+		<item name="news.entry.button.dropdown.disable"><![CDATA[Deaktivieren]]></item>
+		<item name="news.entry.button.dropdown.restore"><![CDATA[Wiederherstellen]]></item>
+		<item name="news.entry.button.dropdown.trash"><![CDATA[Löschen]]></item>
+		<item name="news.entry.button.dropdown.update"><![CDATA[Update hinzufügen]]></item>
+		<item name="news.entry.button.edit"><![CDATA[Bearbeiten]]></item>
+		<item name="news.entry.button.edit.activate"><![CDATA[Aktivieren]]></item>
+		<item name="news.entry.button.edit.deactivate"><![CDATA[Deaktivieren]]></item>
+		<item name="news.entry.button.edit.delete"><![CDATA[Löschen]]></item>
+		<item name="news.entry.button.edit.restore"><![CDATA[Wiederherstellen]]></item>
+		<item name="news.entry.button.edit.title"><![CDATA[News bearbeiten]]></item>
+		<item name="news.entry.button.reportIssue"><![CDATA[Fehler melden]]></item>
+		<item name="news.entry.comment.notification.title"><![CDATA[Neuer Kommentar (News)]]></item>
+		<item name="news.entry.comment.notification.message"><![CDATA[Hat einen Kommentar zu Ihrer News „{$news->subject}“ geschrieben.]]></item>
+		<item name="news.entry.comment.notification.mail"><![CDATA[{@$author->username} hat einen Kommentar zu Ihrer News "{@$news->subject}" geschrieben:
+{link application='news' controller='News' object=$news encode=false forceFrontend=true}#comments{/link}]]></item>
+		<item name="news.entry.commentResponse.notification.title"><![CDATA[Neue Kommentar-Antwort (News)]]></item>
+		<item name="news.entry.commentResponse.notification.message"><![CDATA[Hat eine Antwort zu Ihrem Kommentar zur News „{$news->subject}“ geschrieben.]]></item>
+		<item name="news.entry.commentResponse.notification.mail"><![CDATA[{@$author->username} hat eine Antwort zu Ihrem Kommentar zur News "{@$news->subject}" geschrieben:
+{link application='news' controller='News' object=$news encode=false forceFrontend=true}#comments{/link}]]></item>
+		<item name="news.entry.commentResponseOwner.notification.title"><![CDATA[Neue Kommentar-Antwort (News)]]></item>
+		<item name="news.entry.commentResponseOwner.notification.message"><![CDATA[Hat eine Antwort zum Kommentar von „{$commentAuthor->username}“ zur News „{$news->subject}“ geschrieben.]]></item>
+		<item name="news.entry.commentResponseOwner.notification.mail"><![CDATA[{@$author->username} hat eine Antwort zum Kommentar von "{@$commentAuthor->username}" zur News "{@$news->subject}" geschrieben:
+{link application='news' controller='News' object=$news encode=false forceFrontend=true}#comments{/link}]]></item>
+		<item name="news.entry.comments"><![CDATA[Kommentare]]></item>
+		<item name="news.entry.comments.statisticBox"><![CDATA[News-Kommentare]]></item>
+		<item name="news.entry.comments.noEntry"><![CDATA[Es wurden noch keine Kommentare verfasst.]]></item>
+		<item name="news.entry.delayedPublication"><![CDATA[Diese News wird am {@$news->publicationDate|plainTime} veröffentlicht.]]></item>
+		<item name="news.entry.delete.sure"><![CDATA[Wollen Sie die News wirklich unwiderruflich löschen?]]></item>
+		<item name="news.entry.editNote"><![CDATA[Diese News wurde{if $news->editReason} mit dem Grund „{$news->editReason}“{/if} bereits {$news->editCount} mal editiert, zuletzt von „{$news->editUser}“ ({@$news->editTime|time})]]></item>
+		<item name="news.entry.edit.title"><![CDATA[News bearbeiten]]></item>
+		<item name="news.entry.enableAutomaticArchiving"><![CDATA[News automatisch archivieren]]></item>
+		<item name="news.entry.isHot"><![CDATA[Empfehlung]]></item>
+		<item name="news.entry.markAllAsRead"><![CDATA[Alle News als gelesen markieren]]></item>
+		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
+		<item name="news.entry.newsUpdate.headline"><![CDATA[Update <small>({@$news->editTime|time})</small>]]></item>
+		<item name="news.entry.no.entry"><![CDATA[Keine News verfügbar.]]></item>
+		<item name="news.entry.notification.title"><![CDATA[Neue News]]></item>
+		<item name="news.entry.notification.message"><![CDATA[Hat die News „{$news->subject}“ geschrieben.]]></item>
+		<item name="news.entry.notification.mail"><![CDATA[{@$author->username} hat die News "{@$news->subject}" geschrieben:
+{link application='news' controller='News' object=$news encode=false forceFrontend=true}{/link}]]></item>
+		<item name="news.entry.picture"><![CDATA[Newsbild]]></item>
+		<item name="news.entry.picture.add"><![CDATA[Newsbild hinzufügen]]></item>
+		<item name="news.entry.picture.error.savingFailed"><![CDATA[Beim Speichern des Newsbildes ist ein unbekannter Fehler aufgetreten.]]></item>
+		<item name="news.entry.picture.error.tooLarge"><![CDATA[Das Newsbild ist zu groß.]]></item>
+		<item name="news.entry.picture.error.uploadFailed"><![CDATA[Beim Hochladen des Newsbildes ist ein unbekannter Fehler aufgetreten.]]></item>
+		<item name="news.entry.picture.limits"><![CDATA[]]></item>
+		<item name="news.entry.picture.noAvailable"><![CDATA[Diese Kategorie enthält noch keine Newsbilder.]]></item>
+		<item name="news.entry.publication"><![CDATA[Veröffentlichung]]></item>
+		<item name="news.entry.publication.enableDelayedPublication"><![CDATA[News zu einem späteren Zeitpunkt veröffentlichen]]></item>
+		<item name="news.entry.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>
+		<item name="news.entry.publicationDate.error.invalid"><![CDATA[Sie haben ein ungültiges Veröffentlichungsdatum angegeben.]]></item>
+		<item name="news.entry.sources"><![CDATA[Quellen]]></item>
+		<item name="news.entry.title"><![CDATA[News]]></item>
+		<item name="news.entry.trash.confirmMessage"><![CDATA[Wollen Sie die News wirklich in den Papierkorb verschieben?]]></item>
+		<item name="news.entry.trash.reason"><![CDATA[Grund der Löschung]]></item>
+		<item name="news.entry.update.add.title"><![CDATA[Neues News-Update erstellen]]></item>
+		<item name="news.entry.update.add.form.information.subject.title"><![CDATA[Titel]]></item>
+		<item name="news.entry.update.add.form.message.title"><![CDATA[Newsmeldung]]></item>
+		<item name="news.entry.update.edit.title"><![CDATA[News-Update bearbeiten]]></item>
+		<item name="news.entry.updates"><![CDATA[Aktualisierungen zur News]]></item>
+	</category>
+
+	<category name="news.global">
+		<item name="news.global.copyright"><![CDATA[<a href="http://www.voolia.de"><strong>News-System{if SHOW_VERSION_NUMBER} {@PACKAGE_VERSION}{/if}</strong>, entwickelt von <strong>voolia.de</strong></a>]]></item>
+	</category>
+
+	<category name="news.header">
+		<item name="news.header.menu.news"><![CDATA[News]]></item>
+		<item name="news.header.menu.news.archive"><![CDATA[Archiv]]></item>
+		<item name="news.header.menu.news.unreadEntries"><![CDATA[Ungelesene News]]></item>
+		<item name="news.header.menu.news.watchedCategories"><![CDATA[Abonnierte Kategorien]]></item>
+	</category>
+
+	<category name="news.index">
+		<item name="news.index.overview"><![CDATA[{if $categoryID}News aus der Kategorie „{$category->getTitle()}“{else}News-Übersicht{/if}]]></item>
+		<item name="news.index.overview.description"><![CDATA[{if $categoryID}News aus der Kategorie „{$category->getTitle()}“{else}News-Übersicht{/if}]]></item>
+		<item name="news.index.showAll"><![CDATA[Alle News anzeigen]]></item>
+		<item name="news.index.statistics.title"><![CDATA[Statistik]]></item>
+		<item name="news.index.statistics.data"><![CDATA[{$stats[news]} News in {$stats['categories']} Kategorie{if $stats['categories'] > 1}n{/if} ({$stats['newsPerDay']} News pro Tag){if $stats['comments'] > 0} - {$stats['comments']} Kommentar{if $stats['comments'] > 1}e{/if}{/if}]]></item>
+		<item name="news.index.suggestion.add"><![CDATA[News einsenden]]></item>
+	</category>
+
+	<category name="news.recentActivity">
+		<item name="news.recentActivity.likedNews"><![CDATA[Gefällt die News <a href="{link application='news' controller='News' object=$news}{/link}" data-entry-id="{@$news->newsID}">{$news->subject}</a>.]]></item>
+		<item name="news.recentActivity.news"><![CDATA[Hat die News <a href="{link application='news' controller='News' object=$news}{/link}" data-entry-id="{@$news->newsID}">{$news->subject}</a> geschrieben.]]></item>
+		<item name="news.recentActivity.newsComment"><![CDATA[Hat einen Kommentar zur News <a href="{link application='news' controller='News' object=$news}{/link}#comments" data-entry-id="{@$news->newsID}">{$news->subject}</a> geschrieben.]]></item>
+		<item name="news.recentActivity.newsCommentResponse"><![CDATA[Hat auf einen Kommentar von <a href="{link controller='User' object=$commentAuthor}{/link}">{$commentAuthor->username}</a> zur News <a href="{link application='news' controller='News' object=$news}{/link}#comments" data-entry-id="{@$news->newsID}">{$news->subject}</a> geantwortet.]]></item>
+	</category>
+
+	<category name="news.sidebar">
+		<item name="news.sidebar.categoryList.newsUpdate"><![CDATA[Ungelese News]]></item>
+		<item name="news.sidebar.categoryList.title"><![CDATA[Kategorien]]></item>
+		<item name="news.sidebar.entry.general.title"><![CDATA[Allgemeine Informationen]]></item>
+		<item name="news.sidebar.entry.general.category"><![CDATA[Kategorie]]></item>
+		<item name="news.sidebar.entry.general.comments"><![CDATA[Kommentare]]></item>
+		<item name="news.sidebar.entry.general.views"><![CDATA[Aufrufe]]></item>
+		<item name="news.sidebar.entry.similar.title"><![CDATA[Weitere News der Kategorie]]></item>
+		<item name="news.sidebar.letterList.title"><![CDATA[News nach Anfangsbuchstabe]]></item>
+	</category>
+
+	<category name="news.user">
+		<item name="news.user.usersOnline.location.NewsAddForm"><![CDATA[Schreibt eine neue News]]></item>
+		<item name="news.user.usersOnline.location.NewsArchivePage"><![CDATA[News-Archiv]]></item>
+		<item name="news.user.usersOnline.location.NewsEditForm"><![CDATA[Bearbeitet eine News]]></item>
+		<item name="news.user.usersOnline.location.NewsOverviewPage"><![CDATA[News-Übersicht]]></item>
+		<item name="news.user.usersOnline.location.NewsPage"><![CDATA[<a href="{link controller='News' application='news' object=$news}{/link}">Liest die News „{$news->subject}“</a>]]></item>
+		<item name="news.user.usersOnline.location.UnreadNewsListPage"><![CDATA[Ungelesene News]]></item>
+	</category>
+
+	<category name="news.watchedCategories">
+		<item name="news.watchedCategories.title"><![CDATA[Abonnierte Kategorien]]></item>
+		<item name="news.watchedCategories.noEntries"><![CDATA[Es sind derzeit keine News in den abonnierten Kategorien.]]></item>
+	</category>
+
+	<category name="wcf.acp.dataImport">
+		<item name="wcf.acp.dataImport.data.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.category"><![CDATA[Kategorien]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.comment"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.comment.response"><![CDATA[Kommentar-Antworten]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
+	</category>
+
+	<category name="wcf.acl.option">
+		<item name="wcf.acl.option.category.de.voolia.news.category.user.news.category"><![CDATA[Allgemeine Berechtigungen]]></item>
+		<item name="wcf.acl.option.category.de.voolia.news.category.user.news.category.source"><![CDATA[Quellenangabe]]></item>
+		<item name="wcf.acl.option.category.de.voolia.news.category.user.news.category.tags"><![CDATA[Tags]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canAddSources"><![CDATA[Kann Quellen angeben]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canCreateNewsWithoutSources"><![CDATA[Kann News ohne Quellen anlegen]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canCreateNewsWithoutTags"><![CDATA[Kann News ohne Tags anlegen]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canSetTags"><![CDATA[Kann Tags setzen]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canUseCategory"><![CDATA[Kann News in der Kategorie erstellen]]></item>
+		<item name="wcf.acl.option.de.voolia.news.category.canViewCategory"><![CDATA[Kann News der Kategorie sehen]]></item>
+	</category>
+
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.user.news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.group.option.category.user.news.picture"><![CDATA[Newsbilder]]></item>
+		<item name="wcf.acp.group.option.user.news.canViewNews"><![CDATA[Kann News sehen]]></item>
+		<item name="wcf.acp.group.option.user.news.canAddNews"><![CDATA[Kann News schreiben]]></item>
+		<item name="wcf.acp.group.option.user.news.canEditOwnNews"><![CDATA[Kann eigene News bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.news.canAddNewsUpdate"><![CDATA[Kann ein News-Update hinzufügen]]></item>
+		<item name="wcf.acp.group.option.user.news.canUploadAttachment"><![CDATA[Kann Dateianhänge hochladen]]></item>
+		<item name="wcf.acp.group.option.user.news.maxAttachmentCount"><![CDATA[Maximale Dateianhänge pro News]]></item>
+		<item name="wcf.acp.group.option.user.news.allowedAttachmentExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
+		<item name="wcf.acp.group.option.user.news.canCreatePoll"><![CDATA[Kann Umfragen erstellen]]></item>
+		<item name="wcf.acp.group.option.user.news.canVote"><![CDATA[Kann an Umfragen teilnehmen]]></item>
+		<item name="wcf.acp.group.option.user.news.canSeeEditNote"><![CDATA[Kann Bearbeitungsgrund sehen]]></item>
+		<item name="wcf.acp.group.option.user.news.canWriteComment"><![CDATA[Kann News kommentieren]]></item>
+		<item name="wcf.acp.group.option.user.news.canEditOwnComment"><![CDATA[Kann eigene Kommentare bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.news.canDeleteOwnComment"><![CDATA[Kann eigene Kommentare löschen]]></item>
+		<item name="wcf.acp.group.option.user.news.picture.allowedExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
+		<item name="wcf.acp.group.option.user.news.picture.canUpload"><![CDATA[Kann Newsbilder hochladen]]></item>
+		<item name="wcf.acp.group.option.user.news.picture.maxSize"><![CDATA[Maximale Newsbildgröße]]></item>
+		<item name="wcf.acp.group.option.category.mod.news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.group.option.mod.news.canEditNews"><![CDATA[Kann News bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.news.canEditNewsWithoutNote"><![CDATA[Kann News ohne Bearbeitungsgrund bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.news.canReadFutureNews"><![CDATA[Kann noch nicht veröffentliche News sehen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canModerateNews"><![CDATA[Kann News moderieren]]></item>
+		<item name="wcf.acp.group.option.mod.news.canDeactivateNews"><![CDATA[Kann News deaktivieren]]></item>
+		<item name="wcf.acp.group.option.mod.news.canManageComments"><![CDATA[Kann Kommentare verwalten]]></item>
+		<item name="wcf.acp.group.option.mod.news.canReadDeactivatedNews"><![CDATA[Kann deaktivierte News sehen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canActivateNews"><![CDATA[Kann News aktivieren]]></item>
+		<item name="wcf.acp.group.option.mod.news.canDeleteNews"><![CDATA[Kann News löschen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canReadDeletedNews"><![CDATA[Kann gelöschte News sehen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canRestoreNews"><![CDATA[Kann News wiederherstellen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canEditComment"><![CDATA[Kann Kommentare bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.news.canDeleteComment"><![CDATA[Kann Kommentare löschen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canUploadNewsPicture"><![CDATA[Kann ein neues Newsbild hochladen]]></item>
+		<item name="wcf.acp.group.option.mod.news.canDeleteNewsPicture"><![CDATA[Kann ein vorhandenes Newsbild löschen]]></item>
+		<item name="wcf.acp.group.option.category.admin.news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageCategory"><![CDATA[Kann News-Kategorien verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageNewsPictureCategory"><![CDATA[Kann Newsbild-Kategorien verwalten]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageNewsPicture"><![CDATA[Kann Newsbilder verwalten]]></item>
+	</category>
+
+	<category name="wcf.acp.index">
+		<item name="wcf.acp.index.newsCredits"><![CDATA[Über voolia News-System]]></item>
+		<item name="wcf.acp.index.newsCredits.developedBy"><![CDATA[Entwickelt von]]></item>
+		<item name="wcf.acp.index.newsCredits.development"><![CDATA[Entwicklung &amp; Design]]></item>
+		<item name="wcf.acp.index.newsCredits.productManager"><![CDATA[Projektleitung]]></item>
+		<item name="wcf.acp.index.system.software.newsVersion"><![CDATA[voolia News-System Version]]></item>
+	</category>
+
+	<category name="news.acp.menu">
+		<item name="news.acp.menu.link.news"><![CDATA[News]]></item>
+		<item name="news.acp.menu.link.news.category.add"><![CDATA[Kategorie hinzufügen]]></item>
+		<item name="news.acp.menu.link.news.category.edit"><![CDATA[Kategorie bearbeiten]]></item>
+		<item name="news.acp.menu.link.news.category.list"><![CDATA[Kategorien auflisten]]></item>
+		<item name="news.acp.menu.link.news.picture.add"><![CDATA[Newsbild hinzufügen]]></item>
+		<item name="news.acp.menu.link.news.picture.list"><![CDATA[Newsbilder auflisten]]></item>
+		<item name="news.acp.menu.link.news.picture.category.add"><![CDATA[Newsbild-Kategorie hinzufügen]]></item>
+		<item name="news.acp.menu.link.news.picture.category.list"><![CDATA[Newsbild-Kategorien auflisten]]></item>
+	</category>
+
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.dashboard.content.news"><![CDATA[News]]></item>
+		<item name="wcf.acp.option.category.dashboard.sidebar.news"><![CDATA[News]]></item>
+		<item name="wcf.acp.option.category.news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.option.category.news.entry"><![CDATA[News-Eintrag]]></item>
+		<item name="wcf.acp.option.category.news.entry.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.news.entry.sources"><![CDATA[Quellenangabe]]></item>
+		<item name="wcf.acp.option.category.news.index"><![CDATA[Startseite]]></item>
+		<item name="wcf.acp.option.module_content_news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.option.news_dashboard_hotNews_entries"><![CDATA[Anzahl empfohlener News]]></item>
+		<item name="wcf.acp.option.news_dashboard_latest_entries"><![CDATA[Anzahl der letzten News]]></item>
+		<item name="wcf.acp.option.news_dashboard_sidebar_entries"><![CDATA[Anzahl an News]]></item>
+		<item name="wcf.acp.option.news_enable_comments"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.option.news_enable_entry_similar_news"><![CDATA[Weitere News der News-Kategorie in der Sidebar anzeigen]]></item>
+		<item name="wcf.acp.option.news_enable_entry_author_infos"><![CDATA[Autoren-Infos anzeigen]]></item>
+		<item name="wcf.acp.option.news_enable_language_flag"><![CDATA[Sprache der News anzeigen]]></item>
+		<item name="wcf.acp.option.news_enable_letter_sort"><![CDATA[Buchstaben-Filter aktivieren]]></item>
+		<item name="wcf.acp.option.news_enable_like"><![CDATA[Likes]]></item>
+		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newsbilder]]></item>
+		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[Beim Erstellen einer News muss zwingend ein Newsbild ausgewählt werden.]]></item>
+		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Teilen]]></item>
+		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
+		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Quellenangabe aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_sources_maxCount"><![CDATA[Maximale Quellen-Anzahl]]></item>
+		<item name="wcf.acp.option.news_entry_sources_maxCount.description"><![CDATA[Anzahl der Quellen, die maximal für eine News angegeben werden können. [0 um die Limitierung gänzlich zu deaktivieren]]]></item>
+		<item name="wcf.acp.option.news_hot_items_per_page"><![CDATA[Anzahl der News in der Dashboard-Box]]></item>
+		<item name="wcf.acp.option.news_index_categories"><![CDATA[Kategorien für die News der Startseite]]></item>
+		<item name="wcf.acp.option.news_index_enable_statistics"><![CDATA[Statistiken anzeigen]]></item>
+		<item name="wcf.acp.option.news_index_enable_users_online_list"><![CDATA[Benutzer-Online-Liste anzeigen]]></item>
+		<item name="wcf.acp.option.news_items_per_page"><![CDATA[Anzahl der Newsmeldungen]]></item>
+		<item name="wcf.acp.option.news_show_editnote"><![CDATA[Bearbeitungshinweise]]></item>
+		<item name="wcf.acp.option.news_sidebarbox_items_per_page"><![CDATA[Anzahl der News in den Sidebar-Boxen]]></item>
+	</category>
+
+	<category name="wcf.acp.rebuildData">
+		<item name="wcf.acp.rebuildData.de.voolia.news.entry"><![CDATA[ aktualisieren]]></item>
+		<item name="wcf.acp.rebuildData.de.voolia.news.entry.description"><![CDATA[Aktualisiert die News-Daten wie Dateianhänge, Likes, Aktivitätspunkte und den Suchindex neu]]></item>
+	</category>
+
+	<category name="wcf.dashboard">
+		<item name="wcf.dashboard.objectType.de.voolia.news.NewsArchivePage"><![CDATA[News-Archiv]]></item>
+		<item name="wcf.dashboard.objectType.de.voolia.news.NewsOverviewPage"><![CDATA[News-Übersicht]]></item>
+		<item name="wcf.dashboard.objectType.de.voolia.news.NewsPage"><![CDATA[News-Eintrag]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.hotNewsContent"><![CDATA[Slideshow mit News-Empfehlungen]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.hotNewsSidebar"><![CDATA[News-Empfehlungen]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.latestNewsContent"><![CDATA[Slideshow mit den letzten News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.latestNewsSidebar"><![CDATA[Letzte News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.mostLikedNewsSidebar"><![CDATA[Meistbewertete News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.mostViewedNewsSidebar"><![CDATA[Meistgelesene News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.tagCloud"><![CDATA[Tags]]></item>
+	</category>
+
+	<category name="wcf.moderation">
+		<item name="wcf.moderation.type.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.moderation.deletedContent.de.voolia.news.entry"><![CDATA[Gelöschte News]]></item>
+		<item name="wcf.moderation.deletedContent.objectType.de.voolia.news.entry"><![CDATA[News]]></item>
+	</category>
+
+	<category name="wcf.page">
+		<item name="wcf.page.sitemap.news"><![CDATA[News]]></item>
+		<item name="wcf.page.sitemap.news.archive"><![CDATA[News-Archiv]]></item>
+		<item name="wcf.page.sitemap.news.categories"><![CDATA[Kategorien]]></item>
+		<item name="wcf.page.sitemap.news.general"><![CDATA[Seiten]]></item>
+		<item name="wcf.page.sitemap.news.overview"><![CDATA[News-Übersicht]]></item>
+	</category>
+
+	<category name="wcf.search">
+		<item name="wcf.search.object.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.search.type.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.search.type.de.voolia.news.category"><![CDATA[Kategorie]]></item>
+		<item name="wcf.search.voolia.news.search"><![CDATA[News durchsuchen]]></item>
+	</category>
+
+	<category name="wcf.tagging">
+		<item name="wcf.tagging.objectType.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.tagging.taggedObjects.de.voolia.news.entry"><![CDATA[News mit dem Tag „{$tag->name}“]]></item>
+	</category>
+
+	<category name="wcf.user">
+		<item name="wcf.user.activityPoint.objectType.de.voolia.news.activityPointEvent.news"><![CDATA[News]]></item>
+	</category>
+
+	<category name="wcf.user.objectWatch">
+		<item name="wcf.user.objectWatch.subscribe.de.voolia.news.category"><![CDATA[News-Kategorie abonnieren]]></item>
+		<item name="wcf.user.objectWatch.enableNotification.de.voolia.news.category"><![CDATA[Benachrichtigung über neue News in dieser News-Kategorie aktivieren]]></item>
+		<item name="wcf.user.objectWatch.unsubscribe.de.voolia.news.category"><![CDATA[News-Kategorie nicht abonnieren]]></item>
+	</category>
+
+	<category name="wcf.user.notification">
+		<item name="wcf.user.notification.de.voolia.news"><![CDATA[News]]></item>
+		<item name="wcf.user.notification.de.voolia.news.entry.news"><![CDATA[Neue News in abonnierter News-Kategorie]]></item>
+		<item name="wcf.user.notification.de.voolia.news.comment.notification.comment"><![CDATA[Neuer Kommentar zu Ihrer News]]></item>
+		<item name="wcf.user.notification.de.voolia.news.comment.response.notification.commentResponse"><![CDATA[Neue Antwort auf einen Kommentar zu Ihrer News]]></item>
+		<item name="wcf.user.notification.de.voolia.news.comment.response.notification.commentResponseOwner"><![CDATA[Neue Antwort auf einen Kommentar von Ihnen]]></item>
+	</category>
+
+	<category name="wcf.user.recentActivity">
+		<item name="wcf.user.recentActivity.de.voolia.news.likeableNews.recentActivityEvent"><![CDATA[Like (News)]]></item>
+		<item name="wcf.user.recentActivity.de.voolia.news.comment.recentActivityEvent"><![CDATA[Kommentar (News)]]></item>
+		<item name="wcf.user.recentActivity.de.voolia.news.comment.response.recentActivityEvent"><![CDATA[Kommentar-Antwort (News)]]></item>
+		<item name="wcf.user.recentActivity.de.voolia.news.recentActivityEvent.news"><![CDATA[News]]></item>
+	</category>
+</language>

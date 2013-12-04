@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/userGroupOption.xsd">
+	<import>
+		<categories>
+			<!-- User -->
+			<category name="user.news">
+				<parent>user</parent>
+			</category>
+			<category name="user.news.picture">
+				<parent>user.news</parent>
+			</category>
+
+			<!-- Moderation -->
+			<category name="mod.news">
+				<parent>mod</parent>
+			</category>
+
+			<!-- Administration -->
+			<category name="admin.news">
+				<parent>admin.community</parent>
+				<showorder>1</showorder>
+			</category>
+		</categories>
+
+		<options>
+			<!-- user.news -->
+			<option name="user.news.canViewNews">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canAddNews">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canEditOwnNews">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canSeeEditNote">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canAddNewsUpdate">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canUploadAttachment">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.maxAttachmentCount">
+				<categoryname>user.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>10</defaultvalue>
+			</option>
+			<option name="user.news.allowedAttachmentExtensions">
+				<categoryname>user.news</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue><![CDATA[gif
+jpg
+jpeg
+png]]></defaultvalue>
+			</option>
+			<option name="user.news.canCreatePoll">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canVote">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canWriteComment">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canEditOwnComment">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.canDeleteOwnComment">
+				<categoryname>user.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /user.news -->
+
+			<!-- user.news.picture -->
+			<option name="user.news.picture.canUpload">
+				<categoryname>user.news.picture</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.news.picture.maxSize">
+				<categoryname>user.news.picture</categoryname>
+				<optiontype>fileSize</optiontype>
+				<defaultvalue>1000000</defaultvalue>
+			</option>
+			<option name="user.news.picture.allowedExtensions">
+				<categoryname>user.news.picture</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue><![CDATA[gif
+jpg
+jpeg
+png]]></defaultvalue>
+			</option>
+			<!-- /user.news.picture -->
+
+			<!-- mod.news -->
+			<option name="mod.news.canEditNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canEditNewsWithoutNote">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canReadFutureNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canDeactivateNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canManageComments">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canModerateNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canReadDeactivatedNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canActivateNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canDeleteNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canReadDeletedNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canRestoreNews">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canEditComment">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="mod.news.canDeleteComment">
+				<categoryname>mod.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /mod.news -->
+
+			<!-- admin.news -->
+			<option name="admin.news.canManageCategory">
+				<categoryname>admin.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="admin.news.canManageNewsPictureCategory">
+				<categoryname>admin.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="admin.news.canManageNewsPicture">
+				<categoryname>admin.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<!-- /admin.news -->
+		</options>
+	</import>
+</data>

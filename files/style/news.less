@@ -1,0 +1,100 @@
+/**
+ * news system special css
+ *
+ * @author	Pascal Bade, Florian Frantzen
+ * @copyright	2013 voolia.de
+ * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
+ * @package	de.voolia.news
+ */
+
+/* special icon color for future news */
+#tplNewsArchive .messageHeader .icon,
+#tplNewsOverview .messageHeader .icon,
+#tplNews .messageHeader .icon {
+	color: #ff0000;
+}
+
+/* fix for the category link with .badgeUpdate */
+#tplNewsOverview .sidebar .badgeUpdate a,
+#tplNewsArchive .sidebar .badgeUpdate a {
+	color: @wcfPageColor;
+}
+
+/* remove language icon for responsive design and small displays */
+@media all and (max-width: 800px) {
+	#tplNewsOverview .messageHeadline .iconFlag {
+		display: none;
+	}
+}
+
+/* specification for newspictures */
+.newsImage {
+	width: 32px;
+	height: 32px;
+}
+
+.newsImageSidebar {
+	width: 24px;
+	height: 24px;
+}
+
+.pictureInput ul {
+	margin-bottom: @wcfGapTiny + 1;
+}
+
+/* news preview popover */
+.newsPreviewData {
+	margin-bottom: @wcfGapSmall;
+	font-weight: normal;
+	font-size: @wcfSmallFontSize;
+}
+
+/* news sources */
+#sourceContainer li {
+	input {
+		margin: 0 0 @wcfGapSmall @wcfGapSmall;
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+
+	&:last-child input {
+		margin-bottom: 0;
+	}
+}
+.newsSourceList {
+	padding-top: 7px !important;
+
+	> fieldset {
+		padding: 0;
+
+		> legend {
+			border-bottom: 0;
+			font-size: @wcfTitleFontSize;
+			padding-bottom: 7px;
+		}
+	}
+}
+
+/* picture picker */
+#newsPictureInspectorPicker ol li {
+	height: 64px;
+}
+
+/* special print style */
+@media print {
+	/* news entry */
+	#tplNews .mainMenu,
+	#tplNews .breadcrumbs,
+	#tplNews #footerNavigation,
+	#tplNewsOverview .mainMenu,
+
+	/* news overview */
+	#tplNewsOverview .breadcrumbs,
+	#tplNewsOverview #footerNavigation,
+	#tplNewsOverview .usersOnlineInfoBox, 
+	#tplNewsOverview .statsInfoBox {
+		display: none;
+	}
+}

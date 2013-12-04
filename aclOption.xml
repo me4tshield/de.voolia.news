@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/aclOption.xsd">
+	<import>
+		<categories>
+			<category name="user.news.category">
+				<objecttype>de.voolia.news.category</objecttype>
+			</category>
+			<category name="user.news.category.tags">
+				<objecttype>de.voolia.news.category</objecttype>
+			</category>
+			<category name="user.news.category.source">
+				<objecttype>de.voolia.news.category</objecttype>
+			</category>
+      		</categories>
+
+		<options>
+			<!-- user.news.category -->
+			<option name="canViewCategory">
+				<categoryname>user.news.category</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<option name="canUseCategory">
+				<categoryname>user.news.category</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<!-- /user.news.category -->
+
+			<!-- user.news.category.tags -->
+			<option name="canSetTags">
+				<categoryname>user.news.category.tags</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<option name="canCreateNewsWithoutTags">
+				<categoryname>user.news.category.tags</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<!-- /user.news.category.tags -->
+
+			<!-- user.news.category.source -->
+			<option name="canAddSources">
+				<categoryname>user.news.category.source</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<option name="canCreateNewsWithoutSources">
+				<categoryname>user.news.category.source</categoryname>
+				<objecttype>de.voolia.news.category</objecttype>
+			</option>
+			<!-- /user.news.category.source -->
+		</options>
+	</import>
+</data>
