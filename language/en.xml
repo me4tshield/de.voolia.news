@@ -188,10 +188,11 @@
 	</category>
 
 	<category name="wcf.acp.dataImport">
-		<item name="wcf.acp.dataImport.data.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.attachment"><![CDATA[Attachments]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.category"><![CDATA[Categories]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.comment"><![CDATA[Comments]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.comment.response"><![CDATA[Comment responses]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.entry"><![CDATA[News]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
 	</category>
 
