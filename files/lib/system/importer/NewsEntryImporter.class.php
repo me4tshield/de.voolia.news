@@ -38,13 +38,16 @@ class NewsEntryImporter extends AbstractImporter {
 		}
 
 		// get news categories
+		$categoryIDs = array();
+		if (!empty($additionalData['singleCategory'])) {
+			$newCategoryIDs = ImportHandler::getInstance()->getNewID('de.voolia.news.category', $additionalData['singleCategory']);
+		}
 		if (!empty($additionalData['categories'])) {
-			$categoryIDs = array();
 			foreach ($additionalData['categories'] as $oldCategoryIDs) {
 				$newCategoryIDs = ImportHandler::getInstance()->getNewID('de.voolia.news.category', $oldCategoryIDs);
-				if ($newCategoryIDs) $categoryIDs[] = $newCategoryIDs;
 			}
 		}
+		if ($newCategoryIDs) $categoryIDs[] = $newCategoryIDs;
 
 		// work-around for unknown username
 		if (empty($data['username'])) {
