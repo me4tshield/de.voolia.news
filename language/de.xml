@@ -303,7 +303,7 @@
 	</category>
 
 	<category name="wcf.acp.rebuildData">
-		<item name="wcf.acp.rebuildData.de.voolia.news.entry"><![CDATA[ aktualisieren]]></item>
+		<item name="wcf.acp.rebuildData.de.voolia.news.entry"><![CDATA[News aktualisieren]]></item>
 		<item name="wcf.acp.rebuildData.de.voolia.news.entry.description"><![CDATA[Aktualisiert die News-Daten wie Dateianhänge, Likes, Aktivitätspunkte und den Suchindex neu]]></item>
 	</category>
 
