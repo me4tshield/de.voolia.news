@@ -48,6 +48,11 @@ class NewsPictureListPage extends AbstractPage {
 	public $pictureList = null;
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array('admin.news.canManageNewsPicture');
+
+	/**
 	 * @see	\wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
