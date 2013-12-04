@@ -40,9 +40,9 @@ class NewsEntryImporter extends AbstractImporter {
 		// get news categories
 		$categoryIDs = array();
 		if (!empty($additionalData['categories'])) {
-			foreach ($additionalData['categories'] as $oldCategoryIDs) {
-				$newCategoryIDs = ImportHandler::getInstance()->getNewID('de.voolia.news.category', $oldCategoryIDs);
-				if ($newCategoryIDs) $categoryIDs[] = $newCategoryIDs;
+			foreach ($additionalData['categories'] as $oldCategoryID) {
+				$newCategoryID = ImportHandler::getInstance()->getNewID('de.voolia.news.category', $oldCategoryID);
+				if ($newCategoryID) $categoryIDs[] = $newCategoryID;
 			}
 		}
 
