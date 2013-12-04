@@ -6,7 +6,7 @@
 		<packagedescription language="de"><![CDATA[Dein News-System für WoltLab Community Framework™.]]></packagedescription>
 		<isapplication>1</isapplication>
 		<version>1.0.0 RC 2</version>
-		<date>2013-12-03</date>
+		<date>2013-12-04</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -59,13 +59,13 @@
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
 
+		<!-- script -->
+		<instruction type="script">acp/update_de.voolia.news.php</instruction>
+
 		<!-- xml -->
 		<instruction type="objectType">objectType.xml</instruction>
 
 		<!-- language -->
 		<instruction type="language">language/*.xml</instruction>
-
-		<!-- script -->
-		<instruction type="script">acp/update_de.voolia.news.php</instruction>
 	</instructions>
 </package>
