@@ -63,6 +63,11 @@ class NewsEntryImporter extends AbstractImporter {
 		$news = NewsEditor::create($data);
 		$newsEditor = new NewsEditor($news);
 
+		// save the tags from news entry
+		if (!empty($additionalData['tags'])) {
+			TagEngine::getInstance()->addObjectTags('de.voolia.news.entry', $news->newsID, $additionalData['tags'], ($news->languageID ?: LanguageFactory::getInstance()->getDefaultLanguageID()));
+		}
+
 		// update news categories
 		$newsEditor->updateCategoryIDs($categoryIDs);
 
