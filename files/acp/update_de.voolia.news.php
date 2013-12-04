@@ -7,11 +7,22 @@ use wcf\system\WCF;
  * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
+// delete obsolete object types
+$sql = "DELETE FROM	wcf".WCF_N."_object_type
+	WHERE		objectType IN (?,?)";
+$statement = WCF::getDB()->prepareStatement($sql);
+$statement->execute(array(
+	'de.voolia.news.exporter.yaycom1x',
+	'de.voolia.news.exporter.cnews1x'
+));
 
 // remove obsolete dashboard boxes from content area
 $sql = "SELECT boxID FROM wcf".WCF_N."_dashboard_box WHERE boxName IN (?,?)";
 $statement = WCF::getDB()->prepareStatement($sql);
-$statement->execute(array('de.voolia.news.hotNewsContent', 'de.voolia.news.latestNewsContent'));
+$statement->execute(array(
+	'de.voolia.news.hotNewsContent',
+	'de.voolia.news.latestNewsContent'
+));
 while ($row = $statement->fetchArray()) {
 	$sql = "DELETE FROM	wcf".WCF_N."_dashboard_option
 		WHERE		boxID = ?";
