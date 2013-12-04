@@ -45,6 +45,11 @@ class NewsAddForm extends MessageForm {
 	public $activeMenuItem = 'news.header.menu.news';
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array('user.news.canAddNews');
+
+	/**
 	 * @see	\wcf\form\MessageForm::$attachmentObjectType
 	 */
 	public $attachmentObjectType = 'de.voolia.news.entry';

@@ -24,6 +24,11 @@ class NewsUpdateAddForm extends MessageForm {
 	public $action = 'add';
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array('user.news.canAddNews');
+
+	/**
 	 * news id
 	 * @var	integer
 	 */
