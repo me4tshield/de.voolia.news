@@ -35,6 +35,11 @@ class NewsOverviewPage extends MultipleLinkPage {
 	public $activeMenuItem = 'news.header.menu.news';
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededPermissions
+	 */
+	public $neededPermissions = array('user.news.canViewNews');
+
+	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
 	 */
 	public $objectListClassName = 'news\data\news\AccessibleNewsList';
