@@ -36,6 +36,11 @@ class NewsArchivePage extends SortablePage {
 	public $neededPermissions = array('user.news.canViewNews');
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array('MODULE_CONTENT_NEWS');
+
+	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
 	 */
 	public $objectListClassName = 'news\data\news\AccessibleNewsList';
@@ -89,6 +94,11 @@ class NewsArchivePage extends SortablePage {
 	 * @var	array<\wcf\data\category\Category>
 	 */
 	public $categoryList = null;
+
+	/**
+	 * object type name for news categories
+	 * @var	string
+	 */
 	public $objectTypeName = 'de.voolia.news.category';
 
 	/**

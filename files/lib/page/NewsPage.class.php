@@ -36,6 +36,11 @@ class NewsPage extends AbstractPage {
 	public $activeMenuItem = 'news.header.menu.news';
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array('MODULE_CONTENT_NEWS');
+
+	/**
 	 * news id
 	 * @var	integer
 	 */

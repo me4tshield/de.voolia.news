@@ -50,6 +50,11 @@ class NewsAddForm extends MessageForm {
 	public $neededPermissions = array('user.news.canAddNews');
 
 	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array('MODULE_CONTENT_NEWS');
+
+	/**
 	 * @see	\wcf\form\MessageForm::$attachmentObjectType
 	 */
 	public $attachmentObjectType = 'de.voolia.news.entry';

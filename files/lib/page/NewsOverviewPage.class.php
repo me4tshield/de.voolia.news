@@ -53,7 +53,15 @@ class NewsOverviewPage extends MultipleLinkPage {
 	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
 	 */
 	public $itemsPerPage = NEWS_ITEMS_PER_PAGE;
+
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::$sortField
+	 */
 	public $sortField = 'time';
+
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::$sortOrder
+	 */
 	public $sortOrder = 'DESC';
 
 	/**
