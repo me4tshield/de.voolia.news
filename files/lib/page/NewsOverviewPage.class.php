@@ -38,6 +38,11 @@ class NewsOverviewPage extends MultipleLinkPage {
 	 * @see	\wcf\page\AbstractPage::$neededPermissions
 	 */
 	public $neededPermissions = array('user.news.canViewNews');
+	
+	/**
+	 * @see	\wcf\page\AbstractPage::$neededModules
+	 */
+	public $neededModules = array('MODULE_CONTENT_NEWS');
 
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
