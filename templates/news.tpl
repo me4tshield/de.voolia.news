@@ -55,7 +55,7 @@
 
 {capture assign='sidebar'}
 	{if NEWS_ENABLE_ENTRY_AUTHOR_INFOS}
-		{include file='authorSidebarBox'}
+		{include file='authorSidebarBox' userProfile=$news->getUserProfile()}
 	{/if}
 
 	<fieldset>

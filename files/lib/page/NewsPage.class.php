@@ -136,9 +136,6 @@ class NewsPage extends AbstractPage {
 			$entryAction->executeAction();
 		}
 
-		// get user profile from author for sidebar infos
-		$this->userProfile = $this->news->getUserProfile();
-
 		// fetch news likes
 		if (MODULE_LIKE) {
 			$objectType = LikeHandler::getInstance()->getObjectType('de.voolia.news.likeableNews');
@@ -216,7 +213,6 @@ class NewsPage extends AbstractPage {
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.NewsPage'),
 			'sidebarName' => 'de.voolia.news.NewsPage',
 			'tags' => $this->tags,
-			'userProfile' => $this->userProfile,
 			'moreNewsList' => $this->moreNewsList
 		));
 	}
