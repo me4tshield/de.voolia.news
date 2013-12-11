@@ -84,7 +84,15 @@ class ViewableNews extends DatabaseObjectDecorator {
 	 */
 	public function getUserProfile() {
 		if ($this->userProfile === null) {
-			$this->userProfile = new UserProfile(new User(null, $this->getDecoratedObject()->data));
+			$userData = $this->getDecoratedObject()->data;
+
+			if (isset($userData['avatarFileHash'])) {
+				$userData['fileHash'] = $userData['avatarFileHash'];
+				$userData['width'] = $userData['avatarWidth'];
+				$userData['height'] = $userData['avatarHeight'];
+			}
+
+			$this->userProfile = new UserProfile(new User(null, $userData));
 		}
 
 		return $this->userProfile;
