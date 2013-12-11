@@ -55,6 +55,8 @@
 	</instructions>
 
 	<instructions type="update" fromversion="1.0.0 RC 2">
-		<!-- nothing to do! :-) -->
+		<!-- files -->
+		<instruction type="file">files.tar</instruction>
+		<instruction type="template">templates.tar</instruction>
 	</instructions>
 </package>
