@@ -66,7 +66,7 @@
 		</type>
 		<!-- /Dashboard -->
 
-		<!-- Importer, Exporter -->
+		<!-- Importer -->
 		<type>
 			<name>de.voolia.news.category</name>
 			<definitionname>com.woltlab.wcf.importer</definitionname>
@@ -97,7 +97,7 @@
 			<definitionname>com.woltlab.wcf.importer</definitionname>
 			<classname><![CDATA[news\system\importer\NewsAttachmentImporter]]></classname>
 		</type>
-		<!-- /Importer, Exporter -->
+		<!-- /Importer -->
 
 		<!-- Like -->
 		<type>
