@@ -78,6 +78,11 @@
 			<classname><![CDATA[news\system\importer\NewsEntryImporter]]></classname>
 		</type>
 		<type>
+			<name>de.voolia.news.entry.update</name>
+			<definitionname>com.woltlab.wcf.importer</definitionname>
+			<classname><![CDATA[news\system\importer\NewsEntryUpdateImporter]]></classname>
+		</type>
+		<type>
 			<name>de.voolia.news.comment</name>
 			<definitionname>com.woltlab.wcf.importer</definitionname>
 			<classname><![CDATA[news\system\importer\NewsCommentImporter]]></classname>
