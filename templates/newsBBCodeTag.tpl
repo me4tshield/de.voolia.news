@@ -2,7 +2,7 @@
 	{if NEWS_ENABLE_NEWSPICTURE}
 		<div class="box32">
 			<a href="{link application='news' controller='News' object=$news}{/link}" class="framed">
-				<img src="{@$__wcf->getPath('news')}images/news/{if $news->newsPicture}{$news->newsPicture}{else}dummyPicture.png{/if}" class="newsImage" alt="" />
+				<img src="{@$news->getNewsPicture()->getURL()}" class="newsImage" alt="" />
 			</a>
 	{/if}
 
