@@ -106,7 +106,7 @@
 				{foreach from=$moreNewsList item=moreNews}
 					<li class="box24">
 						{if NEWS_ENABLE_NEWSPICTURE}
-							<a href="{link application='news' controller='News' object=$moreNews}{/link}" class="framed"><img src="{@$__wcf->getPath('news')}images/news/{if $moreNews->newsPicture}{$moreNews->newsPicture}{else}dummyPicture.png{/if}" alt="" class="newsImageSidebar" /></a>
+							<a href="{link application='news' controller='News' object=$moreNews}{/link}" class="framed"><img src="{@$moreNews->getNewsPicture()->getURL()}" alt="" class="newsImageSidebar" /></a>
 						{/if}
 
 						<div class="sidebarBoxHeadline">
