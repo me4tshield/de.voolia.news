@@ -76,7 +76,7 @@
 
 <body id="tpl{$templateName|ucfirst}">
 
-{include file='header' sidebarOrientation='right'}
+{include file='header'}
 
 <header class="boxHeadline">
 	<h1>{lang}news.entry.{$action}.title{/lang}</h1>
