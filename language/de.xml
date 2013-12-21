@@ -282,6 +282,7 @@
 		<item name="wcf.acp.option.news_dashboard_hotNews_entries"><![CDATA[Anzahl empfohlener News]]></item>
 		<item name="wcf.acp.option.news_dashboard_latest_entries"><![CDATA[Anzahl der letzten News]]></item>
 		<item name="wcf.acp.option.news_dashboard_sidebar_entries"><![CDATA[Anzahl an News]]></item>
+		<item name="wcf.acp.option.news_dashboard_slideshow_interval"><![CDATA[Zeitangabe für den Wechsel der News (in Sekunden)]]></item>
 		<item name="wcf.acp.option.news_enable_comments"><![CDATA[Kommentare]]></item>
 		<item name="wcf.acp.option.news_enable_entry_similar_news"><![CDATA[Weitere News der News-Kategorie in der Sidebar anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_entry_author_infos"><![CDATA[Autoren-Infos anzeigen]]></item>

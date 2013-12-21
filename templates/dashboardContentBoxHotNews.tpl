@@ -3,7 +3,9 @@
 		//<![CDATA[
 			$(function() {
 				// Implements the wcfSlideshow() for news entries
-				$('.newsSlideshowContainer').wcfSlideshow();
+				$('.newsSlideshowContainer').wcfSlideshow({
+					cycleInterval: {NEWS_DASHBOARD_SLIDESHOW_INTERVAL}
+				})
 			});
 		//]]>
 	</script>
