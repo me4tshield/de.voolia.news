@@ -292,6 +292,7 @@
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[The author must select a newspicture.]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Sharing]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
+		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Show teaser on news entry.]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Enable sources]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount"><![CDATA[Maximum Source Number]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount.description"><![CDATA[Maximum number of sources [0 to disable limitation]]]></item>

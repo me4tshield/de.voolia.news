@@ -93,6 +93,11 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="news_enable_teaser_on_news">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
 			<option name="news_enable_like">
 				<categoryname>news.entry.general</categoryname>
 				<optiontype>boolean</optiontype>
