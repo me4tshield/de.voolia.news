@@ -291,6 +291,7 @@
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newspicture]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[The author must select a newspicture.]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Sharing]]></item>
+		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Shows the category list within the news overview sidebar.]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Show teaser on news entry.]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Enable sources]]></item>

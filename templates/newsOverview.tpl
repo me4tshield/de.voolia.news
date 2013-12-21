@@ -28,7 +28,9 @@
 <body id="tpl{$templateName|ucfirst}">
 
 {capture assign='sidebar'}
-	{include file='newsSidebarCategoryList' application='news'}
+	{if NEWS_ENABLE_SIDEBAR_CATEGORIES}
+		{include file='newsSidebarCategoryList' application='news'}
+	{/if}
 
 	{if NEWS_ENABLE_LETTER_SORT}
 		{include file='newsSidebarLetterList' application='news'}
