@@ -29,7 +29,26 @@ class NewsCategoryNode extends CategoryNode {
 	protected static $baseClass = 'news\data\category\NewsCategory';
 
 	/**
+	 * Returns the depth of this node.
+	 * 
+	 * @var	integer
+	 */
+	public function getDepth() {
+		$element = $this;
+		$i = 0;
+
+		while ($element->parentNode->parentNode != null) {
+			$i++;
+			$element = $element->parentNode;
+		}
+
+		return $i;
+	}
+
+	/**
 	 * Returns the number of news in this category.
+	 * 
+	 * @return	integer
 	 */
 	public function getNews() {
 		if ($this->news === null) {
