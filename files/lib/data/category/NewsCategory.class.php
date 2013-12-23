@@ -50,7 +50,7 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 	 */
 	public function canUseCategory() {
 		// check news permissions
-		if ($this->getPermission('canUseCategory')) {
+		if ($this->getPermission('canUseCategory') && WCF::getSession()->getPermission('user.news.canAddNews')) {
 			return true;
 		}
 		
