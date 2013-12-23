@@ -15,4 +15,19 @@ class NewsUpdateAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$className
 	 */
 	protected $className = 'news\data\news\update\NewsUpdateEditor';
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsCreate
+	 */
+	protected $permissionsCreate = array('user.news.canAddNewsUpdate');
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsUpdate
+	 */
+	protected $permissionsUpdate = array('mod.news.canAddNewsUpdate');
+
+	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
+	 */
+	protected $permissionsDelete = array('mod.news.canAddNewsUpdate');
 }

@@ -32,6 +32,7 @@
 				});
 
 				{if $news->canManageNews()}
+					new WCF.Action.Delete('news\\data\\news\\update\\NewsUpdateAction', '.newsUpdate');
 					var $inlineEditor = new News.InlineEditor('.newsMessage', '{link application='news' controller='NewsOverview'}{/link}', '{link application='news' controller='NewsUpdateAdd' id=$news->newsID}{/link}');
 				{/if}
 
@@ -255,7 +256,7 @@
 
 	<ul class="messageList">
 		{foreach from=$news->getNewsUpdateList() item=update}
-			<li id="update{@$update->updateID}">
+			<li id="update{@$update->updateID}" class="newsUpdate" data-object-id="{@$update->updateID}">
 				<article class="updateMessage message messageReduced marginTop">
 					<div>
 						<section class="messageContent">
@@ -289,7 +290,10 @@
 										<nav class="jsMobileNavigation buttonGroupNavigation">
 											<ul class="smallButtons buttonGroup">
 												{event name='updateMessageOptions'}
-												{if $news->canManageNews()}<li><a href="{link application='news' controller='NewsUpdateEdit' id=$update->updateID}{/link}" title="{lang}news.entry.update.edit.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-pencil"></span> <span class="invisible">{lang}news.entry.update.edit.title{/lang}</span></a></li>{/if}
+												{if $news->canManageNews()}
+													<li><a href="{link application='news' controller='NewsUpdateEdit' id=$update->updateID}{/link}" title="{lang}news.entry.update.edit.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-pencil"></span> <span class="invisible">{lang}news.entry.update.edit.title{/lang}</span></a></li>
+													<li class="jsDeleteButton jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.update.delete.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-remove"></span> <span class="invisible">{lang}news.entry.update.delete.title{/lang}</span></a></li>
+												{/if}
 												<li class="toTopLink"><a href="{$__wcf->getAnchor('top')}" title="{lang}wcf.global.scrollUp{/lang}" class="button jsTooltip"><span class="icon icon16 icon-arrow-up"></span> <span class="invisible">{lang}wcf.global.scrollUp{/lang}</span></a></li>
 											</ul>
 										</nav>

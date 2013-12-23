@@ -134,6 +134,7 @@
 		<item name="news.entry.update.add.form.information.subject.title"><![CDATA[Titel]]></item>
 		<item name="news.entry.update.add.form.message.title"><![CDATA[Newsmeldung]]></item>
 		<item name="news.entry.update.edit.title"><![CDATA[News-Update bearbeiten]]></item>
+		<item name="news.entry.update.delete.title"><![CDATA[News-Update löschen]]></item>
 		<item name="news.entry.updates"><![CDATA[Aktualisierungen zur News]]></item>
 	</category>
 
