@@ -291,11 +291,11 @@
 		<item name="wcf.acp.option.news_enable_letter_sort"><![CDATA[Buchstaben-Filter aktivieren]]></item>
 		<item name="wcf.acp.option.news_enable_like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newsbilder]]></item>
-		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[Beim Erstellen einer News muss zwingend ein Newsbild ausgewählt werden.]]></item>
+		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[Beim Erstellen einer News muss zwingend ein Newsbild ausgewählt werden]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Teilen]]></item>
-		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Auf der Übersicht die Kategorien in der Sidebar anzeigen.]]></item>
+		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Kategorien in der Sidebar anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
-		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Zeigt den News-Teaser innerhalb der News an.]]></item>
+		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Zeigt den News-Teaser innerhalb der News an]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Quellenangabe aktivieren]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount"><![CDATA[Maximale Quellen-Anzahl]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount.description"><![CDATA[Anzahl der Quellen, die maximal für eine News angegeben werden können. [0 um die Limitierung gänzlich zu deaktivieren]]]></item>
