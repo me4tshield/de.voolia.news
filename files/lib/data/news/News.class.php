@@ -352,6 +352,20 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
         }
 
 	/**
+	 * Update the number of news updates
+	 */
+	public function updateNewsUpdates() {
+        	$newsUpdates = $this->newsUpdates - 1;
+
+		// update news updates
+        	$sql = "UPDATE	news".WCF_N."_news
+             	   	SET	newsUpdates = ".$newsUpdates."
+             	   	WHERE	newsID = ?";
+             	$statement = WCF::getDB()->prepareStatement($sql);
+             	$statement->execute(array($this->newsID));
+        }
+
+	/**
 	 * Returns a poll object for a news entry.
 	 * 
 	 * @return	\wcf\data\poll\Poll
