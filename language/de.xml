@@ -196,6 +196,7 @@
 		<item name="wcf.acp.dataImport.data.de.voolia.news.comment"><![CDATA[Kommentare]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.comment.response"><![CDATA[Kommentar-Antworten]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.acp.dataImport.data.de.voolia.news.entry.update"><![CDATA[News-Updates]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
 	</category>
 
