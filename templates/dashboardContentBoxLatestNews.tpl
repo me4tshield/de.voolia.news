@@ -11,7 +11,7 @@
 	</script>
 
 	<div class="container containerPadding marginTop">
-		<div class="slideshowContainer newsLatestEntriesSlideshowContainer">
+		<div class="slideshowContainer newsSlideshowContainer">
 			<ul>
 				{foreach from=$vooliaNewsList item=vooliaNews}
 				<li class="newsSlideshow">
