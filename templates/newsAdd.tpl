@@ -308,6 +308,13 @@
 				<dt><label for="text">{lang}news.entry.add.form.message.title{/lang}</label></dt>
 				<dd>
 					<textarea id="text" name="text" rows="20" cols="40">{$text}</textarea>
+					{if $errorField == 'text'}
+						<small class="innerError">
+							{if $errorType == 'empty'}
+								{lang}wcf.global.form.error.empty{/lang}
+							{/if}
+						</small>
+					{/if}
 				</dd>
 			</dl>
 
