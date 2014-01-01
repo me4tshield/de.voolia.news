@@ -223,6 +223,7 @@
 		<item name="wcf.acp.group.option.user.news.canCreatePoll"><![CDATA[Can create poll]]></item>
 		<item name="wcf.acp.group.option.user.news.canVote"><![CDATA[Can vote]]></item>
 		<item name="wcf.acp.group.option.user.news.canSeeEditNote"><![CDATA[Can see edit reason]]></item>
+		<item name="wcf.acp.group.option.user.news.canSeeComments"><![CDATA[Can see comments]]></item>
 		<item name="wcf.acp.group.option.user.news.canWriteComment"><![CDATA[Can comment on news]]></item>
 		<item name="wcf.acp.group.option.user.news.canEditOwnComment"><![CDATA[Can edit own comments]]></item>
 		<item name="wcf.acp.group.option.user.news.canDeleteOwnComment"><![CDATA[Can delete own comments]]></item>

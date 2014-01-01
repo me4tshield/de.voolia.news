@@ -225,6 +225,7 @@
 		<item name="wcf.acp.group.option.user.news.canCreatePoll"><![CDATA[Kann Umfragen erstellen]]></item>
 		<item name="wcf.acp.group.option.user.news.canVote"><![CDATA[Kann an Umfragen teilnehmen]]></item>
 		<item name="wcf.acp.group.option.user.news.canSeeEditNote"><![CDATA[Kann Bearbeitungsgrund sehen]]></item>
+		<item name="wcf.acp.group.option.user.news.canSeeComments"><![CDATA[Kann Kommentare sehen]]></item>
 		<item name="wcf.acp.group.option.user.news.canWriteComment"><![CDATA[Kann News kommentieren]]></item>
 		<item name="wcf.acp.group.option.user.news.canEditOwnComment"><![CDATA[Kann eigene Kommentare bearbeiten]]></item>
 		<item name="wcf.acp.group.option.user.news.canDeleteOwnComment"><![CDATA[Kann eigene Kommentare löschen]]></item>

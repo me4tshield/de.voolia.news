@@ -325,7 +325,11 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	 * @return	boolean
 	 */
 	public function isCommentable() {
-		return $this->isCommentable;
+		if (WCF::getSession()->getPermission('user.news.canSeeComments') && $this->isCommentable) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**
