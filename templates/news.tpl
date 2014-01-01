@@ -41,6 +41,7 @@
 				new News.QuoteHandler($quoteManager);
 				new WCF.Message.Share.Content();
 				new WCF.Moderation.Report.Content('de.voolia.news.entry', '.jsReportNews');
+				new WCF.Moderation.Report.Content('de.voolia.news.entry.update', '.jsReportNewsUpdate');
 
 				// News BBCode
 				var $jsNewsBBCode = $('<div id="jsNewsBBCode"><fieldset><legend><label>{lang}news.entry.bbcode.dialog.compact{/lang}</label></legend><input type="text" class="long" readonly="readonly" value="[news={$news->newsID}][/news]" /></fieldset><fieldset><legend><label>{lang}news.entry.bbcode.dialog.detailed{/lang}</label></legend><input type="text" class="long" readonly="readonly" value="[news={$news->newsID},meta][/news]" /></fieldset></div>');
@@ -294,6 +295,7 @@
 													<li><a href="{link application='news' controller='NewsUpdateEdit' id=$update->updateID}{/link}" title="{lang}news.entry.update.edit.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-pencil"></span> <span class="invisible">{lang}news.entry.update.edit.title{/lang}</span></a></li>
 													<li class="jsDeleteButton jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.update.delete.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-remove"></span> <span class="invisible">{lang}news.entry.update.delete.title{/lang}</span></a></li>
 												{/if}
+												<li class="jsReportNewsUpdate jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.button.reportIssue{/lang}" class="button jsTooltip"><span class="icon icon16 icon-bug"></span> <span class="invisible">{lang}news.entry.button.reportIssue{/lang}</span></a></li>
 												<li class="toTopLink"><a href="{$__wcf->getAnchor('top')}" title="{lang}wcf.global.scrollUp{/lang}" class="button jsTooltip"><span class="icon icon16 icon-arrow-up"></span> <span class="invisible">{lang}wcf.global.scrollUp{/lang}</span></a></li>
 											</ul>
 										</nav>

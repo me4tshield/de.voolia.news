@@ -136,6 +136,11 @@
 			<definitionname>com.woltlab.wcf.moderation.report</definitionname>
 			<classname>news\system\moderation\queue\report\NewsModerationQueueReportHandler</classname>
 		</type>
+		<type>
+			<name>de.voolia.news.entry.update</name>
+			<definitionname>com.woltlab.wcf.moderation.report</definitionname>
+			<classname>news\system\moderation\queue\report\NewsUpdateModerationQueueReportHandler</classname>
+		</type>
 		<!-- /Moderation -->
 
 		<!-- Notifications -->
