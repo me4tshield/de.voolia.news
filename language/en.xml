@@ -105,6 +105,7 @@
 		<item name="news.entry.delete.sure"><![CDATA[Do you really want to delete the news?]]></item>
 		<item name="news.entry.editNote"><![CDATA[News was edit {$news->editCount} times, last by „{$news->editUser}“{if $news->editReason} with the reason „{$news->editReason}“{/if} ({@$news->editTime|time})]]></item>
 		<item name="news.entry.edit.title"><![CDATA[Edit news]]></item>
+		<item name="news.entry.enableAutomaticArchiving"><![CDATA[News automatisch archivieren]]></item>
 		<item name="news.entry.isHot"><![CDATA[Recommendation]]></item>
 		<item name="news.entry.markAllAsRead"><![CDATA[Mark All News As Read]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
