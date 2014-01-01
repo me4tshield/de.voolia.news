@@ -330,6 +330,7 @@
 
 	<category name="wcf.moderation">
 		<item name="wcf.moderation.type.de.voolia.news.entry"><![CDATA[News]]></item>
+		<item name="wcf.moderation.type.de.voolia.news.entry.update"><![CDATA[News-Update]]></item>
 		<item name="wcf.moderation.deletedContent.de.voolia.news.entry"><![CDATA[Gelöschte News]]></item>
 		<item name="wcf.moderation.deletedContent.objectType.de.voolia.news.entry"><![CDATA[News]]></item>
 	</category>
