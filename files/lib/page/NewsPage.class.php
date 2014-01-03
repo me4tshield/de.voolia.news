@@ -174,6 +174,9 @@ class NewsPage extends AbstractPage {
 		MetaTagHandler::getInstance()->addTag('og:url', 'og:url', LinkHandler::getInstance()->getLink('News', array('application' => 'news', 'object' => $this->news)), true);
 		MetaTagHandler::getInstance()->addTag('og:type', 'og:type', 'article', true);
 		MetaTagHandler::getInstance()->addTag('og:description', 'og:description', StringUtil::decodeHTML(StringUtil::stripHTML($this->news->getExcerpt())), true);
+		if (NEWS_ENABLE_NEWSPICTURE) {
+			MetaTagHandler::getInstance()->addTag('og:image', 'og:image', $this->news->getNewsPicture()->getURL(), true);
+		}
 
 		// add tags as keywords
 		if (!empty($this->tags)) {
