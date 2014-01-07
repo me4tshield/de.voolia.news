@@ -20,7 +20,6 @@
 
 	<optionalpackages>
 		<optionalpackage file="optionals/com.woltlab.wcf.legalNotice.tar">com.woltlab.wcf.legalNotice</optionalpackage>
-		<optionalpackage file="optionals/de.voolia.news.exporter.tar">de.voolia.news.exporter</optionalpackage>
 		<optionalpackage file="optionals/de.voolia.news.wbb.tar">de.voolia.news.wbb</optionalpackage>
 		<optionalpackage file="optionals/de.voolia.news.wbb.slideshow.tar">de.voolia.news.wbb.slideshow</optionalpackage>
 	</optionalpackages>
