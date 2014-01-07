@@ -197,6 +197,9 @@
 		<item name="wcf.acp.dataImport.data.de.voolia.news.entry"><![CDATA[News]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.entry.update"><![CDATA[News Updates]]></item>
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.cnews1x"><![CDATA[cNews 1.0.x]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.voolianews1x"><![CDATA[voolia News-System 1.0.x]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.yaycom1x"><![CDATA[yaycom News-System 1.0.x]]></item>
 	</category>
 
 	<category name="wcf.acl.option">

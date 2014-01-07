@@ -66,6 +66,24 @@
 		</type>
 		<!-- /Dashboard -->
 
+		<!-- Exporter -->
+		<type>
+			<name>de.voolia.news.exporter.yaycom1x</name>
+			<definitionname>com.woltlab.wcf.exporter</definitionname>
+			<classname>news\system\exporter\Yaycom1xExporter</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.exporter.cnews1x</name>
+			<definitionname>com.woltlab.wcf.exporter</definitionname>
+			<classname>news\system\exporter\Cnews1xExporter</classname>
+		</type>
+		<type>
+			<name>de.voolia.news.exporter.voolianews1x</name>
+			<definitionname>com.woltlab.wcf.exporter</definitionname>
+			<classname>news\system\exporter\VooliaNews1xExporter</classname>
+		</type>
+		<!-- /Exporter -->
+
 		<!-- Importer -->
 		<type>
 			<name>de.voolia.news.category</name>
