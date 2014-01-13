@@ -323,7 +323,7 @@
 	{/if}
 </div>
 
-{if $news->isCommentable}
+{if $news->isCommentable()}
 	<header id="comments" class="boxHeadline boxSubHeadline">
 		<h2>{lang}news.entry.comments{/lang} <span class="badge">{@$commentList->countObjects()}</h2>
 	</header>

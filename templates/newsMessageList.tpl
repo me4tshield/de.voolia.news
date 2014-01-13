@@ -62,7 +62,7 @@
 									<nav class="jsMobileNavigation buttonGroupNavigation">
 										<ul class="smallButtons buttonGroup">
 											<li><a href="{link application='news' controller='News' object=$news}{/link}" class="button"><span class="icon icon16 icon-arrow-right"></span> <span>{lang}wcf.global.button.readMore{/lang}</span></a></li>
-											{if $news->isCommentable}
+											{if $news->isCommentable()}
 												<li><a href="{link application='news' controller='News' object=$news}{/link}#comments" title="{lang}news.entry.comments{/lang} ({$news->comments})" class="button jsTooltip"><span class="icon icon16 icon-comments"></span> <span>{$news->comments}</span></a></li>
 											{/if}
 											{event name='messageOptions'}
