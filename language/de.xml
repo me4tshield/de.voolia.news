@@ -350,7 +350,7 @@
 		<item name="wcf.search.object.de.voolia.news.entry"><![CDATA[News]]></item>
 		<item name="wcf.search.type.de.voolia.news.entry"><![CDATA[News]]></item>
 		<item name="wcf.search.type.de.voolia.news.category"><![CDATA[Kategorie]]></item>
-		<item name="wcf.search.voolia.news.search"><![CDATA[News durchsuchen]]></item>
+		<item name="wcf.search.voolia.news.search"><![CDATA[Alle News durchsuchen]]></item>
 	</category>
 
 	<category name="wcf.tagging">
