@@ -39,8 +39,11 @@ class LikeableNewsUserActivityEvent extends SingletonFactory implements IUserAct
 
 				$text = WCF::getLanguage()->getDynamicVariable('news.recentActivity.likedNews', array('news' => $news));
 				$event->setTitle($text);
-				$event->setDescription($news->getExcerpt());
-			} else {
+				if ($newsEntries[$event->objectID]->teaser && NEWS_DASHBOARD_ACTIVITY_SHOW_NEWS_TEASER) {
+					$event->setDescription($newsEntries[$event->objectID]->teaser);
+				} else {
+					$event->setDescription($newsEntries[$event->objectID]->getExcerpt());
+				}			} else {
 				$event->setIsOrphaned();
 			}
 		}

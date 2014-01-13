@@ -37,7 +37,11 @@ class NewsUserActivityEvent extends SingletonFactory implements IUserActivityEve
 
 				$text = WCF::getLanguage()->getDynamicVariable('news.recentActivity.news', array('news' => $newsEntries[$event->objectID]));
 				$event->setTitle($text);
-				$event->setDescription($newsEntries[$event->objectID]->getExcerpt());
+				if ($newsEntries[$event->objectID]->teaser && NEWS_DASHBOARD_ACTIVITY_SHOW_NEWS_TEASER) {
+					$event->setDescription($newsEntries[$event->objectID]->teaser);
+				} else {
+					$event->setDescription($newsEntries[$event->objectID]->getExcerpt());
+				}
 			} else {
 				$event->setIsOrphaned();
 			}

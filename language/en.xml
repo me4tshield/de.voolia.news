@@ -285,6 +285,7 @@
 		<item name="wcf.acp.option.category.news.entry.sources"><![CDATA[Sources]]></item>
 		<item name="wcf.acp.option.category.news.index"><![CDATA[Startpage]]></item>
 		<item name="wcf.acp.option.module_content_news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.option.news_dashboard_activity_show_news_teaser"><![CDATA[TODO: Wenn vorhanden, Einleitung als Beschreibungstext in den letzten Aktivitäten verwenden.]]></item>
 		<item name="wcf.acp.option.news_dashboard_hotNews_entries"><![CDATA[Number of recommended news]]></item>
 		<item name="wcf.acp.option.news_dashboard_latest_entries"><![CDATA[Number of News]]></item>
 		<item name="wcf.acp.option.news_dashboard_sidebar_entries"><![CDATA[Number of Sidebar News]]></item>
