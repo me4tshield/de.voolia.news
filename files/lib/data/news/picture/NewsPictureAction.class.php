@@ -136,7 +136,7 @@ class NewsPictureAction extends AbstractDatabaseObjectAction {
 	 * Validates the upload action.
 	 */
 	public function validateUpload() {
-		$this->validateCreate();
+		WCF::getSession()->checkPermissions(array('user.news.picture.canUpload'));
 
 		if (count($this->parameters['__files']->getFiles()) != 1) {
 			throw new UserInputException('files');
