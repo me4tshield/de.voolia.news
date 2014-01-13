@@ -23,6 +23,11 @@ abstract class AbstractNewsModerationQueueHandler extends AbstractModerationQueu
 	protected $className = 'news\data\news\News';
 
 	/**
+	 * @see	\wcf\system\moderation\queue\AbstractModerationQueueHandler::$objectType
+	 */
+	protected $objectType = 'de.voolia.news.entry';
+
+	/**
 	 * list of news objects
 	 * @var	array<news\data\news\News>
 	 */
@@ -98,6 +103,8 @@ abstract class AbstractNewsModerationQueueHandler extends AbstractModerationQueu
 		foreach ($queues as $object) {
 			if (isset($news[$object->objectID])) {
 				$object->setAffectedObject($news[$object->objectID]);
+			} else {
+				$object->setIsOrphaned();
 			}
 		}
 	}

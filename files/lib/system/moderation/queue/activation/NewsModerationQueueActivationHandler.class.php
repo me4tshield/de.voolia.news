@@ -18,6 +18,11 @@ use wcf\system\WCF;
  */
 class NewsModerationQueueActivationHandler extends AbstractNewsModerationQueueHandler implements IModerationQueueActivationHandler {
 	/**
+	 * @see	\wcf\system\moderation\queue\AbstractModerationQueueHandler::$definitionName
+	 */
+	protected $definitionName = 'com.woltlab.wcf.moderation.activation';
+
+	/**
 	 * @see	\wcf\system\moderation\queue\activation\IModerationQueueActivationHandler::enableContent()
 	 */
 	public function enableContent(ModerationQueue $queue) {

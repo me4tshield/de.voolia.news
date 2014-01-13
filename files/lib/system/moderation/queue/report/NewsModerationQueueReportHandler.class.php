@@ -17,6 +17,11 @@ use wcf\system\WCF;
  */
 class NewsModerationQueueReportHandler extends AbstractNewsModerationQueueHandler implements IModerationQueueReportHandler {
 	/**
+	 * @see	\wcf\system\moderation\queue\AbstractModerationQueueHandler::$definitionName
+	 */
+	protected $definitionName = 'com.woltlab.wcf.moderation.report';
+
+	/**
 	 * @see	\wcf\system\moderation\queue\report\IModerationQueueReportHandler::getReportedObject()
 	 */
 	public function getReportedObject($objectID) {
