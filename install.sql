@@ -61,13 +61,14 @@ CREATE TABLE news1_news_source (
 	sourceLink VARCHAR(255) NOT NULL DEFAULT '',
 	sourceText VARCHAR(255) NOT NULL DEFAULT '',
 
-	KEY newsID (newsID)
+	KEY (newsID)
 );
 
 DROP TABLE IF EXISTS news1_news_to_category;
 CREATE TABLE news1_news_to_category (
 	categoryID INT(10) NOT NULL,
 	newsID INT(10) NOT NULL,
+
 	PRIMARY KEY (categoryID, newsID)
 );
 
@@ -84,7 +85,13 @@ CREATE TABLE news1_news_update (
 	enableSmilies TINYINT(1) NOT NULL DEFAULT 1,
 	enableHtml TINYINT(1) NOT NULL DEFAULT 0,
 	enableBBCodes TINYINT(1) NOT NULL DEFAULT 1,
+
+	KEY (newsID)
 );
+
+-- columns
+ALTER TABLE wcf1_user ADD newsEntries INT(10) NOT NULL DEFAULT 0;
+ALTER TABLE wcf1_user ADD INDEX newsEntries (newsEntries);
 
 -- foreign keys
 ALTER TABLE news1_news ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE SET NULL;

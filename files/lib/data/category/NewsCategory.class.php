@@ -19,6 +19,8 @@ use wcf\system\WCF;
  * @package	de.voolia.news
  */
 class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvider {
+	const OBJECT_TYPE = 'de.voolia.news.category';
+
 	/**
 	 * acl permissions for this news category
 	 * @var	array<boolean>
@@ -37,7 +39,7 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 	 * @return	boolean
 	 */
 	public function isAccessible() {
-		if ($this->getObjectType()->objectType != 'de.voolia.news.category') return false;
+		if ($this->getObjectType()->objectType != self::OBJECT_TYPE) return false;
 
 		// check news permissions
 		return $this->getPermission('canViewCategory');
@@ -65,7 +67,7 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 	 */
 	public static function getAccessibleCategoryIDs(array $permissions = array('canViewCategory')) {
 		$categoryIDs = array();
-		foreach (CategoryHandler::getInstance()->getCategories('de.voolia.news.category') as $category) {
+		foreach (CategoryHandler::getInstance()->getCategories(self::OBJECT_TYPE) as $category) {
 			$result = true;
 			$category = new NewsCategory($category);
 			foreach ($permissions as $permission) {
@@ -132,7 +134,7 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 
 				// if the cache does not exist, or is outdated
 				if ($data[WCF::getUser()->userID] === null) {
-					$objectTypeID = UserObjectWatchHandler::getInstance()->getObjectTypeID('de.voolia.news.category');
+					$objectTypeID = UserObjectWatchHandler::getInstance()->getObjectTypeID(self::OBJECT_TYPE);
 
 					$sql = "SELECT	objectID
 						FROM	wcf".WCF_N."_user_object_watch

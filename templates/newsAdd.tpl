@@ -125,7 +125,7 @@
 				<dl{if $errorField == 'sources'} class="formError"{/if}>
 					<dt><label>{lang}news.entry.add.form.information.sources.title{/lang}</label></dt>
 					<dd class="sortableListContainer" id="sourceContainer">
-						<ol{if NEWS_ENTRY_SOURCES_MAXCOUNT!= 1} class="sortableList"{/if}></ol>
+						<ol{if NEWS_ENTRY_SOURCES_MAXCOUNT != 1} class="sortableList"{/if}></ol>
 						{if $errorField == 'sources'}
 							<small class="innerError">
 								{if $errorType == 'empty'}

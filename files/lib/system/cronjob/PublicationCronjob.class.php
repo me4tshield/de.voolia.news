@@ -36,7 +36,7 @@ class PublicationCronjob extends AbstractCronjob {
 		// get outdated news
 		$newsList = new NewsList();
 		$newsList->getConditionBuilder()->add('news.isArchived = 0');
-		$newsList->getConditionBuilder()->add('news.archivingDate != 0 AND news.archivingDate <= ?', array(TIME_NOW));
+		$newsList->getConditionBuilder()->add('news.archivingDate <> 0 AND news.archivingDate <= ?', array(TIME_NOW));
 		$newsList->readObjects();
 
 		if (count($newsList->getObjects())) {
