@@ -10,7 +10,7 @@ use wcf\util\StringUtil;
 /**
  * Parses the [news] bbcode tag.
  * 
- * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@me.com>
+ * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
  * @copyright	2013 voolia.de
  * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
