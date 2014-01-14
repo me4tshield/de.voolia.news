@@ -20,7 +20,7 @@
 			<environment>admin</environment>
 			<templatename>index</templatename>
 			<eventname>tabMenuContents</eventname>
-			<templatecode><![CDATA[{include file='__newsCredits' application='news'}]]></templatecode>
+			<templatecode><![CDATA[{include file='__credits' application='news'}]]></templatecode>
 		</templatelistener>
 
 		<templatelistener name="newsCreditsTabs">
@@ -34,7 +34,7 @@
 			<environment>admin</environment>
 			<templatename>index</templatename>
 			<eventname>softwareVersions</eventname>
-			<templatecode><![CDATA[{include file='__newsVersion' application='news'}]]></templatecode>
+			<templatecode><![CDATA[{include file='__version' application='news'}]]></templatecode>
 		</templatelistener>
 		<!-- /admin -->
 

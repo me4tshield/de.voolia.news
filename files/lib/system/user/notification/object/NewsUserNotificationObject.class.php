@@ -6,7 +6,7 @@ use wcf\system\user\notification\object\IUserNotificationObject;
 /**
  * Represents a news entry as a notification object.
  * 
- * @author	Pascal Bade
+ * @author	Pascal Bade <mail@voolia.de>
  * @copyright	2013 voolia.de
  * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news

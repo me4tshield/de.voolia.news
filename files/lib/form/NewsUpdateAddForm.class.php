@@ -12,7 +12,7 @@ use wcf\system\WCF;
 use wcf\util\HeaderUtil;
 
 /**
- * @author	Florian Frantzen
+ * @author	Florian Frantzen <ray176@me.com>
  * @copyright	2013 voolia.de
  * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news

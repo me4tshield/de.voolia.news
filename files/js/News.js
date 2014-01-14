@@ -1,7 +1,7 @@
 /**
  * JavaScript for the news plugin.
  * 
- * @author	Pascal Bade, Florian Frantzen
+ * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@me.com>
  * @copyright	2013 voolia.de
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	de.voolia.news

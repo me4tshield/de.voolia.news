@@ -4,7 +4,7 @@
 
 		<dl>
 			<dt>{lang}wcf.acp.index.newsCredits.developedBy{/lang}</dt>
-			<dd><a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"http://www.voolia.de"|rawurlencode}" class="externalURL">voolia</a></dd>
+			<dd><a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"http://voolia.de"|rawurlencode}" class="externalURL">voolia.de</a></dd>
 		</dl>
 
 		<dl>

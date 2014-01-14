@@ -1,7 +1,7 @@
 /**
  * Javascript for the news pictures.
  * 
- * @author	Florian Frantzen
+ * @author	Florian Frantzen <ray176@me.com>
  * @copyright	2013 voolia.de
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	de.voolia.news
