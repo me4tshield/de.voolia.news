@@ -9,16 +9,16 @@
 							<header class="messageHeader">
 								{if NEWS_ENABLE_NEWSPICTURE}
 									<div class="box32">
-										<a href="{link application='news' controller='News' object=$news}{/link}" class="framed">
+										<a href="{$news->getLink()}" class="framed">
 											<img src="{@$news->getNewsPicture()->getURL()}" class="newsImage" alt="" />
 										</a>
 								{/if}
 
 								<div class="messageHeadline">
-									<h1>{if $news->newsUpdates}<span class="badge badgeUpdate">{lang}news.entry.newsUpdate.badge{/lang}</span> {/if}<a href="{link application='news' controller='News' object=$news}{/link}">{$news->subject}</a>{if NEWS_ENABLE_LANGUAGE_FLAG && $news->languageID} {@$news->getLanguageIcon()}{/if}</h1>
+									<h1>{if $news->newsUpdates}<span class="badge badgeUpdate">{lang}news.entry.newsUpdate.badge{/lang}</span> {/if}<a href="{$news->getLink()}">{$news->subject}</a>{if NEWS_ENABLE_LANGUAGE_FLAG && $news->languageID} {@$news->getLanguageIcon()}{/if}</h1>
 									<p>
 										<span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span>
-										<a href="{link application='news' controller='News' object=$news}{/link}" class="permalink">{@$news->time|time}</a>
+										<a href="{$news->getLink()}" class="permalink">{@$news->time|time}</a>
 										{if $news->getCategories()|count}
 											- {implode from=$news->getCategories() item=category}{if $category->isAccessible()}<a href="{link application='news' controller='NewsOverview' object=$category}{/link}">{$category->getTitle()}</a>{/if}{/implode}
 										{/if}
@@ -61,9 +61,9 @@
 								<footer class="messageOptions">
 									<nav class="jsMobileNavigation buttonGroupNavigation">
 										<ul class="smallButtons buttonGroup">
-											<li><a href="{link application='news' controller='News' object=$news}{/link}" class="button"><span class="icon icon16 icon-arrow-right"></span> <span>{lang}wcf.global.button.readMore{/lang}</span></a></li>
+											<li><a href="{$news->getLink()}" class="button"><span class="icon icon16 icon-arrow-right"></span> <span>{lang}wcf.global.button.readMore{/lang}</span></a></li>
 											{if $news->isCommentable()}
-												<li><a href="{link application='news' controller='News' object=$news}{/link}#comments" title="{lang}news.entry.comments{/lang} ({$news->comments})" class="button jsTooltip"><span class="icon icon16 icon-comments"></span> <span>{$news->comments}</span></a></li>
+												<li><a href="{$news->getLink()}#comments" title="{lang}news.entry.comments{/lang} ({$news->comments})" class="button jsTooltip"><span class="icon icon16 icon-comments"></span> <span>{$news->comments}</span></a></li>
 											{/if}
 											{event name='messageOptions'}
 											<li class="toTopLink"><a href="{$__wcf->getAnchor('top')}" title="{lang}wcf.global.scrollUp{/lang}" class="button jsTooltip"><span class="icon icon16 icon-arrow-up"></span> <span class="invisible">{lang}wcf.global.scrollUp{/lang}</span></a></li>

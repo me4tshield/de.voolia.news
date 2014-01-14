@@ -32,7 +32,7 @@ class NewsDataWorker extends AbstractRebuildDataWorker {
 	 */
 	protected function initObjectList() {
 		parent::initObjectList();
-		
+
 		$this->objectList->sqlOrderBy = 'news.newsID';
 	}
 

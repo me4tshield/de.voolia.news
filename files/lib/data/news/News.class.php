@@ -108,7 +108,7 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	}
 
 	/**
-	 * @see	\wcf\system\request\IRouteController::getTitle()
+	 * @see	\wcf\system\request\IRouteController::getTime()
 	 */
 	public function getTime() {
 		return $this->time;
@@ -142,8 +142,8 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	 */
 	public function getLink() {
 		return LinkHandler::getInstance()->getLink('News', array(
-				'application' => 'news',
-				'object' => $this 
+			'application' => 'news',
+			'object' => $this 
 		));
 	}
 

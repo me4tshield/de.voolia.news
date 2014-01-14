@@ -1,7 +1,7 @@
 {include file='documentHeader'}
 
 <head>
-	<title>{$news->subject} - {lang}news.entry.title{/lang} - {PAGE_TITLE|language}</title>
+	<title>{$news->getTitle()} - {lang}news.entry.title{/lang} - {PAGE_TITLE|language}</title>
 
 	{include file='headInclude'}
 
@@ -108,11 +108,11 @@
 				{foreach from=$moreNewsList item=moreNews}
 					<li class="box24">
 						{if NEWS_ENABLE_NEWSPICTURE}
-							<a href="{link application='news' controller='News' object=$moreNews}{/link}" class="framed"><img src="{@$moreNews->getNewsPicture()->getURL()}" alt="" class="newsImageSidebar" /></a>
+							<a href="{$moreNews->getLink()}" class="framed"><img src="{@$moreNews->getNewsPicture()->getURL()}" alt="" class="newsImageSidebar" /></a>
 						{/if}
 
 						<div class="sidebarBoxHeadline">
-							<h3><a href="{link application='news' controller='News' object=$moreNews}{/link}" class="newsPreview" data-news-id="{@$moreNews->newsID}" title="{$moreNews->subject}">{$moreNews->subject}</a></h3>
+							<h3><a href="{$moreNews->getLink()}" class="newsPreview" data-news-id="{@$moreNews->newsID}" title="{$moreNews->getTitle()}">{$moreNews->getTitle()}</a></h3>
 							<small>{$moreNews->views} {lang}news.sidebar.entry.general.views{/lang} {* TODO: Add views & comments *}</small>
 						</div>
 					</li>
@@ -160,16 +160,16 @@
 						<header class="messageHeader">
 							{if NEWS_ENABLE_NEWSPICTURE}
 								<div class="box32">
-									<a href="{link application='news' controller='News' object=$news}{/link}" class="framed">
+									<a href="{$news->getLink()}" class="framed">
 										<img src="{@$news->getNewsPicture()->getURL()}" class="newsImage" alt="" />
 									</a>
 							{/if}
 
 							<div class="messageHeadline">
-								<h1><a href="{link application='news' controller='News' object=$news}{/link}">{$news->subject}</a></h1>
+								<h1><a href="{$news->getLink()}">{$news->subject}</a></h1>
 								<p>
 									<span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span>
-									<a href="{link application='news' controller='News' object=$news}{/link}" class="permalink">{@$news->time|time}</a>
+									<a href="{$news->getLink()}" class="permalink">{@$news->time|time}</a>
 								</p>
 							</div>
 
