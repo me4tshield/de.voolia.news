@@ -1,4 +1,4 @@
-{if $__wcf->getSession()->getPermission('user.news.canViewNews') && $vooliaNewsList|count}
+{if $__wcf->getSession()->getPermission('user.news.canViewNews') && $newsList|count}
 	<script data-relocate="true" type="text/javascript">
 		//<![CDATA[
 			$(function() {
@@ -13,19 +13,19 @@
 	<div class="container containerPadding marginTop">
 		<div class="slideshowContainer newsSlideshowContainer">
 			<ul>
-				{foreach from=$vooliaNewsList item=vooliaNews}
+				{foreach from=$newsList item=news}
 				<li class="newsSlideshow">
 					{if NEWS_ENABLE_NEWSPICTURE}
 						<div class="box32">
-							<a href="{link application='news' controller='News' object=$vooliaNews}{/link}" class="framed">
-								<img src="{@$vooliaNews->getNewsPicture()->getURL()}" class="newsImage" alt="" />
+							<a href="{link application='news' controller='News' object=$news}{/link}" class="framed">
+								<img src="{@$news->getNewsPicture()->getURL()}" class="newsImage" alt="" />
 							</a>
 					{/if}
 
 					<div>
 						<div class="containerHeadline">
-							<h3><a href="{link application='news' controller='News' object=$vooliaNews}{/link}" class="newsPreview" data-news-id="{@$vooliaNews->newsID}" title="{$vooliaNews->subject}">{$vooliaNews->subject}</a></h3>
-							<p><small><span class="username"><a href="{link controller='User' object=$vooliaNews->getUserProfile()}{/link}" class="userLink" data-user-id="{$vooliaNews->userID}">{$vooliaNews->username}</a></span> - {@$vooliaNews->time|time} - {lang}news.dashboard.box.hotnews.comments{/lang}</small></p>
+							<h3><a href="{link application='news' controller='News' object=$news}{/link}" class="newsPreview" data-news-id="{@$news->newsID}" title="{$news->subject}">{$news->subject}</a></h3>
+							<p><small><span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span> - {@$news->time|time} - {lang}news.dashboard.box.hotnews.comments{/lang}</small></p>
 						</div>
 					</div>
 

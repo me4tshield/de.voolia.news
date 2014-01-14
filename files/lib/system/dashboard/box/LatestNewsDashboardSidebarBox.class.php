@@ -19,7 +19,7 @@ class LatestNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * latest news entries list
 	 * @var	\news\data\news\AccessibleNewsList
 	 */
-	public $vooliaNewsList = null;
+	public $newsList = null;
 
 	/**
 	 * @see	\wcf\system\dashboard\box\IDashboardBox::init()
@@ -27,10 +27,10 @@ class LatestNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	public function init(DashboardBox $box, IPage $page) {
 		parent::init($box, $page);
 
-		$this->vooliaNewsList = new AccessibleNewsList();
-		$this->vooliaNewsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
-		$this->vooliaNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
-		$this->vooliaNewsList->readObjects();
+		$this->newsList = new AccessibleNewsList();
+		$this->newsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
+		$this->newsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
+		$this->newsList->readObjects();
 
 		$this->fetched();
 	}
@@ -39,10 +39,10 @@ class LatestNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * @see	\wcf\system\dashboard\box\AbstractContentDashboardBox::render()
 	 */
 	protected function render() {
-		if (!count($this->vooliaNewsList)) return '';
+		if (!count($this->newsList)) return '';
 
 		WCF::getTPL()->assign(array(
-			'vooliaNewsList' => $this->vooliaNewsList
+			'newsList' => $this->newsList
 		));
 
 		return WCF::getTPL()->fetch('dashboardSidebarBoxLatestNews', 'news');

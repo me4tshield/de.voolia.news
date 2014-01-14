@@ -19,7 +19,7 @@ class MostViewedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * most viewed news entries list
 	 * @var	\news\data\news\AccessibleNewsList
 	 */
-	public $vooliaNewsList = null;
+	public $newsList = null;
 
 	/**
 	 * @see	\wcf\system\dashboard\box\IDashboardBox::init()
@@ -27,12 +27,12 @@ class MostViewedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	public function init(DashboardBox $box, IPage $page) {
 		parent::init($box, $page);
 
-		$this->vooliaNewsList = new AccessibleNewsList();
-		$this->vooliaNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
-		$this->vooliaNewsList->getConditionBuilder()->add("news.views > ?", array(0));
-		$this->vooliaNewsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
-		$this->vooliaNewsList->sqlOrderBy = 'news.views DESC';
-		$this->vooliaNewsList->readObjects();
+		$this->newsList = new AccessibleNewsList();
+		$this->newsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
+		$this->newsList->getConditionBuilder()->add("news.views > ?", array(0));
+		$this->newsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
+		$this->newsList->sqlOrderBy = 'news.views DESC';
+		$this->newsList->readObjects();
 
 		$this->fetched();
 	}
@@ -41,10 +41,10 @@ class MostViewedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * @see	\wcf\system\dashboard\box\AbstractContentDashboardBox::render()
 	 */
 	protected function render() {
-		if (!count($this->vooliaNewsList)) return '';
+		if (!count($this->newsList)) return '';
 
 		WCF::getTPL()->assign(array(
-			'vooliaNewsList' => $this->vooliaNewsList
+			'newsList' => $this->newsList
 		));
 
 		return WCF::getTPL()->fetch('dashboardSidebarBoxMostViewedNews', 'news');

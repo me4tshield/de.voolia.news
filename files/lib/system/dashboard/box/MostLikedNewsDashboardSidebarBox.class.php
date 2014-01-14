@@ -19,7 +19,7 @@ class MostLikedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * most liked news entries list
 	 * @var	\news\data\news\AccessibleNewsList
 	 */
-	public $vooliaNewsList = null;
+	public $newsList = null;
 
 	/**
 	 * @see	\wcf\system\dashboard\box\IDashboardBox::init()
@@ -27,12 +27,12 @@ class MostLikedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	public function init(DashboardBox $box, IPage $page) {
 		parent::init($box, $page);
 
-		$this->vooliaNewsList = new AccessibleNewsList();
-		$this->vooliaNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
-		$this->vooliaNewsList->getConditionBuilder()->add("news.cumulativeLikes > ?", array(0));
-		$this->vooliaNewsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
-		$this->vooliaNewsList->sqlOrderBy = 'news.cumulativeLikes DESC';
-		$this->vooliaNewsList->readObjects();
+		$this->newsList = new AccessibleNewsList();
+		$this->newsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
+		$this->newsList->getConditionBuilder()->add("news.cumulativeLikes > ?", array(0));
+		$this->newsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
+		$this->newsList->sqlOrderBy = 'news.cumulativeLikes DESC';
+		$this->newsList->readObjects();
 
 		$this->fetched();
 	}
@@ -41,10 +41,10 @@ class MostLikedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 	 * @see	\wcf\system\dashboard\box\AbstractContentDashboardBox::render()
 	 */
 	protected function render() {
-		if (!count($this->vooliaNewsList) || !MODULE_LIKE || !WCF::getSession()->getPermission('user.like.canViewLike')) return '';
+		if (!count($this->newsList) || !MODULE_LIKE || !WCF::getSession()->getPermission('user.like.canViewLike')) return '';
 
 		WCF::getTPL()->assign(array(
-			'vooliaNewsList' => $this->vooliaNewsList
+			'newsList' => $this->newsList
 		));
 
 		return WCF::getTPL()->fetch('dashboardSidebarBoxMostLikedNews', 'news');

@@ -35,8 +35,8 @@
 	</category>
 
 	<category name="news.dashboard">
-		<item name="news.dashboard.box.hotnews.comments"><![CDATA[{#$vooliaNews->comments} Comment{if $vooliaNews->comments != 1}s{/if}]]></item>
-		<item name="news.dashboard.box.mostviewed.views"><![CDATA[{#$vooliaNews->views} Views]]></item>
+		<item name="news.dashboard.box.hotnews.comments"><![CDATA[{#$news->comments} Comment{if $news->comments != 1}s{/if}]]></item>
+		<item name="news.dashboard.box.mostviewed.views"><![CDATA[{#$news->views} Views]]></item>
 	</category>
 
 	<category name="news.entry">
