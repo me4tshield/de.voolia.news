@@ -11,14 +11,18 @@
 	<li>
 		<h3>{lang}wcf.page.sitemap.news.categories{/lang}</h3>
 		<ul>
-			{foreach from=$categoryNodeList item=categoryNode}
+			{foreach from=$categoryList item=category}
 				<li>
-					<a href="{link application='news' controller='NewsOverview' object=$categoryNode->getDecoratedObject()}{/link}">{$categoryNode->getDecoratedObject()->title|language}</a>
+					<a href="{link application='news' controller='NewsOverview' object=$category->getDecoratedObject()}{/link}">{$category->getDecoratedObject()->title|language}</a>
 
-				{if $categoryNode->hasChildren()}<ul>{else}<ul></ul></li>{/if}
+				{if $category->hasChildren()}
+					<ul>
+				{else}
+					</li>
 
-				{if !$categoryNode->hasChildren() && $categoryNode->isLastSibling()}
-					{@"</ul></li>"|str_repeat:$categoryNode->getOpenParentNodes()}
+					{if $category->isLastSibling()}
+						{@"</ul></li>"|str_repeat:$category->getOpenParentNodes()}
+					{/if}
 				{/if}
 			{/foreach}
 		</ul>

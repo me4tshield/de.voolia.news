@@ -17,11 +17,12 @@ class NewsSitemapProvider implements ISitemapProvider {
 	 * @see	\wcf\system\sitemap\ISitemapProvider::getTemplate()
 	 */
 	public function getTemplate() {
-		// get all accessible news categories
-		$categoryList = new NewsCategoryNodeTree('de.voolia.news.category');
+		$categoryTree = new NewsCategoryNodeTree('de.voolia.news.category');
+		$categoryList = $categoryTree->getIterator();
+		$categoryList->setMaxDepth(1);
 
 		WCF::getTPL()->assign(array(
-			'categoryNodeList' => $categoryList->getIterator()
+			'categoryList' => $categoryList
 		));
 
 		// init template
