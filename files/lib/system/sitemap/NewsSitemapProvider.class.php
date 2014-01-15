@@ -25,6 +25,6 @@ class NewsSitemapProvider implements ISitemapProvider {
 		));
 
 		// init template
-		return WCF::getTPL()->fetch('newsSitemap', 'news');
+		return WCF::getTPL()->fetch('sitemap', 'news');
 	}
 }

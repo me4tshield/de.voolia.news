@@ -23,20 +23,15 @@ class NewsCategoryType extends AbstractCategoryType {
 	protected $langVarPrefix = 'wcf.news.category';
 
 	/**
-	 * @see	\wcf\system\category\AbstractCategoryType::$maximumNestingLevel
-	 */
-	protected $maximumNestingLevel = 1;
-
-	/**
 	 * @see	\wcf\system\category\AbstractCategoryType::$objectTypes
 	 */
 	protected $objectTypes = array('com.woltlab.wcf.acl' => 'de.voolia.news.category');
 
 	/**
-	 * @see	\wcf\system\category\ICategoryType::getApplication()
+	 * @see	\wcf\system\category\ICategoryType::afterDeletion()
 	 */
-	public function getApplication() {
-		return 'news';
+	public function afterDeletion(CategoryEditor $categoryEditor) {
+		UserObjectWatchHandler::getInstance()->deleteObjects('de.voolia.news.category', array($categoryEditor->categoryID));
 	}
 
 	/**
@@ -61,10 +56,9 @@ class NewsCategoryType extends AbstractCategoryType {
 	}
 
 	/**
-	 * @see	\wcf\system\category\ICategoryType::afterDeletion()
+	 * @see	\wcf\system\category\ICategoryType::getApplication()
 	 */
-	public function afterDeletion(CategoryEditor $categoryEditor) {
-		// delete the news category subscriptions
-		UserObjectWatchHandler::getInstance()->deleteObjects('de.voolia.news.category', array($categoryEditor->categoryID));
+	public function getApplication() {
+		return 'news';
 	}
 }

@@ -217,16 +217,9 @@
 				<dt><label for="categoryIDs">{lang}news.entry.add.form.settings.category.title{/lang}</label></dt>
 				<dd>
 					<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
-						{foreach from=$categoryList item=categoryItem}
-							{if $categoryItem->canUseCategory()}
-								<option value="{@$categoryItem->categoryID}"{if $categoryItem->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$categoryItem->getPermission('canAddSources')}" data-can-set-tags="{$categoryItem->getPermission('canSetTags')}">{$categoryItem->getTitle()}</option>
-								{if $categoryItem->hasChildren()}
-									{foreach from=$categoryItem item=subCategoryItem}
-										{if $subCategoryItem->canUseCategory()}
-											<option value="{@$subCategoryItem->categoryID}"{if $subCategoryItem->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$subCategoryItem->getPermission('canAddSources')}" data-can-set-tags="{$subCategoryItem->getPermission('canSetTags')}">&nbsp; &nbsp; {$subCategoryItem->getTitle()}</option>
-										{/if}
-									{/foreach}
-								{/if}
+						{foreach from=$categoryList item=category}
+							{if $category->canUseCategory()}
+								<option value="{@$category->categoryID}"{if $category->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$category->getPermission('canAddSources')}" data-can-set-tags="{$category->getPermission('canSetTags')}">{@"&nbsp;&nbsp;&nbsp;&nbsp;"|str_repeat:$category->getDepth()}{$category->getTitle()}</option>
 							{/if}
 						{/foreach}
 					</select>

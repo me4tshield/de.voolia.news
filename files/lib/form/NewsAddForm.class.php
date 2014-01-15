@@ -456,7 +456,6 @@ class NewsAddForm extends MessageForm {
 		// get the accessible news categories
 		$categoryTree = new NewsCategoryNodeTree('de.voolia.news.category');
 		$this->categoryList = $categoryTree->getIterator();
-		$this->categoryList->setMaxDepth(0);
 
 		if (empty($_POST)) {
 			// multilingualism
