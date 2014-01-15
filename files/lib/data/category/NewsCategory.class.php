@@ -83,6 +83,16 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 	}
 
 	/**
+	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
+	 */
+	public function getBreadcrumb() {
+		return new Breadcrumb(WCF::getLanguage()->get($this->title), LinkHandler::getInstance()->getLink('NewsOverview', array(
+			'application' => 'news',
+			'object' => $this->getDecoratedObject()
+		)));
+	}
+
+	/**
 	 * @see	\wcf\data\IPermissionObject::getPermission()
 	 */
 	public function getPermission($permission) {
@@ -95,25 +105,6 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 		}
 
 		return true;
-	}
-
-	/**
-	 * @see	\wcf\system\breadcrumb\IBreadcrumbProvider::getBreadcrumb()
-	 */
-	public function getBreadcrumb() {
-		return new Breadcrumb(WCF::getLanguage()->get($this->title), LinkHandler::getInstance()->getLink('NewsOverview', array(
-			'application' => 'news',
-			'object' => $this->getDecoratedObject()
-		)));
-	}
-
-	/**
-	 * Returns true, if the user has subscribed to the news category.
-	 * 
-	 * @return	boolean
-	 */
-	public function isSubscribed() {
-		return (in_array($this->categoryID, self::getSubscribedCategoryIDs()));
 	}
 
 	/**
@@ -155,5 +146,14 @@ class NewsCategory extends AbstractDecoratedCategory implements IBreadcrumbProvi
 		}
 
 		return self::$subscribedCategories;
+	}
+
+	/**
+	 * Returns true, if the user has subscribed to the news category.
+	 * 
+	 * @return	boolean
+	 */
+	public function isSubscribed() {
+		return (in_array($this->categoryID, self::getSubscribedCategoryIDs()));
 	}
 }

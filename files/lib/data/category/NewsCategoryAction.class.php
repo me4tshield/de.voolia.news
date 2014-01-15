@@ -26,6 +26,11 @@ class NewsCategoryAction extends AbstractDatabaseObjectAction {
 	protected $allowGuestAccess = array('markAllAsRead');
 
 	/**
+	 * Validates the mark all as read action.
+	 */
+	public function validateMarkAllAsRead() { /* nothing */ }
+
+	/**
 	 * Marks all news categories as read.
 	 */
 	public function markAllAsRead() {
@@ -41,9 +46,4 @@ class NewsCategoryAction extends AbstractDatabaseObjectAction {
 			UserNotificationHandler::getInstance()->deleteNotifications('news', 'de.voolia.news.entry', array(WCF::getUser()->userID));
 		}
 	}
-
-	/**
-	 * Validates the mark all as read action.
-	 */
-	public function validateMarkAllAsRead() { /* Does nothing */ }
 }

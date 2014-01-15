@@ -28,6 +28,33 @@ class NewsCategoryCache extends SingletonFactory {
 	protected $unreadNews = null;
 
 	/**
+	 * Gets the news.
+	 */
+	public function getNews($categoryID) {
+		if ($this->news === null) {
+			$this->initNews();
+		}
+
+		if (isset($this->news[$categoryID])) return $this->news[$categoryID];
+		return 0;
+	}
+
+	/**
+	 * Gets the number of unread news.
+	 * 
+	 * @param	integer		$categoryID
+	 * @return	integer
+	 */
+	public function getUnreadNews($categoryID) {
+		if ($this->unreadNews === null) {
+			$this->initUnreadNews();
+		}
+
+		if (isset($this->unreadNews[$categoryID])) return $this->unreadNews[$categoryID];
+		return 0;
+	}
+
+	/**
 	 * Calculates the number of news.
 	 */
 	protected function initNews() {
@@ -55,18 +82,6 @@ class NewsCategoryCache extends SingletonFactory {
 		while ($row = $statement->fetchArray()) {
 			$this->news[$row['categoryID']] = $row['count'];
 		}
-	}
-
-	/**
-	 * Gets the news.
-	 */
-	public function getNews($categoryID) {
-		if ($this->news === null) {
-			$this->initNews();
-		}
-
-		if (isset($this->news[$categoryID])) return $this->news[$categoryID];
-		return 0;
 	}
 
 	/**
@@ -101,20 +116,5 @@ class NewsCategoryCache extends SingletonFactory {
 				$this->unreadNews[$row['categoryID']] = $row['count'];
 			}
 		}
-	}
-
-	/**
-	 * Gets the number of unread news.
-	 * 
-	 * @param	integer		$categoryID
-	 * @return	integer
-	 */
-	public function getUnreadNews($categoryID) {
-		if ($this->unreadNews === null) {
-			$this->initUnreadNews();
-		}
-
-		if (isset($this->unreadNews[$categoryID])) return $this->unreadNews[$categoryID];
-		return 0;
 	}
 }
