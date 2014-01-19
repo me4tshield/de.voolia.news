@@ -98,7 +98,7 @@
 		<item name="news.entry.commentResponseOwner.notification.message"><![CDATA[Hat eine Antwort zum Kommentar von „{$commentAuthor->username}“ zur News „{$news->subject}“ geschrieben.]]></item>
 		<item name="news.entry.commentResponseOwner.notification.mail"><![CDATA[{@$author->username} hat eine Antwort zum Kommentar von "{@$commentAuthor->username}" zur News "{@$news->subject}" geschrieben:
 {link application='news' controller='News' object=$news encode=false forceFrontend=true}#comments{/link}]]></item>
-		<item name="news.entry.comments"><![CDATA[Kommentare]]></item>
+		<item name="news.entry.comments"><![CDATA[Kommentare{if $news->comments != 1}e{/if} <span class="badge">{#$news->comments}</span>]]></item>
 		<item name="news.entry.comments.statisticBox"><![CDATA[News-Kommentare]]></item>
 		<item name="news.entry.comments.noEntry"><![CDATA[Es wurden noch keine Kommentare verfasst.]]></item>
 		<item name="news.entry.delayedPublication"><![CDATA[Diese News wird am {@$news->publicationDate|plainTime} veröffentlicht.]]></item>
