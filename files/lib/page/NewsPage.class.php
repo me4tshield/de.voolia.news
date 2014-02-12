@@ -165,6 +165,7 @@ class NewsPage extends AbstractPage {
 
 		// more news from this category
 		$this->moreNewsList = new AccessibleNewsList();
+		$this->moreNewsList->enableAttachmentLoading(false);
 		$this->moreNewsList->getConditionBuilder()->add("news.newsID IN (SELECT newsID FROM news".WCF_N."_news_to_category WHERE categoryID IN (?))", array($this->news->getCategoryIDs()));
 		$this->moreNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
 		$this->moreNewsList->readObjects();

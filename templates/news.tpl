@@ -106,7 +106,7 @@
 
 			<ul>
 				{foreach from=$moreNewsList item=moreNews}
-					<li class="box24">
+					<li{if NEWS_ENABLE_NEWSPICTURE} class="box24"{/if}>
 						{if NEWS_ENABLE_NEWSPICTURE}
 							<a href="{$moreNews->getLink()}" class="framed"><img src="{@$moreNews->getNewsPicture()->getURL()}" alt="" class="newsImageSidebar" /></a>
 						{/if}

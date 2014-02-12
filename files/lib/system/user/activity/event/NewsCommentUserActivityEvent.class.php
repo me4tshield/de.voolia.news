@@ -33,6 +33,7 @@ class NewsCommentUserActivityEvent extends SingletonFactory implements IUserActi
 		}
 		if (!empty($newsIDs)) {
 			$newsList = new ViewableNewsList();
+			$newsList->enableAttachmentLoading(false);
 			$newsList->getConditionBuilder()->add("news.newsID IN (?)", array($newsIDs));
 			$newsList->readObjects();
 			$news = $newsList->getObjects();

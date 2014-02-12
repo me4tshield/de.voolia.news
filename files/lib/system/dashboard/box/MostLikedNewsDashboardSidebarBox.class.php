@@ -28,6 +28,7 @@ class MostLikedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 		parent::init($box, $page);
 
 		$this->newsList = new AccessibleNewsList();
+		$this->newsList->enableAttachmentLoading(false);
 		$this->newsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
 		$this->newsList->getConditionBuilder()->add("news.cumulativeLikes > ?", array(0));
 		$this->newsList->getConditionBuilder()->add("news.isArchived = ?", array(0));

@@ -28,6 +28,7 @@ class LatestNewsDashboardContentBox extends AbstractContentDashboardBox {
 		parent::init($box, $page);
 
 		$this->newsList = new AccessibleNewsList();
+		$this->newsList->enableAttachmentLoading(false);
 		$this->newsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
 		$this->newsList->sqlLimit = NEWS_DASHBOARD_LATEST_ENTRIES;
 		$this->newsList->readObjects();
