@@ -24,6 +24,7 @@ class LikeableNewsUserActivityEvent extends SingletonFactory implements IUserAct
 		}
 
 		$newsList = new ViewableNewsList();
+		$newsList->enableAttachmentLoading(false);
 		$newsList->getConditionBuilder()->add("news.newsID IN (?)", array($newsIDs));
 		$newsList->readObjects();
 		$newsEntries = $newsList->getObjects();

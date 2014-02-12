@@ -28,6 +28,7 @@ class MostViewedNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 		parent::init($box, $page);
 
 		$this->vooliaNewsList = new AccessibleNewsList();
+		$this->vooliaNewsList->enableAttachmentLoading(false);
 		$this->vooliaNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
 		$this->vooliaNewsList->getConditionBuilder()->add("news.views > ?", array(0));
 		$this->vooliaNewsList->getConditionBuilder()->add("news.isArchived = ?", array(0));

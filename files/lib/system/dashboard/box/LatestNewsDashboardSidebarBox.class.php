@@ -28,6 +28,7 @@ class LatestNewsDashboardSidebarBox extends AbstractSidebarDashboardBox {
 		parent::init($box, $page);
 
 		$this->vooliaNewsList = new AccessibleNewsList();
+		$this->vooliaNewsList->enableAttachmentLoading(false);
 		$this->vooliaNewsList->getConditionBuilder()->add("news.isArchived = ?", array(0));
 		$this->vooliaNewsList->sqlLimit = NEWS_DASHBOARD_SIDEBAR_ENTRIES;
 		$this->vooliaNewsList->readObjects();

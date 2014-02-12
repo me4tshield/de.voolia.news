@@ -24,6 +24,7 @@ class NewsUserActivityEvent extends SingletonFactory implements IUserActivityEve
 		}
 
 		$newsList = new ViewableNewsList();
+		$newsList->enableAttachmentLoading(false);
 		$newsList->getConditionBuilder()->add("news.newsID IN (?)", array($objectIDs));
 		$newsList->readObjects();
 		$newsEntries = $newsList->getObjects();
