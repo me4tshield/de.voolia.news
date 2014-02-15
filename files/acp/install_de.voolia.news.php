@@ -5,11 +5,15 @@ use wcf\system\dashboard\DashboardHandler;
 use wcf\system\WCF;
 
 /**
- * @author	Pascal Bade <mail@voolia.de>
+ * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
  * @copyright	2012-2013 voolia.de
- * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
+ * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
+$sql = "UPDATE	wcf".WCF_N."_option
+	SET	optionValue = ?
+	WHERE	optionName = ?";
+$optionUpdateStatement = WCF::getDB()->prepareStatement($sql);
 
 // set default news category
 CategoryEditor::create(array(
@@ -32,24 +36,16 @@ $statement->execute();
 
 // set default page title
 if (!defined('PAGE_TITLE') || !PAGE_TITLE) {
-	$sql = "UPDATE	wcf".WCF_N."_option
-		SET	optionValue = ?
-		WHERE	optionName = ?";
-	$statement = WCF::getDB()->prepareStatement($sql);
-	$statement->execute(array('News-System', 'page_title'));
+	$optionUpdateStatement->execute(array('News-System', 'page_title'));
 }
 
+// default dashboard settings
 DashboardHandler::setDefaultValues('de.voolia.news.NewsOverviewPage', array(
 	'de.voolia.news.tagCloud' => 1
 ));
-
 DashboardHandler::setDefaultValues('de.voolia.news.NewsArchivePage', array(
 	'de.voolia.news.tagCloud' => 1
 ));
 
 // set install date
-$sql = "UPDATE	wcf".WCF_N."_option
-	SET	optionValue = ?
-	WHERE	optionName = ?";
-$statement = WCF::getDB()->prepareStatement($sql);
-$statement->execute(array(TIME_NOW, 'news_install_date'));
+$optionUpdateStatement->execute(array(TIME_NOW, 'news_install_date'));

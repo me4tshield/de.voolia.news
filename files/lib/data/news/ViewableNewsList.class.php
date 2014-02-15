@@ -13,7 +13,7 @@ use wcf\system\WCF;
  * 
  * @author	Pascal Bade <mail@voolia.de>
  * @copyright	2013 voolia.de
- * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
+ * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
 class ViewableNewsList extends NewsList {
@@ -48,13 +48,9 @@ class ViewableNewsList extends NewsList {
 
 		// get author avatar
 		if (!empty($this->sqlSelects)) $this->sqlSelects .= ', ';
-		$this->sqlSelects .= "user_avatar.*, user_avatar.width as avatarWidth, user_avatar.height as avatarHeight, user_avatar.fileHash as avatarFileHash, user_table.*";
+		$this->sqlSelects .= "user_avatar.*, user_table.*";
 		$this->sqlJoins .= " LEFT JOIN wcf".WCF_N."_user user_table ON (user_table.userID = news.userID)";
 		$this->sqlJoins .= " LEFT JOIN wcf".WCF_N."_user_avatar user_avatar ON (user_avatar.avatarID = user_table.avatarID)";
-
-		// get news picture
-		$this->sqlSelects .= ", news_picture.categoryID, news_picture.fileHash, news_picture.fileExtension";
-		$this->sqlJoins .= " LEFT JOIN news".WCF_N."_news_picture news_picture ON (news.pictureID = news_picture.pictureID)";
 
 		// get the news like status
 		$this->sqlSelects .= ", like_object.likes, like_object.dislikes";

@@ -1,6 +1,6 @@
 <?php
 namespace news\data\news;
-use news\data\news\picture\NewsPicture;
+use news\data\news\picture\NewsPictureCache;
 use news\data\news\update\ViewableNewsUpdateList;
 use wcf\data\user\User;
 use wcf\data\user\UserProfile;
@@ -14,9 +14,9 @@ use wcf\system\WCF;
 /**
  * Represents a viewable news entry.
  * 
- * @author	Pascal Bade <mail@voolia.de>
+ * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
  * @copyright	2013 voolia.de
- * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
+ * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
 class ViewableNews extends DatabaseObjectDecorator {
@@ -30,12 +30,6 @@ class ViewableNews extends DatabaseObjectDecorator {
 	 * @var	integer
 	 */
 	protected $effectiveVisitTime = null;
-
-	/**
-	 * news picture object
-	 * @var	\news\data\news\picture\NewsPicture
-	 */
-	protected $newsPicture = null;
 
 	/**
 	 * viewable news update list
@@ -55,11 +49,7 @@ class ViewableNews extends DatabaseObjectDecorator {
 	 * @return	\news\data\news\picture\NewsPicture
 	 */
 	public function getNewsPicture() {
-		if ($this->newsPicture === null) {
-			$this->newsPicture = new NewsPicture(null, $this->getDecoratedObject()->data);
-		}
-
-		return $this->newsPicture;
+		return NewsPictureCache::getInstance()->getPicture($this->pictureID);
 	}
 
 	/**
@@ -84,15 +74,7 @@ class ViewableNews extends DatabaseObjectDecorator {
 	 */
 	public function getUserProfile() {
 		if ($this->userProfile === null) {
-			$userData = $this->getDecoratedObject()->data;
-
-			if (isset($userData['avatarFileHash'])) {
-				$userData['fileHash'] = $userData['avatarFileHash'];
-				$userData['width'] = $userData['avatarWidth'];
-				$userData['height'] = $userData['avatarHeight'];
-			}
-
-			$this->userProfile = new UserProfile(new User(null, $userData));
+			$this->userProfile = new UserProfile(new User(null, $this->getDecoratedObject()->data));
 		}
 
 		return $this->userProfile;

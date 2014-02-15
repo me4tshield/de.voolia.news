@@ -1,16 +1,18 @@
 <?php
 namespace news\data\news\picture;
+use news\system\cache\builder\NewsPictureCacheBuilder;
 use wcf\data\DatabaseObjectEditor;
+use wcf\data\IEditableCachedObject;
 
 /**
  * Provides functions to edit news pictures.
  * 
- * @author	Pascal Bade <mail@voolia.de>
+ * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
  * @copyright	2013 voolia.de
- * @license	Creative Commons CC-BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
+ * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
-class NewsPictureEditor extends DatabaseObjectEditor {
+class NewsPictureEditor extends DatabaseObjectEditor implements IEditableCachedObject {
 	/**
 	 * @see	\wcf\data\DatabaseObjectEditor::$baseClass
 	 */
@@ -38,5 +40,12 @@ class NewsPictureEditor extends DatabaseObjectEditor {
 		if (file_exists($this->getLocation())) {
 			@unlink($this->getLocation());
 		}
+	}
+
+	/**
+	 * @see	\wcf\data\IEditableCachedObject::resetCache()
+	 */
+	public static function resetCache() {
+		NewsPictureCacheBuilder::getInstance()->reset();
 	}
 }
