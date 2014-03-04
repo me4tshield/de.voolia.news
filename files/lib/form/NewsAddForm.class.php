@@ -227,9 +227,6 @@ class NewsAddForm extends MessageForm {
 		parent::validate();
 
 		// validate the news category ids
-		if (empty($this->categoryIDs)) {
-			throw new UserInputException('categoryIDs', 'empty');
-		}
 		foreach ($this->categoryIDs as $categoryID) {
 			$category = CategoryHandler::getInstance()->getCategory($categoryID);
 			if ($category === null) throw new UserInputException('categoryIDs');

@@ -49,6 +49,7 @@
 				<categoryname>news.index</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>10</defaultvalue>
+				<min>1</min>
 			</option>
 			<option name="news_index_categories">
 				<categoryname>news.index</categoryname>
@@ -146,6 +147,7 @@
 				<categoryname>news.entry.sources</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+				<min>1</min>
 			</option>
 			<!-- /news.entry.sources -->
 
@@ -159,16 +161,19 @@
 				<categoryname>dashboard.content.news</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+				<min>1</min>
 			</option>
 			<option name="news_dashboard_latest_entries">
 				<categoryname>dashboard.content.news</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+				<min>1</min>
 			</option>
 			<option name="news_dashboard_slideshow_interval">
 				<categoryname>dashboard.content.news</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+				<min>1</min>
 			</option>
 			<!-- /dashboard.content.news -->
 
@@ -177,6 +182,7 @@
 				<categoryname>dashboard.sidebar.news</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
+				<min>1</min>
 			</option>
 			<!-- /dashboard.sidebar.news -->
 		</options>

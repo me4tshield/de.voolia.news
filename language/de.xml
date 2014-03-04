@@ -173,7 +173,7 @@
 		<item name="news.sidebar.entry.general.comments"><![CDATA[Kommentare]]></item>
 		<item name="news.sidebar.entry.general.views"><![CDATA[Aufrufe]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[Weitere News der Kategorie]]></item>
-		<item name="news.sidebar.letterList.title"><![CDATA[News nach Anfangsbuchstabe]]></item>
+		<item name="news.sidebar.letterList.title"><![CDATA[Anfangsbuchstabe]]></item>
 	</category>
 
 	<category name="news.user">
