@@ -3,7 +3,7 @@
  * 
  * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
  * @copyright	2013 voolia.de
- * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
 
