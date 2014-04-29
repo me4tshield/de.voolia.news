@@ -18,6 +18,10 @@
 		<requiredpackage minversion="2.0.0">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
+	<excludedpackages>
+		<excludedpackage version="2.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+	</excludedpackages>
+
 	<optionalpackages>
 		<optionalpackage file="optionals/de.voolia.news.wbb.tar">de.voolia.news.wbb</optionalpackage>
 		<optionalpackage file="optionals/de.voolia.news.wbb.slideshow.tar">de.voolia.news.wbb.slideshow</optionalpackage>

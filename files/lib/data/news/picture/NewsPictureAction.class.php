@@ -187,7 +187,8 @@ class NewsPictureAction extends AbstractDatabaseObjectAction {
 					throw new UserInputException('picture', 'uploadFailed');
 				}
 			}
-		} catch (UserInputException $e) {
+		}
+		catch (UserInputException $e) {
 			$file->setValidationErrorType($e->getType());
 		}
 

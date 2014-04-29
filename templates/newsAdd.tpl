@@ -175,7 +175,7 @@
 		<fieldset>
 			<legend>{lang}news.entry.add.form.settings.title{/lang}</legend>
 
-			{if NEWS_ENABLE_NEWSPICTURE}
+			{if NEWS_ENABLE_NEWSPICTURE && $__wcf->getSession()->getPermission('user.news.picture.canUpload')}
 				<dl class="pictureInput{if $errorField == 'newsPicture'} formError{/if}">
 					<dt><label for="newsPicture">{lang}news.entry.add.form.settings.newspicture.title{/lang}</label></dt>
 					<dd>

@@ -104,8 +104,8 @@ class NewsUpdate extends NewsDatabaseObject implements IMessage {
 		return $this->username;
 	}
 
- 	/**
-	 * @see	\wcf\data\IMessage::isVisible()
+	/**
+	 * @see  \wcf\data\IMessage::isVisible()
 	 */
 	public function isVisible() {
 		return $this->getNews()->canRead();
