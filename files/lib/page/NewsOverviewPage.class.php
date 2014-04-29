@@ -1,7 +1,7 @@
 <?php
 namespace news\page;
-use news\data\category\NewsCategoryNodeTree;
 use news\data\category\NewsCategory;
+use news\data\category\NewsCategoryNodeTree;
 use news\data\news\NewsCategoryList;
 use news\system\cache\builder\NewsStatsCacheBuilder;
 use news\system\NEWSCore;
