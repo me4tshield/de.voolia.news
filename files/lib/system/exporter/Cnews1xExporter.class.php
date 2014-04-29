@@ -2,6 +2,7 @@
 namespace news\system\exporter;
 use wcf\data\like\Like;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
+use wcf\system\exporter\AbstractExporter;
 use wcf\system\importer\ImportHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
