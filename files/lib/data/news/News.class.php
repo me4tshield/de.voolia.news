@@ -14,10 +14,10 @@ use wcf\system\breadcrumb\Breadcrumb;
 use wcf\system\breadcrumb\IBreadcrumbProvider;
 use wcf\system\category\CategoryHandler;
 use wcf\system\comment\CommentHandler;
-use wcf\system\news\NewsPermissionHandler;
 use wcf\system\language\LanguageFactory;
-use wcf\system\request\LinkHandler;
+use wcf\system\news\NewsPermissionHandler;
 use wcf\system\request\IRouteController;
+use wcf\system\request\LinkHandler;
 use wcf\util\StringUtil;
 use wcf\system\WCF;
 
@@ -345,29 +345,29 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	 * Update the hits of a news entry
 	 */
 	public function updateVisits() {
-        	$views = $this->views + 1;
+		$views = $this->views + 1;
 
 		// update news views
-        	$sql = "UPDATE	news".WCF_N."_news
+		$sql = "UPDATE	news".WCF_N."_news
              	   	SET	views = ".$views."
              	   	WHERE	newsID = ?";
-             	$statement = WCF::getDB()->prepareStatement($sql);
-             	$statement->execute(array($this->newsID));
-        }
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->newsID));
+	}
 
 	/**
 	 * Update the number of news updates
 	 */
 	public function updateNewsUpdates() {
-        	$newsUpdates = $this->newsUpdates - 1;
+		$newsUpdates = $this->newsUpdates - 1;
 
 		// update news updates
-        	$sql = "UPDATE	news".WCF_N."_news
+		$sql = "UPDATE	news".WCF_N."_news
              	   	SET	newsUpdates = ".$newsUpdates."
              	   	WHERE	newsID = ?";
-             	$statement = WCF::getDB()->prepareStatement($sql);
-             	$statement->execute(array($this->newsID));
-        }
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->newsID));
+	}
 
 	/**
 	 * Returns a poll object for a news entry.

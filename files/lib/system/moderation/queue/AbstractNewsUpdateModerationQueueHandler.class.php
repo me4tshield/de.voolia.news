@@ -1,7 +1,7 @@
 <?php
 namespace news\system\moderation\queue;
-use news\data\news\update\NewsUpdateList;
 use news\data\news\update\NewsUpdateAction;
+use news\data\news\update\NewsUpdateList;
 use news\data\news\update\NewsUpdate;
 use wcf\data\moderation\queue\ModerationQueue;
 use wcf\system\moderation\queue\AbstractModerationQueueHandler;

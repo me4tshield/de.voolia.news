@@ -1,13 +1,13 @@
 <?php
 namespace news\page;
-use news\data\category\NewsCategory;
 use news\data\category\NewsCategoryNodeTree;
-use news \data\news\NewsCategoryList;
+use news\data\category\NewsCategory;
+use news\data\news\NewsCategoryList;
 use news\system\cache\builder\NewsStatsCacheBuilder;
 use news\system\NEWSCore;
 use wcf\data\category\Category;
-use wcf\data\user\User;
 use wcf\data\user\online\UsersOnlineList;
+use wcf\data\user\User;
 use wcf\page\MultipleLinkPage;
 use wcf\system\category\CategoryHandler;
 use wcf\system\comment\CommentHandler;

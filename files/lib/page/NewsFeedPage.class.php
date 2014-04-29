@@ -1,7 +1,7 @@
 <?php
 namespace news\page;
-use news\data\news\NewsFeedList;
 use news\data\category\NewsCategory;
+use news\data\news\NewsFeedList;
 use wcf\page\AbstractFeedPage;
 use wcf\system\category\CategoryHandler;
 use wcf\system\exception\IllegalLinkException;

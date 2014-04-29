@@ -100,25 +100,25 @@ class NewsUpdateAddForm extends MessageForm {
 		$this->objectAction->executeAction();
 
 		// update news entry
-        	$sql = "UPDATE	news".WCF_N."_news
+		$sql = "UPDATE	news".WCF_N."_news
              	   	SET	newsUpdates = newsUpdates + 1
              	   	WHERE	newsID = ?";
-             	$statement = WCF::getDB()->prepareStatement($sql);
-             	$statement->execute(array($this->newsID));
+		$statement = WCF::getDB()->prepareStatement($sql);
+		$statement->execute(array($this->newsID));
 
-	     	// set news as new
-	     	if ($this->setNewsAsNew) {
-        		$sql = "UPDATE	news".WCF_N."_news
+		// set news as new
+		if ($this->setNewsAsNew) {
+			$sql = "UPDATE	news".WCF_N."_news
              	   		SET	time = ?
 	     	   		WHERE	newsID = ?";
-	     	   	$statement = WCF::getDB()->prepareStatement($sql);
-	     	   	$statement->execute(array(TIME_NOW, $this->newsID));
+			$statement = WCF::getDB()->prepareStatement($sql);
+			$statement->execute(array(TIME_NOW, $this->newsID));
 
-		     	$sql = "DELETE FROM	wcf".WCF_N."_tracked_visit
+			$sql = "DELETE FROM	wcf".WCF_N."_tracked_visit
 		     		WHERE		objectTypeID = ?
 		     		AND		objectID = ?";
-		     	$statement = WCF::getDB()->prepareStatement($sql);
-		     	$statement->execute(array(VisitTracker::getInstance()->getObjectTypeID('de.voolia.news.entry'), $this->newsID));
+			$statement = WCF::getDB()->prepareStatement($sql);
+			$statement->execute(array(VisitTracker::getInstance()->getObjectTypeID('de.voolia.news.entry'), $this->newsID));
 		}
 
 		// redirect to news entry
