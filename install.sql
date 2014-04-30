@@ -40,6 +40,14 @@ CREATE TABLE news1_news (
 	KEY (languageID)
 );
 
+DROP TABLE IF EXISTS news1_news_author;
+CREATE TABLE IF EXISTS news1_news_author (
+	newsID INT(10) NOT NULL,
+	userID INT(10) NOT NULL,
+
+	PRIMARY KEY (newsID, userID)
+);
+
 DROP TABLE IF EXISTS news1_news_picture;
 CREATE TABLE news1_news_picture (
 	pictureID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -99,12 +107,15 @@ ALTER TABLE news1_news ADD FOREIGN KEY (languageID) REFERENCES wcf1_language (la
 ALTER TABLE news1_news ADD FOREIGN KEY (pictureID) REFERENCES news1_news_picture (pictureID) ON DELETE SET NULL;
 ALTER TABLE news1_news ADD FOREIGN KEY (pollID) REFERENCES wcf1_poll (pollID) ON DELETE SET NULL;
 
-ALTER TABLE news1_news_to_category ADD FOREIGN KEY (categoryID) REFERENCES wcf1_category (categoryID) ON DELETE CASCADE;
-ALTER TABLE news1_news_to_category ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
+ALTER TABLE news1_news_author ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
+ALTER TABLE news1_news_author ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
 
 ALTER TABLE news1_news_picture ADD FOREIGN KEY (categoryID) REFERENCES wcf1_category (categoryID) ON DELETE SET NULL;
 
 ALTER TABLE news1_news_source ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
+
+ALTER TABLE news1_news_to_category ADD FOREIGN KEY (categoryID) REFERENCES wcf1_category (categoryID) ON DELETE CASCADE;
+ALTER TABLE news1_news_to_category ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
 
 ALTER TABLE news1_news_update ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
 ALTER TABLE news1_news_update ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE SET NULL;
