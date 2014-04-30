@@ -13,6 +13,7 @@
 		<item name="news.acp.entry.picture.categoryAll"><![CDATA[Alle]]></item>
 		<item name="news.acp.entry.picture.edit"><![CDATA[Newsbild bearbeiten]]></item>
 		<item name="news.acp.entry.picture.error.noCategories"><![CDATA[Bevor Sie ein Newsbild hinzufügen können, müssen Sie eine <a href="{link controller='NewsPictureCategoryAdd' application='news'}{/link}">Newsbild-Kategorie hinzufügen</a>.]]></item>
+		<item name="news.acp.entry.picture.error.savingFailed"><![CDATA[Beim Speichern des Newsbildes ist ein unbekannter Fehler aufgetreten.]]></item>
 		<item name="news.acp.entry.picture.list"><![CDATA[Newsbilder]]></item>
 		<item name="news.acp.entry.picture.newspicture"><![CDATA[Bild-Datei]]></item>
 		<item name="news.acp.entry.picture.category.add"><![CDATA[Newsbild-Kategorie hinzufügen]]></item>
@@ -330,6 +331,10 @@
 		<item name="wcf.dashboard.box.de.voolia.news.mostLikedNewsSidebar"><![CDATA[Meistbewertete News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostViewedNewsSidebar"><![CDATA[Meistgelesene News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.tagCloud"><![CDATA[Tags]]></item>
+	</category>
+
+	<category name="wcf.like">
+		<item name="wcf.like.objectType.de.voolia.news.likeableNews"><![CDATA[News]]></item>
 	</category>
 
 	<category name="wcf.moderation">
