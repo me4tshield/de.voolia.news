@@ -26,7 +26,7 @@ class NewsBBCode extends AbstractBBCode {
 		}
 
 		$displayMode = 'link';
-		if (isset($openingTag['attributes'][1])) {
+		if ($parser->getOutputType() == 'text/html' && isset($openingTag['attributes'][1])) {
 			$displayMode = $openingTag['attributes'][1];
 		}
 

@@ -13,6 +13,7 @@
 		<item name="news.acp.entry.picture.categoryAll"><![CDATA[All]]></item>
 		<item name="news.acp.entry.picture.edit"><![CDATA[Edit newspicture]]></item>
 		<item name="news.acp.entry.picture.error.noCategories"><![CDATA[Please <a href="{link controller='NewsPictureCategoryAdd' application='news'}{/link}">add a newspicture group</a> prior to upload a new newspicture.]]></item>
+		<item name="news.acp.entry.picture.error.savingFailed"><![CDATA[An unknown error occured during upload.]]></item>
 		<item name="news.acp.entry.picture.list"><![CDATA[Newspictures]]></item>
 		<item name="news.acp.entry.picture.newspicture"><![CDATA[Newspicture file]]></item>
 		<item name="news.acp.entry.picture.category.add"><![CDATA[Add newspicture category]]></item>
@@ -105,7 +106,7 @@
 		<item name="news.entry.delete.sure"><![CDATA[Do you really want to delete the news?]]></item>
 		<item name="news.entry.editNote"><![CDATA[News was edit {$news->editCount} times, last by „{$news->editUser}“{if $news->editReason} with the reason „{$news->editReason}“{/if} ({@$news->editTime|time})]]></item>
 		<item name="news.entry.edit.title"><![CDATA[Edit news]]></item>
-		<item name="news.entry.enableAutomaticArchiving"><![CDATA[News automatisch archivieren]]></item>
+		<item name="news.entry.enableAutomaticArchiving"><![CDATA[Automatically archive]]></item>
 		<item name="news.entry.isHot"><![CDATA[Recommendation]]></item>
 		<item name="news.entry.markAllAsRead"><![CDATA[Mark All News As Read]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
@@ -172,7 +173,7 @@
 		<item name="news.sidebar.entry.general.comments"><![CDATA[Comments]]></item>
 		<item name="news.sidebar.entry.general.views"><![CDATA[Views]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[More news from this category]]></item>
-		<item name="news.sidebar.letterList.title"><![CDATA[News nach Anfangsbuchstabe]]></item>
+		<item name="news.sidebar.letterList.title"><![CDATA[News by first letter]]></item>
 	</category>
 
 	<category name="news.user">
@@ -250,11 +251,10 @@
 		<item name="wcf.acp.group.option.mod.news.canDeleteComment"><![CDATA[Can delete comments]]></item>
 		<item name="wcf.acp.group.option.mod.news.canUploadNewsPicture"><![CDATA[Can upload new newspicture]]></item>
 		<item name="wcf.acp.group.option.mod.news.canDeleteNewsPicture"><![CDATA[Can delete newspicture]]></item>
-		<item name="wcf.acp.group.option.category.admin.content.news"><![CDATA[News-System]]></item>
-		<item name="wcf.acp.group.option.admin.content.news.category.canListCategory"><![CDATA[Can see news categories]]></item>
-		<item name="wcf.acp.group.option.admin.content.news.category.canAddCategory"><![CDATA[Can add new news categories]]></item>
-		<item name="wcf.acp.group.option.admin.content.news.category.canDeleteCategory"><![CDATA[Can delete news categories]]></item>
-		<item name="wcf.acp.group.option.admin.content.news.category.canEditCategory"><![CDATA[Can edit news categories]]></item>
+		<item name="wcf.acp.group.option.category.admin.news"><![CDATA[News-System]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageCategory"><![CDATA[Can manage news categories]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageNewsPictureCategory"><![CDATA[Can manage newspicture categories]]></item>
+		<item name="wcf.acp.group.option.admin.news.canManageNewsPicture"><![CDATA[Can manage newspictures]]></item>
 	</category>
 
 	<category name="wcf.acp.index">
@@ -330,6 +330,10 @@
 		<item name="wcf.dashboard.box.de.voolia.news.mostLikedNewsSidebar"><![CDATA[Most liked News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostViewedNewsSidebar"><![CDATA[Most Viewed News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.tagCloud"><![CDATA[Tags]]></item>
+	</category>
+
+	<category name="wcf.like">
+		<item name="wcf.like.objectType.de.voolia.news.likeableNews"><![CDATA[News]]></item>
 	</category>
 
 	<category name="wcf.moderation">
