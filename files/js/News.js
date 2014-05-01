@@ -503,8 +503,8 @@ News.Source.Managment = Class.extend({
 		}
 
 		// insert input field
-		var $textInput = $('<input type="text" name="sourceText[]" class="jsSourceText" value="' + sourceText + '" placeholder="' + WCF.Language.get('news.entry.add.form.information.sources.input.title') + '" />').css({ width: this._inputSize + "px" }).keydown($.proxy(this._keyDown, this)).appendTo($listItem);
-		var $linkInput = $('<input type="text" name="sourceLink[]" class="jsSourceLink" value="' + sourceLink + '" placeholder="' + WCF.Language.get('news.entry.add.form.information.sources.input.link') + '" />').css({ width: this._inputSize + "px" }).keydown($.proxy(this._keyDown, this)).appendTo($listItem);
+		var $textInput = $('<input type="text" name="sourceText[]" class="jsSourceText" value="' + sourceText + '" maxlength="2048" placeholder="' + WCF.Language.get('news.entry.add.form.information.sources.input.title') + '" />').css({ width: this._inputSize + "px" }).keydown($.proxy(this._keyDown, this)).appendTo($listItem);
+		var $linkInput = $('<input type="text" name="sourceLink[]" class="jsSourceLink" value="' + sourceLink + '" maxlength="2048" placeholder="' + WCF.Language.get('news.entry.add.form.information.sources.input.link') + '" />').css({ width: this._inputSize + "px" }).keydown($.proxy(this._keyDown, this)).appendTo($listItem);
 
 		if (insertAfter !== null) {
 			$textInput.focus();

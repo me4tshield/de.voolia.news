@@ -130,6 +130,8 @@
 							<small class="innerError">
 								{if $errorType == 'empty'}
 									{lang}wcf.global.form.error.empty{/lang}
+								{else}
+									{lang}news.entry.add.form.information.sources.error.{@$errorType}{/lang}
 								{/if}
 							</small>
 						{/if}

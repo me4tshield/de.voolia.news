@@ -49,6 +49,7 @@
 		<item name="news.entry.add.form.information.title"><![CDATA[Informationen]]></item>
 		<item name="news.entry.add.form.information.subject.title"><![CDATA[Titel]]></item>
 		<item name="news.entry.add.form.information.sources.description"><![CDATA[Sie können hier eine oder mehrere Quellen angeben. Beide Felder sind optional, wobei mindestens ein Feld ausgefüllt werden muss.]]></item>
+		<item name="news.entry.add.form.information.sources.error.tooLong"><![CDATA[Mindestens einer der Quellenbeschreibungen oder Links ist zu lang. Quellenbeschreibung und Link dürfen jeweils maximal 2048 Zeichen umfassen.]]></item>
 		<item name="news.entry.add.form.information.sources.title"><![CDATA[Quellen]]></item>
 		<item name="news.entry.add.form.information.sources.input.title"><![CDATA[Name]]></item>
 		<item name="news.entry.add.form.information.sources.input.link"><![CDATA[Link]]></item>

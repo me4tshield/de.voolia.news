@@ -333,6 +333,13 @@ class NewsAddForm extends MessageForm {
 				throw new UserInputException('sources', 'tooMany');
 			}
 		}
+
+		// check text and link length
+		foreach ($this->sources as $source) {
+			if (mb_strlen($source['sourceLink']) > 2048 || mb_strlen($source['sourceText']) > 2048) {
+				throw new UserInputException('sources', 'tooLong');
+			}
+		}
 	}
 
 	/**
