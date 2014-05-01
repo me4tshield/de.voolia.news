@@ -1,7 +1,6 @@
 <?php
 namespace news\data\news;
 use wcf\data\like\object\AbstractLikeObject;
-use wcf\system\request\LinkHandler;
 
 /**
  * Implementation for likeable object.
@@ -35,10 +34,7 @@ class LikeableNews extends AbstractLikeObject {
 	 * @see	\wcf\data\like\object\ILikeObject::getURL()
 	 */
 	public function getURL() {
-		return LinkHandler::getInstance()->getLink('News', array(
-				'application' => 'news',
-				'newsID' => $this->newsID 
-		), '#news' . $this->newsID);
+		return $this->getDecoratedObject()->getLink();
 	}
 
 	/**

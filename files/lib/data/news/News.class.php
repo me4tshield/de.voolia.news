@@ -142,8 +142,8 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	 */
 	public function getLink() {
 		return LinkHandler::getInstance()->getLink('News', array(
-				'application' => 'news',
-				'object' => $this 
+			'application' => 'news',
+			'object' => $this 
 		));
 	}
 
