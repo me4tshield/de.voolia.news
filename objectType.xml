@@ -82,6 +82,11 @@
 			<definitionname>com.woltlab.wcf.exporter</definitionname>
 			<classname>news\system\exporter\VooliaNews1xExporter</classname>
 		</type>
+		<type>
+			<name>de.voolia.news.exporter.wordpress3x</name>
+			<definitionname>com.woltlab.wcf.exporter</definitionname>
+			<classname>news\system\exporter\WordPress3xExporter</classname>
+		</type>
 		<!-- /Exporter -->
 
 		<!-- Importer -->

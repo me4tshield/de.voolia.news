@@ -201,6 +201,7 @@
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.cnews1x"><![CDATA[cNews 1.0.x]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.voolianews1x"><![CDATA[voolia News-System 1.0.x]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.wordpress3x"><![CDATA[WordPress 3.7+ zu voolia News-System 1.0+]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.yaycom1x"><![CDATA[yaycom News-System 1.0.x]]></item>
 	</category>
 
