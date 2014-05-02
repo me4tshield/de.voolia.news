@@ -17,13 +17,6 @@ class LikeableNews extends AbstractLikeObject {
 	protected static $baseClass = 'news\data\news\News';
 
 	/**
-	 * @see	\wcf\data\like\object\ILikeObject::getObjectID()
-	 */
-	public function getObjectID() {
-		return $this->newsID;
-	}
-
-	/**
 	 * @see	\wcf\data\like\object\ILikeObject::getTitle()
 	 */
 	public function getTitle() {
