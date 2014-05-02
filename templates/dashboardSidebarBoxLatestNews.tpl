@@ -1,5 +1,5 @@
 {if $__wcf->getSession()->getPermission('user.news.canViewNews')}
-	<ul class="sidebarBoxList">
+	<ul class="sidebarBoxList dashboardSidebarBoxLatestNews">
 		{foreach from=$vooliaNewsList item=vooliaNews}
 			<li{if NEWS_ENABLE_NEWSPICTURE} class="box24"{/if}>
 				{if NEWS_ENABLE_NEWSPICTURE}
