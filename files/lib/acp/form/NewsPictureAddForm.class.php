@@ -75,6 +75,7 @@ class NewsPictureAddForm extends AbstractForm {
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
+
 		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
 	}
 
@@ -83,6 +84,11 @@ class NewsPictureAddForm extends AbstractForm {
 	 */
 	public function validate() {
 		parent::validate();
+
+		// validate picture
+		if (!$this->picture) {
+			throw new UserInputException('picture');
+		}
 
 		// validate category id
 		$category = CategoryHandler::getInstance()->getCategory($this->categoryID);
