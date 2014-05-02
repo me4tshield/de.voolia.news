@@ -1,9 +1,9 @@
 <div class="tabMenuContainer" data-active="newsPictureInspectorUpload">
 	<nav class="tabMenu">
 		<ul>
-			<li><a href="#newsPictureInspectorUpload">{lang}news.entry.picture.add{/lang}</a></li>
+			<li><a href="#newsPictureInspectorUpload">{lang}wcf.global.button.upload{/lang}</a></li>
 			{if $categoryID|isset}
-				<li><a href="#newsPictureInspectorPicker">{lang}wcf.global.button.upload{/lang}</a></li>
+				<li><a href="#newsPictureInspectorPicker">{lang}news.entry.picture.button.choose{/lang}</a></li>
 			{/if}
 		</ul>
 	</nav>

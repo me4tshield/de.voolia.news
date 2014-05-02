@@ -29,7 +29,7 @@
 
 			{if NEWS_ENABLE_NEWSPICTURE}
 				WCF.Language.addObject({
-					'news.entry.picture.add': '{lang}news.entry.picture.add{/lang}'
+					'news.entry.picture.button.choose': '{lang}news.entry.picture.button.choose{/lang}'
 				});
 				new News.Picture.Managment($('#pictureInspectorButton'), $('#pictureID'));
 			{/if}
@@ -202,7 +202,7 @@
 						</ul>
 
 						<div id="pictureInspectorButton">
-							<span class="button small">{lang}news.entry.add.form.settings.newspicture.search{/lang}</span>
+							<span class="button small">{lang}news.entry.picture.button.choose{/lang}</span>
 						</div>
 						{if $errorField == 'newsPicture'}
 							<small class="innerError">

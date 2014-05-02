@@ -162,7 +162,7 @@ News.Picture.Managment = Class.extend({
 
 			// show dialog
 			this._dialog.wcfDialog({
-				title: WCF.Language.get('news.entry.picture.add')
+				title: WCF.Language.get('news.entry.picture.button.choose')
 			});
 
 			this._didInit = true;
