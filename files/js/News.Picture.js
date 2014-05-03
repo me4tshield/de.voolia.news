@@ -128,6 +128,9 @@ News.Picture.Managment = Class.extend({
 		var $picture = $(event.currentTarget);
 		this._inputField.val($picture.data('objectID'));
 
+		// update displayed picture
+		$picture.clone().appendTo($('.pictureInput ul').html(''));
+
 		// close dialog
 		this._dialog.wcfDialog('close');
 	},

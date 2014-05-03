@@ -40,7 +40,7 @@
 					</dd>
 				</dl>
 
-				<dl{if $errorField == 'picture'} class="formError"{/if} id="picture">
+				<dl class="pictureInput{if $errorField == 'picture'} formError{/if}">
 					<dt><label>{lang}news.entry.picture{/lang}</label></dt>
 					<dd>
 						<ul>
