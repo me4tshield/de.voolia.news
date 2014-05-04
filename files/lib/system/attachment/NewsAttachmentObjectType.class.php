@@ -1,6 +1,7 @@
 <?php
 namespace news\system\attachment;
 use news\data\news\News;
+use news\data\news\NewsList;
 use wcf\system\attachment\AbstractAttachmentObjectType;
 use wcf\system\WCF;
 use wcf\util\ArrayUtil;
@@ -15,6 +16,22 @@ use wcf\util\ArrayUtil;
  */
 class NewsAttachmentObjectType extends AbstractAttachmentObjectType {
 	/**
+	 * cached news objects
+	 * @var	array<\news\data\news\News>
+	 */
+	protected $cachedObjects = array();
+
+	/**
+	 * @see	\wcf\system\attachment\IAttachmentObjectType::cacheObjects()
+	 */
+	public function cacheObjects(array $objectIDs) {
+		$newsList = new NewsList();
+		$newsList->setObjectIDs($objectIDs);
+		$newsList->readObjects();
+		$this->cachedObjects = $newsList->getObjects();
+	}
+
+	/**
 	 * @see	\wcf\system\attachment\IAttachmentObjectType::getAllowedExtensions()
 	 */
 	public function getAllowedExtensions() {
@@ -26,6 +43,14 @@ class NewsAttachmentObjectType extends AbstractAttachmentObjectType {
 	 */
 	public function getMaxCount() {
 		return WCF::getSession()->getPermission('user.news.maxAttachmentCount');
+	}
+
+	/**
+	 * @see	\wcf\system\attachment\IAttachmentObjectType::getObject()
+	 */
+	public function getObject($objectID) {
+		if (isset($this->cachedObjects[$objectID])) return $this->cachedObjects[$objectID];
+		return null;
 	}
 
 	/**

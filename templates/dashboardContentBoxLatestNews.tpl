@@ -10,7 +10,7 @@
 		//]]>
 	</script>
 
-	<div class="container containerPadding marginTop">
+	<div class="container containerPadding marginTop dashboardContentBoxLatestNews">
 		<div class="slideshowContainer newsSlideshowContainer">
 			<ul>
 				{foreach from=$newsList item=news}

@@ -31,6 +31,7 @@ class NewsCommentImporter extends AbstractCommentImporter {
 	 */
 	public function import($oldID, array $data, array $additionalData = array()) {
 		$data['objectID'] = ImportHandler::getInstance()->getNewID('de.voolia.news.entry', $data['objectID']);
+		if (!$data['objectID']) return 0;
 
 		return parent::import($oldID, $data);
 	}

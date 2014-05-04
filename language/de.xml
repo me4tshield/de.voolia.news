@@ -65,7 +65,6 @@
 		<item name="news.entry.add.form.settings.editReason.title"><![CDATA[Bearbeitungsgrund]]></item>
 		<item name="news.entry.add.form.settings.isHot.title"><![CDATA[News ist eine Empfehlung]]></item>
 		<item name="news.entry.add.form.settings.newspicture.description"><![CDATA[Sie können hier ein Newsbild hinzufügen, welches neben dem Titel der News oder auch im Archiv angezeigt wird.]]></item>
-		<item name="news.entry.add.form.settings.newspicture.search"><![CDATA[Vorhandenes Newsbild auswählen]]></item>
 		<item name="news.entry.add.form.settings.newspicture.title"><![CDATA[Newsbild]]></item>
 		<item name="news.entry.add.form.settings.newspicture.upload"><![CDATA[Neues Newsbild hochladen]]></item>
 		<item name="news.entry.archivingDate"><![CDATA[Archivierungsdatum]]></item>
@@ -119,6 +118,7 @@
 {link application='news' controller='News' object=$news encode=false forceFrontend=true}{/link}]]></item>
 		<item name="news.entry.picture"><![CDATA[Newsbild]]></item>
 		<item name="news.entry.picture.add"><![CDATA[Newsbild hinzufügen]]></item>
+		<item name="news.entry.picture.button.choose"><![CDATA[Newsbild auswählen]]></item>
 		<item name="news.entry.picture.error.savingFailed"><![CDATA[Beim Speichern des Newsbildes ist ein unbekannter Fehler aufgetreten.]]></item>
 		<item name="news.entry.picture.error.tooLarge"><![CDATA[Das Newsbild ist zu groß.]]></item>
 		<item name="news.entry.picture.error.uploadFailed"><![CDATA[Beim Hochladen des Newsbildes ist ein unbekannter Fehler aufgetreten.]]></item>
@@ -202,6 +202,7 @@
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.cnews1x"><![CDATA[cNews 1.0.x]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.voolianews1x"><![CDATA[voolia News-System 1.0.x]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.wordpress3x"><![CDATA[WordPress 3.7+ zu voolia News-System 1.0+]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.yaycom1x"><![CDATA[yaycom News-System 1.0.x]]></item>
 	</category>
 

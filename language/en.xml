@@ -64,7 +64,6 @@
 		<item name="news.entry.add.form.settings.editReason.title"><![CDATA[Edit reason]]></item>
 		<item name="news.entry.add.form.settings.isHot.title"><![CDATA[News is a recommendation]]></item>
 		<item name="news.entry.add.form.settings.newspicture.description"><![CDATA[Add a newspicture for your news, to display the picture left from the title.]]></item>
-		<item name="news.entry.add.form.settings.newspicture.search"><![CDATA[Choose newspicture]]></item>
 		<item name="news.entry.add.form.settings.newspicture.title"><![CDATA[Newspicture]]></item>
 		<item name="news.entry.add.form.settings.newspicture.upload"><![CDATA[Add new newspicture]]></item>
 		<item name="news.entry.archivingDate"><![CDATA[Date of archiving]]></item>
@@ -118,6 +117,7 @@
 {link application='news' controller='News' object=$news encode=false forceFrontend=true}{/link}]]></item>
 		<item name="news.entry.picture"><![CDATA[News picture]]></item>
 		<item name="news.entry.picture.add"><![CDATA[Add news picture]]></item>
+		<item name="news.entry.picture.button.choose"><![CDATA[Choose picture]]></item>
 		<item name="news.entry.picture.error.savingFailed"><![CDATA[An unknown error occured during upload.]]></item>
 		<item name="news.entry.picture.error.tooLarge"><![CDATA[This news picture is too large.]]></item>
 		<item name="news.entry.picture.error.uploadFailed"><![CDATA[An unknown error occured during saving the news picture.]]></item>
@@ -200,6 +200,7 @@
 		<item name="wcf.acp.dataImport.data.de.voolia.news.like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.cnews1x"><![CDATA[cNews 1.0.x]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.voolianews1x"><![CDATA[voolia News-System 1.0.x]]></item>
+		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.wordpress3x"><![CDATA[WordPress 3.7+ to voolia News-System 1.0+]]></item>
 		<item name="wcf.acp.dataImport.exporter.de.voolia.news.exporter.yaycom1x"><![CDATA[yaycom News-System 1.0.x]]></item>
 	</category>
 

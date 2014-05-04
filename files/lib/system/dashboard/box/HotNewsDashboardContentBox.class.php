@@ -7,7 +7,7 @@ use wcf\system\dashboard\box\AbstractContentDashboardBox;
 use wcf\system\WCF;
 
 /**
- * Dashboard sidebar box for hot news entries.
+ * Dashboard content box for hot news entries.
  * 
  * @author	Pascal Bade <mail@voolia.de>
  * @copyright	2013 voolia.de

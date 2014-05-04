@@ -1,5 +1,17 @@
 {include file='header' pageTitle='news.acp.entry.picture.'|concat:$action}
 
+<script data-relocate="true">
+	//<![CDATA[
+	$(function() {		
+		WCF.Language.addObject({
+			'news.entry.picture.error.savingFailed': '{lang}news.entry.picture.error.savingFailed{/lang}',
+			'news.entry.picture.error.tooLarge': '{lang}news.entry.picture.error.tooLarge{/lang}',
+			'news.entry.picture.error.uploadFailed': '{lang}news.entry.picture.error.uploadFailed{/lang}'
+		});
+	});
+	//]]>
+</script>
+
 <header class="boxHeadline">
 	<h1>{lang}news.acp.entry.picture.{$action}{/lang}</h1>
 </header>
@@ -40,7 +52,7 @@
 					</dd>
 				</dl>
 
-				<dl{if $errorField == 'picture'} class="formError"{/if} id="picture">
+				<dl class="pictureInput{if $errorField == 'picture'} formError{/if}">
 					<dt><label>{lang}news.entry.picture{/lang}</label></dt>
 					<dd>
 						<ul>

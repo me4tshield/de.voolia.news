@@ -1,7 +1,7 @@
 <fieldset>
 	<legend>{lang}news.sidebar.categoryList.title{/lang}</legend>
 	<div>
-		<ol class="sidebarNestedCategoryList">
+		<ol class="sidebarNestedCategoryList newsSidebarCategoryList">
 			{foreach from=$categoryList item=categoryItem}
 				{if $categoryItem->isAccessible()}
 				<li{if $category && $category->categoryID == $categoryItem->categoryID} class="active"{/if}>

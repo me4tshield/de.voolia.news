@@ -128,6 +128,9 @@ News.Picture.Managment = Class.extend({
 		var $picture = $(event.currentTarget);
 		this._inputField.val($picture.data('objectID'));
 
+		// update displayed picture
+		$picture.clone().appendTo($('.pictureInput ul').html(''));
+
 		// close dialog
 		this._dialog.wcfDialog('close');
 	},
@@ -162,7 +165,7 @@ News.Picture.Managment = Class.extend({
 
 			// show dialog
 			this._dialog.wcfDialog({
-				title: WCF.Language.get('news.entry.picture.add')
+				title: WCF.Language.get('news.entry.picture.button.choose')
 			});
 
 			this._didInit = true;
