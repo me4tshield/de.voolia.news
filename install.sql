@@ -41,7 +41,7 @@ CREATE TABLE news1_news (
 );
 
 DROP TABLE IF EXISTS news1_news_author;
-CREATE TABLE IF EXISTS news1_news_author (
+CREATE TABLE news1_news_author (
 	newsID INT(10) NOT NULL,
 	userID INT(10) NOT NULL,
 
