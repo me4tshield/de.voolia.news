@@ -4,7 +4,7 @@
 
 		<dl>
 			<dt>{lang}wcf.acp.index.newsCredits.developedBy{/lang}</dt>
-			<dd><a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"http://voolia.de"|rawurlencode}" class="externalURL">voolia.de</a></dd>
+			<dd><a href="{@$__wcf->getPath()}acp/dereferrer.php?url={"http://voolia.de"|rawurlencode}" class="externalURL">voolia</a></dd>
 		</dl>
 
 		<dl>
@@ -28,7 +28,7 @@
 
 		<dl>
 			<dt></dt>
-			<dd>Copyright &copy; 2013 voolia. All rights reserved.</dd>
+			<dd>Copyright &copy; 2013-2014 voolia. All rights reserved.</dd>
 		</dl>
 	</fieldset>
 </div>
