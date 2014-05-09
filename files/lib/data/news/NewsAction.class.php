@@ -428,7 +428,7 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$news->update(array(
 				'isDeleted' => 1,
 				'deleteTime' => TIME_NOW,
-				'deleteReason' => $this->parameters['data']['reason']
+				'deleteReason' => ((isset($this->parameters['data']['reason'])) ? $this->parameters['data']['reason'] : '')
 			));
 		}
 
