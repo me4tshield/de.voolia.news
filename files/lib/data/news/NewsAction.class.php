@@ -420,6 +420,10 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	 * Trashes news entries.
 	 */
 	public function trash() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
 		foreach ($this->objects as $news) {
 			if ($news->isDeleted) {
 				continue;
@@ -428,7 +432,7 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$news->update(array(
 				'isDeleted' => 1,
 				'deleteTime' => TIME_NOW,
-				'deleteReason' => $this->parameters['data']['reason']
+				'deleteReason' => ((isset($this->parameters['data']['reason'])) ? $this->parameters['data']['reason'] : '')
 			));
 		}
 
@@ -464,6 +468,10 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	 * Restores news entries.
 	 */
 	public function restore() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
 		foreach ($this->objects as $news) {
 			if (!$news->isDeleted) {
 				continue;
@@ -563,7 +571,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	}
 
 	/**
-	 * adds sources to the given news
+	 * Adds sources to the given news.
+	 * 
 	 * @param	integer		$newsID
 	 * @param	array		$sources
 	 */
