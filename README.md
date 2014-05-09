@@ -3,6 +3,13 @@ voolia News-System
 
 voolia News-System for [WoltLab Community Framework 2](https://github.com/WoltLab/WCF) is a free application for creating news portals.
 
+Version notes
+-------------
+
+This is the **unstable development** tree! You **should not** use it in an production environment.
+
+If you wish to access the **stable** branch, please see here: [voolia News-System 1.0.x](https://github.com/voolia/de.voolia.news/tree/master)
+
 Optional Packages
 -----------------
 | Name | Description | Identifier |
