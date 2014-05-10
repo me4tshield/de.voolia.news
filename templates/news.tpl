@@ -168,7 +168,7 @@
 							<div class="messageHeadline">
 								<h1><a href="{link application='news' controller='News' object=$news}{/link}">{$news->subject}</a></h1>
 								<p>
-									<span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span>
+									<span class="username">{if $news->userID}<a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a>{else}{$news->username}{/if}</span>
 									<a href="{link application='news' controller='News' object=$news}{/link}" class="permalink">{@$news->time|time}</a>
 								</p>
 							</div>

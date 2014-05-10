@@ -10,7 +10,7 @@
 
 				<div class="sidebarBoxHeadline">
 					<h3><a href="{link application='news' controller='News' object=$vooliaNews}{/link}" class="newsPreview" data-news-id="{@$vooliaNews->newsID}" title="{$vooliaNews->subject}">{$vooliaNews->subject}</a></h3>
-					<small><a href="{link controller='User' object=$vooliaNews->getUserProfile()}{/link}" class="userLink" data-user-id="{@$vooliaNews->userID}">{$vooliaNews->username}</a> - {@$vooliaNews->time|time}</small>
+					<small>{if $vooliaNews->userID}<a href="{link controller='User' object=$vooliaNews->getUserProfile()}{/link}" class="userLink" data-user-id="{@$vooliaNews->userID}">{$vooliaNews->username}</a>{else}{$vooliaNews->username}{/if} - {@$vooliaNews->time|time}</small>
 				</div>
 			</li>
 		{/foreach}
