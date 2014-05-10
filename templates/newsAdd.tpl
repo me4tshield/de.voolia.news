@@ -12,8 +12,8 @@
 		//<![CDATA[
 		$(function() {
 			WCF.Language.addObject({
-				'news.entry.add.button.sources.addSource': '{lang}news.entry.add.button.sources.addSource{/lang}',
-				'news.entry.add.button.sources.removeSource': '{lang}news.entry.add.button.sources.removeSource{/lang}',
+				'news.entry.add.informations.button.sources.addSource': '{lang}news.entry.add.informations.button.sources.addSource{/lang}',
+				'news.entry.add.informations.button.sources.removeSource': '{lang}news.entry.add.informations.button.sources.removeSource{/lang}',
 				'news.entry.add.informations.sources.input.link': '{lang}news.entry.add.informations.sources.input.link{/lang}',
 				'news.entry.add.informations.sources.input.title': '{lang}news.entry.add.informations.sources.input.title{/lang}',
 				'news.entry.picture.error.tooLarge': '{lang}news.entry.picture.error.tooLarge{/lang}',
