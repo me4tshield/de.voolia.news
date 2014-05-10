@@ -1,5 +1,6 @@
 <?php
 namespace news\data\news;
+use news\data\news\picture\DefaultNewsPicture;
 use news\data\news\picture\NewsPictureCache;
 use news\data\news\update\ViewableNewsUpdateList;
 use wcf\data\user\User;
@@ -32,6 +33,12 @@ class ViewableNews extends DatabaseObjectDecorator {
 	protected $effectiveVisitTime = null;
 
 	/**
+	 * news picture of this news
+	 * @var	\news\data\news\picture\INewsPicture
+	 */
+	protected $newsPicture = null;
+
+	/**
 	 * viewable news update list
 	 * @var	\news\data\news\update\ViewableNewsUpdateList
 	 */
@@ -49,7 +56,15 @@ class ViewableNews extends DatabaseObjectDecorator {
 	 * @return	\news\data\news\picture\NewsPicture
 	 */
 	public function getNewsPicture() {
-		return NewsPictureCache::getInstance()->getPicture($this->pictureID);
+		if ($this->newsPicture === null) {
+			if ($this->pictureID) {
+				$this->newsPicture = NewsPictureCache::getInstance()->getPicture($this->pictureID);
+			} else {
+				$this->newsPicture = new DefaultNewsPicture();
+			}
+		}
+
+		return $this->newsPicture;
 	}
 
 	/**

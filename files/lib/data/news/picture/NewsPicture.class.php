@@ -11,7 +11,7 @@ use wcf\system\WCF;
  * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
-class NewsPicture extends NewsDatabaseObject {
+class NewsPicture extends NewsDatabaseObject implements INewsPicture {
 	/**
 	 * @see	\wcf\data\DatabaseObject::$databaseTableName
 	 */
@@ -37,18 +37,7 @@ class NewsPicture extends NewsDatabaseObject {
 	 * @return	string
 	 */
 	public function getLocation() {
-		if ($this->pictureID) {
-			return NEWS_DIR .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
-		}
-
-		return false;
-	}
-
-	/**
-	 * @see	\wcf\data\ITitledObject::getTitle()
-	 */
-	public function getTitle() {
-		return $this->subject;
+		return NEWS_DIR .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
 	}
 
 	/**
@@ -57,10 +46,6 @@ class NewsPicture extends NewsDatabaseObject {
 	 * @return	string
 	 */
 	public function getURL() {
-		if ($this->pictureID) {
-			return WCF::getPath('news') .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
-		}
-
-		return WCF::getPath('news') .'images/news/dummyPicture.png';
+		return WCF::getPath('news') .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
 	}
 }
