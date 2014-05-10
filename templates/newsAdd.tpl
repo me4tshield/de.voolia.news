@@ -91,7 +91,7 @@
 	<div class="tabMenuContainer" data-active="informations" data-store="activeTabMenuItem">
 		<nav class="tabMenu">
 			<ul>
-				<li><a href="{@$__wcf->getAnchor('informations')}">{lang}news.entry.add.informations.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('informations')}">{lang}wcf.global.form.data{/lang}</a></li>
 				<li><a href="{@$__wcf->getAnchor('message')}">{lang}news.entry.add.message.title{/lang}</a></li>
 				<li><a href="{@$__wcf->getAnchor('gallery')}">{lang}news.entry.add.gallery.title{/lang}</a></li>
 			
@@ -101,7 +101,7 @@
 
 		<div id="informations" class="container containerPadding marginTop tabMenuContent hidden">
 			<fieldset>
-				<legend>{lang}news.entry.add.informations.title{/lang}</legend>
+				<legend>{lang}wcf.global.form.data{/lang}</legend>
 
 				{include file='messageFormMultilingualism'}
 
@@ -255,7 +255,7 @@
 				<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
 					<dt><label for="publicationDate">{lang}news.entry.add.informations.settins.publicationDate{/lang}</label></dt>
 					<dd>
-						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" />
+						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" class="medium" />
 						{if $errorField == 'publicationDate'}
 							<small class="innerError">
 								{if $errorType == 'empty'}
@@ -278,7 +278,7 @@
 				<dl{if $errorField == 'archivingDate'} class="formError"{/if}{if !$enableAutomaticArchiving} style="display: none"{/if}>
 					<dt><label for="archivingDate">{lang}news.entry.add.informations.settings.archivingDate{/lang}</label></dt>
 					<dd>
-						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" />
+						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" class="medium" />
 						{if $errorField == 'archivingDate'}
 							<small class="innerError">
 								{if $errorType == 'empty'}

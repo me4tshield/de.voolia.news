@@ -45,7 +45,6 @@
 		<item name="news.entry.add.title"><![CDATA[Neue News erstellen]]></item>
 		<item name="news.entry.edit.lastEditTime"><![CDATA[Letzte Bearbeitung: {@$news->editTime|time}]]></item>
 		<item name="news.entry.add.gallery.title"><![CDATA[Artikelbilder]]></item>
-		<item name="news.entry.add.informations.title"><![CDATA[Informationen]]></item>
 		<item name="news.entry.add.informations.button.sources.addSource"><![CDATA[Weitere Quelle hinzufügen]]></item>
 		<item name="news.entry.add.informations.button.sources.removeSource"><![CDATA[Quelle löschen]]></item>
 		<item name="news.entry.add.informations.editReason.optional"><![CDATA[Bearbeitungshinweis unterdrücken]]></item>
