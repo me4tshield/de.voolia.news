@@ -88,78 +88,62 @@
 {include file='formError'}
 
 <form id="messageContainer" class="jsFormGuard" method="post" action="{if $action == 'add'}{link application='news' controller='NewsAdd'}{/link}{else}{link application='news' controller='NewsEdit' id=$newsID}{/link}{/if}">
-	<div class="container containerPadding marginTop">
-		<fieldset>
-			<legend>{lang}news.entry.add.form.information.title{/lang}</legend>
+	<div class="tabMenuContainer" data-active="information" data-store="activeTabMenuItem">
+		<nav class="tabMenu">
+			<ul>
+				<li><a href="{@$__wcf->getAnchor('information')}">{lang}news.entry.add.form.information.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('message')}">{lang}news.entry.add.form.message.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('gallery')}">{lang}news.entry.add.form.gallery.title{/lang}</a></li>
+			
+				{event name='tabMenuTabs'}
+			</ul>
+		</nav>
 
-			{include file='messageFormMultilingualism'}
+		<div id="information" class="container containerPadding marginTop tabMenuContent hidden">
+			<fieldset>
+				<legend>{lang}news.entry.add.form.information.title{/lang}</legend>
 
-			<dl{if $errorField == 'subject'} class="formError"{/if}>
-				<dt><label for="subject">{lang}news.entry.add.form.information.subject.title{/lang}</label></dt>
-				<dd>
-					<input type="text" id="subject" name="subject" value="{$subject}" maxlength="255" class="long" />
-					{if $errorField == 'subject'}
-						<small class="innerError">
-							{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
-						</small>
-					{/if}
-				</dd>
-			</dl>
+				{include file='messageFormMultilingualism'}
 
-			<dl{if $errorField == 'teaser'} class="formError"{/if}>
-				<dt><label for="teaser">{lang}news.entry.add.form.information.teaser.title{/lang}</label></dt>
-				<dd>
-					<textarea id="teaser" name="teaser" rows="5" cols="40">{$teaser}</textarea>
-					{if $errorField == 'teaser'}
-						<small class="innerError">
-							{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
-						</small>
-					{/if}
-					<small>{lang}news.entry.add.form.information.teaser.description{/lang}</small>
-				</dd>
-			</dl>
-
-			{if MODULE_TAGGING && NEWS_ENABLE_TAGS}{include file='tagInput'}{/if}
-
-			{if NEWS_ENTRY_ENABLE_SOURCES}
-				<dl{if $errorField == 'sources'} class="formError"{/if}>
-					<dt><label>{lang}news.entry.add.form.information.sources.title{/lang}</label></dt>
-					<dd class="sortableListContainer" id="sourceContainer">
-						<ol{if NEWS_ENTRY_SOURCES_MAXCOUNT != 1} class="sortableList"{/if}></ol>
-						{if $errorField == 'sources'}
-							<small class="innerError">
-								{if $errorType == 'empty'}
-									{lang}wcf.global.form.error.empty{/lang}
-								{else}
-									{lang}news.entry.add.form.information.sources.error.{@$errorType}{/lang}
-								{/if}
-							</small>
-						{/if}
-						<small>{lang}news.entry.add.form.information.sources.description{/lang}</small>
-					</dd>
-				</dl>
-			{/if}
-
-			{if $action == 'edit'}
-				<dl{if $errorField == 'editReason'} class="formError"{/if}>
-					<dt><label for="editReason">{lang}news.entry.add.form.settings.editReason.title{/lang}</label></dt>
+				<dl{if $errorField == 'subject'} class="formError"{/if}>
+					<dt><label for="subject">{lang}news.entry.add.form.information.subject.title{/lang}</label></dt>
 					<dd>
-						<input type="text" id="editReason" name="editReason" value="{$editReason}" maxlength="255" class="long" />
-						{if $errorField == 'editReason'}
+						<input type="text" id="subject" name="subject" value="{$subject}" maxlength="255" class="long" />
+						{if $errorField == 'subject'}
 							<small class="innerError">
-								{if $errorType == 'empty'}
-									{lang}wcf.global.form.error.empty{/lang}
-								{/if}
+								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
 							</small>
 						{/if}
 					</dd>
 				</dl>
 
-				{if $__wcf->getSession()->getPermission('mod.news.canEditNewsWithoutNote')}
-					<dl>
+				{if MODULE_TAGGING && NEWS_ENABLE_TAGS}{include file='tagInput'}{/if}
+
+				{if NEWS_ENTRY_ENABLE_SOURCES}
+					<dl{if $errorField == 'sources'} class="formError"{/if}>
+						<dt><label>{lang}news.entry.add.form.information.sources.title{/lang}</label></dt>
+						<dd class="sortableListContainer" id="sourceContainer">
+							<ol{if NEWS_ENTRY_SOURCES_MAXCOUNT != 1} class="sortableList"{/if}></ol>
+							{if $errorField == 'sources'}
+								<small class="innerError">
+									{if $errorType == 'empty'}
+										{lang}wcf.global.form.error.empty{/lang}
+									{else}
+										{lang}news.entry.add.form.information.sources.error.{@$errorType}{/lang}
+									{/if}
+								</small>
+							{/if}
+							<small>{lang}news.entry.add.form.information.sources.description{/lang}</small>
+						</dd>
+					</dl>
+				{/if}
+
+				{if $action == 'edit'}
+					<dl{if $errorField == 'editReason'} class="formError"{/if}>
+						<dt><label for="editReason">{lang}news.entry.add.form.settings.editReason.title{/lang}</label></dt>
 						<dd>
-							<label><input type="checkbox" name="editNoteSuppress" value="1"{if $editNoteSuppress} checked="checked"{/if} /> {lang}news.entry.add.form.settings.editReason.optional{/lang}</label>
-							{if $errorField == 'editNoteSuppress'}
+							<input type="text" id="editReason" name="editReason" value="{$editReason}" maxlength="255" class="long" />
+							{if $errorField == 'editReason'}
 								<small class="innerError">
 									{if $errorType == 'empty'}
 										{lang}wcf.global.form.error.empty{/lang}
@@ -168,157 +152,191 @@
 							{/if}
 						</dd>
 					</dl>
+
+					{if $__wcf->getSession()->getPermission('mod.news.canEditNewsWithoutNote')}
+						<dl>
+							<dd>
+								<label><input type="checkbox" name="editNoteSuppress" value="1"{if $editNoteSuppress} checked="checked"{/if} /> {lang}news.entry.add.form.settings.editReason.optional{/lang}</label>
+								{if $errorField == 'editNoteSuppress'}
+									<small class="innerError">
+										{if $errorType == 'empty'}
+											{lang}wcf.global.form.error.empty{/lang}
+										{/if}
+									</small>
+								{/if}
+							</dd>
+						</dl>
+					{/if}
 				{/if}
-			{/if}
 
-			{event name='informationFields'}
-		</fieldset>
+				{event name='informationFields'}
+			</fieldset>
 
-		<fieldset>
-			<legend>{lang}news.entry.add.form.settings.title{/lang}</legend>
+			<fieldset>
+				<legend>{lang}news.entry.add.form.settings.title{/lang}</legend>
 
-			{if NEWS_ENABLE_NEWSPICTURE && $__wcf->getSession()->getPermission('user.news.picture.canUpload')}
-				<dl class="pictureInput{if $errorField == 'newsPicture'} formError{/if}">
-					<dt><label for="newsPicture">{lang}news.entry.add.form.settings.newspicture.title{/lang}</label></dt>
-					<dd>
-						<ul>
-							{if $picture}
-								<li class="box32">
-									<div class="framed">
-										<img src="{$picture->getURL()}" alt="" class="newsImage" />
-									</div>
-									<div>
-										<div>
-											<p>{$picture->title}</p>
-											<small>{@$picture->filesize|filesize}</small>
+				{if NEWS_ENABLE_NEWSPICTURE && $__wcf->getSession()->getPermission('user.news.picture.canUpload')}
+					<dl class="pictureInput{if $errorField == 'newsPicture'} formError{/if}">
+						<dt><label for="newsPicture">{lang}news.entry.add.form.settings.newspicture.title{/lang}</label></dt>
+						<dd>
+							<ul>
+								{if $picture}
+									<li class="box32">
+										<div class="framed">
+											<img src="{$picture->getURL()}" alt="" class="newsImage" />
 										</div>
-									</div>
-								</li>
-							{else}
-								<li class="box32">
-									<div class="framed">
-										<img src="{@$__wcf->getPath('news')}images/newspictureDummy.png" alt="" class="newsImage" />
-									</div>
-								</li>
-							{/if}
-						</ul>
+										<div>
+											<div>
+												<p>{$picture->title}</p>
+												<small>{@$picture->filesize|filesize}</small>
+											</div>
+										</div>
+									</li>
+								{else}
+									<li class="box32">
+										<div class="framed">
+											<img src="{@$__wcf->getPath('news')}images/newspictureDummy.png" alt="" class="newsImage" />
+										</div>
+									</li>
+								{/if}
+							</ul>
 
-						<div id="pictureInspectorButton">
-							<span class="button small">{lang}news.entry.picture.button.choose{/lang}</span>
-						</div>
-						{if $errorField == 'newsPicture'}
+							<div id="pictureInspectorButton">
+								<span class="button small">{lang}news.entry.picture.button.choose{/lang}</span>
+							</div>
+							{if $errorField == 'newsPicture'}
+								<small class="innerError">
+									{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
+								</small>
+							{/if}
+						</dd>
+					</dl>
+				{/if}
+
+				<dl>
+					<dt><label for="categoryIDs">{lang}news.entry.add.form.settings.category.title{/lang}</label></dt>
+					<dd>
+						<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
+							{foreach from=$categoryList item=category}
+								{if $category->canUseCategory()}
+									<option value="{@$category->categoryID}"{if $category->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$category->getPermission('canAddSources')}" data-can-set-tags="{$category->getPermission('canSetTags')}">{@"&nbsp;&nbsp;&nbsp;&nbsp;"|str_repeat:$category->getDepth()}{$category->getTitle()}</option>
+								{/if}
+							{/foreach}
+						</select>
+						{if $errorField == 'categoryIDs'}
 							<small class="innerError">
 								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
 							</small>
 						{/if}
+						<small>{lang}news.entry.add.form.settings.category.description{/lang}</small>
 					</dd>
 				</dl>
-			{/if}
 
-			<dl>
-				<dt><label for="categoryIDs">{lang}news.entry.add.form.settings.category.title{/lang}</label></dt>
-				<dd>
-					<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
-						{foreach from=$categoryList item=category}
-							{if $category->canUseCategory()}
-								<option value="{@$category->categoryID}"{if $category->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$category->getPermission('canAddSources')}" data-can-set-tags="{$category->getPermission('canSetTags')}">{@"&nbsp;&nbsp;&nbsp;&nbsp;"|str_repeat:$category->getDepth()}{$category->getTitle()}</option>
-							{/if}
-						{/foreach}
-					</select>
-					{if $errorField == 'categoryIDs'}
-						<small class="innerError">
-							{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
-						</small>
-					{/if}
-					<small>{lang}news.entry.add.form.settings.category.description{/lang}</small>
-				</dd>
-			</dl>
+				<dl>
+					<dt></dt>
+					<dd>
+						<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.form.settings.isHot.title{/lang}</label>
+					</dd>
+				</dl>
 
-			<dl>
-				<dt></dt>
-				<dd>
-					<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.form.settings.isHot.title{/lang}</label>
-				</dd>
-			</dl>
+				{event name='settingsFields'}
+			</fieldset>
 
-			{event name='settingsFields'}
-		</fieldset>
+			<fieldset class="jsOnly">
+				<legend>{lang}news.entry.publication{/lang}</legend>
 
-		<fieldset class="jsOnly">
-			<legend>{lang}news.entry.publication{/lang}</legend>
+				<dl>
+					<dt></dt>
+					<dd>
+						<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.publication.enableDelayedPublication{/lang}</label>
+					</dd>
+				</dl>
 
-			<dl>
-				<dt></dt>
-				<dd>
-					<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.publication.enableDelayedPublication{/lang}</label>
-				</dd>
-			</dl>
+				<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
+					<dt><label for="publicationDate">{lang}news.entry.publicationDate{/lang}</label></dt>
+					<dd>
+						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" />
+						{if $errorField == 'publicationDate'}
+							<small class="innerError">
+								{if $errorType == 'empty'}
+									{lang}wcf.global.form.error.empty{/lang}
+								{else}
+									{lang}news.entry.publicationDate.error.{@$errorType}{/lang}
+								{/if}
+							</small>
+						{/if}
+					</dd>
+				</dl>
 
-			<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
-				<dt><label for="publicationDate">{lang}news.entry.publicationDate{/lang}</label></dt>
-				<dd>
-					<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" />
-					{if $errorField == 'publicationDate'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{else}
-								{lang}news.entry.publicationDate.error.{@$errorType}{/lang}
-							{/if}
-						</small>
-					{/if}
-				</dd>
-			</dl>
+				<dl>
+					<dt></dt>
+					<dd>
+						<label><input type="checkbox" id="enableAutomaticArchiving" name="enableAutomaticArchiving" value="1"{if $enableAutomaticArchiving} checked="checked"{/if} /> {lang}news.entry.enableAutomaticArchiving{/lang}</label>
+					</dd>
+				</dl>
 
-			<dl>
-				<dt></dt>
-				<dd>
-					<label><input type="checkbox" id="enableAutomaticArchiving" name="enableAutomaticArchiving" value="1"{if $enableAutomaticArchiving} checked="checked"{/if} /> {lang}news.entry.enableAutomaticArchiving{/lang}</label>
-				</dd>
-			</dl>
+				<dl{if $errorField == 'archivingDate'} class="formError"{/if}{if !$enableAutomaticArchiving} style="display: none"{/if}>
+					<dt><label for="archivingDate">{lang}news.entry.archivingDate{/lang}</label></dt>
+					<dd>
+						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" />
+						{if $errorField == 'archivingDate'}
+							<small class="innerError">
+								{if $errorType == 'empty'}
+									{lang}wcf.global.form.error.empty{/lang}
+								{else}
+									{lang}news.entry.archivingDate.error.{@$errorType}{/lang}
+								{/if}
+							</small>
+						{/if}
+					</dd>
+				</dl>
 
-			<dl{if $errorField == 'archivingDate'} class="formError"{/if}{if !$enableAutomaticArchiving} style="display: none"{/if}>
-				<dt><label for="archivingDate">{lang}news.entry.archivingDate{/lang}</label></dt>
-				<dd>
-					<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" />
-					{if $errorField == 'archivingDate'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{else}
-								{lang}news.entry.archivingDate.error.{@$errorType}{/lang}
-							{/if}
-						</small>
-					{/if}
-				</dd>
-			</dl>
+				{event name='publicationFields'}
+			</fieldset>
+		</div>
 
-			{event name='publicationFields'}
-		</fieldset>
+		<div id="message" class="container containerPadding marginTop tabMenuContent hidden">
+			<fieldset>
+				<legend>{lang}news.entry.add.form.message.title{/lang}</legend>
 
-		<fieldset>
-			<legend>{lang}news.entry.add.form.message.title{/lang}</legend>
+				<dl{if $errorField == 'teaser'} class="formError"{/if}>
+					<dt><label for="teaser">{lang}news.entry.add.form.information.teaser.title{/lang}</label></dt>
+					<dd>
+						<textarea id="teaser" name="teaser" rows="5" cols="40">{$teaser}</textarea>
+						{if $errorField == 'teaser'}
+							<small class="innerError">
+								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
+							</small>
+						{/if}
+						<small>{lang}news.entry.add.form.information.teaser.description{/lang}</small>
+					</dd>
+				</dl>
 
-			<dl class="wide">
-				<dt><label for="text">{lang}news.entry.add.form.message.title{/lang}</label></dt>
-				<dd>
-					<textarea id="text" name="text" rows="20" cols="40">{$text}</textarea>
-					{if $errorField == 'text'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{/if}
-						</small>
-					{/if}
-				</dd>
-			</dl>
+				<dl class="wide">
+					<dt><label for="text">{lang}news.entry.add.form.message.title{/lang}</label></dt>
+					<dd>
+						<textarea id="text" name="text" rows="20" cols="40">{$text}</textarea>
+						{if $errorField == 'text'}
+							<small class="innerError">
+								{if $errorType == 'empty'}
+									{lang}wcf.global.form.error.empty{/lang}
+								{/if}
+							</small>
+						{/if}
+					</dd>
+				</dl>
 
-			{event name='messageFields'}
-		</fieldset>
+				{event name='messageFields'}
+			</fieldset>
 
-		{event name='fieldsets'}
+			{event name='fieldsets'}
 
-		{include file='messageFormTabs' wysiwygContainerID='text'}
+			{include file='messageFormTabs' wysiwygContainerID='text'}
+		</div>
+
+		<div id="gallery" class="container containerPadding marginTop tabMenuContent hidden">
+
+		</div>
 	</div>
 
 	<div class="formSubmit">
