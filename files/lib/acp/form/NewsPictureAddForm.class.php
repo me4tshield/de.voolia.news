@@ -110,23 +110,29 @@ class NewsPictureAddForm extends AbstractForm {
 	public function save() {
 		parent::save();
 
+		$oldLocation = $this->picture->getLocation();
+
 		// update picture
-		$this->picture = new NewsPictureEditor($this->picture);
-		$this->picture->update(array(
+		$pictureEditor = new NewsPictureEditor($this->picture);
+		$pictureEditor->update(array(
 			'categoryID' => $this->categoryID,
 			'title' => $this->title
 		));
 
-		if (@copy($this->picture->getLocation(), NEWS_DIR .'/images/news/'. $this->categoryID .'/'. $this->picture->getFilename())) {
-			@unlink($this->picture->getLocation());
-		} else {
-			throw new UserInputException('picture', 'savingFailed');
+		// reload news picture
+		$this->picture = new NewsPicture($this->pictureID);
+
+		if ($oldLocation != $this->picture->getLocation()) {
+			if (@copy($oldLocation, $this->picture->getLocation())) {
+				@unlink($oldLocation);
+			} else {
+				throw new UserInputException('picture', 'savingFailed');
+			}
 		}
 
 		$this->saved();
 
 		HeaderUtil::redirect(LinkHandler::getInstance()->getLink('NewsPictureList', array('application' => 'news')));
-
 		exit();
 	}
 
