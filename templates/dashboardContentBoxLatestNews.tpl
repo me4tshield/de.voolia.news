@@ -24,10 +24,8 @@
 
 					<div>
 						<div class="containerHeadline">
-							<h3><a href="{link application='news' controller='News' object=$news}{/link}" class="newsPreview" data-news-id="{@$news->newsID}" title="{$news->subject}">{$news->subject}</a></h3>
-							<p><small><span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span> - {@$news->time|time}{if $news->isCommentable()} - {lang}news.dashboard.box.hotnews.comments{/lang}{/if}</small></p>
 							<h3><a href="{link application='news' controller='News' object=$vooliaNews}{/link}" class="newsPreview" data-news-id="{@$vooliaNews->newsID}" title="{$vooliaNews->subject}">{$vooliaNews->subject}</a></h3>
-							<p><small><span class="username">{if $vooliaNews->userID}<a href="{link controller='User' object=$vooliaNews->getUserProfile()}{/link}" class="userLink" data-user-id="{$vooliaNews->userID}">{$vooliaNews->username}</a>{else}{$vooliaNews->username}{/if}</span> - {@$vooliaNews->time|time}{if $vooliaNews->isCommentable()} - {lang}news.dashboard.box.hotnews.comments{/lang}{/if}</small></p>
+							<p><small><span class="username">{if $news->userID}<a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a>{else}{$news->username}{/if}</span> - {@$news->time|time}{if $news->isCommentable()} - {lang}news.dashboard.box.hotnews.comments{/lang}{/if}</small></p>
 						</div>
 					</div>
 
