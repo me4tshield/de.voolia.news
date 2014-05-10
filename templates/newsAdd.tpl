@@ -12,10 +12,10 @@
 		//<![CDATA[
 		$(function() {
 			WCF.Language.addObject({
-				'news.entry.add.form.button.sources.addSource': '{lang}news.entry.add.form.button.sources.addSource{/lang}',
-				'news.entry.add.form.button.sources.removeSource': '{lang}news.entry.add.form.button.sources.removeSource{/lang}',
-				'news.entry.add.form.information.sources.input.link': '{lang}news.entry.add.form.information.sources.input.link{/lang}',
-				'news.entry.add.form.information.sources.input.title': '{lang}news.entry.add.form.information.sources.input.title{/lang}',
+				'news.entry.add.button.sources.addSource': '{lang}news.entry.add.button.sources.addSource{/lang}',
+				'news.entry.add.button.sources.removeSource': '{lang}news.entry.add.button.sources.removeSource{/lang}',
+				'news.entry.add.informations.sources.input.link': '{lang}news.entry.add.informations.sources.input.link{/lang}',
+				'news.entry.add.informations.sources.input.title': '{lang}news.entry.add.informations.sources.input.title{/lang}',
 				'news.entry.picture.error.tooLarge': '{lang}news.entry.picture.error.tooLarge{/lang}',
 				'wcf.global.button.upload': '{lang}wcf.global.button.upload{/lang}'
 			});
@@ -88,25 +88,25 @@
 {include file='formError'}
 
 <form id="messageContainer" class="jsFormGuard" method="post" action="{if $action == 'add'}{link application='news' controller='NewsAdd'}{/link}{else}{link application='news' controller='NewsEdit' id=$newsID}{/link}{/if}">
-	<div class="tabMenuContainer" data-active="information" data-store="activeTabMenuItem">
+	<div class="tabMenuContainer" data-active="informations" data-store="activeTabMenuItem">
 		<nav class="tabMenu">
 			<ul>
-				<li><a href="{@$__wcf->getAnchor('information')}">{lang}news.entry.add.form.information.title{/lang}</a></li>
-				<li><a href="{@$__wcf->getAnchor('message')}">{lang}news.entry.add.form.message.title{/lang}</a></li>
-				<li><a href="{@$__wcf->getAnchor('gallery')}">{lang}news.entry.add.form.gallery.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('informations')}">{lang}news.entry.add.informations.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('message')}">{lang}news.entry.add.message.title{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('gallery')}">{lang}news.entry.add.gallery.title{/lang}</a></li>
 			
 				{event name='tabMenuTabs'}
 			</ul>
 		</nav>
 
-		<div id="information" class="container containerPadding marginTop tabMenuContent hidden">
+		<div id="informations" class="container containerPadding marginTop tabMenuContent hidden">
 			<fieldset>
-				<legend>{lang}news.entry.add.form.information.title{/lang}</legend>
+				<legend>{lang}news.entry.add.informations.title{/lang}</legend>
 
 				{include file='messageFormMultilingualism'}
 
 				<dl{if $errorField == 'subject'} class="formError"{/if}>
-					<dt><label for="subject">{lang}news.entry.add.form.information.subject.title{/lang}</label></dt>
+					<dt><label for="subject">{lang}news.entry.add.informations.subject.title{/lang}</label></dt>
 					<dd>
 						<input type="text" id="subject" name="subject" value="{$subject}" maxlength="255" class="long" />
 						{if $errorField == 'subject'}
@@ -121,7 +121,7 @@
 
 				{if NEWS_ENTRY_ENABLE_SOURCES}
 					<dl{if $errorField == 'sources'} class="formError"{/if}>
-						<dt><label>{lang}news.entry.add.form.information.sources.title{/lang}</label></dt>
+						<dt><label>{lang}news.entry.add.informations.sources.title{/lang}</label></dt>
 						<dd class="sortableListContainer" id="sourceContainer">
 							<ol{if NEWS_ENTRY_SOURCES_MAXCOUNT != 1} class="sortableList"{/if}></ol>
 							{if $errorField == 'sources'}
@@ -129,18 +129,18 @@
 									{if $errorType == 'empty'}
 										{lang}wcf.global.form.error.empty{/lang}
 									{else}
-										{lang}news.entry.add.form.information.sources.error.{@$errorType}{/lang}
+										{lang}news.entry.add.informations.sources.error.{@$errorType}{/lang}
 									{/if}
 								</small>
 							{/if}
-							<small>{lang}news.entry.add.form.information.sources.description{/lang}</small>
+							<small>{lang}news.entry.add.informations.sources.description{/lang}</small>
 						</dd>
 					</dl>
 				{/if}
 
 				{if $action == 'edit'}
 					<dl{if $errorField == 'editReason'} class="formError"{/if}>
-						<dt><label for="editReason">{lang}news.entry.add.form.settings.editReason.title{/lang}</label></dt>
+						<dt><label for="editReason">{lang}news.entry.add.informations.editReason.title{/lang}</label></dt>
 						<dd>
 							<input type="text" id="editReason" name="editReason" value="{$editReason}" maxlength="255" class="long" />
 							{if $errorField == 'editReason'}
@@ -156,7 +156,7 @@
 					{if $__wcf->getSession()->getPermission('mod.news.canEditNewsWithoutNote')}
 						<dl>
 							<dd>
-								<label><input type="checkbox" name="editNoteSuppress" value="1"{if $editNoteSuppress} checked="checked"{/if} /> {lang}news.entry.add.form.settings.editReason.optional{/lang}</label>
+								<label><input type="checkbox" name="editNoteSuppress" value="1"{if $editNoteSuppress} checked="checked"{/if} /> {lang}news.entry.add.informations.editReason.optional{/lang}</label>
 								{if $errorField == 'editNoteSuppress'}
 									<small class="innerError">
 										{if $errorType == 'empty'}
@@ -173,11 +173,11 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>{lang}news.entry.add.form.settings.title{/lang}</legend>
+				<legend>{lang}news.entry.add.informations.settings.title{/lang}</legend>
 
 				{if NEWS_ENABLE_NEWSPICTURE && $__wcf->getSession()->getPermission('user.news.picture.canUpload')}
 					<dl class="pictureInput{if $errorField == 'newsPicture'} formError{/if}">
-						<dt><label for="newsPicture">{lang}news.entry.add.form.settings.newspicture.title{/lang}</label></dt>
+						<dt><label for="newsPicture">{lang}news.entry.add.informations.settings.newspicture.title{/lang}</label></dt>
 						<dd>
 							<ul>
 								{if $picture}
@@ -214,7 +214,7 @@
 				{/if}
 
 				<dl>
-					<dt><label for="categoryIDs">{lang}news.entry.add.form.settings.category.title{/lang}</label></dt>
+					<dt><label for="categoryIDs">{lang}news.entry.add.informations.settings.category.title{/lang}</label></dt>
 					<dd>
 						<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
 							{foreach from=$categoryList item=category}
@@ -228,14 +228,14 @@
 								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
 							</small>
 						{/if}
-						<small>{lang}news.entry.add.form.settings.category.description{/lang}</small>
+						<small>{lang}news.entry.add.informations.settings.category.description{/lang}</small>
 					</dd>
 				</dl>
 
 				<dl>
 					<dt></dt>
 					<dd>
-						<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.form.settings.isHot.title{/lang}</label>
+						<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.isHot.title{/lang}</label>
 					</dd>
 				</dl>
 
@@ -243,17 +243,17 @@
 			</fieldset>
 
 			<fieldset class="jsOnly">
-				<legend>{lang}news.entry.publication{/lang}</legend>
+				<legend>{lang}news.entry.add.informations.settins.publication{/lang}</legend>
 
 				<dl>
 					<dt></dt>
 					<dd>
-						<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.publication.enableDelayedPublication{/lang}</label>
+						<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.add.informations.settins.publication.enableDelayedPublication{/lang}</label>
 					</dd>
 				</dl>
 
 				<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
-					<dt><label for="publicationDate">{lang}news.entry.publicationDate{/lang}</label></dt>
+					<dt><label for="publicationDate">{lang}news.entry.add.informations.settins.publicationDate{/lang}</label></dt>
 					<dd>
 						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" />
 						{if $errorField == 'publicationDate'}
@@ -261,7 +261,7 @@
 								{if $errorType == 'empty'}
 									{lang}wcf.global.form.error.empty{/lang}
 								{else}
-									{lang}news.entry.publicationDate.error.{@$errorType}{/lang}
+									{lang}news.entry.add.informations.settins.publicationDate.error.{@$errorType}{/lang}
 								{/if}
 							</small>
 						{/if}
@@ -271,12 +271,12 @@
 				<dl>
 					<dt></dt>
 					<dd>
-						<label><input type="checkbox" id="enableAutomaticArchiving" name="enableAutomaticArchiving" value="1"{if $enableAutomaticArchiving} checked="checked"{/if} /> {lang}news.entry.enableAutomaticArchiving{/lang}</label>
+						<label><input type="checkbox" id="enableAutomaticArchiving" name="enableAutomaticArchiving" value="1"{if $enableAutomaticArchiving} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.enableAutomaticArchiving{/lang}</label>
 					</dd>
 				</dl>
 
 				<dl{if $errorField == 'archivingDate'} class="formError"{/if}{if !$enableAutomaticArchiving} style="display: none"{/if}>
-					<dt><label for="archivingDate">{lang}news.entry.archivingDate{/lang}</label></dt>
+					<dt><label for="archivingDate">{lang}news.entry.add.informations.settings.archivingDate{/lang}</label></dt>
 					<dd>
 						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" />
 						{if $errorField == 'archivingDate'}
@@ -284,7 +284,7 @@
 								{if $errorType == 'empty'}
 									{lang}wcf.global.form.error.empty{/lang}
 								{else}
-									{lang}news.entry.archivingDate.error.{@$errorType}{/lang}
+									{lang}news.entry.add.informations.settings.archivingDate.error.{@$errorType}{/lang}
 								{/if}
 							</small>
 						{/if}
@@ -297,10 +297,10 @@
 
 		<div id="message" class="container containerPadding marginTop tabMenuContent hidden">
 			<fieldset>
-				<legend>{lang}news.entry.add.form.message.title{/lang}</legend>
+				<legend>{lang}news.entry.add.message.title{/lang}</legend>
 
 				<dl{if $errorField == 'teaser'} class="formError"{/if}>
-					<dt><label for="teaser">{lang}news.entry.add.form.information.teaser.title{/lang}</label></dt>
+					<dt><label for="teaser">{lang}news.entry.add.message.teaser.title{/lang}</label></dt>
 					<dd>
 						<textarea id="teaser" name="teaser" rows="5" cols="40">{$teaser}</textarea>
 						{if $errorField == 'teaser'}
@@ -308,12 +308,12 @@
 								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
 							</small>
 						{/if}
-						<small>{lang}news.entry.add.form.information.teaser.description{/lang}</small>
+						<small>{lang}news.entry.add.message.teaser.description{/lang}</small>
 					</dd>
 				</dl>
 
 				<dl class="wide">
-					<dt><label for="text">{lang}news.entry.add.form.message.title{/lang}</label></dt>
+					<dt><label for="text">{lang}news.entry.add.message.title{/lang}</label></dt>
 					<dd>
 						<textarea id="text" name="text" rows="20" cols="40">{$text}</textarea>
 						{if $errorField == 'text'}
