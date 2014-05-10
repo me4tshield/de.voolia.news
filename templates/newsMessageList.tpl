@@ -17,7 +17,7 @@
 								<div class="messageHeadline">
 									<h1>{if $news->newsUpdates}<span class="badge badgeUpdate">{lang}news.entry.newsUpdate.badge{/lang}</span> {/if}<a href="{$news->getLink()}">{$news->subject}</a>{if NEWS_ENABLE_LANGUAGE_FLAG && $news->languageID} {@$news->getLanguageIcon()}{/if}</h1>
 									<p>
-										<span class="username"><a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a></span>
+										<span class="username">{if $news->userID}<a href="{link controller='User' object=$news->getUserProfile()}{/link}" class="userLink" data-user-id="{$news->userID}">{$news->username}</a>{else}{$news->username}{/if}</span>
 										<a href="{$news->getLink()}" class="permalink">{@$news->time|time}</a>
 										{if $news->getCategories()|count}
 											- {implode from=$news->getCategories() item=category}{if $category->isAccessible()}<a href="{link application='news' controller='NewsOverview' object=$category}{/link}">{$category->getTitle()}</a>{/if}{/implode}
