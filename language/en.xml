@@ -48,6 +48,8 @@
 		<item name="news.entry.add.informations.title"><![CDATA[Information]]></item>
 		<item name="news.entry.add.informations.button.sources.addSource"><![CDATA[Add new soruce]]></item>
 		<item name="news.entry.add.informations.button.sources.removeSource"><![CDATA[Remove source]]></item>
+		<item name="news.entry.add.informations.editReason.optional"><![CDATA[Suppress edit reason]]></item>
+		<item name="news.entry.add.informations.editReason.title"><![CDATA[Edit reason]]></item>
 		<item name="news.entry.add.informations.subject.title"><![CDATA[Title]]></item>
 		<item name="news.entry.add.informations.sources.description"><![CDATA[Add one or more sources.]]></item>
 		<item name="news.entry.add.informations.sources.error.tooLong"><![CDATA[TODO: Mindestens einer der Quellenbeschreibungen oder Links ist zu lang. Quellenbeschreibung und Link dürfen jeweils maximal 2048 Zeichen umfassen.]]></item>
@@ -59,8 +61,8 @@
 		<item name="news.entry.add.informations.settings.archivingDate.error.invalid"><![CDATA[Archiving date is invalid.]]></item>
 		<item name="news.entry.add.informations.settings.category.description"><![CDATA[Choose one or more categories for this news]]></item>
 		<item name="news.entry.add.informations.settings.category.title"><![CDATA[Categories]]></item>
-		<item name="news.entry.add.informations.settings.editReason.optional"><![CDATA[Suppress edit reason]]></item>
-		<item name="news.entry.add.informations.settings.editReason.title"><![CDATA[Edit reason]]></item>
+		<item name="news.entry.add.informations.editReason.optional"><![CDATA[Suppress edit reason]]></item>
+		<item name="news.entry.add.informations.editReason.title"><![CDATA[Edit reason]]></item>
 		<item name="news.entry.add.informations.settings.enableAutomaticArchiving"><![CDATA[Automatically archive]]></item>
 		<item name="news.entry.add.informations.settings.isHot.title"><![CDATA[News is a recommendation]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Add a newspicture for your news, to display the picture left from the title.]]></item>

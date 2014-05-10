@@ -48,6 +48,8 @@
 		<item name="news.entry.add.informations.title"><![CDATA[Informationen]]></item>
 		<item name="news.entry.add.informations.button.sources.addSource"><![CDATA[Weitere Quelle hinzufügen]]></item>
 		<item name="news.entry.add.informations.button.sources.removeSource"><![CDATA[Quelle löschen]]></item>
+		<item name="news.entry.add.informations.editReason.optional"><![CDATA[Bearbeitungshinweis unterdrücken]]></item>
+		<item name="news.entry.add.informations.editReason.title"><![CDATA[Bearbeitungsgrund]]></item>
 		<item name="news.entry.add.informations.subject.title"><![CDATA[Titel]]></item>
 		<item name="news.entry.add.informations.sources.description"><![CDATA[Sie können hier eine oder mehrere Quellen angeben. Beide Felder sind optional, wobei mindestens ein Feld ausgefüllt werden muss.]]></item>
 		<item name="news.entry.add.informations.sources.error.tooLong"><![CDATA[Mindestens einer der Quellenbeschreibungen oder Links ist zu lang. Quellenbeschreibung und Link dürfen jeweils maximal 2048 Zeichen umfassen.]]></item>
@@ -59,8 +61,6 @@
 		<item name="news.entry.add.informations.settings.archivingDate.error.invalid"><![CDATA[Sie haben ein ungültiges Archivierungsdatum angegeben.]]></item>
 		<item name="news.entry.add.informations.settings.category.description"><![CDATA[Wählen Sie hier die Kategorien aus, in der die News erscheinen soll.]]></item>
 		<item name="news.entry.add.informations.settings.category.title"><![CDATA[Kategorie]]></item>
-		<item name="news.entry.add.informations.settings.editReason.optional"><![CDATA[Bearbeitungshinweis unterdrücken]]></item>
-		<item name="news.entry.add.informations.settings.editReason.title"><![CDATA[Bearbeitungsgrund]]></item>
 		<item name="news.entry.add.informations.settings.enableAutomaticArchiving"><![CDATA[News automatisch archivieren]]></item>
 		<item name="news.entry.add.informations.settings.isHot.title"><![CDATA[News ist eine Empfehlung]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Sie können hier ein Newsbild hinzufügen, welches neben dem Titel der News oder auch im Archiv angezeigt wird.]]></item>
