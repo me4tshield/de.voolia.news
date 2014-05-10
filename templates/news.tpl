@@ -325,7 +325,7 @@
 
 {if $news->isCommentable()}
 	<header id="comments" class="boxHeadline boxSubHeadline">
-		<h2>{lang}cms.page.comments{/lang}</h2>
+		<h2>{lang}news.entry.comments{/lang}</h2>
 	</header>
 
 	{include file='__commentJavaScript' commentContainerID='newsCommentList'}
