@@ -132,8 +132,10 @@ class NewsPictureAddForm extends AbstractForm {
 
 		$this->saved();
 
-		HeaderUtil::redirect(LinkHandler::getInstance()->getLink('NewsPictureList', array('application' => 'news')));
-		exit();
+		// show success
+		WCF::getTPL()->assign(array(
+			'success' => true
+		));
 	}
 
 	/**
