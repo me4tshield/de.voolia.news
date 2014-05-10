@@ -3,7 +3,7 @@
 	<import>
 		<cronjob>
 			<classname>news\system\cronjob\PublicationCronjob</classname>
-			<description><![CDATA[Manages and archived news entries]]></description>
+			<description><![CDATA[Manages and archives news entries]]></description>
 			<description language="de"><![CDATA[Verwaltet und archiviert Newseinträge]]></description>
 			<startminute>*/15</startminute>
 			<starthour>*</starthour>
