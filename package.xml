@@ -5,8 +5,8 @@
 		<packagedescription><![CDATA[Your News-System for WoltLab Community Framework™.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Dein News-System für WoltLab Community Framework™.]]></packagedescription>
 		<isapplication>1</isapplication>
-		<version>1.0.3</version>
-		<date>2014-05-04</date>
+		<version>1.0.4</version>
+		<date>2014-05-10</date>
 	</packageinformation>
 
 	<authorinformation>
@@ -58,11 +58,13 @@
 		<instruction type="script">acp/install_de.voolia.news.php</instruction>
 	</instructions>
 
-	<instructions type="update" fromversion="1.0.2">
+	<instructions type="update" fromversion="1.0.3">
+		<!-- xml -->
+		<instruction type="cronjob">cronjob.xml</instruction>
+
+		<!-- files -->
+		<instruction type="acpTemplate">acptemplates.tar</instruction>
 		<instruction type="file">files.tar</instruction>
 		<instruction type="template">templates.tar</instruction>
-		<instruction type="acpTemplate">acptemplates.tar</instruction>
-		<instruction type="objectType">objectType.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
 	</instructions>
 </package>
