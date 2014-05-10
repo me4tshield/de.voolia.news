@@ -19,7 +19,7 @@
 {include file='formError'}
 
 {if $success|isset}
-	<p class="success">{lang}news.acp.menu.link.news.picture.{$action}.success{/lang}</p>
+	<p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
 {/if}
 
 <div class="contentNavigation">
