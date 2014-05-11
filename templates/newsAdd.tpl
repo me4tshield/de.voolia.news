@@ -69,21 +69,6 @@
 				if (canSetTags) $tagsContainer.show();
 				else $tagsContainer.hide();
 			});
-
-			$('#pictureManagementButton').click(function() {
-				$('#pictureManagement').wcfDialog({
-					title: WCF.Language.get('{lang}news.entry.add.message.picture.title{/lang}')
-				});
-			});
-
-			$('#folderAddButton').click(function() {
-				$('#folderAddManagement').wcfDialog({
-					title: WCF.Language.get('{lang}news.entry.add.message.picture.folder.title{/lang}')
-				});
-			});
-
-			$('#pictureManagement').hide();
-			$('#folderAddManagement').hide();
 		});
 		//]]>
 	</script>
@@ -362,66 +347,6 @@
 		{@SECURITY_TOKEN_INPUT_TAG}
 	</div>
 </form>
-
-<div id="pictureManagement">
-	<div class="tabularBox tabularBoxTitle marginTop">
-		<header>
-			<h2>{lang}news.entry.add.message.picture.title{/lang}</h2>
-		</header>
-
-		<table class="table">
-			<thead>
-				<th class="columnIcon">Aktion</th>
-				<th class="columnTitle">Titel</th>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="columnIcon" style="text-align: center;"><span class="icon icon-double-angle-left icon16"></span></td>
-					<td class="columnTitle">...</td>
-				</tr>
-				<tr>
-					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-					<td class="columnTitle"><span class="icon icon-folder-close icon16"></span> <a href="#">Ordner 1</a></td>
-				</tr>
-				<tr>
-					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-					<td class="columnTitle"><span class="icon icon-folder-close icon16"></span> <a href="#">Ordner 2</a></td>
-				</tr>
-				<tr>
-					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-					<td class="columnTitle"><span class="icon icon-picture icon16"></span> <a href="#">news-picture.jpg</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<div class="contentNavigation">
-		<nav class="marginTop">
-			<ul>
-				<li><button class="button small" id="folderAddButton">Ordner erstellen</button></li>
-				<li><button class="button small">Datei hochladen</button></li>
-			</ul>
-		</nav>
-	</div>
-</div>
-
-<div id="folderAddManagement">
-	<div class="container containerPadding marginTop">
-		<fieldset>
-			<legend>Ordner</legend>
-			<dl>
-				<dt><label for="folder">Ordner</label></dt>
-				<dd>
-					<input type="text" name="folder" id="folder" value="" required="required"/>
-				</dd>
-			</dl>
-		</fieldset>
-	</div>
-
-	<div class="formSubmit">
-		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
-	</div>
-</div>
 
 {include file='footer'}
 {include file='wysiwyg'}
