@@ -69,6 +69,12 @@
 				if (canSetTags) $tagsContainer.show();
 				else $tagsContainer.hide();
 			});
+
+			$('#pictureManagementButton').click(function() {
+				$('#pictureManagement').wcfDialog({
+					title: WCF.Language.get('{lang}news.entry.add.message.picture.title{/lang}')
+				});
+			});
 		});
 		//]]>
 	</script>
@@ -91,9 +97,8 @@
 	<div class="tabMenuContainer" data-active="informations" data-store="activeTabMenuItem">
 		<nav class="tabMenu">
 			<ul>
-				<li><a href="{@$__wcf->getAnchor('informations')}">{lang}wcf.global.form.data{/lang}</a></li>
+				<li><a href="{@$__wcf->getAnchor('informations')}">{lang}news.entry.add.informations.title{/lang}</a></li>
 				<li><a href="{@$__wcf->getAnchor('message')}">{lang}news.entry.add.message.title{/lang}</a></li>
-				<li><a href="{@$__wcf->getAnchor('gallery')}">{lang}news.entry.add.gallery.title{/lang}</a></li>
 			
 				{event name='tabMenuTabs'}
 			</ul>
@@ -101,7 +106,7 @@
 
 		<div id="informations" class="container containerPadding marginTop tabMenuContent hidden">
 			<fieldset>
-				<legend>{lang}wcf.global.form.data{/lang}</legend>
+				<legend>{lang}news.entry.add.informations.title{/lang}</legend>
 
 				{include file='messageFormMultilingualism'}
 
@@ -255,7 +260,7 @@
 				<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
 					<dt><label for="publicationDate">{lang}news.entry.add.informations.settins.publicationDate{/lang}</label></dt>
 					<dd>
-						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" class="medium" />
+						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" />
 						{if $errorField == 'publicationDate'}
 							<small class="innerError">
 								{if $errorType == 'empty'}
@@ -278,7 +283,7 @@
 				<dl{if $errorField == 'archivingDate'} class="formError"{/if}{if !$enableAutomaticArchiving} style="display: none"{/if}>
 					<dt><label for="archivingDate">{lang}news.entry.add.informations.settings.archivingDate{/lang}</label></dt>
 					<dd>
-						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" class="medium" />
+						<input type="datetime" id="archivingDate" name="archivingDate" value="{$archivingDate}" />
 						{if $errorField == 'archivingDate'}
 							<small class="innerError">
 								{if $errorType == 'empty'}
@@ -312,6 +317,14 @@
 					</dd>
 				</dl>
 
+				<dl>
+					<dt><label for="picture">{lang}news.entry.add.message.picture.title{/lang}</label></dt>
+					<dd>
+						<a id="pictureManagementButton">{lang}news.entry.add.message.picture{/lang}</a>
+						<small>{lang}news.entry.add.message.picture.description{/lang}</small>
+					</dd>
+				</dl>
+
 				<dl class="wide">
 					<dt><label for="text">{lang}news.entry.add.message.title{/lang}</label></dt>
 					<dd>
@@ -333,10 +346,6 @@
 
 			{include file='messageFormTabs' wysiwygContainerID='text'}
 		</div>
-
-		<div id="gallery" class="container containerPadding marginTop tabMenuContent hidden">
-
-		</div>
 	</div>
 
 	<div class="formSubmit">
@@ -346,6 +355,48 @@
 		{@SECURITY_TOKEN_INPUT_TAG}
 	</div>
 </form>
+
+<div id="pictureManagement" style="display: none;">
+	<div class="tabularBox tabularBoxTitle marginTop">
+		<header>
+			<h2>{lang}news.entry.add.message.picture.title{/lang}</h2>
+		</header>
+
+		<table class="table">
+			<thead>
+				<th class="columnIcon">Aktion</th>
+				<th class="columnTitle">Titel</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="columnIcon" style="text-align: center;"><span class="icon icon-double-angle-left icon16"></span></td>
+					<td class="columnTitle">...</td>
+				</tr>
+				<tr>
+					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
+					<td class="columnTitle"><span class="icon icon-folder-close icon16"></span> <a href="#">Ordner 1</a></td>
+				</tr>
+				<tr>
+					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
+					<td class="columnTitle"><span class="icon icon-folder-close icon16"></span> <a href="#">Ordner 2</a></td>
+				</tr>
+				<tr>
+					<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
+					<td class="columnTitle"><span class="icon icon-picture icon16"></span> <a href="#">news-picture.jpg</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="contentNavigation">
+		<nav class="marginTop">
+			<ul>
+				<li><button class="button small">Ordner erstellen</button></li>
+				<li><button class="button small">Datei hochladen</button></li>
+			</ul>
+		</nav>
+	</div>
+</div>
 
 {include file='footer'}
 {include file='wysiwyg'}
