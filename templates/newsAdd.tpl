@@ -75,6 +75,15 @@
 					title: WCF.Language.get('{lang}news.entry.add.message.picture.title{/lang}')
 				});
 			});
+
+			$('#folderAddButton').click(function() {
+				$('#folderAddManagement').wcfDialog({
+					title: WCF.Language.get('{lang}news.entry.add.message.picture.folder.title{/lang}')
+				});
+			});
+
+			$('#pictureManagement').hide();
+			$('#folderAddManagement').hide();
 		});
 		//]]>
 	</script>
@@ -350,13 +359,11 @@
 
 	<div class="formSubmit">
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
-		<input type="hidden" id="pictureID" name="pictureID" value="{@$pictureID}" />
-		{include file='messageFormPreviewButton'}
 		{@SECURITY_TOKEN_INPUT_TAG}
 	</div>
 </form>
 
-<div id="pictureManagement" style="display: none;">
+<div id="pictureManagement">
 	<div class="tabularBox tabularBoxTitle marginTop">
 		<header>
 			<h2>{lang}news.entry.add.message.picture.title{/lang}</h2>
@@ -391,10 +398,28 @@
 	<div class="contentNavigation">
 		<nav class="marginTop">
 			<ul>
-				<li><button class="button small">Ordner erstellen</button></li>
+				<li><button class="button small" id="folderAddButton">Ordner erstellen</button></li>
 				<li><button class="button small">Datei hochladen</button></li>
 			</ul>
 		</nav>
+	</div>
+</div>
+
+<div id="folderAddManagement">
+	<div class="container containerPadding marginTop">
+		<fieldset>
+			<legend>Ordner</legend>
+			<dl>
+				<dt><label for="folder">Ordner</label></dt>
+				<dd>
+					<input type="text" name="folder" id="folder" value="" required="required"/>
+				</dd>
+			</dl>
+		</fieldset>
+	</div>
+
+	<div class="formSubmit">
+		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
 	</div>
 </div>
 
