@@ -30,7 +30,28 @@
 
 {capture assign='sidebar'}
 	<fieldset>
-		<legend>{lang}lorem{/lang}</legend>
+		<legend>{lang}news.sidebar.categoryList.title{/lang}</legend>
+
+		<div>
+			<ol class="sidebarNestedCategoryList newsSidebarCategoryList">
+				{foreach from=$categoryList item=categoryItem}
+					<li{if $category && $category->categoryID == $categoryItem->categoryID} class="active"{/if}>
+						<a href="{link application='news' controller='MediaManagement' object=$categoryItem->getDecoratedObject()}{/link}">{$categoryItem->getTitle()}</a>
+						{if $categoryItem->hasChildren()}
+							<ol>
+								{foreach from=$categoryItem item=subCategoryItem}
+									{if $subCategoryItem->isAccessible()}
+										<li{if $category && $category->categoryID == $subCategoryItem->categoryID} class="active"{/if}>
+											<a href="{link application='news' controller='MediaManagement' object=$subCategoryItem->getDecoratedObject()}{/link}">{$subCategoryItem->getTitle()}</a>
+										</li>
+									{/if}
+								{/foreach}
+							</ol>
+						{/if}
+					</li>
+				{/foreach}
+			</ol>
+		</div>
 
 		<dl class="plain inlineDataList">
 			<button class="button small" id="categoryAddButton">{lang}news.mediaManagement.browser.category.button.add{/lang}</button>

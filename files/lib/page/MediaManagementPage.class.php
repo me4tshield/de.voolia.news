@@ -1,5 +1,6 @@
 <?php
 namespace news\page;
+use news\data\media\category\MediaCategoryNodeTree;
 use wcf\page\MultipleLinkPage;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\exception\PermissionDeniedException;
@@ -36,6 +37,12 @@ class MediaManagementPage extends MultipleLinkPage {
 	public $objectListClassName = 'news\data\media\MediaList';
 
 	/**
+	 * category list
+	 * @var	array<\wcf\data\category\Category>
+	 */
+	public $categoryList = null;
+
+	/**
 	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
 	 */
 	public $itemsPerPage = 100;
@@ -51,12 +58,24 @@ class MediaManagementPage extends MultipleLinkPage {
 	public $sortOrder = 'ASC';
 
 	/**
+	 * @see	\wcf\page\IPage::readData()
+	 */
+	public function readData() {
+		parent::readData();
+
+		$categoryTree = new MediaCategoryNodeTree('de.voolia.news.media.category');
+		$this->categoryList = $categoryTree->getIterator();
+		$this->categoryList->setMaxDepth(0);
+	}
+
+	/**
 	 * @see	\wcf\page\IPage::assignVariables()
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
 
 		WCF::getTPL()->assign(array(
+			'categoryList' => $this->categoryList,
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.MediaManagementPage'),
 			'sidebarName' => 'de.voolia.news.MediaManagementPage',
 			'allowSpidersToIndexThisPage' => false
