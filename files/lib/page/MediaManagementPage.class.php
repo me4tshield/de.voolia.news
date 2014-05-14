@@ -1,6 +1,6 @@
 <?php
 namespace news\page;
-use wcf\page\AbstractPage;
+use wcf\page\MultipleLinkPage;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
@@ -14,7 +14,7 @@ use wcf\system\WCF;
  * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
-class MediaManagementPage extends AbstractPage {
+class MediaManagementPage extends MultipleLinkPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$activeMenuItem
 	 */
@@ -31,17 +31,30 @@ class MediaManagementPage extends AbstractPage {
 	public $neededModules = array('MODULE_CONTENT_NEWS');
 
 	/**
-	 * @see	\wcf\page\IPage::readParameters()
+	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
 	 */
-	public function readParameters() {
-		parent::readParameters();
-	}
+	public $objectListClassName = 'news\data\media\MediaList';
 
 	/**
-	 * @see	\wcf\page\IPage::readData()
+	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
 	 */
-	public function readData() {
-		parent::readData();
+	public $itemsPerPage = 100;
+
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::$sortField
+	 */
+	public $sortField = 'name';
+
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::$sortOrder
+	 */
+	public $sortOrder = 'ASC';
+
+	/**
+	 * @see	\wcf\page\MultipleLinkPage::initObjectList()
+	 */
+	protected function initObjectList() {
+		parent::initObjectList();
 	}
 
 	/**

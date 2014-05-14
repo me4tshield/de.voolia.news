@@ -97,6 +97,16 @@ CREATE TABLE news1_news_update (
 	KEY (newsID)
 );
 
+DROP TABLE IF EXISTS news1_news_media;
+CREATE TABLE news1_news_media (
+	objectID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(255) NOT NULL DEFAULT '',
+	fileExtension VARCHAR(10) NOT NULL DEFAULT '',
+	typ ENUM('folder', 'picture','video') DEFAULT 'picture'
+
+	KEY (objectID)
+);
+
 -- columns
 ALTER TABLE wcf1_user ADD newsEntries INT(10) NOT NULL DEFAULT 0;
 ALTER TABLE wcf1_user ADD INDEX newsEntries (newsEntries);
