@@ -40,11 +40,9 @@
 						{if $categoryItem->hasChildren()}
 							<ol>
 								{foreach from=$categoryItem item=subCategoryItem}
-									{if $subCategoryItem->isAccessible()}
-										<li{if $category && $category->categoryID == $subCategoryItem->categoryID} class="active"{/if}>
-											<a href="{link application='news' controller='MediaManagement' object=$subCategoryItem->getDecoratedObject()}{/link}">{$subCategoryItem->getTitle()}</a>
-										</li>
-									{/if}
+									<li{if $category && $category->categoryID == $subCategoryItem->categoryID} class="active"{/if}>
+										<a href="{link application='news' controller='MediaManagement' object=$subCategoryItem->getDecoratedObject()}{/link}">{$subCategoryItem->getTitle()}</a>
+									</li>
 								{/foreach}
 							</ol>
 						{/if}
