@@ -103,7 +103,7 @@ CREATE TABLE news1_news_media (
 	categoryID INT(10) DEFAULT NULL,
 	name VARCHAR(255) NOT NULL DEFAULT '',
 	fileExtension VARCHAR(10) NOT NULL DEFAULT '',
-	typ ENUM('folder', 'picture','video') DEFAULT 'picture'
+	typ ENUM('picture','video') DEFAULT 'picture',
 
 	KEY (objectID)
 );

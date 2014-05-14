@@ -149,7 +149,7 @@
 	<category name="news.mediaManagement">
 		<item name="news.mediaManagement.title"><![CDATA[TODO: Dateiverwaltung]]></item>
 		<item name="news.mediaManagement.browser.title"><![CDATA[TODO: Übersicht]]></item>
-		<item name="news.mediaManagement.browser.folder.button.add"><![CDATA[TODO: Ordner anlegen]]></item>
+		<item name="news.mediaManagement.browser.category.button.add"><![CDATA[TODO: Kategorie anlegen]]></item>
 		<item name="news.mediaManagement.browser.media.preview.title"><![CDATA[TODO: Vorschau]]></item>
 		<item name="news.mediaManagement.browser.media.upload"><![CDATA[TODO: Datei]]></item>
 		<item name="news.mediaManagement.browser.media.upload.button"><![CDATA[TODO: Datei hochladen]]></item>

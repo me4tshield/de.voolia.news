@@ -33,7 +33,7 @@
 		<legend>{lang}lorem{/lang}</legend>
 
 		<dl class="plain inlineDataList">
-			<button class="button small" id="folderAddButton">{lang}news.mediaManagement.browser.folder.button.add{/lang}</button>
+			<button class="button small" id="categoryAddButton">{lang}news.mediaManagement.browser.category.button.add{/lang}</button>
 		</dl>
 	</fieldset>
 {/capture}
@@ -62,7 +62,7 @@
 				{foreach from=$objects item=media}
 					<tr>
 						<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'folder'}folder-close{else if $media->typ == 'picture'}picture{/if} icon16"></span> <a class="jsMediaPreview">{$media->name}.{$media->fileExtension}</a></td>
+						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->name}.{$media->fileExtension}</a></td>
 						<td class="columnTitle">{$media->typ}/{$media->fileExtension}</td>
 					</tr>
 				{/foreach}
@@ -84,9 +84,9 @@
 		<fieldset>
 			<legend>{lang}news.mediaManagement.browser.media.upload.title{/lang}</legend>
 			<dl>
-				<dt><label for="folder">{lang}news.mediaManagement.browser.media.upload{/lang}</label></dt>
+				<dt><label for="file">{lang}news.mediaManagement.browser.media.upload{/lang}</label></dt>
 				<dd>
-					<input type="file" name="folder" id="folder" value="" required="required"/>
+					<input type="file" name="file" id="file" value="" required="required"/>
 					<span>{lang}news.mediaManagement.browser.media.upload.description{/lang}</span>
 				</dd>
 			</dl>
