@@ -51,13 +51,6 @@ class MediaManagementPage extends MultipleLinkPage {
 	public $sortOrder = 'ASC';
 
 	/**
-	 * @see	\wcf\page\MultipleLinkPage::initObjectList()
-	 */
-	protected function initObjectList() {
-		parent::initObjectList();
-	}
-
-	/**
 	 * @see	\wcf\page\IPage::assignVariables()
 	 */
 	public function assignVariables() {
