@@ -100,6 +100,7 @@ CREATE TABLE news1_news_update (
 DROP TABLE IF EXISTS news1_news_media;
 CREATE TABLE news1_news_media (
 	objectID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	categoryID INT(10) DEFAULT NULL,
 	name VARCHAR(255) NOT NULL DEFAULT '',
 	fileExtension VARCHAR(10) NOT NULL DEFAULT '',
 	typ ENUM('folder', 'picture','video') DEFAULT 'picture'
@@ -119,6 +120,8 @@ ALTER TABLE news1_news ADD FOREIGN KEY (pollID) REFERENCES wcf1_poll (pollID) ON
 
 ALTER TABLE news1_news_author ADD FOREIGN KEY (newsID) REFERENCES news1_news (newsID) ON DELETE CASCADE;
 ALTER TABLE news1_news_author ADD FOREIGN KEY (userID) REFERENCES wcf1_user (userID) ON DELETE CASCADE;
+
+ALTER TABLE news1_news_media ADD FOREIGN KEY (categoryID) REFERENCES wcf1_category (categoryID) ON DELETE SET NULL;
 
 ALTER TABLE news1_news_picture ADD FOREIGN KEY (categoryID) REFERENCES wcf1_category (categoryID) ON DELETE SET NULL;
 

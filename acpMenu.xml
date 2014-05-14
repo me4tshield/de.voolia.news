@@ -35,6 +35,20 @@
 		</acpmenuitem>
 		<!-- /news.picture.category -->
 
+		<!-- news.media.category -->
+		<acpmenuitem name="news.acp.menu.link.media.category.list">
+			<controller><![CDATA[news\acp\page\MediaCategoryListPage]]></controller>
+			<parent>news.acp.menu.link.news</parent>
+			<permissions>admin.news.canManageMediaCategory</permissions>
+		</acpmenuitem>
+
+		<acpmenuitem name="news.acp.menu.link.media.category.add">
+			<controller><![CDATA[news\acp\form\MediaCategoryAddForm]]></controller>
+			<parent>news.acp.menu.link.news</parent>
+			<permissions>admin.news.canManageMediaCategory</permissions>
+		</acpmenuitem>
+		<!-- /news.media.category -->
+
 		<!-- news.picture -->
 		<acpmenuitem name="news.acp.menu.link.news.picture.list">
 			<controller><![CDATA[news\acp\page\NewsPictureListPage]]></controller>

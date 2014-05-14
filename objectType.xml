@@ -31,6 +31,11 @@
 			<classname>news\system\category\NewsCategoryType</classname>
 		</type>
 		<type>
+			<name>de.voolia.news.media.category</name>
+			<definitionname>com.woltlab.wcf.category</definitionname>
+			<classname>news\system\category\MediaCategoryType</classname>
+		</type>
+		<type>
 			<name>de.voolia.news.picture.category</name>
 			<definitionname>com.woltlab.wcf.category</definitionname>
 			<classname>news\system\category\NewsPictureCategoryType</classname>
