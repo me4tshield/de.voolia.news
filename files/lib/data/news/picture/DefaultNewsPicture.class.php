@@ -15,6 +15,6 @@ class DefaultNewsPicture implements INewsPicture {
 	 * @see	\news\data\news\picture\INewsPicture::getURL()
 	 */
 	public function getURL() {
-		return WCF::getPath('news') .'images/news/dummyPicture.png';
+		return WCF::getPath('news') .'images/media/dummyPicture.png';
 	}
 }

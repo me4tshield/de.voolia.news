@@ -37,7 +37,7 @@ class NewsPicture extends NewsDatabaseObject implements INewsPicture {
 	 * @return	string
 	 */
 	public function getLocation() {
-		return NEWS_DIR .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
+		return NEWS_DIR .'images/media/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
 	}
 
 	/**
@@ -46,6 +46,6 @@ class NewsPicture extends NewsDatabaseObject implements INewsPicture {
 	 * @return	string
 	 */
 	public function getURL() {
-		return WCF::getPath('news') .'images/news/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
+		return WCF::getPath('news') .'images/media/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
 	}
 }
