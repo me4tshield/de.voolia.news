@@ -23,10 +23,17 @@ CategoryEditor::create(array(
 	'time' => TIME_NOW
 ));
 
+// set default media category
+CategoryEditor::create(array(
+	'objectTypeID' => ObjectTypeCache::getInstance()->getObjectTypeIDByName('com.woltlab.wcf.category', 'de.voolia.news.media.category'),
+	'title' => 'Newsbilder',
+	'time' => TIME_NOW
+));
+
 // set default media object
 $sql = "INSERT INTO	news".WCF_N."_news_media
 			(name, fileExtension, typ)
-	VALUES		('dummyPicture','png','picture')";
+	VALUES		('dummyPicture', 'png', 'picture')";
 $defaultMedia = WCF::getDB()->prepareStatement($sql);
 $defaultMedia->execute();
 
