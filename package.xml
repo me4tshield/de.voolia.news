@@ -5,7 +5,7 @@
 		<packagedescription><![CDATA[Your News-System for WoltLab Community Framework™.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Dein News-System für WoltLab Community Framework™.]]></packagedescription>
 		<isapplication>1</isapplication>
-		<version>1.1.0</version>
+		<version>1.1.0 Alpha 1</version>
 		<date>2014-01-13</date>
 	</packageinformation>
 

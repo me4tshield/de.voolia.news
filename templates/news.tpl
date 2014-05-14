@@ -312,6 +312,11 @@
 
 <div class="contentNavigation">
 	<nav>
+		{* TODO *}
+		<ul style="float: left;">
+			<li><a href="" class="button small jsTooltip" title="Zur vorherigen News"><span>Vorherige</span></a></li>
+			<li><a href="" class="button small jsTooltip" title="Zur nächsten News"><span>Nächste</span></a></li>
+		</ul>
 		<ul>
 			<li><a href="{link application='news' controller='News' appendSession=false object=$news}{/link}" class="button jsButtonShare jsOnly" title="{lang}wcf.message.share{/lang}" data-link-title="{$news->subject}"><span class="icon icon16 icon-link"></span> <span>{lang}wcf.message.share{/lang}</span></a></li>
 			<li><a class="button jsNewsBBCode jsOnly"><span class="icon icon16 icon-copy"></span> <span>{lang}wcf.message.share.permalink.bbcode{/lang}</span></a></li>
