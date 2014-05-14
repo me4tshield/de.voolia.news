@@ -1,5 +1,6 @@
 <?php
 namespace news\page;
+use news\data\media\category\MediaCategory;
 use news\data\media\category\MediaCategoryNodeTree;
 use wcf\page\MultipleLinkPage;
 use wcf\system\exception\IllegalLinkException;
