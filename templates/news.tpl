@@ -314,8 +314,12 @@
 	<nav>
 		{* TODO *}
 		<ul style="float: left;">
-			<li><a href="" class="button small jsTooltip" title="Zur vorherigen News"><span>Vorherige</span></a></li>
-			<li><a href="" class="button small jsTooltip" title="Zur nächsten News"><span>Nächste</span></a></li>
+			{foreach from=$news->getPreviousNews() item=previous}
+				<li><a href="{link application='news' controller='News' object=$previous}{/link}" class="button small newsPreview" data-news-id="{@$previous->newsID}" title="{$previous->subject}"><span>Vorherige</span></a></li>
+			{/foreach}
+			{foreach from=$news->getNextNews() item=next}
+				<li><a href="{link application='news' controller='News' object=$next}{/link}" class="button small newsPreview" data-news-id="{@$next->newsID}" title="{$next->subject}"><span>Nächste</span></a></li>
+			{/foreach}
 		</ul>
 		<ul>
 			<li><a href="{link application='news' controller='News' appendSession=false object=$news}{/link}" class="button jsButtonShare jsOnly" title="{lang}wcf.message.share{/lang}" data-link-title="{$news->subject}"><span class="icon icon16 icon-link"></span> <span>{lang}wcf.message.share{/lang}</span></a></li>

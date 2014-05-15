@@ -457,6 +457,42 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	}
 
 	/**
+	 * Returns the previous available news.
+	 *
+	 * @return	array<\news\data\news\AccessibleNewsList>
+	 */
+	public function getPreviousNews() {
+		if ($this->previousNews === null) {
+			$previousNewsItem = new AccessibleNewsList();
+			$previousNewsItem->getConditionBuilder()->add('news.time < ?', array($this->time));
+			$previousNewsItem->sqlLimit = 1;
+			$previousNewsItem->sqlOrderBy = 'time DESC';
+			$previousNewsItem->readObjects();
+			$this->previousNews = $previousNewsItem->getObjects();
+		}
+
+		return $this->previousNews;
+	}
+
+	/**
+	 * Returns the next available news.
+	 *
+	 * @return	array<\news\data\news\AccessibleNewsList>
+	 */
+	public function getNextNews() {
+		if ($this->nextNews === null) {
+			$nextNewsItem = new AccessibleNewsList();
+			$nextNewsItem->getConditionBuilder()->add('news.time > ?', array($this->time));
+			$nextNewsItem->sqlLimit = 1;
+			$nextNewsItem->sqlOrderBy = 'time ASC';
+			$nextNewsItem->readObjects();
+			$this->nextNews = $nextNewsItem->getObjects();
+		}
+
+		return $this->nextNews;
+	}
+
+	/**
 	 * @see	\wcf\data\IMessage::isVisible()
 	 */
 	public function isVisible() {
