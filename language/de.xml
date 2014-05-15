@@ -113,8 +113,10 @@
 		<item name="news.entry.edit.title"><![CDATA[News bearbeiten]]></item>
 		<item name="news.entry.isHot"><![CDATA[Empfehlung]]></item>
 		<item name="news.entry.markAllAsRead"><![CDATA[Alle News als gelesen markieren]]></item>
+		<item name="news.entry.previousNewsItem"><![CDATA[Vorherige]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
 		<item name="news.entry.newsUpdate.headline"><![CDATA[Update <small>({@$news->editTime|time})</small>]]></item>
+		<item name="news.entry.nextNewsItem"><![CDATA[Nächste]]></item>
 		<item name="news.entry.no.entry"><![CDATA[Keine News verfügbar.]]></item>
 		<item name="news.entry.notification.title"><![CDATA[Neue News]]></item>
 		<item name="news.entry.notification.message"><![CDATA[Hat die News „{$news->subject}“ geschrieben.]]></item>
@@ -316,6 +318,7 @@
 		<item name="wcf.acp.option.news_enable_like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newsbilder]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[Beim Erstellen einer News muss zwingend ein Newsbild ausgewählt werden]]></item>
+		<item name="wcf.acp.option.news_enable_previous_and_next_news_list"><![CDATA[Zeigt in der News die jeweils vorherige und nächste News an]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Teilen]]></item>
 		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Kategorien in der Sidebar anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
