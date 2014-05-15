@@ -313,14 +313,18 @@
 <div class="contentNavigation">
 	<nav>
 		{if NEWS_ENABLE_PREVIOUS_AND_NEXT_NEWS_LIST}
-			<ul style="float: left;">
-				{foreach from=$news->getPreviousNews() item=previous}
-					<li><a href="{link application='news' controller='News' object=$previous}{/link}" class="button small newsPreview" data-news-id="{@$previous->newsID}" title="{$previous->subject}"><span>{lang}news.entry.previousNewsItem{/lang}</span></a></li>
-				{/foreach}
-				{foreach from=$news->getNextNews() item=next}
-					<li><a href="{link application='news' controller='News' object=$next}{/link}" class="button small newsPreview" data-news-id="{@$next->newsID}" title="{$next->subject}"><span>{lang}news.entry.nextNewsItem{/lang}</span></a></li>
-				{/foreach}
-			</ul>
+			{hascontent}
+				<ul style="float: left;">
+					{content}
+						{foreach from=$news->getPreviousNews() item=previous}
+							<li><a href="{link application='news' controller='News' object=$previous}{/link}" class="button small newsPreview" data-news-id="{@$previous->newsID}" title="{$previous->subject}"><span>{lang}news.entry.previousNewsItem{/lang}</span></a></li>
+						{/foreach}
+						{foreach from=$news->getNextNews() item=next}
+							<li><a href="{link application='news' controller='News' object=$next}{/link}" class="button small newsPreview" data-news-id="{@$next->newsID}" title="{$next->subject}"><span>{lang}news.entry.nextNewsItem{/lang}</span></a></li>
+						{/foreach}
+					{/content}
+				</ul>
+			{/hascontent}
 		{/if}
 		<ul>
 			<li><a href="{link application='news' controller='News' appendSession=false object=$news}{/link}" class="button jsButtonShare jsOnly" title="{lang}wcf.message.share{/lang}" data-link-title="{$news->subject}"><span class="icon icon16 icon-link"></span> <span>{lang}wcf.message.share{/lang}</span></a></li>
