@@ -258,6 +258,8 @@
 						<small>{lang}news.entry.add.informations.settins.location.description{/lang}</small>
 					</dd>
 				</dl>
+
+				{event name='locationFields'}
 			</fieldset>
 
 			<fieldset class="jsOnly">
@@ -385,7 +387,7 @@
 			}, this));
 		{/if}
 
-		$locationInput = new WCF.Location.GoogleMaps.LocationInput('newsMap', undefined, '#locationData', {if $latitude || $longitude}{@$latitude}, {@$longitude}{else}52.517, 13.4{/if});
+		$locationInput = new WCF.Location.GoogleMaps.LocationInput('newsMap', undefined, '#locationData', {if $latitude || $longitude}{@$latitude}, {@$longitude}{else}{GOOGLE_MAPS_DEFAULT_LATITUDE}, {GOOGLE_MAPS_DEFAULT_LONGITUDE}{/if});
 		new News.Map.Location.SubmitAction($locationInput);
 
 		var $enableLocation = $('#enableLocation').change(function () {
