@@ -5,7 +5,7 @@
 
 	{include file='headInclude'}
 
-	{if $news->location}
+	{if NEWS_ENABLE_LOCATION && $news->location}
 		{include file='googleMapsJavaScript'}
 	{/if}
 
@@ -53,7 +53,7 @@
 					$jsNewsBBCode.wcfDialog({ "title": "{lang}wcf.message.share.permalink.bbcode{/lang}"});
 				});
 
-				{if $news->location}
+				{if NEWS_ENABLE_LOCATION && $news->location}
 					var $map = new WCF.Location.GoogleMaps.Map('newsMap');
 					WCF.Location.GoogleMaps.Util.focusMarker($map.addMarker({@$news->latitude}, {@$news->longitude}, '{$news->subject|encodeJS}'));
 				{/if}
@@ -109,7 +109,7 @@
 		</fieldset>
 	{/if}
 
-	{if $news->location}
+	{if NEWS_ENABLE_LOCATION && $news->location}
 		<fieldset>
 			<legend>{lang}news.sidebar.entry.general.map{/lang}</legend>
 			{if $news->location}

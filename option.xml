@@ -119,6 +119,11 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="news_enable_location">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
 			<option name="news_show_editnote">
 				<categoryname>news.entry.general</categoryname>
 				<optiontype>boolean</optiontype>

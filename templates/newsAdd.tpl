@@ -243,24 +243,26 @@
 				{event name='settingsFields'}
 			</fieldset>
 
-			<fieldset class="jsOnly">
-				<legend><label><input type="checkbox" id="enableLocation" name="enableLocation" value="1"{if $enableLocation} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.location.title{/lang}</label></legend>
+			{if NEWS_ENABLE_LOCATION}
+				<fieldset class="jsOnly">
+					<legend><label><input type="checkbox" id="enableLocation" name="enableLocation" value="1"{if $enableLocation} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.location.title{/lang}</label></legend>
 
-				<dl class="wide jsCoordinatesField">
-					<dt></dt>
-					<dd id="newsMap" class="googleMap"></dd>
-				</dl>
+					<dl class="wide jsCoordinatesField">
+						<dt></dt>
+						<dd id="newsMap" class="googleMap"></dd>
+					</dl>
 
-				<dl class="jsCoordinatesField">
-					<dt><label for="locationData">{lang}news.entry.add.informations.settings.location{/lang}</label></dt>
-					<dd>
-						<input type="text" id="locationData" name="locationData" class="long" value="{$locationData}" />
-						<small>{lang}news.entry.add.informations.settings.location.description{/lang}</small>
-					</dd>
-				</dl>
+					<dl class="jsCoordinatesField">
+						<dt><label for="locationData">{lang}news.entry.add.informations.settings.location{/lang}</label></dt>
+						<dd>
+							<input type="text" id="locationData" name="locationData" class="long" value="{$locationData}" />
+							<small>{lang}news.entry.add.informations.settings.location.description{/lang}</small>
+						</dd>
+					</dl>
 
-				{event name='locationFields'}
-			</fieldset>
+					{event name='locationFields'}
+				</fieldset>
+			{/if}
 
 			<fieldset class="jsOnly">
 				<legend>{lang}news.entry.add.informations.settings.publication{/lang}</legend>
@@ -370,39 +372,42 @@
 </form>
 
 {include file='footer'}
-{include file='googleMapsJavaScript'}
 
-<script data-relocate="true">
-	$(function() {
-		function rebuildMap() {
-			google.maps.event.trigger($locationInput.getMap().getMap(), 'resize');
-			WCF.Location.GoogleMaps.Util.focusMarker($locationInput.getMarker());
-		}
+{if NEWS_ENABLE_LOCATION}
+	{include file='googleMapsJavaScript'}
 
-		{if !$latitude && !$longitude}
-			WCF.Location.Util.getLocation($.proxy(function(latitude, longitude) {
-				if (latitude !== undefined && longitude !== undefined) {
-					WCF.Location.GoogleMaps.Util.moveMarker($locationInput.getMarker(), latitude, longitude, true);
+	<script data-relocate="true">
+		$(function() {
+			function rebuildMap() {
+				google.maps.event.trigger($locationInput.getMap().getMap(), 'resize');
+				WCF.Location.GoogleMaps.Util.focusMarker($locationInput.getMarker());
+			}
+
+			{if !$latitude && !$longitude}
+				WCF.Location.Util.getLocation($.proxy(function(latitude, longitude) {
+					if (latitude !== undefined && longitude !== undefined) {
+						WCF.Location.GoogleMaps.Util.moveMarker($locationInput.getMarker(), latitude, longitude, true);
+					}
+				}, this));
+			{/if}
+
+			$locationInput = new WCF.Location.GoogleMaps.LocationInput('newsMap', undefined, '#locationData', {if $latitude || $longitude}{@$latitude}, {@$longitude}{else}{GOOGLE_MAPS_DEFAULT_LATITUDE}, {GOOGLE_MAPS_DEFAULT_LONGITUDE}{/if});
+			new News.Map.Location.SubmitAction($locationInput);
+
+			var $enableLocation = $('#enableLocation').change(function () {
+				if ($enableLocation.is(':checked')) {
+					$enableLocation.parents('fieldset').find('dl').show();
+					rebuildMap();
 				}
-			}, this));
-		{/if}
+				else {
+					$enableLocation.parents('fieldset').find('dl').hide();
+				}
+			});
 
-		$locationInput = new WCF.Location.GoogleMaps.LocationInput('newsMap', undefined, '#locationData', {if $latitude || $longitude}{@$latitude}, {@$longitude}{else}{GOOGLE_MAPS_DEFAULT_LATITUDE}, {GOOGLE_MAPS_DEFAULT_LONGITUDE}{/if});
-		new News.Map.Location.SubmitAction($locationInput);
-
-		var $enableLocation = $('#enableLocation').change(function () {
-			if ($enableLocation.is(':checked')) {
-				$enableLocation.parents('fieldset').find('dl').show();
-				rebuildMap();
-			}
-			else {
-				$enableLocation.parents('fieldset').find('dl').hide();
-			}
+			$enableLocation.trigger('change');
 		});
-
-		$enableLocation.trigger('change');
-	});
-</script>
+	</script>
+{/if}
 
 {include file='wysiwyg'}
 

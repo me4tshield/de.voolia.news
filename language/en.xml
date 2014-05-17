@@ -322,6 +322,7 @@
 		<item name="wcf.acp.option.news_enable_language_flag"><![CDATA[Show news language]]></item>
 		<item name="wcf.acp.option.news_enable_letter_sort"><![CDATA[Letter-Filter]]></item>
 		<item name="wcf.acp.option.news_enable_like"><![CDATA[Likes]]></item>
+		<item name="wcf.acp.option.news_enable_location"><![CDATA[TODO: Ortsangaben aktivieren]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newspicture]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[The author must select a newspicture]]></item>
 		<item name="wcf.acp.option.news_enable_previous_and_next_news_list"><![CDATA[TODO: Zeigt in der News die jeweils vorherige und nächste News an]]></item>
