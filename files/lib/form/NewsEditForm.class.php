@@ -200,6 +200,7 @@ class NewsEditForm extends NewsAddForm {
 		}
 		else {
 			HeaderUtil::redirect(LinkHandler::getInstance()->getLink('News', array(
+				'application' => 'news',
 				'object' => $this->news
 			)));
 		}
