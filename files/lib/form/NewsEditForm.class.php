@@ -8,6 +8,7 @@ use wcf\form\MessageForm;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\exception\UserInputException;
+use wcf\system\moderation\queue\ModerationQueueActivationManager;
 use wcf\system\poll\PollManager;
 use wcf\system\request\LinkHandler;
 use wcf\system\tagging\TagEngine;
@@ -132,6 +133,7 @@ class NewsEditForm extends NewsAddForm {
 			'editReason' => $this->editReason,
 			'editNoteSuppress' => $this->editNoteSuppress,
 			'isHot' => $this->isHot,
+			'isActive' => (WCF::getSession()->getPermission('user.news.canAddNewsWithoutModeration') ? 1 : 0),
 			'location' => $this->locationData,
 			'longitude' => $this->longitude,
 			'latitude' => $this->latitude
@@ -189,10 +191,18 @@ class NewsEditForm extends NewsAddForm {
 
 		$this->saved();
 
-		HeaderUtil::redirect(LinkHandler::getInstance()->getLink('News', array(
-			'application' => 'news',
-			'object' => $this->news
-		)));
+		if (!WCF::getSession()->getPermission('user.news.canAddNewsWithoutModeration')) {
+			// add moderated content
+			ModerationQueueActivationManager::getInstance()->addModeratedContent('de.voolia.news.entry', $this->news->newsID);
+
+			// redirect to guestbook overview page
+			HeaderUtil::delayedRedirect(LinkHandler::getInstance()->getLink('NewsOverview', array('application' => 'news')), WCF::getLanguage()->get('wcf.news.entry.moderation.redirect'), 30);
+		}
+		else {
+			HeaderUtil::redirect(LinkHandler::getInstance()->getLink('News', array(
+				'object' => $this->news
+			)));
+		}
 
 		exit;
 	}

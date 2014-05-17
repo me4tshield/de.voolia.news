@@ -245,6 +245,7 @@
 		<item name="wcf.acp.group.option.user.news.allowedAttachmentExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
 		<item name="wcf.acp.group.option.user.news.canAddNews"><![CDATA[Kann News schreiben]]></item>
 		<item name="wcf.acp.group.option.user.news.canAddNewsUpdate"><![CDATA[Kann ein News-Update hinzufügen]]></item>
+		<item name="wcf.acp.group.option.user.news.canAddNewsWithoutModeration"><![CDATA[Kann News ohne Freischaltung schreiben]]></item>
 		<item name="wcf.acp.group.option.user.news.canCreatePoll"><![CDATA[Kann Umfragen erstellen]]></item>
 		<item name="wcf.acp.group.option.user.news.canDeleteOwnComment"><![CDATA[Kann eigene Kommentare löschen]]></item>
 		<item name="wcf.acp.group.option.user.news.canEditOwnComment"><![CDATA[Kann eigene Kommentare bearbeiten]]></item>

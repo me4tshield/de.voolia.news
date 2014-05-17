@@ -15,6 +15,7 @@ use wcf\system\exception\UserInputException;
 use wcf\system\image\ImageHandler;
 use wcf\system\language\LanguageFactory;
 use wcf\system\message\quote\MessageQuoteManager;
+use wcf\system\moderation\queue\ModerationQueueActivationManager;
 use wcf\system\poll\PollManager;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
@@ -424,7 +425,7 @@ class NewsAddForm extends MessageForm {
 			'enableBBCodes' => $this->enableBBCodes,
 			'enableHtml' => $this->enableHtml,
 			'enableSmilies' => $this->enableSmilies,
-			'isActive' => 1,
+			'isActive' => (WCF::getSession()->getPermission('user.news.canAddNewsWithoutModeration') ? 1 : 0),
 			'isDeleted' => 0,
 			'isHot'	=> $this->isHot,
 			'views'	=> 0,
@@ -485,7 +486,16 @@ class NewsAddForm extends MessageForm {
 
 		$this->saved();
 
-		HeaderUtil::redirect(LinkHandler::getInstance()->getLink('News', array('application' => 'news','object' => $this->news)));
+		if (!$this->news->isActive) {
+			// add moderated content
+			ModerationQueueActivationManager::getInstance()->addModeratedContent('de.voolia.news.entry', $this->news->newsID);
+
+			// redirect to news overview page
+			HeaderUtil::delayedRedirect(LinkHandler::getInstance()->getLink('NewsOverview', array('application' => 'news')), WCF::getLanguage()->get('wcf.news.entry.moderation.redirect'), 30);
+		}
+		else {
+			HeaderUtil::redirect(LinkHandler::getInstance()->getLink('News', array('application' => 'news','object' => $this->news)));
+		}
 
 		exit;
 	}
