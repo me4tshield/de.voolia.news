@@ -308,6 +308,8 @@
 		<item name="wcf.acp.option.category.news"><![CDATA[News-System]]></item>
 		<item name="wcf.acp.option.category.news.entry"><![CDATA[News]]></item>
 		<item name="wcf.acp.option.category.news.entry.general"><![CDATA[General]]></item>
+		<item name="wcf.acp.option.category.news.entry.settings"><![CDATA[TODO: Eigenschaften]]></item>
+		<item name="wcf.acp.option.category.news.entry.sidebar"><![CDATA[TODO: Seitenleiste]]></item>
 		<item name="wcf.acp.option.category.news.entry.sources"><![CDATA[Sources]]></item>
 		<item name="wcf.acp.option.category.news.index"><![CDATA[Startpage]]></item>
 		<item name="wcf.acp.option.module_content_news"><![CDATA[News-System]]></item>
