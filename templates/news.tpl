@@ -231,11 +231,15 @@
 											{foreach from=$news->getSources() item=source}
 												<li id="source{@$source->sourceID}">
 													<ul class="dataList">
-														{if $source->sourceText}
-															<li><strong>{$source->sourceText}</strong></li>
-														{/if}
-														{if $source->sourceLink}
-															<li>{@$source->getLink()}</li>
+														{if $source->sourceLink && NEWS_ENTRY_SOURCES_DISPLAYOPTION_COMPACTVIEW}
+															<li><strong><a href="{$source->getLink()}">{if $source->sourceText}{$source->sourceText}{else}{$source->getLink()}{/if}</a></strong></li>
+														{else}
+															{if $source->sourceText}
+																<li><strong>{$source->sourceText}</strong></li>
+															{/if}
+															{if $source->sourceLink}
+																<li><a href="{$source->getLink()}">{$source->getLink()}</a></li>
+															{/if}
 														{/if}
 													</ul>
 												</li>

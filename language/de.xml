@@ -331,6 +331,8 @@
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Zeigt den News-Teaser innerhalb der News an]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Quellenangabe aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_sources_displayOption_compactView"><![CDATA[Kompakte Darstellung der Quellen aktivieren.]]></item>
+		<item name="wcf.acp.option.news_entry_sources_displayOption_compactView.description"><![CDATA[Aktivieren Sie diese Option, um die Quellen in einer kompakten Darstellung anzuzeigen. Dabei wird der Quellen-Text automatisch verlinkt.]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount"><![CDATA[Maximale Quellen-Anzahl]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount.description"><![CDATA[Anzahl der Quellen, die maximal für eine News angegeben werden können. [0 um die Limitierung gänzlich zu deaktivieren]]]></item>
 		<item name="wcf.acp.option.news_hot_items_per_page"><![CDATA[Anzahl der News in der Dashboard-Box]]></item>

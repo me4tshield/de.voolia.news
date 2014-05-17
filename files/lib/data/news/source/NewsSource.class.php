@@ -27,6 +27,6 @@ class NewsSource extends NewsDatabaseObject {
 	 * @return	string
 	 */
 	public function getLink() {
-		return StringUtil::getAnchorTag($this->sourceLink);
+		return $this->sourceLink;
 	}
 }

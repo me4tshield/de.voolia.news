@@ -151,13 +151,18 @@
 				<categoryname>news.entry.sources</categoryname>
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
-				<enableoptions>news_entry_sources_maxCount</enableoptions>
+				<enableoptions>news_entry_sources_maxCount, news_entry_sources_displayOption_compactView</enableoptions>
 			</option>
 			<option name="news_entry_sources_maxCount">
 				<categoryname>news.entry.sources</categoryname>
 				<optiontype>integer</optiontype>
 				<defaultvalue>5</defaultvalue>
 				<min>1</min>
+			</option>
+			<option name="news_entry_sources_displayOption_compactView">
+				<categoryname>news.entry.sources</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
 			</option>
 			<!-- /news.entry.sources -->
 
