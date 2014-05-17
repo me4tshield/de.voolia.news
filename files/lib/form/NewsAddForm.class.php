@@ -153,6 +153,25 @@ class NewsAddForm extends MessageForm {
 	public $isHot = 0;
 
 	/**
+	 * enable news location
+	 * @var	integer
+	 */
+	public $enableLocation = 0;
+	
+	/**
+	 * location data
+	 * @var	string
+	 */
+	public $locationData = '';
+	
+	/**
+	 * longitude and latitude location data
+	 * @var	float
+	 */
+	public $longitude = 0.0;
+	public $latitude = 0.0;
+
+	/**
 	 * @see	\wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
@@ -182,6 +201,14 @@ class NewsAddForm extends MessageForm {
 		if (isset($_POST['teaser'])) $this->teaser = StringUtil::trim($_POST['teaser']);
 		if (isset($_POST['tags']) && is_array($_POST['tags'])) $this->tags = ArrayUtil::trim($_POST['tags']);
 		if (isset($_POST['isHot'])) $this->isHot = intval($_POST['isHot']);
+
+		// location
+		if (!empty($_POST['enableLocation'])) $this->enableLocation = 1;
+		if ($this->enableLocation) {
+			if (isset($_POST['locationData'])) $this->locationData = StringUtil::trim($_POST['locationData']);
+			if (isset($_POST['longitude'])) $this->longitude = floatval($_POST['longitude']);
+			if (isset($_POST['latitude'])) $this->latitude = floatval($_POST['latitude']);
+		}
 
 		// news picture
 		if (NEWS_ENABLE_NEWSPICTURE) {
@@ -285,6 +312,15 @@ class NewsAddForm extends MessageForm {
 		// validate poll
 		if ($this->canCreatePoll()) {
 			PollManager::getInstance()->validate();
+		}
+
+		// validate the location
+		if ($this->enableLocation) {
+			if (empty($this->locationData)) {
+				$this->enableCoordinates = false;
+				$this->longitude = 0.0;
+				$this->latitude = 0.0;
+			}
 		}
 	}
 
@@ -391,7 +427,10 @@ class NewsAddForm extends MessageForm {
 			'isActive' => 1,
 			'isDeleted' => 0,
 			'isHot'	=> $this->isHot,
-			'views'	=> 0
+			'views'	=> 0,
+			'location' => $this->locationData,
+			'longitude' => $this->longitude,
+			'latitude' => $this->latitude
 		);
 
 		// delayed publication
@@ -529,7 +568,11 @@ class NewsAddForm extends MessageForm {
 			'sources' => $this->sources,
 			'tags' => $this->tags,
 			'showSignatureSetting' => false,
-			'messageQuoteCount' => MessageQuoteManager::getInstance()->countQuotes()
+			'messageQuoteCount' => MessageQuoteManager::getInstance()->countQuotes(),
+			'enableLocation' => $this->enableLocation,
+			'locationData' => $this->locationData,
+			'longitude' => $this->longitude,
+			'latitude' => $this->latitude
 		));
 	}
 }

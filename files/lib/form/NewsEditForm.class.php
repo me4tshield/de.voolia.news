@@ -131,7 +131,10 @@ class NewsEditForm extends NewsAddForm {
 			'editUser' => WCF::getUser()->username,
 			'editReason' => $this->editReason,
 			'editNoteSuppress' => $this->editNoteSuppress,
-			'isHot' => $this->isHot
+			'isHot' => $this->isHot,
+			'location' => $this->locationData,
+			'longitude' => $this->longitude,
+			'latitude' => $this->latitude
 		);
 
 		// delayed publication
@@ -213,6 +216,10 @@ class NewsEditForm extends NewsAddForm {
 			$this->editReason = $this->news->editReason;
 			$this->editNoteSuppress = $this->news->editNoteSuppress;
 			$this->isHot = $this->news->isHot;
+			if ($this->news->location) $this->enableLocation = 1;
+			$this->locationData = $this->news->location;
+			$this->longitude = $this->news->longitude;
+			$this->latitude = $this->news->latitude;
 
 			if (!$this->news->isPublished) {
 				$this->enableDelayedPublication = 1;

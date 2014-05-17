@@ -5,6 +5,10 @@
 
 	{include file='headInclude'}
 
+	{if $news->location}
+		{include file='googleMapsJavaScript'}
+	{/if}
+
 	<script data-relocate="true" type="text/javascript">
 		//<![CDATA[
 			$(function() {
@@ -48,6 +52,11 @@
 				$(".jsNewsBBCode").on("click", function() {
 					$jsNewsBBCode.wcfDialog({ "title": "{lang}wcf.message.share.permalink.bbcode{/lang}"});
 				});
+
+				{if $news->location}
+					var $map = new WCF.Location.GoogleMaps.Map('newsMap');
+					WCF.Location.GoogleMaps.Util.focusMarker($map.addMarker({@$news->latitude}, {@$news->longitude}, '{$news->subject|encodeJS}'));
+				{/if}
 			});
 		//]]>
 	</script>
@@ -97,6 +106,17 @@
 					<li><a href="{link controller='Tagged' object=$tag}objectType=de.voolia.news.entry{/link}" class="badge jsTooltip tag" title="{lang}wcf.tagging.taggedObjects.de.voolia.news.entry{/lang}">{$tag->name}</a></li>
 				{/foreach}
 			</ul>
+		</fieldset>
+	{/if}
+
+	{if $news->location}
+		<fieldset>
+			<legend>{lang}news.sidebar.entry.general.map{/lang}</legend>
+			{if $news->location}
+				<small>{$news->location}</small>
+			{/if}
+			
+			<div class="sidebarGoogleMap" id="newsMap"></div>
 		</fieldset>
 	{/if}
 

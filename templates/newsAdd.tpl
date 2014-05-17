@@ -244,6 +244,23 @@
 			</fieldset>
 
 			<fieldset class="jsOnly">
+				<legend><label><input type="checkbox" id="enableLocation" name="enableLocation" value="1"{if $enableLocation} checked="checked"{/if} /> {lang}news.entry.add.informations.settins.location.title{/lang}</label></legend>
+
+				<dl class="wide jsCoordinatesField">
+					<dt></dt>
+					<dd id="newsMap" class="googleMap"></dd>
+				</dl>
+
+				<dl class="jsCoordinatesField">
+					<dt><label for="locationData">{lang}news.entry.add.informations.settins.location{/lang}</label></dt>
+					<dd>
+						<input type="text" id="locationData" name="locationData" class="long" value="{$locationData}" />
+						<small>{lang}news.entry.add.informations.settins.location.description{/lang}</small>
+					</dd>
+				</dl>
+			</fieldset>
+
+			<fieldset class="jsOnly">
 				<legend>{lang}news.entry.add.informations.settins.publication{/lang}</legend>
 
 				<dl>
@@ -351,6 +368,40 @@
 </form>
 
 {include file='footer'}
+{include file='googleMapsJavaScript'}
+
+<script data-relocate="true">
+	$(function() {
+		function rebuildMap() {
+			google.maps.event.trigger($locationInput.getMap().getMap(), 'resize');
+			WCF.Location.GoogleMaps.Util.focusMarker($locationInput.getMarker());
+		}
+
+		{if !$latitude && !$longitude}
+			WCF.Location.Util.getLocation($.proxy(function(latitude, longitude) {
+				if (latitude !== undefined && longitude !== undefined) {
+					WCF.Location.GoogleMaps.Util.moveMarker($locationInput.getMarker(), latitude, longitude, true);
+				}
+			}, this));
+		{/if}
+
+		$locationInput = new WCF.Location.GoogleMaps.LocationInput('newsMap', undefined, '#locationData', {if $latitude || $longitude}{@$latitude}, {@$longitude}{else}52.517, 13.4{/if});
+		new News.Map.Location.SubmitAction($locationInput);
+
+		var $enableLocation = $('#enableLocation').change(function () {
+			if ($enableLocation.is(':checked')) {
+				$enableLocation.parents('fieldset').find('dl').show();
+				rebuildMap();
+			}
+			else {
+				$enableLocation.parents('fieldset').find('dl').hide();
+			}
+		});
+
+		$enableLocation.trigger('change');
+	});
+</script>
+
 {include file='wysiwyg'}
 
 </body>

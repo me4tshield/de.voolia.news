@@ -2,7 +2,7 @@
  * JavaScript for the news plugin.
  * 
  * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
- * @copyright	2013 voolia.de
+ * @copyright	2013-2014 voolia.de
  * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
@@ -594,3 +594,98 @@ News.Source.Managment = Class.extend({
 		}
 	}
 });
+
+/**
+ * Namespace for map related actions.
+ */
+News.Map = { };
+
+/**
+ * Namespace for map and location related actions.
+ */
+News.Map.Location = { };
+
+/**
+ * Handles the location and map for news entries
+ */
+News.Map.Location.SubmitAction = Class.extend({
+	/**
+	 * form element
+	 * @var	jQuery
+	 */
+	_form: null,
+	
+	/**
+	 * location input
+	 * @var	WCF.Location.GoogleMaps.LocationInput
+	 */
+	_locationInput: null,
+	
+	/**
+	 * Initializes a News.Map.Location.SubmitAction class.
+	 * 
+	 * @param	WCF.Location.GoogleMaps.LocationInput	locationInput
+	 */
+	init: function(locationInput) {
+		this._locationInput = locationInput;
+
+		// call form by the given id
+		this._form = $('#messageContainer').submit($.proxy(this._submit, this));
+	},
+	
+	/**
+	 * Handles the submit actions.
+	 * 
+	 * @param	object		event
+	 */
+	_submit: function(event) {
+		if (this._form.data('geoLocationCompleted')) {
+			return true;
+		}
+		
+		if (!$('#enableLocation').is(':checked')) {
+			return true;
+		}
+		
+		var $location = $.trim($('#locationData').val());
+		if (!$location) {
+			// marker location
+			WCF.Location.GoogleMaps.Util.reverseGeocoding($.proxy(this._reverseGeocoding, this), this._locationInput.getMarker());
+			
+			event.preventDefault();
+			return false;
+		}
+		
+		this._setLocation();
+	},
+
+	/**
+	 * Appends the latitude and longitude to the form parameters.
+	 */
+	_setLocation: function() {
+		var $formSubmit = this._form.find('.formSubmit');
+		$('<input type="hidden" name="longitude" value="' + this._locationInput.getMarker().getPosition().lng() + '" />').appendTo($formSubmit);
+		$('<input type="hidden" name="latitude" value="' + this._locationInput.getMarker().getPosition().lat() + '" />').appendTo($formSubmit);
+
+		this._form.data('geoLocationCompleted', true);
+	},
+	
+	/**
+	 * Reverse geocoding request.
+	 * 
+	 * @param	string		location
+	 */
+	_reverseGeocoding: function(location) {
+		if (location === null) {
+			$('#enableLocation').prop('checked', false);
+		}
+		else {
+			$('#locationData').val(location);
+		}
+		
+		this._setLocation();
+		
+		this._form.trigger('submit');
+	}
+});
+
