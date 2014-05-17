@@ -195,7 +195,7 @@ class NewsEditForm extends NewsAddForm {
 			// add moderated content
 			ModerationQueueActivationManager::getInstance()->addModeratedContent('de.voolia.news.entry', $this->news->newsID);
 
-			// redirect to guestbook overview page
+			// redirect to news overview page
 			HeaderUtil::delayedRedirect(LinkHandler::getInstance()->getLink('NewsOverview', array('application' => 'news')), WCF::getLanguage()->get('wcf.news.entry.moderation.redirect'), 30);
 		}
 		else {

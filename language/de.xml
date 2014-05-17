@@ -116,6 +116,7 @@
 		<item name="news.entry.edit.title"><![CDATA[News bearbeiten]]></item>
 		<item name="news.entry.isHot"><![CDATA[Empfehlung]]></item>
 		<item name="news.entry.markAllAsRead"><![CDATA[Alle News als gelesen markieren]]></item>
+		<item name="news.entry.moderation.redirect"><![CDATA[Die News wird von einem Moderator geprüft und aktiviert, bevor sie sichtbar ist.]]></item>
 		<item name="news.entry.previousNewsItem"><![CDATA[Vorherige]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
 		<item name="news.entry.newsUpdate.headline"><![CDATA[Update <small>({@$news->editTime|time})</small>]]></item>
