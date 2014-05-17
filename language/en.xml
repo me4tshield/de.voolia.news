@@ -62,6 +62,9 @@
 		<item name="news.entry.add.informations.settings.category.title"><![CDATA[Categories]]></item>
 		<item name="news.entry.add.informations.settings.enableAutomaticArchiving"><![CDATA[Automatically archive]]></item>
 		<item name="news.entry.add.informations.settings.isHot.title"><![CDATA[News is a recommendation]]></item>
+		<item name="news.entry.add.informations.settings.location.title"><![CDATA[TODO: Ortsangabe hinzufügen]]></item>
+		<item name="news.entry.add.informations.settings.location"><![CDATA[TODO: Ort]]></item>
+		<item name="news.entry.add.informations.settings.location.description"><![CDATA[TODO: Geben Sie hier einen Ort ein, oder verwenden Sie die Einträge in der Auswahlliste. Alternativ können Sie auch die Markierung beliebig verschieben.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Add a newspicture for your news, to display the picture left from the title.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newspicture]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.upload"><![CDATA[Add new newspicture]]></item>
