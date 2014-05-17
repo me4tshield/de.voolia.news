@@ -69,7 +69,7 @@ class NewsArchivePage extends SortablePage {
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
 	 */
-	public $itemsPerPage = NEWS_ITEMS_PER_PAGE;
+	public $itemsPerPage = NEWS_ARCHIVE_ITEMS_PER_PAGE;
 
 	/**
 	 * letters

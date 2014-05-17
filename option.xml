@@ -57,6 +57,12 @@
 				<defaultvalue>10</defaultvalue>
 				<min>1</min>
 			</option>
+			<option name="news_archive_items_per_page">
+				<categoryname>news.index</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>25</defaultvalue>
+				<min>1</min>
+			</option>
 			<option name="news_index_categories">
 				<categoryname>news.index</categoryname>
 				<optiontype>newsCategoryMultiSelect</optiontype>
