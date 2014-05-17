@@ -231,12 +231,14 @@
 					</dd>
 				</dl>
 
-				<dl>
-					<dt></dt>
-					<dd>
-						<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.isHot.title{/lang}</label>
-					</dd>
-				</dl>
+				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAtHot')}
+					<dl>
+						<dt></dt>
+						<dd>
+							<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.isHot.title{/lang}</label>
+						</dd>
+					</dl>
+				{/if}
 
 				{event name='settingsFields'}
 			</fieldset>
