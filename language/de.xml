@@ -193,7 +193,7 @@
 		<item name="news.sidebar.entry.general.title"><![CDATA[Allgemeine Informationen]]></item>
 		<item name="news.sidebar.entry.general.category"><![CDATA[Kategorie]]></item>
 		<item name="news.sidebar.entry.general.comments"><![CDATA[Kommentare]]></item>
-		<item name="news.sidebar.entry.general.map"><![CDATA[TODO: Kartenansicht]]></item>
+		<item name="news.sidebar.entry.general.map"><![CDATA[Kartenansicht]]></item>
 		<item name="news.sidebar.entry.general.views"><![CDATA[Aufrufe]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[Weitere News der Kategorie]]></item>
 		<item name="news.sidebar.letterList.title"><![CDATA[Anfangsbuchstabe]]></item>
