@@ -30,13 +30,6 @@ CategoryEditor::create(array(
 	'time' => TIME_NOW
 ));
 
-// set default media object
-$sql = "INSERT INTO	news".WCF_N."_news_media
-			(name, fileExtension, typ)
-	VALUES		('dummyPicture', 'png', 'picture')";
-$defaultMedia = WCF::getDB()->prepareStatement($sql);
-$defaultMedia->execute();
-
 // enable the news-bbcode by default
 $sql = "UPDATE	wcf".WCF_N."_user_group_option_value
         SET	optionValue = CONCAT(REPLACE(optionValue, ',news', ''), ',news')
