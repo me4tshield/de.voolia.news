@@ -38,11 +38,13 @@
 					{/if}
 				</dd>
 
-				<dt></dt>
-				<dd>
-					<label><input type="checkbox" name="setNewsAsNew" value="1" /> {lang}news.entry.add.form.newsUpdate.setNewsAsNew.title{/lang}</label>
-					<small>{lang}news.entry.add.form.newsUpdate.setNewsAsNew.description{/lang}</small>
-				</dd>
+				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAsNew')}
+					<dt></dt>
+					<dd>
+						<label><input type="checkbox" name="setNewsAsNew" value="1" /> {lang}news.entry.add.form.newsUpdate.setNewsAsNew.title{/lang}</label>
+						<small>{lang}news.entry.add.form.newsUpdate.setNewsAsNew.description{/lang}</small>
+					</dd>
+				{/if}
 			</dl>
 
 			{event name='informationFields'}

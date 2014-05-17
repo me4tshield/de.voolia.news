@@ -248,6 +248,7 @@
 		<item name="wcf.acp.group.option.user.news.canSeeComments"><![CDATA[Can see comments]]></item>
 		<item name="wcf.acp.group.option.user.news.canSeeEditNote"><![CDATA[Can see edit reason]]></item>
 		<item name="wcf.acp.group.option.user.news.canSetNewsAsHot"><![CDATA[TODO: Kann News als Empfehlung markieren]]></item>
+		<item name="wcf.acp.group.option.user.news.canSetNewsAsNew"><![CDATA[TODO: Kann News im Zuge eines Updates als "Neu" markieren]]></item>
 		<item name="wcf.acp.group.option.user.news.canUploadAttachment"><![CDATA[Can Upload Attachments]]></item>
 		<item name="wcf.acp.group.option.user.news.canViewNews"><![CDATA[Can read news]]></item>
 		<item name="wcf.acp.group.option.user.news.canVote"><![CDATA[Can vote]]></item>
