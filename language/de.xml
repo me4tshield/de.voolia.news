@@ -68,10 +68,10 @@
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Sie können hier ein Newsbild hinzufügen, welches neben dem Titel der News oder auch im Archiv angezeigt wird.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newsbild]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.upload"><![CDATA[Neues Newsbild hochladen]]></item>
-		<item name="news.entry.add.informations.settins.publication"><![CDATA[Veröffentlichung]]></item>
-		<item name="news.entry.add.informations.settins.publication.enableDelayedPublication"><![CDATA[News zu einem späteren Zeitpunkt veröffentlichen]]></item>
-		<item name="news.entry.add.informations.settins.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>
-		<item name="news.entry.add.informations.settins.publicationDate.error.invalid"><![CDATA[Sie haben ein ungültiges Veröffentlichungsdatum angegeben.]]></item>
+		<item name="news.entry.add.informations.settings.publication"><![CDATA[Veröffentlichung]]></item>
+		<item name="news.entry.add.informations.settings.publication.enableDelayedPublication"><![CDATA[News zu einem späteren Zeitpunkt veröffentlichen]]></item>
+		<item name="news.entry.add.informations.settings.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>
+		<item name="news.entry.add.informations.settings.publicationDate.error.invalid"><![CDATA[Sie haben ein ungültiges Veröffentlichungsdatum angegeben.]]></item>
 		<item name="news.entry.add.message.title"><![CDATA[Newsmeldung]]></item>
 		<item name="news.entry.add.message.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen.]]></item>
 		<item name="news.entry.add.message.teaser.title"><![CDATA[Einleitung]]></item>

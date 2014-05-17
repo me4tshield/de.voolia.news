@@ -244,7 +244,7 @@
 			</fieldset>
 
 			<fieldset class="jsOnly">
-				<legend><label><input type="checkbox" id="enableLocation" name="enableLocation" value="1"{if $enableLocation} checked="checked"{/if} /> {lang}news.entry.add.informations.settins.location.title{/lang}</label></legend>
+				<legend><label><input type="checkbox" id="enableLocation" name="enableLocation" value="1"{if $enableLocation} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.location.title{/lang}</label></legend>
 
 				<dl class="wide jsCoordinatesField">
 					<dt></dt>
@@ -252,10 +252,10 @@
 				</dl>
 
 				<dl class="jsCoordinatesField">
-					<dt><label for="locationData">{lang}news.entry.add.informations.settins.location{/lang}</label></dt>
+					<dt><label for="locationData">{lang}news.entry.add.informations.settings.location{/lang}</label></dt>
 					<dd>
 						<input type="text" id="locationData" name="locationData" class="long" value="{$locationData}" />
-						<small>{lang}news.entry.add.informations.settins.location.description{/lang}</small>
+						<small>{lang}news.entry.add.informations.settings.location.description{/lang}</small>
 					</dd>
 				</dl>
 
@@ -263,17 +263,17 @@
 			</fieldset>
 
 			<fieldset class="jsOnly">
-				<legend>{lang}news.entry.add.informations.settins.publication{/lang}</legend>
+				<legend>{lang}news.entry.add.informations.settings.publication{/lang}</legend>
 
 				<dl>
 					<dt></dt>
 					<dd>
-						<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.add.informations.settins.publication.enableDelayedPublication{/lang}</label>
+						<label><input type="checkbox" id="enableDelayedPublication" name="enableDelayedPublication" value="1"{if $enableDelayedPublication} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.publication.enableDelayedPublication{/lang}</label>
 					</dd>
 				</dl>
 
 				<dl{if $errorField == 'publicationDate'} class="formError"{/if}{if !$enableDelayedPublication} style="display: none"{/if}>
-					<dt><label for="publicationDate">{lang}news.entry.add.informations.settins.publicationDate{/lang}</label></dt>
+					<dt><label for="publicationDate">{lang}news.entry.add.informations.settings.publicationDate{/lang}</label></dt>
 					<dd>
 						<input type="datetime" id="publicationDate" name="publicationDate" value="{$publicationDate}" class="medium" />
 						{if $errorField == 'publicationDate'}
@@ -281,7 +281,7 @@
 								{if $errorType == 'empty'}
 									{lang}wcf.global.form.error.empty{/lang}
 								{else}
-									{lang}news.entry.add.informations.settins.publicationDate.error.{@$errorType}{/lang}
+									{lang}news.entry.add.informations.settings.publicationDate.error.{@$errorType}{/lang}
 								{/if}
 							</small>
 						{/if}

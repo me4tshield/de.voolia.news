@@ -68,10 +68,10 @@
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Add a newspicture for your news, to display the picture left from the title.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newspicture]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.upload"><![CDATA[Add new newspicture]]></item>
-		<item name="news.entry.add.informations.settins.publication"><![CDATA[Publication]]></item>
-		<item name="news.entry.add.informations.settins.publication.enableDelayedPublication"><![CDATA[Delayed publication]]></item>
-		<item name="news.entry.add.informations.settins.publicationDate"><![CDATA[Publication Date]]></item>
-		<item name="news.entry.add.informations.settins.publicationDate.error.invalid"><![CDATA[Publication date is invalid.]]></item>
+		<item name="news.entry.add.informations.settings.publication"><![CDATA[Publication]]></item>
+		<item name="news.entry.add.informations.settings.publication.enableDelayedPublication"><![CDATA[Delayed publication]]></item>
+		<item name="news.entry.add.informations.settings.publicationDate"><![CDATA[Publication Date]]></item>
+		<item name="news.entry.add.informations.settings.publicationDate.error.invalid"><![CDATA[Publication date is invalid.]]></item>
 		<item name="news.entry.add.message.title"><![CDATA[News]]></item>
 		<item name="news.entry.add.message.teaser.description"><![CDATA[Short description of your news. Leave this blank to show the full text on news overview page]]></item>
 		<item name="news.entry.add.message.teaser.title"><![CDATA[Teaser]]></item>
