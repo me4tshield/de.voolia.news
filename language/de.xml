@@ -247,7 +247,7 @@
 		<item name="wcf.acp.group.option.user.news.canEditOwnNews"><![CDATA[Kann eigene News bearbeiten]]></item>
 		<item name="wcf.acp.group.option.user.news.canSeeComments"><![CDATA[Kann Kommentare sehen]]></item>
 		<item name="wcf.acp.group.option.user.news.canSeeEditNote"><![CDATA[Kann Bearbeitungsgrund sehen]]></item>
-		<item name="wcf.acp.group.option.user.news.canSetNewsAtHot"><![CDATA[Kann News als Empfehlung markieren]]></item>
+		<item name="wcf.acp.group.option.user.news.canSetNewsAsHot"><![CDATA[Kann News als Empfehlung markieren]]></item>
 		<item name="wcf.acp.group.option.user.news.canUploadAttachment"><![CDATA[Kann Dateianhänge hochladen]]></item>
 		<item name="wcf.acp.group.option.user.news.canViewNews"><![CDATA[Kann News sehen]]></item>
 		<item name="wcf.acp.group.option.user.news.canVote"><![CDATA[Kann an Umfragen teilnehmen]]></item>

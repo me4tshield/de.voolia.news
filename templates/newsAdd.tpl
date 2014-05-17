@@ -231,7 +231,7 @@
 					</dd>
 				</dl>
 
-				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAtHot')}
+				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAsHot')}
 					<dl>
 						<dt></dt>
 						<dd>
