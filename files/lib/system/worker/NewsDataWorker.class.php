@@ -106,6 +106,9 @@ class NewsDataWorker extends AbstractRebuildDataWorker {
 			}
 
 			$editor->update($newsData);
+
+			// updates the news counter
+			NewsEditor::updateNewsCounter(array($news->userID => 1));
 		}
 
 		// update activity points
