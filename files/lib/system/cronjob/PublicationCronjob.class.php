@@ -44,5 +44,19 @@ class PublicationCronjob extends AbstractCronjob {
 			$action = new NewsAction($newsList->getObjects(), 'archive');
 			$action->executeAction();
 		}
+		
+		// get deleted news
+		if (NEWS_ENABLE_EMPTY_RECYCLE_BIN_CYCLE) {
+			$newsList = new NewsList();
+			$newsList->getConditionBuilder()->add('news.isDeleted = 1');
+			$newsList->getConditionBuilder()->add('news.deleteTime < ?', array(TIME_NOW - NEWS_ENABLE_EMPTY_RECYCLE_BIN_CYCLE * 86400));
+			$newsList->readObjects();
+			
+			if (count($newsList->getObjects())) {
+				// delete news
+				$action = new NewsAction($newsList->getObjects(), 'delete');
+				$action->executeAction();
+			}
+		}
 	}
 }
