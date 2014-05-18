@@ -334,6 +334,8 @@
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[The author must select a newspicture]]></item>
 		<item name="wcf.acp.option.news_enable_previous_and_next_news_list"><![CDATA[TODO: Zeigt in der News die jeweils vorherige und nächste News an]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Sharing]]></item>
+		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle"><![CDATA[Prune Trash Bin]]></item>
+		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle.description"><![CDATA[News within the trash bin will automatically be removed after this period. [Period in days, 0 to disable removal]]]></item>
 		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Shows the category list within the news overview sidebar]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Show teaser on news entry]]></item>
