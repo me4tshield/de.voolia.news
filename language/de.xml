@@ -334,6 +334,8 @@
 		<item name="wcf.acp.option.news_enable_newspicture_required"><![CDATA[Beim Erstellen einer News muss zwingend ein Newsbild ausgewählt werden]]></item>
 		<item name="wcf.acp.option.news_enable_previous_and_next_news_list"><![CDATA[Zeigt unter der News die jeweils vorherige und nächste News an]]></item>
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Teilen-Funktion]]></item>
+		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle"><![CDATA[Papierkorb automatisch löschen]]></item>
+		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle.description"><![CDATA[Zeitraum nach dem News automatisch aus dem Papierkorb gelöscht werden. [Zeitraum in Tagen, 0 um die Löschung gänzlich zu deaktivieren]]]></item>
 		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Kategorien in der Sidebar anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tagging-Funktion]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[News-Teaser innerhalb der News anzeigen]]></item>
