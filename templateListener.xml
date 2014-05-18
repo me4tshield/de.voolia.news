@@ -87,6 +87,20 @@
 			<eventname>quickSearchItems</eventname>
 			<templatecode><![CDATA[{include file='__userQuickSearchItems' application='news'}]]></templatecode>
 		</templatelistener>
+
+		<templatelistener name="userInformationStatistics">
+			<environment>user</environment>
+			<templatename>userInformationStatistics</templatename>
+			<eventname>statistics</eventname>
+			<templatecode><![CDATA[{include file='__userProfileStatistics' application='news'}]]></templatecode>
+		</templatelistener>
+		
+		<templatelistener name="userStatistics">
+			<environment>user</environment>
+			<templatename>userSidebar</templatename>
+			<eventname>statistics</eventname>
+			<templatecode><![CDATA[{include file='__userProfileStatistics' application='news'}]]></templatecode>
+		</templatelistener>
 		<!-- /user -->
 	</import>
 </data>

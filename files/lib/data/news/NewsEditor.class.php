@@ -50,6 +50,19 @@ class NewsEditor extends DatabaseObjectEditor {
 	}
 
 	/**
+	 * Update the news counter for the author.
+	 */
+	public static function updateNewsCounter(array $users) {
+		$sql = "UPDATE	wcf".WCF_N."_user
+			SET	newsEntries = newsEntries + ?
+			WHERE	userID = ?";
+		$statement = WCF::getDB()->prepareStatement($sql);
+		foreach ($users as $userID => $news) {
+			$statement->execute(array($news, $userID));
+		}
+	}
+
+	/**
 	 * @see	\wcf\data\IEditableCachedObject::resetCache()
 	 */
 	public static function resetNewsStatsCache() {

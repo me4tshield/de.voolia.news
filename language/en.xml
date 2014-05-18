@@ -120,6 +120,7 @@
 		<item name="news.entry.previousNewsItem"><![CDATA[TODO: Vorherige]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
 		<item name="news.entry.newsUpdate.headline"><![CDATA[Update <small>({@$news->editTime|time})</small>]]></item>
+		<item name="news.entry.news.title"><![CDATA[News]]></item>
 		<item name="news.entry.nextNewsItem"><![CDATA[TODO: Nächste]]></item>
 		<item name="news.entry.no.entry"><![CDATA[No news yet.]]></item>
 		<item name="news.entry.notification.title"><![CDATA[New News]]></item>
@@ -201,6 +202,7 @@
 	</category>
 
 	<category name="news.user">
+		<item name="news.user.profile.newsItems"><![CDATA[News by „{$user->username}“]]></item>
 		<item name="news.user.usersOnline.location.NewsAddForm"><![CDATA[Creating a news]]></item>
 		<item name="news.user.usersOnline.location.NewsArchivePage"><![CDATA[News-Archive]]></item>
 		<item name="news.user.usersOnline.location.NewsEditForm"><![CDATA[Editing a news]]></item>

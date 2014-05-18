@@ -253,9 +253,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 			// remove moderated content
 			$this->removeModeratedContent($newsIDs);
+		}
 
-			// enable the recentActivityEvent for this news
-			UserActivityEventHandler::getInstance()->fireEvent('de.voolia.news.recentActivityEvent.news', $news->newsID, $news->languageID, $news->userID);
+		// trigger publication
+		if (!empty($newsIDs)) {
+			$action = new NewsAction($newsIDs, 'triggerPublication');
+			$action->executeAction();
 		}
 
 		// reset the news cache
@@ -320,6 +323,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		// reset the user storage data
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
 
+		$removeItems = array();
+		foreach ($perUserCount as $userID => $items) {
+			$removeItems[$userID] = $items * -1;
+		}
+		NewsEditor::updateNewsCounter($removeItems);
+
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
 
@@ -369,6 +378,9 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			foreach ($news->getCategoryIDs() as $categoryID) {
 				UserObjectWatchHandler::getInstance()->updateObject('de.voolia.news.category', $categoryID, 'news', 'de.voolia.news.entry', $notificationObject);
 			}
+
+			// updates the news counter
+			NewsEditor::updateNewsCounter(array($news->userID => 1));
 		}
 
 		// reset the user storage data
@@ -532,7 +544,7 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 				if (!isset($perUserCount[$news->userID])) {
 					$perUserCount[$news->userID] = 0;
 				}
-				$perUserCount[$news->userID]++;
+				$perUserCount[$news->userID]--;
 			}
 		}
 
@@ -565,6 +577,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		// reset the user storage data
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
 		UserStorageHandler::getInstance()->resetAll('newsUnreadWatchedEntries');
+
+		// remove news counter
+		if (!empty($perUserCount)) {
+			NewsEditor::updateNewsCounter($perUserCount);
+		}
 
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
