@@ -144,6 +144,12 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="news_enable_empty_recycle_bin_cycle">
+				<categoryname>news.entry.settings</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>30</defaultvalue>
+				<minvalue>0</minvalue>
+			</option>
 			<!-- /news.entry.settings -->
 
 			<!-- news.entry.sidebar -->
