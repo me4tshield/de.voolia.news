@@ -37,7 +37,7 @@ class NewsBBCode extends AbstractBBCode {
 		switch ($displayMode) {
 			case 'meta':
 				WCF::getTPL()->assign(array(
-					'news' => $news
+					'_news' => $news
 				));
 
 				return WCF::getTPL()->fetch('newsBBCodeTag', 'news');

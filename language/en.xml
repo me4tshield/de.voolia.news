@@ -77,7 +77,7 @@
 		<item name="news.entry.add.message.teaser.title"><![CDATA[Teaser]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.title"><![CDATA[Marks the news as new]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.description"><![CDATA[Updates the news date and shows the news again on the top.]]></item>
-		<item name="news.entry.bbcode.comments"><![CDATA[{#$news->comments} Comment{if $news->comments != 1}s{/if}]]></item>
+		<item name="news.entry.bbcode.comments"><![CDATA[{#$_news->comments} Comment{if $_news->comments != 1}s{/if}]]></item>
 		<item name="news.entry.bbcode.dialog.compact"><![CDATA[Compact]]></item>
 		<item name="news.entry.bbcode.dialog.detailed"><![CDATA[Detailed]]></item>
 		<item name="news.entry.button.dropdown.activateComments"><![CDATA[Activate Comments]]></item>
