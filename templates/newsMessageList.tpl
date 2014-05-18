@@ -42,7 +42,7 @@
 							<div class="messageBody">
 								<div>
 									{if $news->teaser}
-										{@$news->teaser|nl2br}
+										{@$news->getFormattedTeaser()}
 									{else}
 										{@$news->getFormattedMessage()}
 									{/if}

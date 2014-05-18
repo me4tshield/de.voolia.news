@@ -183,6 +183,15 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	}
 
 	/**
+	 * @see	\wcf\data\IMessage::getFormattedMessage()
+	 */
+	public function getFormattedTeaser() {
+		// parse and return the news teaser
+		MessageParser::getInstance()->setOutputType('text/html');
+		return MessageParser::getInstance()->parse($this->teaser, $this->enableSmilies, $this->enableHtml, $this->enableBBCodes);
+	}
+
+	/**
 	 * @see	\wcf\data\IMessage::getExcerpt()
 	 */
 	public function getExcerpt($maxLength = 255) {

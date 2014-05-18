@@ -205,7 +205,7 @@
 								<div class="messageText">
 									{if $news->teaser && NEWS_ENABLE_TEASER_ON_NEWS}
 										<div class="newsTeaser">
-											{@$news->teaser|nl2br}
+											{@$news->getFormattedTeaser()}
 										</div>
 									{/if}
 
