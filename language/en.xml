@@ -68,7 +68,7 @@
 		<item name="news.entry.add.form.settings.newspicture.upload"><![CDATA[Add new newspicture]]></item>
 		<item name="news.entry.archivingDate"><![CDATA[Date of archiving]]></item>
 		<item name="news.entry.archivingDate.error.invalid"><![CDATA[Archiving date is invalid.]]></item>
-		<item name="news.entry.bbcode.comments"><![CDATA[{#$news->comments} Comment{if $news->comments != 1}s{/if}]]></item>
+		<item name="news.entry.bbcode.comments"><![CDATA[{#$_news->comments} Comment{if $_news->comments != 1}s{/if}]]></item>
 		<item name="news.entry.bbcode.dialog.compact"><![CDATA[Compact]]></item>
 		<item name="news.entry.bbcode.dialog.detailed"><![CDATA[Detailed]]></item>
 		<item name="news.entry.button.dropdown.activateComments"><![CDATA[Activate Comments]]></item>

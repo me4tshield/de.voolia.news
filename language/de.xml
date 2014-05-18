@@ -68,7 +68,7 @@
 		<item name="news.entry.add.form.settings.newspicture.upload"><![CDATA[Neues Newsbild hochladen]]></item>
 		<item name="news.entry.archivingDate"><![CDATA[Archivierungsdatum]]></item>
 		<item name="news.entry.archivingDate.error.invalid"><![CDATA[Sie haben ein ungültiges Archivierungsdatum angegeben.]]></item>
-		<item name="news.entry.bbcode.comments"><![CDATA[{#$news->comments} Kommentar{if $news->comments != 1}e{/if}]]></item>
+		<item name="news.entry.bbcode.comments"><![CDATA[{#$_news->comments} Kommentar{if $_news->comments != 1}e{/if}]]></item>
 		<item name="news.entry.bbcode.dialog.compact"><![CDATA[Kompakt]]></item>
 		<item name="news.entry.bbcode.dialog.detailed"><![CDATA[Detailliert]]></item>
 		<item name="news.entry.button.dropdown.activateComments"><![CDATA[Kommentare aktivieren]]></item>
