@@ -73,7 +73,7 @@
 		<item name="news.entry.add.informations.settings.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>
 		<item name="news.entry.add.informations.settings.publicationDate.error.invalid"><![CDATA[Sie haben ein ungültiges Veröffentlichungsdatum angegeben.]]></item>
 		<item name="news.entry.add.message.title"><![CDATA[Newsmeldung]]></item>
-		<item name="news.entry.add.message.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. {if NEWS_ENABLE_AUTOMATIC_TEASER}Lassen Sie das Feld leer, damit aus dem Newstext automatisch eien Einleitung generiert wird{else}Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen{/if}.]]></item>
+		<item name="news.entry.add.message.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. {if NEWS_ENABLE_AUTOMATIC_TEASER}Lassen Sie das Feld leer, damit aus dem Newstext automatisch eine Einleitung generiert wird{else}Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen{/if}.]]></item>
 		<item name="news.entry.add.message.teaser.title"><![CDATA[Einleitung]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.title"><![CDATA[News als neu markieren]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.description"><![CDATA[Aktualisiert das Datum der News, damit diese wieder als neue News an erster Stelle erscheint.]]></item>

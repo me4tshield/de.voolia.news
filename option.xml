@@ -103,7 +103,7 @@
 			<option name="news_enable_automatic_teaser">
 				<categoryname>news.entry.general</categoryname>
 				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
+				<defaultvalue>0</defaultvalue>
 			</option>
 			<option name="news_update_sort_order">
 				<categoryname>news.entry.general</categoryname>
