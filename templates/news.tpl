@@ -276,7 +276,7 @@
 
 {if $news->newsUpdates}
 	<header id="updates" class="boxHeadline boxSubHeadline">
-		<h2>{lang}news.entry.updates{/lang} <span class="badge">{$news->newsUpdates}</h2>
+		<h2>{lang}news.entry.updates{/lang} <span class="badge">{$news->newsUpdates}</span></h2>
 	</header>
 
 	<ul class="messageList">
