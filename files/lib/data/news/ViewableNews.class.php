@@ -76,6 +76,9 @@ class ViewableNews extends DatabaseObjectDecorator {
 		if ($this->newsUpdateList === null) {
 			$this->newsUpdateList = new ViewableNewsUpdateList();
 			$this->newsUpdateList->getConditionBuilder()->add('news_update.newsID = ?', array($this->newsID));
+			if (NEWS_UPDATE_SORT_ORDER == 'DESC') {
+				$this->newsUpdateList->sqlOrderBy = 'news_update.time DESC';
+			}
 			$this->newsUpdateList->readObjects();
 		}
 

@@ -100,6 +100,13 @@
 				<optiontype>boolean</optiontype>
 				<defaultvalue>1</defaultvalue>
 			</option>
+			<option name="news_update_sort_order">
+				<categoryname>news.entry.general</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>ASC</defaultvalue>
+				<selectoptions><![CDATA[ASC:wcf.global.sortOrder.ascending
+DESC:wcf.global.sortOrder.descending]]></selectoptions>
+			</option>
 			<option name="news_enable_newspicture">
 				<categoryname>news.entry.general</categoryname>
 				<optiontype>boolean</optiontype>

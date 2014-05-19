@@ -351,6 +351,7 @@
 		<item name="wcf.acp.option.news_items_per_page"><![CDATA[Number of News]]></item>
 		<item name="wcf.acp.option.news_show_editnote"><![CDATA[Edit Reason]]></item>
 		<item name="wcf.acp.option.news_sidebarbox_items_per_page"><![CDATA[Number of Sidebar News]]></item>
+		<item name="wcf.acp.option.news_update_sort_order"><![CDATA[TODO: Reihenfolge der News-Updates]]></item>
 	</category>
 
 	<category name="wcf.acp.rebuildData">

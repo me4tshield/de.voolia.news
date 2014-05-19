@@ -16,6 +16,11 @@ class ViewableNewsUpdateList extends NewsUpdateList {
 	public $decoratorClassName = 'news\data\news\update\ViewableNewsUpdate';
 
 	/**
+	 * @see	\wcf\data\DatabaseObjectList::$sqlOrderBy
+	 */
+	public $sqlOrderBy = 'news_update.time ASC';
+
+	/**
 	 * Creates a new ViewableNewsList object.
 	 */
 	public function __construct() {
