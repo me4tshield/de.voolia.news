@@ -43,6 +43,8 @@
 								<div>
 									{if $news->teaser}
 										{@$news->getFormattedTeaser()}
+									{elseif NEWS_ENABLE_AUTOMATIC_TEASER}
+										{@$news->getFormattedAutomaticTeaser()}
 									{else}
 										{@$news->getFormattedMessage()}
 									{/if}

@@ -73,7 +73,7 @@
 		<item name="news.entry.add.informations.settings.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>
 		<item name="news.entry.add.informations.settings.publicationDate.error.invalid"><![CDATA[Sie haben ein ungültiges Veröffentlichungsdatum angegeben.]]></item>
 		<item name="news.entry.add.message.title"><![CDATA[Newsmeldung]]></item>
-		<item name="news.entry.add.message.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen.]]></item>
+		<item name="news.entry.add.message.teaser.description"><![CDATA[Geben Sie hier eine Einleitung zur News an, die auf der Übersichtsseite dargestellt wird. {if NEWS_ENABLE_AUTOMATIC_TEASER}Lassen Sie das Feld leer, damit aus dem Newstext automatisch eien Einleitung generiert wird{else}Lassen Sie das Feld leer, um die komplette News auf der Übersichtsseite darzustellen{/if}.]]></item>
 		<item name="news.entry.add.message.teaser.title"><![CDATA[Einleitung]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.title"><![CDATA[News als neu markieren]]></item>
 		<item name="news.entry.add.newsUpdate.setNewsAsNew.description"><![CDATA[Aktualisiert das Datum der News, damit diese wieder als neue News an erster Stelle erscheint.]]></item>
@@ -323,6 +323,8 @@
 		<item name="wcf.acp.option.news_dashboard_latest_entries"><![CDATA[Anzahl der letzten News]]></item>
 		<item name="wcf.acp.option.news_dashboard_sidebar_entries"><![CDATA[Anzahl an News]]></item>
 		<item name="wcf.acp.option.news_dashboard_slideshow_interval"><![CDATA[Zeitangabe für den Wechsel der News (in Sekunden)]]></item>
+		<item name="wcf.acp.option.news_enable_automatic_teaser"><![CDATA[Automatische Einleitung erzeugen]]></item>
+		<item name="wcf.acp.option.news_enable_automatic_teaser.description"><![CDATA[Aktivieren Sie diese Option, wenn aus dem Newstext automatisch eine Einleitung erstellt werden soll, wenn vom Autoren keine angegeben wurde.]]></item>
 		<item name="wcf.acp.option.news_enable_comments"><![CDATA[Kommentare]]></item>
 		<item name="wcf.acp.option.news_enable_entry_similar_news"><![CDATA[Weitere News derselben Kategorien anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_entry_author_infos"><![CDATA[Autoren-Infos anzeigen]]></item>

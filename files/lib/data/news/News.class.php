@@ -183,6 +183,16 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	}
 
 	/**
+	 * @see	\wcf\data\IMessage::getExcerpt()
+	 */
+	public function getExcerpt($maxLength = 255) {
+		MessageParser::getInstance()->setOutputType('text/simplified-html');
+		$message = MessageParser::getInstance()->parse($this->text, $this->enableSmilies, $this->enableHtml, $this->enableBBCodes);
+
+		return StringUtil::truncateHTML($message, $maxLength);
+	}
+
+	/**
 	 * @see	\wcf\data\IMessage::getFormattedMessage()
 	 */
 	public function getFormattedTeaser() {
@@ -192,13 +202,21 @@ class News extends NewsDatabaseObject implements IBreadcrumbProvider, IMessage, 
 	}
 
 	/**
-	 * @see	\wcf\data\IMessage::getExcerpt()
+	 * Returns a formatted teaser from news text
+	 * @return	string
 	 */
-	public function getExcerpt($maxLength = 255) {
-		MessageParser::getInstance()->setOutputType('text/simplified-html');
-		$message = MessageParser::getInstance()->parse($this->text, $this->enableSmilies, $this->enableHtml, $this->enableBBCodes);
+	public function getFormattedAutomaticTeaser() {
+		$tmp = StringUtil::substring($this->text, 0, 500);
+		$paragraph = StringUtil::lastIndexOf($tmp, "\n\n");
 
-		return StringUtil::truncateHTML($message, $maxLength);
+		$excerpt = StringUtil::substring($this->text, 0, $paragraph);
+
+		if ($paragraph < 200) {
+			$excerpt = StringUtil::substring($this->text, 0, 500).' …';
+		}
+
+		MessageParser::getInstance()->setOutputType('text/html');
+		return MessageParser::getInstance()->parse($excerpt, $this->enableSmilies, $this->enableHtml, $this->enableBBCodes);
 	}
 
 	/**
