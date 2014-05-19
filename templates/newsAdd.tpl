@@ -334,14 +334,6 @@
 					</dd>
 				</dl>
 
-				<dl>
-					<dt><label for="picture">{lang}news.entry.add.message.picture.title{/lang}</label></dt>
-					<dd>
-						<a id="pictureManagementButton">{lang}news.entry.add.message.picture{/lang}</a>
-						<small>{lang}news.entry.add.message.picture.description{/lang}</small>
-					</dd>
-				</dl>
-
 				<dl class="wide">
 					<dt><label for="text">{lang}news.entry.add.message.title{/lang}</label></dt>
 					<dd>
