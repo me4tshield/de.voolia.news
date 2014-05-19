@@ -252,7 +252,7 @@
 
 {if $news->newsUpdates}
 	<header id="updates" class="boxHeadline boxSubHeadline">
-		<h2>{lang}news.entry.updates{/lang} <span class="badge">{$news->newsUpdates}</h2>
+		<h2>{lang}news.entry.updates{/lang} <span class="badge">{$news->newsUpdates}</span></h2>
 	</header>
 
 	<ul class="messageList">
@@ -325,7 +325,7 @@
 
 {if $news->isCommentable()}
 	<header id="comments" class="boxHeadline boxSubHeadline">
-		<h2>{lang}news.entry.comments{/lang} <span class="badge">{@$commentList->countObjects()}</h2>
+		<h2>{lang}news.entry.comments{/lang} <span class="badge">{@$commentList->countObjects()}</span></h2>
 	</header>
 
 	{include file='__commentJavaScript' commentContainerID='newsCommentList'}
