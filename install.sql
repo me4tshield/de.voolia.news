@@ -104,8 +104,11 @@ DROP TABLE IF EXISTS news1_news_media;
 CREATE TABLE news1_news_media (
 	objectID INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	categoryID INT(10) DEFAULT NULL,
-	name VARCHAR(255) NOT NULL DEFAULT '',
-	fileExtension VARCHAR(10) NOT NULL DEFAULT '',
+	title VARCHAR(255) NOT NULL DEFAULT '',
+	filename VARCHAR(255) NOT NULL DEFAULT '',
+	fileExtension VARCHAR(7) NOT NULL DEFAULT '',
+	fileHash VARCHAR(8) NOT NULL DEFAULT '',
+	filesize INT(10) NOT NULL DEFAULT 0,
 	typ ENUM('picture','video') DEFAULT 'picture',
 
 	KEY (objectID)
