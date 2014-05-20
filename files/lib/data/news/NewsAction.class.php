@@ -4,6 +4,7 @@ use news\data\news\source\NewsSourceAction;
 use news\system\user\notification\object\NewsUserNotificationObject;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\data\IMessageQuoteAction;
+use wcf\system\clipboard\ClipboardHandler;
 use wcf\system\comment\CommentHandler;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\PermissionDeniedException;
@@ -264,6 +265,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
 
+		$this->unmarkEntries();
+
 		return $this->getNewsData();
 	}
 
@@ -331,6 +334,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
+
+		$this->unmarkEntries();
 
 		return $this->getNewsData();
 	}
@@ -452,6 +457,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
 		UserStorageHandler::getInstance()->resetAll('newsUnreadWatchedEntries');
 
+		$this->unmarkEntries();
+
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
 	}
@@ -499,6 +506,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		// reset the user storage data
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
 		UserStorageHandler::getInstance()->resetAll('newsUnreadWatchedEntries');
+
+		$this->unmarkEntries();
 
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
@@ -582,6 +591,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		if (!empty($perUserCount)) {
 			NewsEditor::updateNewsCounter($perUserCount);
 		}
+
+		$this->unmarkEntries();
 
 		// reset the news cache
 		NewsEditor::resetNewsStatsCache();
@@ -817,5 +828,22 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	 */
 	protected function removeModeratedContent(array $newsIDs) {
 		ModerationQueueActivationManager::getInstance()->removeModeratedContent('de.voolia.news.entry', $newsIDs);
+	}
+
+	/**
+	 * Unmark news entries.
+	 * 
+	 * @param	array<integer>		$newsIDs
+	 */
+	protected function unmarkEntries(array $newsIDs = array()) {
+		if (empty($newsIDs)) {
+			foreach ($this->objects as $news) {
+				$newsIDs[] = $news->newsID;
+			}
+		}
+		
+		if (!empty($newsIDs)) {
+			ClipboardHandler::getInstance()->unmark($newsIDs, ClipboardHandler::getInstance()->getObjectTypeID('de.voolia.news.entry'));
+		}
 	}
 }

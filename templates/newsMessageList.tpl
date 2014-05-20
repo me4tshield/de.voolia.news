@@ -1,12 +1,17 @@
 {if $objects|count}
-	<ul class="messageList" data-type="de.voolia.news.entry">
+	<ul class="messageList jsClipboardContainer" data-type="de.voolia.news.entry">
 		{foreach from=$objects item=news}
 		<li>
-			<article class="message messageReduced marginTop{if !$news->isActive} messageDisabled{/if}{if $news->isDeleted} messageDeleted{/if}" data-object-id="{$news->newsID}" data-user-id="{$news->userID}">
+			<article class="message messageReduced marginTop{if !$news->isActive} messageDisabled{/if}{if $news->isDeleted} messageDeleted{/if} jsClipboardObject" data-can-edit="{if $news->isEditable()}1{else}0{/if}" data-is-disabled="{if $news->isActive}0{else}1{/if}" data-is-deleted="{@$news->isDeleted}"  data-object-id="{$news->newsID}" data-user-id="{$news->userID}">
 				<div>
 					<section class="messageContent">
 						<div>
 							<header class="messageHeader">
+								{if $news->isEditable()}
+									<ul class="messageQuickOptions">
+										<li class="jsOnly"><input type="checkbox" class="jsClipboardItem" data-object-id="{@$news->newsID}" /></li>
+									</ul>
+								{/if}
 								{if NEWS_ENABLE_NEWSPICTURE}
 									<div class="box32">
 										<a href="{$news->getLink()}" class="framed">

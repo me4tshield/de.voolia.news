@@ -20,6 +20,10 @@
 
 			new News.Category.MarkAllAsRead();
 			new WCF.User.ObjectWatch.Subscribe();
+
+			{if $__wcf->session->getPermission('mod.news.canEditNews')}
+				WCF.Clipboard.init('news\\page\\NewsOverviewPage', {@$hasMarkedItems});
+			{/if}
 		});
 		//]]>
 	</script>
@@ -111,6 +115,10 @@
 			</ul>
 		</nav>
 	{/hascontent}
+
+	{if $__wcf->session->getPermission('mod.news.canEditNews')}
+		<nav class="jsClipboardEditor" data-types="[ 'de.voolia.news.entry' ]"></nav>
+	{/if}
 </div>
 
 {hascontent}

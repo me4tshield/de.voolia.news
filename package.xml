@@ -36,6 +36,7 @@
 
 		<!-- xml -->
 		<instruction type="bbcode">bbcode.xml</instruction>
+		<instruction type="clipboardAction">clipboardActions.xml</instruction>
 		<instruction type="cronjob">cronjob.xml</instruction>
 		<instruction type="option">option.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>

@@ -10,6 +10,7 @@ use wcf\data\user\online\UsersOnlineList;
 use wcf\data\user\User;
 use wcf\page\MultipleLinkPage;
 use wcf\system\category\CategoryHandler;
+use wcf\system\clipboard\ClipboardHandler;
 use wcf\system\comment\CommentHandler;
 use wcf\system\dashboard\DashboardHandler;
 use wcf\system\exception\IllegalLinkException;
@@ -248,6 +249,7 @@ class NewsOverviewPage extends MultipleLinkPage {
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,
 			'categoryList' => $this->categoryList,
+			'hasMarkedItems' => ClipboardHandler::getInstance()->hasMarkedItems(ClipboardHandler::getInstance()->getObjectTypeID('de.voolia.news.entry')),
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.NewsOverviewPage'),
 			'sidebarName' => 'de.voolia.news.NewsOverviewPage',
 			'usersOnlineList' => $this->usersOnlineList,

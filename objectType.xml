@@ -42,6 +42,14 @@
 		</type>
 		<!-- /Category -->
 
+		<!-- Clipboard -->
+		<type>
+			<name>de.voolia.news.entry</name>
+			<definitionname>com.woltlab.wcf.clipboardItem</definitionname>
+			<listclassname>news\data\news\NewsList</listclassname>
+		</type>
+		<!-- /Clipboard -->
+
 		<!-- Comment -->
 		<type>
 			<name>de.voolia.news.comment</name>
