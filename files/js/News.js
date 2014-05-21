@@ -689,3 +689,37 @@ News.Map.Location.SubmitAction = Class.extend({
 	}
 });
 
+/**
+ * Show a large map with all news entries with location data.
+ */
+News.Map.LargeMap = WCF.Location.GoogleMaps.LargeMap.extend({
+	/**
+	 * @see	WCF.Location.GoogleMaps.Map._success()
+	 */
+	_success: function(data, textStatus, jqXHR) {
+		if (data.returnValues && data.returnValues.markers) {
+			for (var $index in data.returnValues.markers) {
+				var $markerInfo = data.returnValues.markers[$index];
+				
+				this.addMarker($markerInfo.latitude, $markerInfo.longitude, $markerInfo.title, null, $markerInfo.infoWindow);
+				
+				if ($markerInfo.objectID) {
+					this._objectIDs.push($markerInfo.objectID);
+				}
+				else if ($markerInfo.objectIDs) {
+					this._objectIDs = this._objectIDs.concat($markerInfo.objectIDs);
+				}
+			}
+		}
+	},
+	
+	/**
+	 * @see	WCF.Location.GoogleMaps.LargeMap.addMarker()
+	 */
+	addMarker: function(latitude, longitude, title, icon, information) {
+		var $marker = this._super(latitude, longitude, title, icon, information);
+		this._markerClusterer.addMarker($marker);
+		
+		return $marker;
+	}
+});

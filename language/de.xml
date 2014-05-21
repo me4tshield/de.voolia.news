@@ -168,6 +168,7 @@
 	<category name="news.header">
 		<item name="news.header.menu.news"><![CDATA[News]]></item>
 		<item name="news.header.menu.news.archive"><![CDATA[Archiv]]></item>
+		<item name="news.header.menu.news.map"><![CDATA[Karte]]></item>
 		<item name="news.header.menu.news.mediaManagement"><![CDATA[Dateiverwaltung]]></item>
 		<item name="news.header.menu.news.unreadEntries"><![CDATA[Ungelesene News]]></item>
 		<item name="news.header.menu.news.watchedCategories"><![CDATA[Abonnierte Kategorien]]></item>

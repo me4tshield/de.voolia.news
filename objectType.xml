@@ -77,6 +77,12 @@
 			<allowcontent>0</allowcontent>
 			<allowsidebar>1</allowsidebar>
 		</type>
+		<type>
+			<name>de.voolia.news.MapPage</name>
+			<definitionname>com.woltlab.wcf.user.dashboardContainer</definitionname>
+			<allowcontent>0</allowcontent>
+			<allowsidebar>1</allowsidebar>
+		</type>
 		<!-- /Dashboard -->
 
 		<!-- Exporter -->

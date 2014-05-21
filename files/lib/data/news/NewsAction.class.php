@@ -56,7 +56,7 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$allowGuestAccess
 	 */
-	protected $allowGuestAccess = array('getNewsPreview', 'quoteMessage', 'saveFullQuote', 'saveQuote');
+	protected $allowGuestAccess = array('getNewsPreview', 'quoteMessage', 'saveFullQuote', 'saveQuote', 'getMapMarkers');
 
 	/**
 	 * news editor object
@@ -846,4 +846,40 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			ClipboardHandler::getInstance()->unmark($newsIDs, ClipboardHandler::getInstance()->getObjectTypeID('de.voolia.news.entry'));
 		}
 	}
-}
+
+	/**
+	 * Validate the 'getMapMarkers' action.
+	 */
+	public function validateGetMapMarkers() {
+		/** nothing to do here **/
+	}
+	
+	/**
+	 * Get all news with location data for the map view.
+	 */
+	public function getMapMarkers() {
+		$markers = array();
+
+		// get all accessible news with location data
+		$newsList = new AccessibleNewsList();
+		$newsList->getConditionBuilder()->add('news.latitude <> ?', array(0));
+		$newsList->getConditionBuilder()->add('news.longitude <> ?', array(0));
+		$newsList->readObjects();
+		$news = $newsList->getObjects();
+
+		// show goole maps info window for every news entry
+		foreach ($news as $entries) {
+			$markers[] = array(
+				'infoWindow' => WCF::getTPL()->fetch('mapEntryDialog', 'news', array(
+					'news' => $entries
+				)),
+				'latitude' => $entries->latitude,
+				'longitude' => $entries->longitude,
+				'objectID' => $entries->newsID
+			);
+		}
+
+		return array(
+				'markers' => $markers
+		);
+	}}
