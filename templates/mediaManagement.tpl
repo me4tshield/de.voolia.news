@@ -84,6 +84,10 @@
 						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->name}.{$media->fileExtension}</a></td>
 						<td class="columnTitle">{$media->typ}/{$media->fileExtension}</td>
 					</tr>
+				{foreachelse}
+					<tr>
+						<td colspan="3">{lang}wcf.global.noItems{/lang}</td>
+					</tr>
 				{/foreach}
 			</tbody>
 		</table>

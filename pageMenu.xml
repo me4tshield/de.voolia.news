@@ -40,13 +40,5 @@
 			<permissions>user.news.canViewNews</permissions>
 			<options>module_content_news</options>
 		</pagemenuitem>
-
-		<pagemenuitem name="news.header.menu.news.mediaManagement">
-			<controller><![CDATA[news\page\MediaManagementPage]]></controller>
-			<position>header</position>
-			<parent>news.header.menu.news</parent>
-			<permissions>user.news.canViewNews</permissions> <!-- TODO: Add new permisson -->
-			<options>module_content_news</options>
-		</pagemenuitem>
 	</import>
 </data>

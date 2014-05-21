@@ -200,6 +200,8 @@
 		<item name="news.sidebar.entry.general.views"><![CDATA[Aufrufe]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[Weitere News der Kategorie]]></item>
 		<item name="news.sidebar.letterList.title"><![CDATA[Anfangsbuchstabe]]></item>
+		<item name="news.sidebar.map.town.title"><![CDATA[Ort anzeigen]]></item>
+		<item name="news.sidebar.map.town.placeholder"><![CDATA[Ort]]></item>
 	</category>
 
 	<category name="news.user">

@@ -18,6 +18,13 @@
 <body id="tpl{$templateName|ucfirst}">
 
 {capture assign='sidebar'}
+	<fieldset>
+		<legend>{lang}news.sidebar.map.town.title{/lang}</legend>
+
+		<div>
+			<input type="text" id="geocode" name="geocode" class="long" placeholder="{lang}news.sidebar.map.town.placeholder{/lang}" />
+		</div>
+	</fieldset>
 	{event name='boxes'}
 
 	{@$__boxSidebar}

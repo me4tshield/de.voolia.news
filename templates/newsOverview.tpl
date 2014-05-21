@@ -79,6 +79,9 @@
 		<nav>
 			<ul>
 				{content}
+					{if $__wcf->getSession()->getPermission('user.news.mediaManagement.canUse')}
+						<li><a href="{link application='news' controller='MediaManagement'}{/link}" title="{lang}news.header.menu.news.mediaManagement{/lang}" class="button"><span class="icon icon16 icon-picture"></span> <span>{lang}news.header.menu.news.mediaManagement{/lang}</span></a></li>
+					{/if}
 					{if $category}
 						{if $category->canUseCategory()}
 							<li><a href="{link application='news' controller='NewsAdd'}categoryIDs[]={@$categoryID}{/link}" title="{lang}news.entry.add{/lang}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}news.entry.add{/lang}</span></a></li>
