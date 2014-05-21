@@ -6,6 +6,9 @@
 			<category name="user.news">
 				<parent>user</parent>
 			</category>
+			<category name="user.news.mediaManagement">
+				<parent>user.news</parent>
+			</category>
 			<category name="user.news.picture">
 				<parent>user.news</parent>
 			</category>
@@ -129,11 +132,40 @@ png]]></defaultvalue>
 			</option>
 			<!-- /user.news -->
 
+			<!-- user.news.mediaManagement -->
+			<option name="user.news.mediaManagement.canUse">
+				<categoryname>user.news.mediaManagement</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.mediaManagement.canUpload">
+				<categoryname>user.news.mediaManagement</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
+			</option>
+			<option name="user.news.mediaManagement.maxSize">
+				<categoryname>user.news.mediaManagement</categoryname>
+				<optiontype>fileSize</optiontype>
+				<defaultvalue>1000000</defaultvalue>
+			</option>
+			<option name="user.news.mediaManagement.allowedExtensions">
+				<categoryname>user.news.mediaManagement</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue><![CDATA[gif
+jpg
+jpeg
+png]]></defaultvalue>
+			</option>
+			<!-- /user.news.mediaManagement -->
+
 			<!-- user.news.picture -->
 			<option name="user.news.picture.canUpload">
 				<categoryname>user.news.picture</categoryname>
 				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
+				<defaultvalue>0</defaultvalue>
+				<admindefaultvalue>1</admindefaultvalue>
 			</option>
 			<option name="user.news.picture.maxSize">
 				<categoryname>user.news.picture</categoryname>
