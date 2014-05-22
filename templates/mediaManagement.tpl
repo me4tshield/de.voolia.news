@@ -8,14 +8,6 @@
 	<script data-relocate="true" type="text/javascript">
 		//<![CDATA[
 		$(function() {
-			$('#pictureAddManagement').hide();
-
-			$('#pictureAddButton').click(function() {
-				$('#pictureAddManagement').wcfDialog({
-					title: WCF.Language.get('{lang}news.mediaManagement.browser.media.upload.title{/lang}')
-				});
-			});
-
 			// MediaPreview
 			var $jsMediaPreview = $('<div id="jsMediaPreview"><fieldset><legend></legend>Lorem</fieldset></div>');
 			$(".jsMediaPreview").on("click", function() {
@@ -50,11 +42,23 @@
 				{/foreach}
 			</ol>
 		</div>
-
-		<dl class="plain inlineDataList">
-			<button class="button small" id="categoryAddButton">{lang}news.mediaManagement.browser.category.button.add{/lang}</button>
-		</dl>
 	</fieldset>
+
+	<form enctype="multipart/form-data" method="post" action="{link application='news' controller='MediaManagement'}{/link}">
+		<fieldset>
+			<legend>{lang}news.mediaManagement.browser.media.upload.title{/lang}</legend>
+			<dl>
+				<dt></dt>
+				<dd>
+					<input type="file" name="file" id="file" value="" required="required"/>
+					<span>{lang}news.mediaManagement.browser.media.upload.description{/lang}</span>
+				</dd>
+			</dl>
+			<div class="formSubmit">
+				<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
+			</div>
+		</fieldset>
+	</form>
 {/capture}
 
 {include file='header' sidebarOrientation='right'}
@@ -81,7 +85,7 @@
 				{foreach from=$objects item=media}
 					<tr>
 						<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->name}.{$media->fileExtension}</a></td>
+						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->title}.{$media->fileExtension}</a></td>
 						<td class="columnTitle">{$media->typ}/{$media->fileExtension}</td>
 					</tr>
 				{foreachelse}
@@ -99,25 +103,6 @@
 				<li><button class="button small" id="pictureAddButton">{lang}news.mediaManagement.browser.media.upload.button{/lang}</button></li>
 			</ul>
 		</nav>
-	</div>
-</div>
-
-<div id="pictureAddManagement">
-	<div class="container containerPadding marginTop">
-		<fieldset>
-			<legend>{lang}news.mediaManagement.browser.media.upload.title{/lang}</legend>
-			<dl>
-				<dt><label for="file">{lang}news.mediaManagement.browser.media.upload{/lang}</label></dt>
-				<dd>
-					<input type="file" name="file" id="file" value="" required="required"/>
-					<span>{lang}news.mediaManagement.browser.media.upload.description{/lang}</span>
-				</dd>
-			</dl>
-		</fieldset>
-	</div>
-
-	<div class="formSubmit">
-		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />
 	</div>
 </div>
 

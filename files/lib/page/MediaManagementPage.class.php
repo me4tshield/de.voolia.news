@@ -52,7 +52,7 @@ class MediaManagementPage extends MultipleLinkPage {
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$sortField
 	 */
-	public $sortField = 'name';
+	public $sortField = 'title';
 
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$sortOrder

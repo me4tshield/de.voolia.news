@@ -101,6 +101,13 @@
 			<eventname>statistics</eventname>
 			<templatecode><![CDATA[{include file='__userProfileStatistics' application='news'}]]></templatecode>
 		</templatelistener>
+
+		<templatelistener name="ckeditorNewsPlugin">
+			<environment>user</environment>
+			<templatename>wysiwyg</templatename>
+			<eventname>javascriptInit</eventname>
+			<templatecode><![CDATA[{include file='__ckeditorNewsPlugin' application='news'}]]></templatecode>
+		</templatelistener>
 		<!-- /user -->
 	</import>
 </data>

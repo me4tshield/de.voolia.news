@@ -723,3 +723,57 @@ News.Map.LargeMap = WCF.Location.GoogleMaps.LargeMap.extend({
 		return $marker;
 	}
 });
+
+News.MediaManagement = { };
+
+News.MediaManagement.Browser = Class.extend({
+	_ckeditor: null,
+	_dialog: null,
+	_isOpen: false,
+	
+	/**
+	 * Initializes the News.MediaManagement.Browser class.
+	 */
+	init: function(ckeditor) {
+		this._ckeditor = ckeditor;
+		this._isOpen = false;
+		this._dialog = null;
+	},
+	
+	/**
+	 * Open the media browser.
+	 */
+	open: function() {
+		if (this._isOpen) {
+			return false;
+		}
+		
+		this._isOpen = true;
+		
+		if (this._dialog === null) {
+			new WCF.Action.Proxy({
+				autoSend: true,
+				data: {
+					actionName: 'getMediaManagementBrowser',
+					className: 'news\\data\\media\\MediaAction'
+				},
+				success: $.proxy(this._initMediaManagementBrowser, this)
+			});
+		}
+		else {
+			this._dialog.wcfDialog('open');
+		}
+	},
+	
+	_initMediaManagementBrowser: function(data, textStatus, jqXHR) {
+		this._dialog = $('<div />').hide().html(data.returnValues.template).appendTo(document.body);
+		this._dialog.wcfDialog({
+			onClose: $.proxy(function() {
+				this._isOpen = false;
+			}, this),
+			title: WCF.Language.get('news.mediaManagement.title')
+		});
+		
+		WCF.DOMNodeInsertedHandler.addCallback('News.MediaManagement.Browser.' + this._ckeditor.name, $.proxy(this._domNodeInserted, this));
+	}
+});
