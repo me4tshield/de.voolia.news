@@ -200,8 +200,11 @@
 		<item name="news.sidebar.entry.general.views"><![CDATA[Views]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[More news from this category]]></item>
 		<item name="news.sidebar.letterList.title"><![CDATA[News by first letter]]></item>
-		<item name="news.sidebar.map.town.title"><![CDATA[Ort anzeigen]]></item>
-		<item name="news.sidebar.map.town.placeholder"><![CDATA[Ort]]></item>
+		<item name="news.sidebar.map.town.title"><![CDATA[TODO: Ort anzeigen]]></item>
+		<item name="news.sidebar.map.town.placeholder"><![CDATA[TODO: Ort]]></item>
+		<item name="news.sidebar.mediaManagement.type.pictures"><![CDATA[TODO: Bilder]]></item>
+		<item name="news.sidebar.mediaManagement.type.title"><![CDATA[TODO: Filter]]></item>
+		<item name="news.sidebar.mediaManagement.type.videos"><![CDATA[TODO: Videos]]></item>
 	</category>
 
 	<category name="news.user">

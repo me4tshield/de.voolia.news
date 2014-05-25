@@ -28,13 +28,13 @@
 			<li>
 				<a class="button" href="{link controller='MediaManagement' application='news'}type=picture{/link}">
 					<span class="icon icon16 icon-picture"></span>
-					<span>Bilder</span>
+					<span>news.sidebar.mediaManagement.type.pictures</span>
 				</a>
 			</li>
 			<li>
 				<a class="button" href="{link controller='MediaManagement' application='news'}type=video{/link}">
 					<span class="icon icon16 icon-film"></span>
-					<span>Videos</span>
+					<span>news.sidebar.mediaManagement.type.videos</span>
 				</a>
 			</li>
 		</ul>

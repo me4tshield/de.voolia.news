@@ -202,6 +202,9 @@
 		<item name="news.sidebar.letterList.title"><![CDATA[Anfangsbuchstabe]]></item>
 		<item name="news.sidebar.map.town.title"><![CDATA[Ort anzeigen]]></item>
 		<item name="news.sidebar.map.town.placeholder"><![CDATA[Ort]]></item>
+		<item name="news.sidebar.mediaManagement.type.pictures"><![CDATA[Bilder]]></item>
+		<item name="news.sidebar.mediaManagement.type.title"><![CDATA[Filter]]></item>
+		<item name="news.sidebar.mediaManagement.type.videos"><![CDATA[Videos]]></item>
 	</category>
 
 	<category name="news.user">
