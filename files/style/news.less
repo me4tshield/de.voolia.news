@@ -2,7 +2,7 @@
  * news system special css
  *
  * @author	Pascal Bade <mail@voolia.de>, Florian Frantzen <ray176@voolia.de>
- * @copyright	2013 voolia.de
+ * @copyright	2013-2014 voolia.de
  * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
@@ -19,13 +19,6 @@
 #tplNewsArchive .sidebar .badgeUpdate a {
 	background-color: @wcfTabularBoxBackgroundColor;
 	color: @wcfTabularBoxColor;
-}
-
-/* remove language icon for responsive design and small displays */
-@media all and (max-width: 800px) {
-	#tplNewsOverview .messageHeadline .iconFlag {
-		display: none;
-	}
 }
 
 /* specification for newspictures */
@@ -89,6 +82,10 @@
 	height: 64px;
 }
 
+#mediaManagementSidebarFilter > ul {
+	text-align: center;
+}
+
 /* special print style */
 @media print {
 	/* news entry */
@@ -106,8 +103,13 @@
 	}
 }
 
-/* workaround for news slideshow, @todo: fix this with larger newspicture functions */
 @media all and (max-width: 800px) {
+	/* remove language icon for responsive design and small displays */
+	#tplNewsOverview .messageHeadline .iconFlag {
+		display: none;
+	}
+
+	/* workaround for news slideshow, @todo: fix this with larger newspicture functions */
 	.slideshowButtonList {
 		top: auto;
 		bottom: 0;

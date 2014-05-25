@@ -85,6 +85,12 @@ class MediaManagementForm extends AbstractForm {
 	public $title = '';
 
 	/**
+	 * media sort field
+	 * @var	string
+	 */
+	public $typ = '';
+
+	/**
 	 * @see	\wcf\form\IForm::readFormParameters()
 	 */
 	public function readFormParameters() {
@@ -100,6 +106,8 @@ class MediaManagementForm extends AbstractForm {
 	public function readParameters() {
 		parent::readParameters();
 		if (isset($_REQUEST['categoryID'])) $this->categoryID = intval($_REQUEST['categoryID']);
+
+		if (isset($_REQUEST['typ'])) $this->typ = StringUtil::trim($_REQUEST['typ']);
 
 		if (isset($_REQUEST['id'])) $this->pictureID = intval($_REQUEST['id']);
 		if ($this->pictureID) {
@@ -122,6 +130,9 @@ class MediaManagementForm extends AbstractForm {
 
 		// more news from this category
 		$this->mediaList = new MediaList();
+		if ($this->typ) {
+			$this->mediaList->getConditionBuilder()->add('news_media.typ = ?', array($this->typ));
+		}
 		$this->mediaList->readObjects();
 	}
 

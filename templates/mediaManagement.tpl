@@ -21,7 +21,26 @@
 <body id="tpl{$templateName|ucfirst}">
 
 {capture assign='sidebar'}
-	<fieldset>
+	<fieldset id="mediaManagementSidebarFilter" class="dashboardBox">
+		<legend>{lang}news.sidebar.mediaManagement.typ.title{/lang}</legend>
+
+		<ul class="buttonGroup">
+			<li>
+				<a class="button" href="{link controller='MediaManagement' application='news'}typ=picture{/link}">
+					<span class="icon icon16 icon-picture"></span>
+					<span>Bilder</span>
+				</a>
+			</li>
+			<li>
+				<a class="button" href="{link controller='MediaManagement' application='news'}typ=video{/link}">
+					<span class="icon icon16 icon-film"></span>
+					<span>Videos</span>
+				</a>
+			</li>
+		</ul>
+	</fieldset>
+
+	<fieldset class="dashboardBox">
 		<legend>{lang}news.sidebar.categoryList.title{/lang}</legend>
 
 		<div>
