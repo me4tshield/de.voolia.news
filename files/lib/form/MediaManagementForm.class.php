@@ -1,13 +1,15 @@
 <?php
-namespace news\page;
-use news\data\media\category\MediaCategory;
+namespace news\form;
+use news\data\media\Media;
+use news\data\media\MediaList;
 use news\data\media\category\MediaCategoryNodeTree;
-use wcf\page\MultipleLinkPage;
+use wcf\form\AbstractForm;
 use wcf\system\category\CategoryHandler;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\exception\PermissionDeniedException;
 use wcf\system\user\collapsible\content\UserCollapsibleContentHandler;
 use wcf\system\WCF;
+use wcf\util\StringUtil;
 
 /**
  * Shows the media management page.
@@ -17,7 +19,7 @@ use wcf\system\WCF;
  * @license	Creative Commons BY-ND <http://creativecommons.org/licenses/by-nd/3.0/deed.de>
  * @package	de.voolia.news
  */
-class MediaManagementPage extends MultipleLinkPage {
+class MediaManagementForm extends AbstractForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$activeMenuItem
 	 */
@@ -34,11 +36,6 @@ class MediaManagementPage extends MultipleLinkPage {
 	public $neededModules = array('MODULE_CONTENT_NEWS');
 
 	/**
-	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
-	 */
-	public $objectListClassName = 'news\data\media\MediaList';
-
-	/**
 	 * category list
 	 * @var	array<\wcf\data\category\Category>
 	 */
@@ -47,17 +44,7 @@ class MediaManagementPage extends MultipleLinkPage {
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$itemsPerPage
 	 */
-	public $itemsPerPage = 100;
-
-	/**
-	 * @see	\wcf\page\MultipleLinkPage::$sortField
-	 */
-	public $sortField = 'title';
-
-	/**
-	 * @see	\wcf\page\MultipleLinkPage::$sortOrder
-	 */
-	public $sortOrder = 'ASC';
+	public $itemsPerPage = 10;
 
 	/**
 	 * category
@@ -70,6 +57,24 @@ class MediaManagementPage extends MultipleLinkPage {
 	 * @var	integer
 	 */
 	public $categoryID = 0;
+
+	/**
+	 * List with all media objects
+	 * @var	\news\data\media\MediaList
+	 */
+	public $mediaList = null;
+
+	/**
+	 * picture id
+	 * @var	integer
+	 */
+	public $pictureID = 0;
+
+	/**
+	 * picture object
+	 * @var	\news\data\news\picture\NewsPicture
+	 */
+	public $picture = null;
 
 	/**
 	 * @see	\wcf\page\IPage::readParameters()
@@ -96,16 +101,19 @@ class MediaManagementPage extends MultipleLinkPage {
 		$categoryTree = new MediaCategoryNodeTree('de.voolia.news.media.category');
 		$this->categoryList = $categoryTree->getIterator();
 		$this->categoryList->setMaxDepth(0);
+
+		// more news from this category
+		$this->mediaList = new MediaList();
+		$this->mediaList->readObjects();
 	}
 
 	/**
-	 * @see	\wcf\page\MultipleLinkPage::initObjectList()
+	 * @see	\wcf\form\IForm::save()
 	 */
-	protected function initObjectList() {
-		parent::initObjectList();
-			if ($this->categoryID) {
-				$this->objectList->getConditionBuilder()->add('news_media.categoryID IN (?)', array($this->categoryID));
-			}
+	public function save() {
+		parent::save();
+
+
 	}
 
 	/**
@@ -115,9 +123,12 @@ class MediaManagementPage extends MultipleLinkPage {
 		parent::assignVariables();
 
 		WCF::getTPL()->assign(array(
+			'objects' => $this->mediaList,
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,
 			'categoryList' => $this->categoryList,
+			'pictureID' => $this->pictureID,
+			'picture' => $this->picture,
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.MediaManagementPage'),
 			'sidebarName' => 'de.voolia.news.MediaManagementPage',
 			'allowSpidersToIndexThisPage' => false
