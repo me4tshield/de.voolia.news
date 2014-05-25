@@ -777,3 +777,77 @@ News.MediaManagement.Browser = Class.extend({
 		WCF.DOMNodeInsertedHandler.addCallback('News.MediaManagement.Browser.' + this._ckeditor.name, $.proxy(this._domNodeInserted, this));
 	}
 });
+
+/**
+ * News picture upload function
+ * 
+ * @see	WCF.Upload
+ */
+News.MediaManagement.Upload = WCF.Upload.extend({
+	/**
+	 * Initalizes a new News.Picture.Upload object.
+	 */
+	init: function() {
+		this._super($('#picturePlaceholder'), $('.pictureInput ul'), 'news\\data\\media\\MediaAction');
+	},
+
+	/**
+	 * @see	WCF.Upload._initFile()
+	 */
+	_initFile: function(file) {
+		this._fileListSelector.children('li').remove();
+
+		var $li = $('<li class="box32"><span class="icon icon32 icon-spinner" /><div><div><p>'+ file.name +'</p><small><progress max="100"></progress></small></div></div></li>');
+
+		this._fileListSelector.append($li);
+		this._fileListSelector.show();
+		return $li;
+	},
+
+	/**
+	 * @see	WCF.Upload._success()
+	 */
+	_success: function(uploadID, data) {
+		var $li = this._fileListSelector.find('li');
+
+		// remove progress bar
+		$li.find('progress').remove();
+
+		if (data.returnValues.pictureID) {
+			// update icon
+			$li.children('.icon-spinner').remove();
+			$li.prepend('<div class="framed"><img src="'+ data.returnValues.url +'" alt="" style="width: 32px; max-height: 32px" /></div>');
+
+			// update file size
+			$li.find('small').append(data.returnValues['formattedFilesize']);
+
+			// save upload id
+			$('#pictureID').val(data.returnValues.pictureID);
+
+			// show success message
+			var $notification = new WCF.System.Notification(WCF.Language.get('wcf.global.success'));
+			$notification.show();
+		} else {
+			// update icon
+			$li.children('.icon-spinner').removeClass('icon-spinner').addClass('icon-ban-circle');
+
+			$li.find('div > div').append($('<small class="innerError">'+WCF.Language.get('news.entry.picture.error.' + data.returnValues.errorType)+'</small>'));
+			$li.addClass('uploadFailed');
+		}
+
+		// fix webkit rendering bug
+		$li.css('display', 'block');
+
+		WCF.DOMNodeInsertedHandler.execute();
+	},
+
+	/**
+	 * @see	WCF.Upload._error()
+	 */
+	_error: function() {
+		// mark uploads as failed
+		var $listItem = this._fileListSelector.find('li');
+		$listItem.addClass('uploadFailed').children('.icon-spinner').removeClass('icon-spinner').addClass('icon-ban-circle');
+		$listItem.find('div > div').append($('<small class="innerError">'+WCF.Language.get('news.entry.picture.error.uploadFailed')+'</small>'));
+	}
+});

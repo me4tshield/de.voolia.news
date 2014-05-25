@@ -23,4 +23,31 @@ class Media extends NewsDatabaseObject {
 	 * @see	\wcf\data\DatabaseObject::$databaseIndexName
 	 */
 	protected static $databaseTableIndexName = 'objectID';
+
+	/**
+	 * Returns the physical file name of this picture.
+	 *
+	 * @return	string
+	 */
+	public function getFilename() {
+		return $this->fileHash .'.'. $this->fileExtension;
+	}
+
+	/**
+	 * Returns the physical location of this picture.
+	 * 
+	 * @return	string
+	 */
+	public function getLocation() {
+		return NEWS_DIR .'images/media/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
+	}
+
+	/**
+	 * Returns the url to this picture.
+	 * 
+	 * @return	string
+	 */
+	public function getURL() {
+		return WCF::getPath('news') .'images/media/'. (($this->categoryID) ? $this->categoryID.'/' : '') . $this->getFilename();
+	}
 }

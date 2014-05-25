@@ -1,6 +1,8 @@
 <?php
 namespace news\form;
 use news\data\media\Media;
+use news\data\media\MediaAction;
+use news\data\media\MediaEditor;
 use news\data\media\MediaList;
 use news\data\media\category\MediaCategoryNodeTree;
 use wcf\form\AbstractForm;
@@ -77,18 +79,34 @@ class MediaManagementForm extends AbstractForm {
 	public $picture = null;
 
 	/**
+	 * picture title
+	 * @var	string
+	 */
+	public $title = '';
+
+	/**
+	 * @see	\wcf\form\IForm::readFormParameters()
+	 */
+	public function readFormParameters() {
+		parent::readFormParameters();
+
+		if (isset($_POST['categoryID'])) $this->categoryID = intval($_POST['categoryID']);
+		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
+	}
+
+	/**
 	 * @see	\wcf\page\IPage::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
+		if (isset($_REQUEST['categoryID'])) $this->categoryID = intval($_REQUEST['categoryID']);
 
-		// media by category
-		if (isset($_REQUEST['id'])) {
-			// get category id
-			$this->categoryID = intval($_REQUEST['id']);
-
-			// get category by id
-			$this->category = CategoryHandler::getInstance()->getCategory($this->categoryID);
+		if (isset($_REQUEST['id'])) $this->pictureID = intval($_REQUEST['id']);
+		if ($this->pictureID) {
+			$this->picture = new Media($this->pictureID);
+			if (!$this->picture->pictureID) {
+				throw new IllegalLinkException();
+			}
 		}
 	}
 
@@ -113,7 +131,32 @@ class MediaManagementForm extends AbstractForm {
 	public function save() {
 		parent::save();
 
+		$oldLocation = $this->picture->getLocation();
 
+		// update picture
+		$pictureEditor = new MediaEditor($this->picture);
+		$pictureEditor->update(array(
+			'categoryID' => $this->categoryID,
+			'title' => $this->title
+		));
+
+		// reload news picture
+		$this->picture = new Media($this->pictureID);
+
+		if ($oldLocation != $this->picture->getLocation()) {
+			if (@copy($oldLocation, $this->picture->getLocation())) {
+				@unlink($oldLocation);
+			} else {
+				throw new UserInputException('picture', 'savingFailed');
+			}
+		}
+
+		$this->saved();
+
+		// show success
+		WCF::getTPL()->assign(array(
+			'success' => true
+		));
 	}
 
 	/**
@@ -124,8 +167,10 @@ class MediaManagementForm extends AbstractForm {
 
 		WCF::getTPL()->assign(array(
 			'objects' => $this->mediaList,
-			'categoryID' => $this->categoryID,
 			'category' => $this->category,
+			'action' => 'add',
+			'title' => $this->title,
+			'categoryID' => $this->categoryID,
 			'categoryList' => $this->categoryList,
 			'pictureID' => $this->pictureID,
 			'picture' => $this->picture,
