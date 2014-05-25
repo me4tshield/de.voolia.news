@@ -109,7 +109,7 @@ CREATE TABLE news1_news_media (
 	fileExtension VARCHAR(7) NOT NULL DEFAULT '',
 	fileHash VARCHAR(8) NOT NULL DEFAULT '',
 	filesize INT(10) NOT NULL DEFAULT 0,
-	typ ENUM('picture','video') DEFAULT 'picture',
+	type ENUM('picture','video') DEFAULT 'picture',
 
 	KEY (objectID)
 );

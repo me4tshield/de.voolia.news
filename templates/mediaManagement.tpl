@@ -22,17 +22,17 @@
 
 {capture assign='sidebar'}
 	<fieldset id="mediaManagementSidebarFilter" class="dashboardBox">
-		<legend>{lang}news.sidebar.mediaManagement.typ.title{/lang}</legend>
+		<legend>{lang}news.sidebar.mediaManagement.type.title{/lang}</legend>
 
 		<ul class="buttonGroup">
 			<li>
-				<a class="button" href="{link controller='MediaManagement' application='news'}typ=picture{/link}">
+				<a class="button" href="{link controller='MediaManagement' application='news'}type=picture{/link}">
 					<span class="icon icon16 icon-picture"></span>
 					<span>Bilder</span>
 				</a>
 			</li>
 			<li>
-				<a class="button" href="{link controller='MediaManagement' application='news'}typ=video{/link}">
+				<a class="button" href="{link controller='MediaManagement' application='news'}type=video{/link}">
 					<span class="icon icon16 icon-film"></span>
 					<span>Videos</span>
 				</a>
@@ -88,14 +88,14 @@
 			<thead>
 				<th class="columnIcon">{lang}news.mediaManagement.browser.table.action{/lang}</th>
 				<th class="columnTitle">{lang}news.mediaManagement.browser.table.name{/lang}</th>
-				<th class="columnTitle">{lang}news.mediaManagement.browser.table.typ{/lang}</th>
+				<th class="columnTitle">{lang}news.mediaManagement.browser.table.type{/lang}</th>
 			</thead>
 			<tbody>
 				{foreach from=$objects item=media}
 					<tr>
 						<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
-						<td class="columnTitle"><span class="icon icon-{if $media->typ == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->title}.{$media->fileExtension}</a></td>
-						<td class="columnTitle">{$media->typ}/{$media->fileExtension}</td>
+						<td class="columnTitle"><span class="icon icon-{if $media->type == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->title}.{$media->fileExtension}</a></td>
+						<td class="columnTitle">{$media->type}/{$media->fileExtension}</td>
 					</tr>
 				{foreachelse}
 					<tr>
