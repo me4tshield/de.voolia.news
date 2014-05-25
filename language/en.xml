@@ -51,7 +51,7 @@
 		<item name="news.entry.add.informations.editReason.title"><![CDATA[Edit reason]]></item>
 		<item name="news.entry.add.informations.subject.title"><![CDATA[Title]]></item>
 		<item name="news.entry.add.informations.sources.description"><![CDATA[Add one or more sources.]]></item>
-		<item name="news.entry.add.informations.sources.error.tooLong"><![CDATA[TODO: Mindestens einer der Quellenbeschreibungen oder Links ist zu lang. Quellenbeschreibung und Link dürfen jeweils maximal 2048 Zeichen umfassen.]]></item>
+		<item name="news.entry.add.informations.sources.error.tooLong"><![CDATA[At least one of the source descriptions or links is too long. They must be below 2048 characters each.]]></item>
 		<item name="news.entry.add.informations.sources.title"><![CDATA[Sources]]></item>
 		<item name="news.entry.add.informations.sources.input.title"><![CDATA[Name]]></item>
 		<item name="news.entry.add.informations.sources.input.link"><![CDATA[Link]]></item>
@@ -62,8 +62,8 @@
 		<item name="news.entry.add.informations.settings.category.title"><![CDATA[Categories]]></item>
 		<item name="news.entry.add.informations.settings.enableAutomaticArchiving"><![CDATA[Automatically archive]]></item>
 		<item name="news.entry.add.informations.settings.isHot.title"><![CDATA[News is a recommendation]]></item>
-		<item name="news.entry.add.informations.settings.location.title"><![CDATA[TODO: Ortsangabe hinzufügen]]></item>
-		<item name="news.entry.add.informations.settings.location"><![CDATA[TODO: Ort]]></item>
+		<item name="news.entry.add.informations.settings.location.title"><![CDATA[Add location]]></item>
+		<item name="news.entry.add.informations.settings.location"><![CDATA[Location]]></item>
 		<item name="news.entry.add.informations.settings.location.description"><![CDATA[TODO: Geben Sie hier einen Ort ein, oder verwenden Sie die Einträge in der Auswahlliste. Alternativ können Sie auch die Markierung beliebig verschieben.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Add a newspicture for your news, to display the picture left from the title.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newspicture]]></item>
@@ -117,11 +117,11 @@
 		<item name="news.entry.isHot"><![CDATA[Recommendation]]></item>
 		<item name="news.entry.markAllAsRead"><![CDATA[Mark All News As Read]]></item>
 		<item name="news.entry.moderation.redirect"><![CDATA[TODO: Die News wird von einem Moderator geprüft und aktiviert, bevor sie sichtbar ist.]]></item>
-		<item name="news.entry.previousNewsItem"><![CDATA[TODO: Vorherige]]></item>
+		<item name="news.entry.previousNewsItem"><![CDATA[Previous]]></item>
 		<item name="news.entry.newsUpdate.badge"><![CDATA[UPDATE]]></item>
 		<item name="news.entry.newsUpdate.headline"><![CDATA[Update <small>({@$news->editTime|time})</small>]]></item>
 		<item name="news.entry.news.title"><![CDATA[News]]></item>
-		<item name="news.entry.nextNewsItem"><![CDATA[TODO: Nächste]]></item>
+		<item name="news.entry.nextNewsItem"><![CDATA[Next]]></item>
 		<item name="news.entry.no.entry"><![CDATA[No news yet.]]></item>
 		<item name="news.entry.notification.title"><![CDATA[New News]]></item>
 		<item name="news.entry.notification.message"><![CDATA[Wrote the news „{$news->subject}“.]]></item>
@@ -152,24 +152,24 @@
 	</category>
 
 	<category name="news.mediaManagement">
-		<item name="news.mediaManagement.title"><![CDATA[TODO: Dateiverwaltung]]></item>
-		<item name="news.mediaManagement.browser.title"><![CDATA[TODO: Übersicht]]></item>
-		<item name="news.mediaManagement.browser.category.button.add"><![CDATA[TODO: Kategorie anlegen]]></item>
-		<item name="news.mediaManagement.browser.media.preview.title"><![CDATA[TODO: Vorschau]]></item>
-		<item name="news.mediaManagement.browser.media.upload"><![CDATA[TODO: Datei]]></item>
-		<item name="news.mediaManagement.browser.media.upload.button"><![CDATA[TODO: Datei hochladen]]></item>
+		<item name="news.mediaManagement.title"><![CDATA[Media managment]]></item>
+		<item name="news.mediaManagement.browser.title"><![CDATA[Overview]]></item>
+		<item name="news.mediaManagement.browser.category.button.add"><![CDATA[Add category]]></item>
+		<item name="news.mediaManagement.browser.media.preview.title"><![CDATA[Preview]]></item>
+		<item name="news.mediaManagement.browser.media.upload"><![CDATA[File]]></item>
+		<item name="news.mediaManagement.browser.media.upload.button"><![CDATA[Upload file]]></item>
 		<item name="news.mediaManagement.browser.media.upload.description"><![CDATA[]]></item>
-		<item name="news.mediaManagement.browser.media.upload.title"><![CDATA[TODO: Neue Datei hochladen]]></item>
-		<item name="news.mediaManagement.browser.table.action"><![CDATA[TODO: Aktion]]></item>
-		<item name="news.mediaManagement.browser.table.name"><![CDATA[TODO: Name]]></item>
-		<item name="news.mediaManagement.browser.table.typ"><![CDATA[TODO: Typ]]></item>
+		<item name="news.mediaManagement.browser.media.upload.title"><![CDATA[Upload new file]]></item>
+		<item name="news.mediaManagement.browser.table.action"><![CDATA[Action]]></item>
+		<item name="news.mediaManagement.browser.table.name"><![CDATA[Name]]></item>
+		<item name="news.mediaManagement.browser.table.typ"><![CDATA[Type]]></item>
 	</category>
 
 	<category name="news.header">
 		<item name="news.header.menu.news"><![CDATA[News]]></item>
 		<item name="news.header.menu.news.archive"><![CDATA[Archive]]></item>
 		<item name="news.header.menu.news.map"><![CDATA[Map]]></item>
-		<item name="news.header.menu.news.mediaManagement"><![CDATA[TODO: Dateiverwaltung]]></item>
+		<item name="news.header.menu.news.mediaManagement"><![CDATA[Media managment]]></item>
 		<item name="news.header.menu.news.unreadEntries"><![CDATA[Unread News]]></item>
 		<item name="news.header.menu.news.watchedCategories"><![CDATA[Watched Categories]]></item>
 	</category>
@@ -202,9 +202,9 @@
 		<item name="news.sidebar.letterList.title"><![CDATA[News by first letter]]></item>
 		<item name="news.sidebar.map.town.title"><![CDATA[TODO: Ort anzeigen]]></item>
 		<item name="news.sidebar.map.town.placeholder"><![CDATA[TODO: Ort]]></item>
-		<item name="news.sidebar.mediaManagement.type.pictures"><![CDATA[TODO: Bilder]]></item>
-		<item name="news.sidebar.mediaManagement.type.title"><![CDATA[TODO: Filter]]></item>
-		<item name="news.sidebar.mediaManagement.type.videos"><![CDATA[TODO: Videos]]></item>
+		<item name="news.sidebar.mediaManagement.type.pictures"><![CDATA[Pictures]]></item>
+		<item name="news.sidebar.mediaManagement.type.title"><![CDATA[Filter]]></item>
+		<item name="news.sidebar.mediaManagement.type.videos"><![CDATA[Videos]]></item>
 	</category>
 
 	<category name="news.user">
@@ -348,8 +348,7 @@
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Show teaser on news entry]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Enable sources]]></item>
-		<item name="wcf.acp.option.news_entry_sources_displayOption_compactView"><![CDATA[TODO: Kompakte Darstellung der Quellen aktivieren.]]></item>
-		<item name="wcf.acp.option.news_entry_sources_displayOption_compactView.description"><![CDATA[TODO: Aktivieren Sie diese Option, um die Quellen in einer kompakten Darstellung anzuzeigen. Dabei wird der Quellen-Text automatisch verlinkt.]]></item>
+		<item name="wcf.acp.option.news_entry_sources_displayOption_compactView"><![CDATA[Activate compact display of sources]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount"><![CDATA[Maximum Source Number]]></item>
 		<item name="wcf.acp.option.news_entry_sources_maxCount.description"><![CDATA[Maximum number of sources [0 to disable limitation]]]></item>
 		<item name="wcf.acp.option.news_hot_items_per_page"><![CDATA[Number of Dashboard Box News]]></item>
@@ -359,7 +358,7 @@
 		<item name="wcf.acp.option.news_items_per_page"><![CDATA[Number of News]]></item>
 		<item name="wcf.acp.option.news_show_editnote"><![CDATA[Edit Reason]]></item>
 		<item name="wcf.acp.option.news_sidebarbox_items_per_page"><![CDATA[Number of Sidebar News]]></item>
-		<item name="wcf.acp.option.news_update_sort_order"><![CDATA[TODO: Reihenfolge der News-Updates]]></item>
+		<item name="wcf.acp.option.news_update_sort_order"><![CDATA[Order of news updates]]></item>
 	</category>
 
 	<category name="wcf.acp.rebuildData">
