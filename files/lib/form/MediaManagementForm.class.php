@@ -185,6 +185,7 @@ class MediaManagementForm extends AbstractForm {
 			'categoryList' => $this->categoryList,
 			'pictureID' => $this->pictureID,
 			'picture' => $this->picture,
+			'type' => $this->type,
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.MediaManagementPage'),
 			'sidebarName' => 'de.voolia.news.MediaManagementPage',
 			'allowSpidersToIndexThisPage' => false

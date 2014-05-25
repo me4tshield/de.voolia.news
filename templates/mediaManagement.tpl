@@ -26,15 +26,20 @@
 
 		<ul class="buttonGroup">
 			<li>
-				<a class="button" href="{link controller='MediaManagement' application='news'}type=picture{/link}">
+				<a class="button{if $type == 'picture'} active{/if}" href="{link controller='MediaManagement' application='news'}type=picture{/link}">
 					<span class="icon icon16 icon-picture"></span>
-					<span>news.sidebar.mediaManagement.type.pictures</span>
+					<span>{lang}news.sidebar.mediaManagement.type.pictures{/lang}</span>
 				</a>
 			</li>
 			<li>
-				<a class="button" href="{link controller='MediaManagement' application='news'}type=video{/link}">
+				<a class="button{if $type != 'picture' && $type != 'video'} active{/if}" href="{link controller='MediaManagement' application='news'}{/link}">
+					<span>{lang}news.sidebar.mediaManagement.type.all{/lang}</span>
+				</a>
+			</li>
+			<li>
+				<a class="button{if $type == 'video'} active{/if}" href="{link controller='MediaManagement' application='news'}type=video{/link}">
 					<span class="icon icon16 icon-film"></span>
-					<span>news.sidebar.mediaManagement.type.videos</span>
+					<span>{lang}news.sidebar.mediaManagement.type.videos{/lang}</span>
 				</a>
 			</li>
 		</ul>
