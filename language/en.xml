@@ -162,7 +162,7 @@
 		<item name="news.mediaManagement.browser.media.upload.title"><![CDATA[Upload new file]]></item>
 		<item name="news.mediaManagement.browser.table.action"><![CDATA[Action]]></item>
 		<item name="news.mediaManagement.browser.table.name"><![CDATA[Name]]></item>
-		<item name="news.mediaManagement.browser.table.typ"><![CDATA[Type]]></item>
+		<item name="news.mediaManagement.browser.table.type"><![CDATA[Type]]></item>
 	</category>
 
 	<category name="news.header">
