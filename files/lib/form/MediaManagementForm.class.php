@@ -1,10 +1,10 @@
 <?php
 namespace news\form;
+use news\data\media\category\MediaCategoryNodeTree;
 use news\data\media\Media;
 use news\data\media\MediaAction;
 use news\data\media\MediaEditor;
 use news\data\media\MediaList;
-use news\data\media\category\MediaCategoryNodeTree;
 use wcf\form\AbstractForm;
 use wcf\system\category\CategoryHandler;
 use wcf\system\exception\IllegalLinkException;
