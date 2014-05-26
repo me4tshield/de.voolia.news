@@ -160,6 +160,7 @@ class NewsEditForm extends NewsAddForm {
 		// news picture
 		if (NEWS_ENABLE_NEWSPICTURE && $this->pictureID) {
 			$data['pictureID'] = $this->pictureID;
+			$data['pictureOrientation'] = $this->pictureOrientation;
 		}
 
 		$newsData = array(
@@ -220,6 +221,7 @@ class NewsEditForm extends NewsAddForm {
 			$this->teaser = $this->news->teaser;
 			$this->languageID = $this->news->languageID;
 			$this->pictureID = $this->news->pictureID;
+			$this->pictureOrientation = $this->news->pictureOrientation;
 			$this->tags = $this->news->tags;
 			$this->enableBBCodes = $this->news->enableBBCodes;
 			$this->enableHtml = $this->news->enableHtml;

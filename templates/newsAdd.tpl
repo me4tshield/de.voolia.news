@@ -246,10 +246,10 @@
 					<dl>
 						<dt><label>{lang}news.entry.add.informations.settings.newspicture.orientation{/lang}</label></dt>
 						<dd>
-							<select name="newspictureOrientation">
-								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.left{/lang}</option>
-								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.centered{/lang}</option>
-								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.right{/lang}</option>
+							<select id="pictureOrientation" name="pictureOrientation">
+								<option value="left">{lang}news.entry.add.informations.settings.newspicture.orientation.left{/lang}</option>
+								<option value="centered">{lang}news.entry.add.informations.settings.newspicture.orientation.centered{/lang}</option>
+								<option value="right">{lang}news.entry.add.informations.settings.newspicture.orientation.right{/lang}</option>
 							</select>
 						</dd>
 					</dl>

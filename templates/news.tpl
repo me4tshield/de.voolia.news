@@ -178,12 +178,6 @@
 				<section class="messageContent">
 					<div>
 						<header class="messageHeader">
-							{if NEWS_ENABLE_NEWSPICTURE}
-								<div class="box32">
-									<a href="{$news->getLink()}" class="framed">
-										<img src="{@$news->getNewsPicture()->getURL()}" class="newsImage" alt="" />
-									</a>
-							{/if}
 
 							<div class="messageHeadline">
 								<h1><a href="{$news->getLink()}">{$news->subject}</a></h1>
@@ -194,8 +188,6 @@
 							</div>
 
 							{if $news->isHot()}<p class="newMessageBadge">{lang}news.entry.isHot{/lang}</p>{/if}
-
-							{if NEWS_ENABLE_NEWSPICTURE}</div>{/if}
 
 							{event name='messageHeader'}
 						</header>
@@ -209,6 +201,9 @@
 										</div>
 									{/if}
 
+									{if NEWS_ENABLE_NEWSPICTURE}
+										<img src="{@$news->getNewsPicture()->getURL()}" style="width: 120px; height: 160px;" class="newsImage{if $news->pictureOrientation == 'left'}Left{else}Right{/if}" alt="" />
+									{/if}
 									{@$news->getFormattedMessage()}
 
 									{if $news->pollID|isset}

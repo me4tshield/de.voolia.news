@@ -9,6 +9,7 @@ CREATE TABLE news1_news (
 	teaser TEXT NOT NULL,
 	text LONGTEXT,
 	pictureID INT(10) DEFAULT NULL,
+	pictureOrientation ENUM('left','centered','right') DEFAULT 'left',
 	location VARCHAR(255) NOT NULL DEFAULT '',
 	longitude FLOAT(10,7) NOT NULL DEFAULT 0.0,
 	latitude FLOAT(10,7) NOT NULL DEFAULT 0.0,

@@ -130,6 +130,12 @@ class NewsAddForm extends MessageForm {
 	public $picture = null;
 
 	/**
+	 * picture orientation
+	 * @var	string
+	 */
+	public $pictureOrientation = '';
+
+	/**
 	 * teaser
 	 * @var	string
 	 */
@@ -214,6 +220,7 @@ class NewsAddForm extends MessageForm {
 		// news picture
 		if (NEWS_ENABLE_NEWSPICTURE) {
 			if (isset($_POST['pictureID'])) $this->pictureID = intval($_POST['pictureID']);
+			if (isset($_POST['pictureOrientation'])) $this->pictureOrientation = StringUtil::trim($_POST['pictureOrientation']);
 			$this->picture = new NewsPicture($this->pictureID);
 		}
 
@@ -450,6 +457,7 @@ class NewsAddForm extends MessageForm {
 		// news picture
 		if (NEWS_ENABLE_NEWSPICTURE && $this->pictureID) {
 			$data['pictureID'] = $this->pictureID;
+			$data['pictureOrientation'] = $this->pictureOrientation;
 		}
 
 		$newsData = array(
@@ -573,6 +581,7 @@ class NewsAddForm extends MessageForm {
 			'enableDelayedPublication' => $this->enableDelayedPublication,
 			'publicationDate' => $this->publicationDate,
 			'pictureID' => $this->pictureID,
+			'pictureOrientation' => $this->pictureOrientation,
 			'picture' => $this->picture,
 			'isHot' => $this->isHot,
 			'sources' => $this->sources,
