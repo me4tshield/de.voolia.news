@@ -69,6 +69,7 @@
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newspicture]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.upload"><![CDATA[Add new newspicture]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.orientation"><![CDATA[Orientation]]></item>
+		<item name="news.entry.add.informations.settings.newspicture.orientation.centered"><![CDATA[Centered]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.orientation.left"><![CDATA[Left]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.orientation.right"><![CDATA[Right]]></item>
 		<item name="news.entry.add.informations.settings.publication"><![CDATA[Publication]]></item>

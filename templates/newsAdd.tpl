@@ -248,6 +248,7 @@
 						<dd>
 							<select name="newspictureOrientation">
 								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.left{/lang}</option>
+								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.centered{/lang}</option>
 								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.right{/lang}</option>
 							</select>
 						</dd>
