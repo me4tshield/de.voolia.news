@@ -161,8 +161,11 @@
 		<item name="news.mediaManagement.browser.media.upload.description"><![CDATA[]]></item>
 		<item name="news.mediaManagement.browser.media.upload.title"><![CDATA[Upload new file]]></item>
 		<item name="news.mediaManagement.browser.table.action"><![CDATA[Action]]></item>
-		<item name="news.mediaManagement.browser.table.name"><![CDATA[Name]]></item>
+		<item name="news.mediaManagement.browser.table.name"><![CDATA[Title]]></item>
+		<item name="news.mediaManagement.browser.table.size"><![CDATA[Size]]></item>
 		<item name="news.mediaManagement.browser.table.type"><![CDATA[Type]]></item>
+		<item name="news.mediaManagement.browser.table.type.picture"><![CDATA[Bild]]></item>
+		<item name="news.mediaManagement.browser.table.type.video"><![CDATA[Video]]></item>
 	</category>
 
 	<category name="news.header">
@@ -272,6 +275,12 @@
 		<item name="wcf.acp.group.option.user.news.picture.allowedExtensions"><![CDATA[Allowed Newspicture Extensions]]></item>
 		<item name="wcf.acp.group.option.user.news.picture.canUpload"><![CDATA[Can Upload Newspicture]]></item>
 		<item name="wcf.acp.group.option.user.news.picture.maxSize"><![CDATA[Maximum Newspicture Size]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canUse"><![CDATA[TODO: Kann Dateiverwaltung benutzen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canUpload"><![CDATA[TODO: Kann Dateien hochladen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canEdit"><![CDATA[TODO: Kann Dateien bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canDelete"><![CDATA[TODO: Kann Dateien löschen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.maxSize"><![CDATA[TODO: Maximale Dateigröße]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.allowedExtensions"><![CDATA[TODO: Erlaubte Dateiendungen]]></item>
 		<item name="wcf.acp.group.option.category.mod.news"><![CDATA[News-System]]></item>
 		<item name="wcf.acp.group.option.mod.news.canActivateNews"><![CDATA[Can activate news]]></item>
 		<item name="wcf.acp.group.option.mod.news.canDeactivateNews"><![CDATA[Can deactivate news]]></item>

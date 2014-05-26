@@ -94,13 +94,18 @@
 				<th class="columnIcon">{lang}news.mediaManagement.browser.table.action{/lang}</th>
 				<th class="columnTitle">{lang}news.mediaManagement.browser.table.name{/lang}</th>
 				<th class="columnTitle">{lang}news.mediaManagement.browser.table.type{/lang}</th>
+				<th class="columnTitle">{lang}news.mediaManagement.browser.table.size{/lang}</th>
 			</thead>
 			<tbody>
 				{foreach from=$objects item=media}
 					<tr>
-						<td class="columnIcon"><span class="icon icon-pencil icon16"></span> <span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span></td>
+						<td class="columnIcon">
+							{if $__wcf->session->getPermission('user.news.mediaManagement.canEdit')}<span class="icon icon-pencil icon16"></span>{/if}
+							{if $__wcf->session->getPermission('user.news.mediaManagement.canDelete')}<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span>{/if}
+						</td>
 						<td class="columnTitle"><span class="icon icon-{if $media->type == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->title}.{$media->fileExtension}</a></td>
-						<td class="columnTitle">{$media->type}/{$media->fileExtension}</td>
+						<td class="columnDigits">{$media->fileExtension}</td>
+						<td class="columnDigits">{$media->filesize|filesize}</td>
 					</tr>
 				{foreachelse}
 					<tr>
@@ -110,16 +115,9 @@
 			</tbody>
 		</table>
 	</div>
-
-	<div class="contentNavigation">
-		<nav class="marginTop">
-			<ul>
-				<li><button class="button small" id="pictureAddButton">{lang}news.mediaManagement.browser.media.upload.button{/lang}</button></li>
-			</ul>
-		</nav>
-	</div>
 </div>
 
+{if $__wcf->session->getPermission('user.news.mediaManagement.canUpload')}
 <form method="post" action="{link controller='MediaManagement' application='news'}{/link}">
 	<div class="container containerPadding marginTop">
 		<fieldset>
@@ -214,6 +212,7 @@
 		<input type="hidden" id="pictureID" name="id" value="{@$pictureID}" />
 	</div>
 </form>
+{/if}
 
 {include file='footer'}
 </body>

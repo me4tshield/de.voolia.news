@@ -162,7 +162,10 @@
 		<item name="news.mediaManagement.browser.media.upload.title"><![CDATA[Neue Datei hochladen]]></item>
 		<item name="news.mediaManagement.browser.table.action"><![CDATA[Aktion]]></item>
 		<item name="news.mediaManagement.browser.table.name"><![CDATA[Name]]></item>
+		<item name="news.mediaManagement.browser.table.size"><![CDATA[Größe]]></item>
 		<item name="news.mediaManagement.browser.table.type"><![CDATA[Typ]]></item>
+		<item name="news.mediaManagement.browser.table.type.picture"><![CDATA[Bild]]></item>
+		<item name="news.mediaManagement.browser.table.type.video"><![CDATA[Video]]></item>
 	</category>
 
 	<category name="news.header">
@@ -272,6 +275,12 @@
 		<item name="wcf.acp.group.option.user.news.picture.allowedExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
 		<item name="wcf.acp.group.option.user.news.picture.canUpload"><![CDATA[Kann Newsbilder hochladen]]></item>
 		<item name="wcf.acp.group.option.user.news.picture.maxSize"><![CDATA[Maximale Newsbildgröße]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canUse"><![CDATA[Kann Dateiverwaltung benutzen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canUpload"><![CDATA[Kann Dateien hochladen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canEdit"><![CDATA[Kann Dateien bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.canDelete"><![CDATA[Kann Dateien löschen]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.maxSize"><![CDATA[Maximale Dateigröße]]></item>
+		<item name="wcf.acp.group.option.user.news.mediaManagement.allowedExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
 		<item name="wcf.acp.group.option.category.mod.news"><![CDATA[News-System]]></item>
 		<item name="wcf.acp.group.option.mod.news.canActivateNews"><![CDATA[Kann News aktivieren]]></item>
 		<item name="wcf.acp.group.option.mod.news.canDeactivateNews"><![CDATA[Kann News deaktivieren]]></item>
