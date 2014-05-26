@@ -100,8 +100,8 @@
 				{foreach from=$objects item=media}
 					<tr>
 						<td class="columnIcon">
-							{if $__wcf->session->getPermission('user.news.mediaManagement.canEdit')}<span class="icon icon-pencil icon16"></span>{/if}
-							{if $__wcf->session->getPermission('user.news.mediaManagement.canDelete')}<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="Löschen"></span>{/if}
+							{if $__wcf->session->getPermission('user.news.mediaManagement.canEdit')}<a href="{link controller='MediaManagement' application='news' id=$media->objectID}action=edit{/link}"><span class="icon icon-pencil icon16 jsTooltip" title="{lang}wcf.global.button.edit{/lang}"></span></a>{/if}
+							{if $__wcf->session->getPermission('user.news.mediaManagement.canDelete')}<span class="icon icon16 icon-remove jsDeleteButton jsTooltip pointer" title="{lang}wcf.global.button.delete{/lang}"></span>{/if}
 						</td>
 						<td class="columnTitle"><span class="icon icon-{if $media->type == 'picture'}picture{else}film{/if} icon16"></span> <a class="jsMediaPreview">{$media->title}.{$media->fileExtension}</a></td>
 						<td class="columnDigits">{$media->fileExtension}</td>
