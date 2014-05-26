@@ -68,6 +68,9 @@
 		<item name="news.entry.add.informations.settings.newspicture.description"><![CDATA[Sie können hier ein Newsbild hinzufügen, welches neben dem Titel der News oder auch im Archiv angezeigt wird.]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.title"><![CDATA[Newsbild]]></item>
 		<item name="news.entry.add.informations.settings.newspicture.upload"><![CDATA[Neues Newsbild hochladen]]></item>
+		<item name="news.entry.add.informations.settings.newspicture.orientation"><![CDATA[Ausrichtung]]></item>
+		<item name="news.entry.add.informations.settings.newspicture.orientation.left"><![CDATA[Links]]></item>
+		<item name="news.entry.add.informations.settings.newspicture.orientation.right"><![CDATA[Rechts]]></item>
 		<item name="news.entry.add.informations.settings.publication"><![CDATA[Veröffentlichung]]></item>
 		<item name="news.entry.add.informations.settings.publication.enableDelayedPublication"><![CDATA[News zu einem späteren Zeitpunkt veröffentlichen]]></item>
 		<item name="news.entry.add.informations.settings.publicationDate"><![CDATA[Veröffentlichungsdatum]]></item>

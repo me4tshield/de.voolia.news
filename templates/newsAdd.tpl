@@ -173,6 +173,39 @@
 
 			<fieldset>
 				<legend>{lang}news.entry.add.informations.settings.title{/lang}</legend>
+				<dl>
+					<dt><label for="categoryIDs">{lang}news.entry.add.informations.settings.category.title{/lang}</label></dt>
+					<dd>
+						<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
+							{foreach from=$categoryList item=category}
+								{if $category->canUseCategory()}
+									<option value="{@$category->categoryID}"{if $category->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$category->getPermission('canAddSources')}" data-can-set-tags="{$category->getPermission('canSetTags')}">{@"&nbsp;&nbsp;&nbsp;&nbsp;"|str_repeat:$category->getDepth()}{$category->getTitle()}</option>
+								{/if}
+							{/foreach}
+						</select>
+						{if $errorField == 'categoryIDs'}
+							<small class="innerError">
+								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
+							</small>
+						{/if}
+						<small>{lang}news.entry.add.informations.settings.category.description{/lang}</small>
+					</dd>
+				</dl>
+
+				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAsHot')}
+					<dl>
+						<dt></dt>
+						<dd>
+							<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.isHot.title{/lang}</label>
+						</dd>
+					</dl>
+				{/if}
+
+				{event name='settingsFields'}
+			</fieldset>
+
+			<fieldset>
+				<legend>{lang}news.entry.add.informations.settings.newspicture.title{/lang}</legend>
 
 				{if NEWS_ENABLE_NEWSPICTURE && $__wcf->getSession()->getPermission('user.news.picture.canUpload')}
 					<dl class="pictureInput{if $errorField == 'newsPicture'} formError{/if}">
@@ -210,37 +243,16 @@
 							{/if}
 						</dd>
 					</dl>
-				{/if}
-
-				<dl>
-					<dt><label for="categoryIDs">{lang}news.entry.add.informations.settings.category.title{/lang}</label></dt>
-					<dd>
-						<select id="categoryIDs" name="categoryIDs[]" multiple="multiple" size="8" class="medium">
-							{foreach from=$categoryList item=category}
-								{if $category->canUseCategory()}
-									<option value="{@$category->categoryID}"{if $category->categoryID|in_array:$categoryIDs} selected="selected"{/if} data-can-add-sources="{$category->getPermission('canAddSources')}" data-can-set-tags="{$category->getPermission('canSetTags')}">{@"&nbsp;&nbsp;&nbsp;&nbsp;"|str_repeat:$category->getDepth()}{$category->getTitle()}</option>
-								{/if}
-							{/foreach}
-						</select>
-						{if $errorField == 'categoryIDs'}
-							<small class="innerError">
-								{if $errorType == 'empty'}{lang}wcf.global.form.error.empty{/lang}{/if}
-							</small>
-						{/if}
-						<small>{lang}news.entry.add.informations.settings.category.description{/lang}</small>
-					</dd>
-				</dl>
-
-				{if $__wcf->getSession()->getPermission('user.news.canSetNewsAsHot')}
 					<dl>
-						<dt></dt>
+						<dt><label>{lang}news.entry.add.informations.settings.newspicture.orientation{/lang}</label></dt>
 						<dd>
-							<label><input type="checkbox" name="isHot" value="1"{if $isHot} checked="checked"{/if} /> {lang}news.entry.add.informations.settings.isHot.title{/lang}</label>
+							<select name="newspictureOrientation">
+								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.left{/lang}</option>
+								<option>{lang}news.entry.add.informations.settings.newspicture.orientation.right{/lang}</option>
+							</select>
 						</dd>
 					</dl>
 				{/if}
-
-				{event name='settingsFields'}
 			</fieldset>
 
 			{if NEWS_ENABLE_LOCATION}
