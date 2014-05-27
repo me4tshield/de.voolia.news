@@ -48,10 +48,10 @@ if (!defined('PAGE_TITLE') || !PAGE_TITLE) {
 
 // default dashboard settings
 DashboardHandler::setDefaultValues('de.voolia.news.NewsOverviewPage', array(
-	'de.voolia.news.tagCloud' => 1
+	'de.voolia.news.categoryList' => 1
 ));
 DashboardHandler::setDefaultValues('de.voolia.news.NewsArchivePage', array(
-	'de.voolia.news.tagCloud' => 1
+	'de.voolia.news.categoryList' => 1
 ));
 
 // set install date
