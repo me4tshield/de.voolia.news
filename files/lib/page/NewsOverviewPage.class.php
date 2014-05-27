@@ -1,7 +1,6 @@
 <?php
 namespace news\page;
 use news\data\category\NewsCategory;
-use news\data\category\NewsCategoryNodeTree;
 use news\data\news\NewsCategoryList;
 use news\system\cache\builder\NewsStatsCacheBuilder;
 use news\system\NEWSCore;
@@ -82,12 +81,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 	 * @var	\wcf\data\category\Category
 	 */
 	public $category = null;
-
-	/**
-	 * available categories
-	 * @var	array<\wcf\data\category\Category>
-	 */
-	public $categoryList = null;
 
 	/**
 	 * available letters
@@ -175,11 +168,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 		$this->stats = NewsStatsCacheBuilder::getInstance()->getData();
 		$this->stats['categories'] = count(CategoryHandler::getInstance()->getCategories('de.voolia.news.category'));
 
-		// categories
-		$categoryTree = new NewsCategoryNodeTree('de.voolia.news.category');
-		$this->categoryList = $categoryTree->getIterator();
-		$this->categoryList->setMaxDepth(0);
-
 		// users online list
 		if (MODULE_USERS_ONLINE && NEWS_INDEX_ENABLE_USERS_ONLINE_LIST) {
 			$this->usersOnlineList = new UsersOnlineList();
@@ -248,7 +236,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 			'stats' => $this->stats,
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,
-			'categoryList' => $this->categoryList,
 			'hasMarkedItems' => ClipboardHandler::getInstance()->hasMarkedItems(ClipboardHandler::getInstance()->getObjectTypeID('de.voolia.news.entry')),
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.NewsOverviewPage'),
 			'sidebarName' => 'de.voolia.news.NewsOverviewPage',

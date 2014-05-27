@@ -358,7 +358,6 @@
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Sharing]]></item>
 		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle"><![CDATA[Prune Trash Bin]]></item>
 		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle.description"><![CDATA[News within the trash bin will automatically be removed after this period. [Period in days, 0 to disable removal]]]></item>
-		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Shows the category list within the news overview sidebar]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tags]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[Show teaser on news entry]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Enable sources]]></item>
@@ -384,6 +383,7 @@
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsArchivePage"><![CDATA[News-Archive]]></item>
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsOverviewPage"><![CDATA[News List]]></item>
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsPage"><![CDATA[News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.categoryList"><![CDATA[News-Kategorien]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsContent"><![CDATA[Slideshow with News recommendations]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsSidebar"><![CDATA[News recommendation]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsContent"><![CDATA[Slideshow with the latest news]]></item>

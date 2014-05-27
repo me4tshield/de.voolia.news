@@ -1,7 +1,6 @@
 <?php
 namespace news\page;
 use news\data\category\NewsCategory;
-use news\data\category\NewsCategoryNodeTree;
 use news\data\news\NewsCategoryList;
 use news\system\cache\builder\NewsStatsCacheBuilder;
 use news\system\NEWSCore;
@@ -90,12 +89,6 @@ class NewsArchivePage extends SortablePage {
 	public $category = null;
 
 	/**
-	 * available categories
-	 * @var	array<\wcf\data\category\Category>
-	 */
-	public $categoryList = null;
-
-	/**
 	 * object type name for news categories
 	 * @var	string
 	 */
@@ -156,11 +149,6 @@ class NewsArchivePage extends SortablePage {
 	public function readData() {
 		parent::readData();
 
-		// categories
-		$categoryTree = new NewsCategoryNodeTree($this->objectTypeName);
-		$this->categoryList = $categoryTree->getIterator();
-		$this->categoryList->setMaxDepth(0);
-
 		// stats
 		$this->stats = NewsStatsCacheBuilder::getInstance()->getData();
 
@@ -215,7 +203,6 @@ class NewsArchivePage extends SortablePage {
 			'stats' => $this->stats,
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,
-			'categoryList' => $this->categoryList,
 			'sidebarCollapsed' => UserCollapsibleContentHandler::getInstance()->isCollapsed('com.woltlab.wcf.collapsibleSidebar', 'de.voolia.news.NewsArchivePage'),
 			'sidebarName' => 'de.voolia.news.NewsArchivePage',
 			'usersOnlineList' => $this->usersOnlineList,

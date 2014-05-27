@@ -26,6 +26,11 @@
 			<boxtype>sidebar</boxtype>
 		</dashboardbox>
 
+		<dashboardbox name="de.voolia.news.categoryList">
+			<classname><![CDATA[news\system\dashboard\box\CategoryListDashboardSidebarBox]]></classname>
+			<boxtype>sidebar</boxtype>
+		</dashboardbox>
+
 		<dashboardbox name="de.voolia.news.latestNewsContent">
 			<classname><![CDATA[news\system\dashboard\box\LatestNewsDashboardContentBox]]></classname>
 			<boxtype>content</boxtype>

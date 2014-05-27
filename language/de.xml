@@ -358,7 +358,6 @@
 		<item name="wcf.acp.option.news_enable_sharing"><![CDATA[Teilen-Funktion]]></item>
 		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle"><![CDATA[Papierkorb automatisch löschen]]></item>
 		<item name="wcf.acp.option.news_enable_empty_recycle_bin_cycle.description"><![CDATA[Zeitraum nach dem News automatisch aus dem Papierkorb gelöscht werden. [Zeitraum in Tagen, 0 um die Löschung gänzlich zu deaktivieren]]]></item>
-		<item name="wcf.acp.option.news_enable_sidebar_categories"><![CDATA[Kategorien in der Sidebar anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_tags"><![CDATA[Tagging-Funktion]]></item>
 		<item name="wcf.acp.option.news_enable_teaser_on_news"><![CDATA[News-Teaser innerhalb der News anzeigen]]></item>
 		<item name="wcf.acp.option.news_entry_enable_sources"><![CDATA[Quellenangabe aktivieren]]></item>
@@ -384,6 +383,7 @@
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsArchivePage"><![CDATA[News-Archiv]]></item>
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsOverviewPage"><![CDATA[News-Übersicht]]></item>
 		<item name="wcf.dashboard.objectType.de.voolia.news.NewsPage"><![CDATA[News-Eintrag]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.categoryList"><![CDATA[News-Kategorien]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsContent"><![CDATA[Slideshow mit News-Empfehlungen]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsSidebar"><![CDATA[News-Empfehlungen]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsContent"><![CDATA[Slideshow mit den letzten News]]></item>
