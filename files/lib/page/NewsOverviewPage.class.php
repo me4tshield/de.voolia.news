@@ -65,12 +65,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 	public $sortOrder = 'DESC';
 
 	/**
-	 * letter
-	 * @var	string
-	 */
-	public $letter = '';
-
-	/**
 	 * category id
 	 * @var	integer
 	 */
@@ -81,12 +75,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 	 * @var	\wcf\data\category\Category
 	 */
 	public $category = null;
-
-	/**
-	 * available letters
-	 * @var	string
-	 */
-	public static $availableLetters = '#ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 	/**
 	 * news statistics
@@ -122,11 +110,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 	 */
 	public function readParameters() {
 		parent::readParameters();
-
-		// letters
-		if (isset($_REQUEST['letter']) && mb_strlen($_REQUEST['letter']) == 1 && mb_strpos(self::$availableLetters, $_REQUEST['letter']) !== false) {
-			$this->letter = $_REQUEST['letter'];
-		}
 
 		// news by category
 		if (isset($_REQUEST['id'])) {
@@ -211,14 +194,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 
 		// exclude archives news from overview.
 		$this->objectList->getConditionBuilder()->add('news.isArchived = 0');
-
-		if (!empty($this->letter)) {
-			if ($this->letter == '#') {
-				$this->objectList->getConditionBuilder()->add("SUBSTRING(news.subject,1,1) IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')");
-			} else {
-				$this->objectList->getConditionBuilder()->add("news.subject LIKE ?", array($this->letter.'%'));
-			}
-		}
 	}
 
 	/**
@@ -231,8 +206,6 @@ class NewsOverviewPage extends MultipleLinkPage {
 		DashboardHandler::getInstance()->loadBoxes('de.voolia.news.NewsOverviewPage', $this);
 
 		WCF::getTPL()->assign(array(
-			'letters' => str_split(self::$availableLetters),
-			'letter' => $this->letter,
 			'stats' => $this->stats,
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,

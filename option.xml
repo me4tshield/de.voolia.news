@@ -67,11 +67,6 @@
 				<categoryname>news.index</categoryname>
 				<optiontype>newsCategoryMultiSelect</optiontype>
 			</option>
-			<option name="news_enable_letter_sort">
-				<categoryname>news.index</categoryname>
-				<optiontype>boolean</optiontype>
-				<defaultvalue>1</defaultvalue>
-			</option>
 			<option name="news_index_enable_statistics">
 				<categoryname>news.index</categoryname>
 				<optiontype>boolean</optiontype>

@@ -71,12 +71,6 @@ class NewsArchivePage extends SortablePage {
 	public $itemsPerPage = NEWS_ARCHIVE_ITEMS_PER_PAGE;
 
 	/**
-	 * letters
-	 * @var	string
-	 */
-	public $letter = '';
-
-	/**
 	 * category id
 	 * @var	integer
 	 */
@@ -95,12 +89,6 @@ class NewsArchivePage extends SortablePage {
 	public $objectTypeName = 'de.voolia.news.category';
 
 	/**
-	 * available letters
-	 * @var	string
-	 */
-	public static $availableLetters = '#ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-	/**
 	 * @see	\wcf\page\AbstractPage::$enableTracking
 	 */
 	public $enableTracking = true;
@@ -116,11 +104,6 @@ class NewsArchivePage extends SortablePage {
 	 */
 	public function readParameters() {
 		parent::readParameters();
-
-		// letter
-		if (isset($_REQUEST['letter']) && mb_strlen($_REQUEST['letter']) == 1 && mb_strpos(self::$availableLetters, $_REQUEST['letter']) !== false) {
-			$this->letter = $_REQUEST['letter'];
-		}
 
 		// news by category
 		if (isset($_REQUEST['id'])) {
@@ -176,15 +159,6 @@ class NewsArchivePage extends SortablePage {
 		} else {
 			parent::initObjectList();
 		}
-
-		// letter filter
-		if (!empty($this->letter)) {
-			if ($this->letter == '#') {
-				$this->objectList->getConditionBuilder()->add("SUBSTRING(news.subject,1,1) IN ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9')");
-			} else {
-				$this->objectList->getConditionBuilder()->add("news.subject LIKE ?", array($this->letter.'%'));
-			}
-		}
 	}
 
 	/**
@@ -198,8 +172,6 @@ class NewsArchivePage extends SortablePage {
 
 		WCF::getTPL()->assign(array(
 			'filter' => $this->filter,
-			'letters' => str_split(self::$availableLetters),
-			'letter' => $this->letter,
 			'stats' => $this->stats,
 			'categoryID' => $this->categoryID,
 			'category' => $this->category,

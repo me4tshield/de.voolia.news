@@ -206,7 +206,6 @@
 		<item name="news.sidebar.entry.general.map"><![CDATA[Kartenansicht]]></item>
 		<item name="news.sidebar.entry.general.views"><![CDATA[Aufrufe]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[Weitere News der Kategorie]]></item>
-		<item name="news.sidebar.letterList.title"><![CDATA[Anfangsbuchstabe]]></item>
 		<item name="news.sidebar.map.town.title"><![CDATA[Ort anzeigen]]></item>
 		<item name="news.sidebar.map.town.placeholder"><![CDATA[Ort]]></item>
 		<item name="news.sidebar.mediaManagement.type.all"><![CDATA[Alle]]></item>
@@ -349,7 +348,6 @@
 		<item name="wcf.acp.option.news_enable_entry_similar_news"><![CDATA[Weitere News derselben Kategorien anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_entry_author_infos"><![CDATA[Autoren-Infos anzeigen]]></item>
 		<item name="wcf.acp.option.news_enable_language_flag"><![CDATA[Sprache der News anzeigen]]></item>
-		<item name="wcf.acp.option.news_enable_letter_sort"><![CDATA[Buchstaben-Filter aktivieren]]></item>
 		<item name="wcf.acp.option.news_enable_like"><![CDATA[„Gefällt mir“-Funktion]]></item>
 		<item name="wcf.acp.option.news_enable_location"><![CDATA[Ortsangaben aktivieren]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newsbilder]]></item>
@@ -388,6 +386,7 @@
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsSidebar"><![CDATA[News-Empfehlungen]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsContent"><![CDATA[Slideshow mit den letzten News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsSidebar"><![CDATA[Letzte News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.letterSort"><![CDATA[Alphabet zur Filterung]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostLikedNewsSidebar"><![CDATA[Meistbewertete News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostViewedNewsSidebar"><![CDATA[Meistgelesene News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.tagCloud"><![CDATA[Tags]]></item>

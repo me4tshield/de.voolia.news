@@ -206,7 +206,6 @@
 		<item name="news.sidebar.entry.general.map"><![CDATA[TODO: Kartenansicht]]></item>
 		<item name="news.sidebar.entry.general.views"><![CDATA[Views]]></item>
 		<item name="news.sidebar.entry.similar.title"><![CDATA[More news from this category]]></item>
-		<item name="news.sidebar.letterList.title"><![CDATA[News by first letter]]></item>
 		<item name="news.sidebar.map.town.title"><![CDATA[Show town]]></item>
 		<item name="news.sidebar.map.town.placeholder"><![CDATA[Town]]></item>
 		<item name="news.sidebar.mediaManagement.type.all"><![CDATA[All]]></item>
@@ -349,7 +348,6 @@
 		<item name="wcf.acp.option.news_enable_entry_similar_news"><![CDATA[Show more news from this category within the sidebar]]></item>
 		<item name="wcf.acp.option.news_enable_entry_author_infos"><![CDATA[Show Author Infobox]]></item>
 		<item name="wcf.acp.option.news_enable_language_flag"><![CDATA[Show news language]]></item>
-		<item name="wcf.acp.option.news_enable_letter_sort"><![CDATA[Letter-Filter]]></item>
 		<item name="wcf.acp.option.news_enable_like"><![CDATA[Likes]]></item>
 		<item name="wcf.acp.option.news_enable_location"><![CDATA[TODO: Ortsangaben aktivieren]]></item>
 		<item name="wcf.acp.option.news_enable_newspicture"><![CDATA[Newspicture]]></item>
@@ -388,6 +386,7 @@
 		<item name="wcf.dashboard.box.de.voolia.news.hotNewsSidebar"><![CDATA[News recommendation]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsContent"><![CDATA[Slideshow with the latest news]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.latestNewsSidebar"><![CDATA[Latest News]]></item>
+		<item name="wcf.dashboard.box.de.voolia.news.letterSort"><![CDATA[TODO: Alphabet zur Filterung]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostLikedNewsSidebar"><![CDATA[Most liked News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.mostViewedNewsSidebar"><![CDATA[Most Viewed News]]></item>
 		<item name="wcf.dashboard.box.de.voolia.news.tagCloud"><![CDATA[Tags]]></item>
