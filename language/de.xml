@@ -86,6 +86,8 @@
 		<item name="news.entry.button.edit.restore"><![CDATA[Wiederherstellen]]></item>
 		<item name="news.entry.button.edit.title"><![CDATA[News bearbeiten]]></item>
 		<item name="news.entry.button.reportIssue"><![CDATA[Fehler melden]]></item>
+		<item name="news.entry.comment"><![CDATA[News-Kommentar]]></item>
+		<item name="news.entry.commentResponse"><![CDATA[Antwort auf einen News-Kommentar]]></item>
 		<item name="news.entry.comment.notification.title"><![CDATA[Neuer Kommentar (News)]]></item>
 		<item name="news.entry.comment.notification.message"><![CDATA[Hat einen Kommentar zu Ihrer News „{$news->subject}“ geschrieben.]]></item>
 		<item name="news.entry.comment.notification.mail"><![CDATA[{@$author->username} hat einen Kommentar zu Ihrer News "{@$news->subject}" geschrieben:
