@@ -64,5 +64,13 @@
 			<options>news_enable_newspicture</options>
 		</acpmenuitem>
 		<!-- /news.picture -->
+		
+		<!-- news.newsBulkProcessing -->
+		<acpmenuitem name="news.acp.menu.link.news.newsBulkProcessing">
+			<controller><![CDATA[news\acp\form\NewsBulkProcessingForm]]></controller>
+			<parent>news.acp.menu.link.news</parent>
+			<permissions>admin.news.canManageCategory</permissions>
+		</acpmenuitem>
+		<!-- /news.newsBulkProcessing -->
 	</import>
 </data>
