@@ -638,6 +638,86 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			'template' => WCF::getTPL()->fetch('newsPreview', 'news')
 		);
 	}
+	
+	/**
+ 	* Validates the setAsHot action for news.
+ 	*/
+	public function validateSetAsHot() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+			if (empty($this->objects)) {
+				throw new UserInputException('objectIDs');
+			}
+		}
+
+		foreach ($this->objects as $news) {
+			if ($news->isHot) {
+				throw new UserInputException('objectIDs');
+			}
+
+			if (!$news->canSetNewsAsHot()) {
+			throw new PermissionDeniedException();
+			}
+		}
+	}
+
+	/**
+	 * Set news as hot.
+	 */
+	public function setAsHot() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $news) {
+			$news->update(array(
+					'isHot' => 1
+			));
+			$this->addNewsData($news->getDecoratedObject(), 'isHot', 1);
+		}
+
+		return $this->getNewsData();
+	}
+
+	/**
+	 * Validates the unsetAsHot action for news.
+	 */
+	public function validateUnsetAsHot() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+			if (empty($this->objects)) {
+				throw new UserInputException('objectIDs');
+			}
+		}
+
+		foreach ($this->objects as $news) {
+			if (!$news->isHot) {
+				throw new UserInputException('objectIDs');
+			}
+
+			if (!$news->canSetNewsAsHot()) {
+				throw new PermissionDeniedException();
+			}
+		}
+	}
+
+	/**
+	 * Unset news as hot.
+	 */
+	public function unsetAsHot() {
+		if (empty($this->objects)) {
+			$this->readObjects();
+		}
+
+		foreach ($this->objects as $news) {
+			$news->update(array(
+					'isHot' => 0
+			));
+			$this->addNewsData($news->getDecoratedObject(), 'isHot', 0);
+		}
+
+		return $this->getNewsData();
+	}
 
 	/**
 	 * Validates the activate action for news comments.
