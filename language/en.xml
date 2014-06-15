@@ -323,6 +323,59 @@
 		<item name="news.acp.menu.link.news.picture.list"><![CDATA[List Newspictures]]></item>
 		<item name="news.acp.menu.link.news.picture.category.add"><![CDATA[Add Newspicture Category]]></item>
 		<item name="news.acp.menu.link.news.picture.category.list"><![CDATA[List Newspicture Categories]]></item>
+		<item name="news.acp.menu.link.news.newsBulkProcessing"><![CDATA[Bulk processing of News]]></item>
+	</category>
+	
+	<category name="news.acp.bulkProcessing">
+		<item name="news.acp.bulkProcessing.success"><![CDATA[The chosen action affected {#$affectedNews} news.{if $affectedNews > 0}<br />Please make sure to <a href="{link controller='RebuildData'}{/link}">“Verify Integrity”</a> afterwards.{/if}]]></item>
+		<item name="news.acp.bulkProcessing.warning"><![CDATA[Bulk processing of news will be processed without further confirmation for all news matching your criteria.]]></item>
+		<item name="news.acp.bulkProcessing.conditions"><![CDATA[Conditions]]></item>
+		<item name="news.acp.bulkProcessing.conditions.time"><![CDATA[Date]]></item>
+		<item name="news.acp.bulkProcessing.conditions.time.from"><![CDATA[from]]></item>
+		<item name="news.acp.bulkProcessing.conditions.time.to"><![CDATA[until]]></item>
+		<item name="news.acp.bulkProcessing.conditions.author"><![CDATA[Author]]></item>
+		<item name="news.acp.bulkProcessing.conditions.category"><![CDATA[Category]]></item>
+		<item name="news.acp.bulkProcessing.conditions.languageIDs"><![CDATA[Languages]]></item>
+		<item name="news.acp.bulkProcessing.conditions.languageIDs.noLanguage"><![CDATA[No language]]></item>	
+		<item name="news.acp.bulkProcessing.conditions.states"><![CDATA[States]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isPoll"><![CDATA[Poll]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotPoll"><![CDATA[No poll]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isActive"><![CDATA[Activated]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotActive"><![CDATA[Deactivated]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isDeleted"><![CDATA[Deleted (trash bin)]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotDeleted"><![CDATA[Not deleted]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isPublished"><![CDATA[Published]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotPublished"><![CDATA[Not published]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isArchived"><![CDATA[Archived]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotArchived"><![CDATA[Not archived]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isHot"><![CDATA[Recommendation]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotHot"><![CDATA[Not a recommendation]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isAnnouncement"><![CDATA[Announcement]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotAnnouncement"><![CDATA[Not an announcement]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isCommentable"><![CDATA[Commentable]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.isNotCommentable"><![CDATA[Not commentable]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.hasComments"><![CDATA[Has comments]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.hasNoComments"><![CDATA[Has no comments]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.hasCategory"><![CDATA[Has category]]></item>
+		<item name="news.acp.bulkProcessing.conditions.state.hasNoCategory"><![CDATA[Has no category]]></item>
+		<item name="news.acp.bulkProcessing.action"><![CDATA[Action]]></item>
+		<item name="news.acp.bulkProcessing.action.setAsHot"><![CDATA[Make recommendation]]></item>
+		<item name="news.acp.bulkProcessing.action.unsetAsHot"><![CDATA[Unmake recommendation]]></item>
+		<item name="news.acp.bulkProcessing.action.activateComments"><![CDATA[Activate comments]]></item>
+		<item name="news.acp.bulkProcessing.action.deactivateComments"><![CDATA[Deactivate comments]]></item>
+		<item name="news.acp.bulkProcessing.action.archive"><![CDATA[Archive]]></item>
+		<item name="news.acp.bulkProcessing.action.trash"><![CDATA[Delete (trash bin)]]></item>
+		<item name="news.acp.bulkProcessing.action.delete"><![CDATA[Delete permanently]]></item>
+		<item name="news.acp.bulkProcessing.action.restore"><![CDATA[Restore]]></item>
+		<item name="news.acp.bulkProcessing.action.enable"><![CDATA[Activate]]></item>
+		<item name="news.acp.bulkProcessing.action.disable"><![CDATA[Deactivate]]></item>
+		<item name="news.acp.bulkProcessing.action.publish"><![CDATA[Publish]]></item>
+		<item name="news.acp.bulkProcessing.action.changeLanguage"><![CDATA[Change language]]></item>
+		<item name="news.acp.bulkProcessing.action.changeLanguage.newLanguageID"><![CDATA[New language]]></item>
+		<item name="news.acp.bulkProcessing.action.changeLanguage.noLanguage"><![CDATA[No language]]></item>
+		<item name="news.acp.bulkProcessing.action.move"><![CDATA[Move]]></item>
+		<item name="news.acp.bulkProcessing.action.move.to"><![CDATA[Move to]]></item>
+		<item name="news.acp.bulkProcessing.action.move.noCat"><![CDATA[no category]]></item>
 	</category>
 
 	<category name="wcf.acp.option">
