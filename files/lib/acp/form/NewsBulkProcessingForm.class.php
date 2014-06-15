@@ -5,10 +5,10 @@ use news\data\news\NewsAction;
 use news\data\news\NewsList;
 use wcf\form\AbstractForm;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
-use wcf\util\ArrayUtil;
-use wcf\util\StringUtil;
 use wcf\system\exception\UserInputException;
 use wcf\system\language\LanguageFactory;
+use wcf\util\ArrayUtil;
+use wcf\util\StringUtil;
 use wcf\system\WCF;
 
 /**
@@ -158,7 +158,7 @@ class NewsBulkProcessingForm extends AbstractForm {
 	/**
 	 * id of the new news language
 	 * @var	integer
-	*/
+	 */
 	public $newLanguageID = 0;
 	
 	/**
@@ -238,7 +238,7 @@ class NewsBulkProcessingForm extends AbstractForm {
 		if (!empty($this->languageIDs)) {
 			$zero = array_search(0, $this->languageIDs);
 			if ($zero !== false) {
-				if(count($this->languageIDs) == 1) {
+				if (count($this->languageIDs) == 1) {
 					$this->newsList->getConditionBuilder()->add("languageID IS NULL");
 				}
 				else {
@@ -287,7 +287,7 @@ class NewsBulkProcessingForm extends AbstractForm {
 			
 			else if ($this->action == 'move') {
 				$ids = array();
-				foreach($this->newsList->getObjects() as $news) {
+				foreach ($this->newsList->getObjects() as $news) {
 					$ids[] = $news->newsID;
 				}
 				
@@ -304,7 +304,7 @@ class NewsBulkProcessingForm extends AbstractForm {
 					$sql = "INSERT INTO	news".WCF_N."_news_to_category (categoryID, newsID)
 							VALUES (?, ?)";
 					$statement = WCF::getDB()->prepareStatement($sql);
-					foreach($ids as $id) {
+					foreach ($ids as $id) {
 						$statement->execute(array($this->moveCategoryID, $id));
 					}
 				}	
