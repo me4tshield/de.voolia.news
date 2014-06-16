@@ -236,7 +236,7 @@
 							<footer class="messageOptions">
 								<nav class="jsMobileNavigation buttonGroupNavigation">
 									<ul class="smallButtons newsSmallButtons buttonGroup">
-										<li class="jsReportNews jsOnly" data-object-id="{@$news->newsID}"><a title="{lang}news.entry.button.reportIssue{/lang}" class="button jsTooltip"><span class="icon icon16 icon-bug"></span> <span class="invisible">{lang}news.entry.button.reportIssue{/lang}</span></a></li>
+										<li class="jsReportNews jsOnly" data-object-id="{@$news->newsID}"><a title="{lang}news.entry.button.reportIssue{/lang}" class="button jsTooltip"><span class="icon icon16 icon-warning-sign"></span> <span class="invisible">{lang}news.entry.button.reportIssue{/lang}</span></a></li>
 										{event name='messageOptions'}
 										<li class="toTopLink"><a href="{$__wcf->getAnchor('top')}" title="{lang}wcf.global.scrollUp{/lang}" class="button jsTooltip"><span class="icon icon16 icon-arrow-up"></span> <span class="invisible">{lang}wcf.global.scrollUp{/lang}</span></a></li>
 									</ul>
@@ -295,7 +295,7 @@
 													<li><a href="{link application='news' controller='NewsUpdateEdit' id=$update->updateID}{/link}" title="{lang}news.entry.update.edit.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-pencil"></span> <span class="invisible">{lang}news.entry.update.edit.title{/lang}</span></a></li>
 													<li class="jsDeleteButton jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.update.delete.title{/lang}" class="button jsTooltip"><span class="icon icon16 icon-remove"></span> <span class="invisible">{lang}news.entry.update.delete.title{/lang}</span></a></li>
 												{/if}
-												<li class="jsReportNewsUpdate jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.button.reportIssue{/lang}" class="button jsTooltip"><span class="icon icon16 icon-bug"></span> <span class="invisible">{lang}news.entry.button.reportIssue{/lang}</span></a></li>
+												<li class="jsReportNewsUpdate jsOnly" data-object-id="{@$update->updateID}"><a title="{lang}news.entry.button.reportIssue{/lang}" class="button jsTooltip"><span class="icon icon16 icon-warning-sign"></span> <span class="invisible">{lang}news.entry.button.reportIssue{/lang}</span></a></li>
 												<li class="toTopLink"><a href="{$__wcf->getAnchor('top')}" title="{lang}wcf.global.scrollUp{/lang}" class="button jsTooltip"><span class="icon icon16 icon-arrow-up"></span> <span class="invisible">{lang}wcf.global.scrollUp{/lang}</span></a></li>
 											</ul>
 										</nav>
