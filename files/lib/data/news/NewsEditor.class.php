@@ -2,6 +2,7 @@
 namespace news\data\news;
 use news\system\cache\builder\NewsStatsCacheBuilder;
 use wcf\data\DatabaseObjectEditor;
+use wcf\data\IEditableCachedObject;
 use wcf\system\WCF;
 
 /**
@@ -65,7 +66,7 @@ class NewsEditor extends DatabaseObjectEditor {
 	/**
 	 * @see	\wcf\data\IEditableCachedObject::resetCache()
 	 */
-	public static function resetNewsStatsCache() {
+	public static function resetCache() {
 		NewsStatsCacheBuilder::getInstance()->reset();
 	}
 }

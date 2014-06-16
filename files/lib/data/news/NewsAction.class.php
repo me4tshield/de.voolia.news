@@ -54,6 +54,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	protected $permissionsDelete = array('mod.news.canDeleteNews');
 
 	/**
+	 * @see	\wcf\data\AbstractDatabaseObjectAction::$resetCache
+	 */
+	protected $resetCache = array('create', 'delete', 'disable', 'enable', 'restore', 'trash', 'triggerPublication', 'update');
+
+	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$allowGuestAccess
 	 */
 	protected $allowGuestAccess = array('getNewsPreview', 'quoteMessage', 'saveFullQuote', 'saveQuote', 'getMapMarkers');
@@ -145,9 +150,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$action->executeAction();
 		}
 
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
-
 		return $object;
 	}
 
@@ -209,9 +211,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 		// reset the user storage data
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 	}
 
 	/**
@@ -261,9 +260,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$action = new NewsAction($newsIDs, 'triggerPublication');
 			$action->executeAction();
 		}
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 
 		$this->unmarkEntries();
 
@@ -332,9 +328,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 		NewsEditor::updateNewsCounter($removeItems);
 
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
-
 		$this->unmarkEntries();
 
 		return $this->getNewsData();
@@ -390,9 +383,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 		// reset the user storage data
 		UserStorageHandler::getInstance()->resetAll('newsUnreadEntries');
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 	}
 
 	/**
@@ -458,9 +448,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		UserStorageHandler::getInstance()->resetAll('newsUnreadWatchedEntries');
 
 		$this->unmarkEntries();
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 	}
 
 	/**
@@ -508,9 +495,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		UserStorageHandler::getInstance()->resetAll('newsUnreadWatchedEntries');
 
 		$this->unmarkEntries();
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 	}
 
 	/**
@@ -593,9 +577,6 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$this->unmarkEntries();
-
-		// reset the news cache
-		NewsEditor::resetNewsStatsCache();
 	}
 
 	/**
