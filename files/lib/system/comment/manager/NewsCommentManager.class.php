@@ -67,9 +67,9 @@ class NewsCommentManager extends AbstractCommentManager {
 	 * @see	\wcf\system\comment\manager\ICommentManager::getTitle()
 	 */
 	public function getTitle($objectTypeID, $objectID, $isResponse = false) {
-		if ($isResponse) return WCF::getLanguage()->get('wcf.news.commentResponse');
+		if ($isResponse) return WCF::getLanguage()->get('news.entry.commentResponse');
 
-		return WCF::getLanguage()->getDynamicVariable('wcf.news.comment');
+		return WCF::getLanguage()->getDynamicVariable('news.entry.comment');
 	}
 
 	/**
