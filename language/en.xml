@@ -202,7 +202,7 @@
 	<category name="news.sidebar">
 		<item name="news.sidebar.categoryList.newsUpdate"><![CDATA[Unread News]]></item>
 		<item name="news.sidebar.categoryList.title"><![CDATA[Categories]]></item>
-		<item name="news.sidebar.entry.general.title"><![CDATA[General Informationen]]></item>
+		<item name="news.sidebar.entry.general.title"><![CDATA[General Information]]></item>
 		<item name="news.sidebar.entry.general.category"><![CDATA[Categories]]></item>
 		<item name="news.sidebar.entry.general.comments"><![CDATA[Comments]]></item>
 		<item name="news.sidebar.entry.general.map"><![CDATA[TODO: Kartenansicht]]></item>

@@ -120,7 +120,7 @@
 		</fieldset>
 	{/if}
 
-	{if NEWS_ENABLE_ENTRY_SIMILAR_NEWS}
+	{if NEWS_ENABLE_ENTRY_SIMILAR_NEWS && $moreNewsList|count}
 		<fieldset>
 			<legend>{lang}news.sidebar.entry.similar.title{/lang}</legend>
 
