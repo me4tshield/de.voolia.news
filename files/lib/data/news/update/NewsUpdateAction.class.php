@@ -50,11 +50,10 @@ class NewsUpdateAction extends AbstractDatabaseObjectAction {
 	 * @see	\wcf\data\IDeleteAction::delete()
 	 */
 	public function delete() {
-		// delete news update
 		parent::delete();
 
-		foreach ($this->objects as $newsUpdate) {
-			$news = new News($newsUpdate->newsID);
+		foreach ($this->objects as $newsUpdateEditor) {
+			$news = new News($newsUpdateEditor->newsID);
 			$news->updateNewsUpdates();
 		}
 	}

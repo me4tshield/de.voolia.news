@@ -31,9 +31,7 @@ class MediaAction extends AbstractDatabaseObjectAction {
 	/**
 	 * Validates the getMediaManagementBrowser
 	 */
-	public function validateGetMediaManagementBrowser() {
-		/** nothing to do here **/
-	}
+	public function validateGetMediaManagementBrowser() { /* nothing */ }
 
 	/**
 	 * Returns a list with media managmenet items

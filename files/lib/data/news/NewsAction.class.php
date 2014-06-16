@@ -116,11 +116,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->parameters['data']['attachments'] = count($this->parameters['attachmentHandler']);
 		}
 
-		$object = call_user_func(array($this->className, 'create'), $this->parameters['data']);
-		$newsEditor = new NewsEditor($object);
+		$news = parent::create();
+		$newsEditor = new NewsEditor($news);
 
 		// add search index
-		SearchIndexManager::getInstance()->add('de.voolia.news.entry', $object->newsID, $object->text, $object->subject, $object->time, $object->userID, $object->username, $object->languageID);
+		SearchIndexManager::getInstance()->add('de.voolia.news.entry', $news->newsID, $news->text, $news->subject, $news->time, $news->userID, $news->username, $news->languageID);
 
 		// handle the news categories
 		$newsEditor->updateCategoryIDs($this->parameters['categoryIDs']);
@@ -131,26 +131,26 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 		// save the news tags
 		if (!empty($this->parameters['tags'])) {
-			TagEngine::getInstance()->addObjectTags('de.voolia.news.entry', $object->newsID, $this->parameters['tags'], $languageID);
+			TagEngine::getInstance()->addObjectTags('de.voolia.news.entry', $news->newsID, $this->parameters['tags'], $languageID);
 		}
 
 		// sources
 		if (isset($this->parameters['sources'])) {
-			$this->addSources($object->newsID, $this->parameters['sources']);
+			$this->addSources($news->newsID, $this->parameters['sources']);
 		}
 
 		// update attachments
 		if (isset($this->parameters['attachmentHandler']) && $this->parameters['attachmentHandler'] !== null) {
-			$this->parameters['attachmentHandler']->updateObjectID($object->newsID);
+			$this->parameters['attachmentHandler']->updateObjectID($news->newsID);
 		}
 
 		// news publication
-		if (!$object->isDisabled && $object->isPublished) {
+		if (!$news->isDisabled && $news->isPublished) {
 			$action = new NewsAction(array($newsEditor), 'triggerPublication');
 			$action->executeAction();
 		}
 
-		return $object;
+		return $news;
 	}
 
 	/**
@@ -165,31 +165,31 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		parent::update();
 
 		// get ids
-		$objectIDs = array();
-		foreach ($this->objects as $news) {
-			$objectIDs[] = $news->newsID;
+		$newsIDs = array();
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
 		}
 
-		if (!empty($objectIDs)) {
+		if (!empty($newsIDs)) {
 			// delete old search index entries
-			SearchIndexManager::getInstance()->delete('de.voolia.news.entry', $objectIDs);
+			SearchIndexManager::getInstance()->delete('de.voolia.news.entry', $newsIDs);
 
 			// delete old sources if needed
 			if (isset($this->parameters['sources'])) {
 				$conditions = new PreparedStatementConditionBuilder();
-				$conditions->add('newsID IN (?)', array($objectIDs));
+				$conditions->add('newsID IN (?)', array($newsIDs));
 
-				$sql = 'DELETE FROM	news'.WCF_N.'_news_source
-					'.$conditions;
+				$sql = "DELETE FROM	news".WCF_N."_news_source
+					".$conditions;
 				$statement = WCF::getDB()->prepareStatement($sql);
 				$statement->execute($conditions->getParameters());
 			}
 		}
 
-		foreach ($this->objects as $news) {
+		foreach ($this->objects as $newsEditor) {
 			// handle the news categories
 			if (isset($this->parameters['categoryIDs'])) {
-				$news->updateCategoryIDs($this->parameters['categoryIDs']);
+				$newsEditor->updateCategoryIDs($this->parameters['categoryIDs']);
 			}
 
 			// update the news tags
@@ -197,16 +197,16 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 				// set language id (cannot be zero)
 				$languageID = (!isset($this->parameters['data']['languageID']) || ($this->parameters['data']['languageID'] === null)) ? LanguageFactory::getInstance()->getDefaultLanguageID() : $this->parameters['data']['languageID'];
 
-				TagEngine::getInstance()->addObjectTags('de.voolia.news.entry', $news->newsID, $this->parameters['tags'], $languageID);
+				TagEngine::getInstance()->addObjectTags('de.voolia.news.entry', $newsEditor->newsID, $this->parameters['tags'], $languageID);
 			}
 
 			// update the news sources
 			if (isset($this->parameters['sources'])) {
-				$this->addSources($news->newsID, $this->parameters['sources']);
+				$this->addSources($newsEditor->newsID, $this->parameters['sources']);
 			}
 
 			// create new search index entry
-			SearchIndexManager::getInstance()->add('de.voolia.news.entry', $news->newsID, (isset($this->parameters['data']['text']) ? $this->parameters['data']['text'] : $news->text), (isset($this->parameters['data']['subject']) ? $this->parameters['data']['subject'] : $news->subject), $news->time, $news->userID, $news->username, $news->languageID);
+			SearchIndexManager::getInstance()->add('de.voolia.news.entry', $newsEditor->newsID, (isset($this->parameters['data']['text']) ? $this->parameters['data']['text'] : $newsEditor->text), (isset($this->parameters['data']['subject']) ? $this->parameters['data']['subject'] : $newsEditor->subject), $newsEditor->time, $newsEditor->userID, $newsEditor->username, $newsEditor->languageID);
 		}
 
 		// reset the user storage data
@@ -219,17 +219,18 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	public function validateEnable() {
 		if (empty($this->objects)) {
 			$this->readObjects();
+
 			if (empty($this->objects)) {
 				throw new UserInputException('objectIDs');
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if ($news->isActive) {
+		foreach ($this->objects as $newsEditor) {
+			if ($newsEditor->isActive) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canActivateNews()) {
+			if (!$newsEditor->canActivateNews()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -244,19 +245,19 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			$newsEditor->update(array(
 				'isActive' => 1
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isActive', 1);
-
-			// remove moderated content
-			$this->removeModeratedContent($newsIDs);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isActive', 1);
 		}
 
-		// trigger publication
 		if (!empty($newsIDs)) {
+			// remove moderated content
+			$this->removeModeratedContent($newsIDs);
+
+			// trigger publication
 			$action = new NewsAction($newsIDs, 'triggerPublication');
 			$action->executeAction();
 		}
@@ -279,12 +280,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if ($news->isDisabled) {
+		foreach ($this->objects as $newsEditor) {
+			if ($newsEditor->isDisabled) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canDeactivateNews()) {
+			if (!$newsEditor->canDeactivateNews()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -299,20 +300,20 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = $perUserCount = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			$newsEditor->update(array(
 				'isActive' => 0
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isActive', 0);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isActive', 0);
 
-			if (!isset($perUserCount[$news->userID])) {
-				$perUserCount[$news->userID] = 0;
+			if (!isset($perUserCount[$newsEditor->userID])) {
+				$perUserCount[$newsEditor->userID] = 0;
 			}
-			$perUserCount[$news->userID]++;
+			$perUserCount[$newsEditor->userID]++;
 
 			// add moderated content
-			ModerationQueueActivationManager::getInstance()->addModeratedContent('de.voolia.news.entry', $news->newsID);
+			ModerationQueueActivationManager::getInstance()->addModeratedContent('de.voolia.news.entry', $newsEditor->newsID);
 		}
 
 		// remove the user activity
@@ -342,11 +343,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			$newsEditor->update(array(
 				'isPublished' => 1,
-				'time' => $news->publicationDate,
+				'time' => $newsEditor->publicationDate,
 				'publicationDate' => 0
 			));
 		}
@@ -366,19 +367,19 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
+		foreach ($this->objects as $newsEditor) {
 			// fire user activity event
-			UserActivityEventHandler::getInstance()->fireEvent('de.voolia.news.recentActivityEvent.news', $news->newsID, $news->languageID, $news->userID);
-			UserActivityPointHandler::getInstance()->fireEvent('de.voolia.news.activityPointEvent.news', $news->newsID, $news->userID);
+			UserActivityEventHandler::getInstance()->fireEvent('de.voolia.news.recentActivityEvent.news', $newsEditor->newsID, $newsEditor->languageID, $newsEditor->userID);
+			UserActivityPointHandler::getInstance()->fireEvent('de.voolia.news.activityPointEvent.news', $newsEditor->newsID, $newsEditor->userID);
 
 			// update the watched news objects
-			$notificationObject = new NewsUserNotificationObject($news->getDecoratedObject());
-			foreach ($news->getCategoryIDs() as $categoryID) {
+			$notificationObject = new NewsUserNotificationObject($newsEditor->getDecoratedObject());
+			foreach ($newsEditor->getCategoryIDs() as $categoryID) {
 				UserObjectWatchHandler::getInstance()->updateObject('de.voolia.news.category', $categoryID, 'news', 'de.voolia.news.entry', $notificationObject);
 			}
 
 			// updates the news counter
-			NewsEditor::updateNewsCounter(array($news->userID => 1));
+			NewsEditor::updateNewsCounter(array($newsEditor->userID => 1));
 		}
 
 		// reset the user storage data
@@ -393,8 +394,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsEditor->update(array(
 				'isArchived' => 1,
 				'archivingDate' => 0
 			));
@@ -416,8 +417,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if (!$news->isDeletable()) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->isDeletable()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -431,12 +432,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
-			if ($news->isDeleted) {
+		foreach ($this->objects as $newsEditor) {
+			if ($newsEditor->isDeleted) {
 				continue;
 			}
 
-			$news->update(array(
+			$newsEditor->update(array(
 				'isDeleted' => 1,
 				'deleteTime' => TIME_NOW,
 				'deleteReason' => ((isset($this->parameters['data']['reason'])) ? $this->parameters['data']['reason'] : '')
@@ -463,8 +464,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			}
 		}
 
-		foreach ($this->objects as $entry) {
-			if (!$entry->canRestoreNews()) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->canRestoreNews()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -478,15 +479,15 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
-			if (!$news->isDeleted) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->isDeleted) {
 				continue;
 			}
 
-			$news->update(array(
+			$newsEditor->update(array(
 				'isDeleted' => 0,
 				'deleteTime' => 0,
-				'deleteReason' => ""
+				'deleteReason' => ''
 			));
 		}
 
@@ -510,8 +511,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if (!$news->isDeletable()) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->isDeletable()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -526,18 +527,18 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 
 		// collect data
 		$newsIDs = $perUserCount = $pollIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
 
-			if ($news->pollID) {
-				$pollIDs[] = $news->pollID;
+			if ($newsEditor->pollID) {
+				$pollIDs[] = $newsEditor->pollID;
 			}
 
-			if (!$news->isDisabled) {
-				if (!isset($perUserCount[$news->userID])) {
-					$perUserCount[$news->userID] = 0;
+			if (!$newsEditor->isDisabled) {
+				if (!isset($perUserCount[$newsEditor->userID])) {
+					$perUserCount[$newsEditor->userID] = 0;
 				}
-				$perUserCount[$news->userID]--;
+				$perUserCount[$newsEditor->userID]--;
 			}
 		}
 
@@ -626,18 +627,19 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	public function validateSetAsHot() {
 		if (empty($this->objects)) {
 			$this->readObjects();
+
 			if (empty($this->objects)) {
 				throw new UserInputException('objectIDs');
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if ($news->isHot) {
+		foreach ($this->objects as $newsEditor) {
+			if ($newsEditor->isHot) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canSetNewsAsHot()) {
-			throw new PermissionDeniedException();
+			if (!$newsEditor->canSetNewsAsHot()) {
+				throw new PermissionDeniedException();
 			}
 		}
 	}
@@ -650,11 +652,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsEditor->update(array(
 					'isHot' => 1
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isHot', 1);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isHot', 1);
 		}
 
 		return $this->getNewsData();
@@ -666,17 +668,18 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	public function validateUnsetAsHot() {
 		if (empty($this->objects)) {
 			$this->readObjects();
+
 			if (empty($this->objects)) {
 				throw new UserInputException('objectIDs');
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if (!$news->isHot) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->isHot) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canSetNewsAsHot()) {
+			if (!$newsEditor->canSetNewsAsHot()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -690,11 +693,11 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			$this->readObjects();
 		}
 
-		foreach ($this->objects as $news) {
-			$news->update(array(
-					'isHot' => 0
+		foreach ($this->objects as $newsEditor) {
+			$newsEditor->update(array(
+				'isHot' => 0
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isHot', 0);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isHot', 0);
 		}
 
 		return $this->getNewsData();
@@ -706,17 +709,18 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	public function validateActivateComments() {
 		if (empty($this->objects)) {
 			$this->readObjects();
+
 			if (empty($this->objects)) {
 				throw new UserInputException('objectIDs');
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if ($news->isCommentable) {
+		foreach ($this->objects as $newsEditor) {
+			if ($newsEditor->isCommentable) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canManageComments()) {
+			if (!$newsEditor->canManageComments()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -731,12 +735,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			$newsEditor->update(array(
 				'isCommentable' => 1
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isCommentable', 1);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isCommentable', 1);
 		}
 
 		return $this->getNewsData();
@@ -755,12 +759,12 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 			}
 		}
 
-		foreach ($this->objects as $news) {
-			if (!$news->isCommentable) {
+		foreach ($this->objects as $newsEditor) {
+			if (!$newsEditor->isCommentable) {
 				throw new UserInputException('objectIDs');
 			}
 
-			if (!$news->canManageComments()) {
+			if (!$newsEditor->canManageComments()) {
 				throw new PermissionDeniedException();
 			}
 		}
@@ -775,13 +779,14 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			$news->update(array(
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			$newsEditor->update(array(
 				'isCommentable' => 0
 			));
-			$this->addNewsData($news->getDecoratedObject(), 'isCommentable', 0);
+			$this->addNewsData($newsEditor->getDecoratedObject(), 'isCommentable', 0);
 		}
+
 		return $this->getNewsData();
 	}
 
@@ -798,9 +803,9 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		}
 
 		$newsIDs = array();
-		foreach ($this->objects as $news) {
-			$newsIDs[] = $news->newsID;
-			VisitTracker::getInstance()->trackObjectVisit('de.voolia.news.entry', $news->newsID, $this->parameters['visitTime']);
+		foreach ($this->objects as $newsEditor) {
+			$newsIDs[] = $newsEditor->newsID;
+			VisitTracker::getInstance()->trackObjectVisit('de.voolia.news.entry', $newsEditor->newsID, $this->parameters['visitTime']);
 		}
 
 		// reset the user storage data
@@ -869,7 +874,7 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	/**
 	 * @see	\wcf\data\IMessageQuoteAction::validateGetRenderedQuotes()
 	 */
-	public function validateGetRenderedQuotes() { /* does nothing */ }
+	public function validateGetRenderedQuotes() { /* nothing */ }
 
 	/**
 	 * @see	\wcf\data\IMessageQuoteAction::getRenderedQuotes()
@@ -898,8 +903,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	 */
 	protected function unmarkEntries(array $newsIDs = array()) {
 		if (empty($newsIDs)) {
-			foreach ($this->objects as $news) {
-				$newsIDs[] = $news->newsID;
+			foreach ($this->objects as $newsEditor) {
+				$newsIDs[] = $newsEditor->newsID;
 			}
 		}
 		
@@ -911,10 +916,8 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 	/**
 	 * Validate the 'getMapMarkers' action.
 	 */
-	public function validateGetMapMarkers() {
-		/** nothing to do here **/
-	}
-	
+	public function validateGetMapMarkers() { /* nothing */ }
+
 	/**
 	 * Get all news with location data for the map view.
 	 */
@@ -926,21 +929,21 @@ class NewsAction extends AbstractDatabaseObjectAction implements IMessageQuoteAc
 		$newsList->getConditionBuilder()->add('news.latitude <> ?', array(0));
 		$newsList->getConditionBuilder()->add('news.longitude <> ?', array(0));
 		$newsList->readObjects();
-		$news = $newsList->getObjects();
 
 		// show goole maps info window for every news entry
-		foreach ($news as $entries) {
+		foreach ($newsList as $news) {
 			$markers[] = array(
 				'infoWindow' => WCF::getTPL()->fetch('mapEntryDialog', 'news', array(
-					'news' => $entries
+					'news' => $news
 				)),
-				'latitude' => $entries->latitude,
-				'longitude' => $entries->longitude,
-				'objectID' => $entries->newsID
+				'latitude' => $news->latitude,
+				'longitude' => $news->longitude,
+				'objectID' => $news->newsID
 			);
 		}
 
 		return array(
-				'markers' => $markers
+			'markers' => $markers
 		);
-	}}
+	}
+}
